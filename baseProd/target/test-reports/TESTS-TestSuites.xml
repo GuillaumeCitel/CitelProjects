@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+  <testsuite errors="0" failures="1" hostname="localhost" id="0" name="DocTestControllerTests" package="basedoc" tests="1" time="0.277" timestamp="2013-07-08T09:05:21">
+      <properties />
+
+      <testcase classname="basedoc.DocTestControllerTests" name="testSomething" time="0.187">
+          <failure message="junit.framework.AssertionFailedError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: junit.framework.AssertionFailedError: Implement me
+	at basedoc.DocTestControllerTests.testSomething(DocTestControllerTests.groovy:15)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="1" hostname="localhost" id="1" name="DocumentTests" package="basedoc" tests="1" time="0.251" timestamp="2013-07-08T09:05:22">
+      <properties />
+
+      <testcase classname="basedoc.DocumentTests" name="testSomething" time="0.154">
+          <failure message="junit.framework.AssertionFailedError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: junit.framework.AssertionFailedError: Implement me
+	at basedoc.DocumentTests.testSomething(DocumentTests.groovy:15)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="1" hostname="localhost" id="2" name="EtreAssocieTests" package="basedoc" tests="1" time="0.146" timestamp="2013-07-08T09:05:22">
+      <properties />
+
+      <testcase classname="basedoc.EtreAssocieTests" name="testSomething" time="0.079">
+          <failure message="junit.framework.AssertionFailedError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: junit.framework.AssertionFailedError: Implement me
+	at basedoc.EtreAssocieTests.testSomething(EtreAssocieTests.groovy:15)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="1" hostname="localhost" id="3" name="ProductCaracTests" package="basedoc" tests="1" time="0.136" timestamp="2013-07-08T09:05:22">
+      <properties />
+
+      <testcase classname="basedoc.ProductCaracTests" name="testSomething" time="0.057">
+          <failure message="junit.framework.AssertionFailedError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: junit.framework.AssertionFailedError: Implement me
+	at basedoc.ProductCaracTests.testSomething(ProductCaracTests.groovy:15)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="1" hostname="localhost" id="4" name="ProductTestControllerTests" package="basedoc" tests="1" time="0.233" timestamp="2013-07-08T09:05:22">
+      <properties />
+
+      <testcase classname="basedoc.ProductTestControllerTests" name="testSomething" time="0.165">
+          <failure message="junit.framework.AssertionFailedError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: junit.framework.AssertionFailedError: Implement me
+	at basedoc.ProductTestControllerTests.testSomething(ProductTestControllerTests.groovy:15)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="1" hostname="localhost" id="5" name="ProductTests" package="basedoc" tests="1" time="0.058" timestamp="2013-07-08T09:05:23">
+      <properties />
+
+      <testcase classname="basedoc.ProductTests" name="testSomething" time="0.057">
+          <failure message="junit.framework.AssertionFailedError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: junit.framework.AssertionFailedError: Implement me
+	at basedoc.ProductTests.testSomething(ProductTests.groovy:15)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="1" hostname="localhost" id="6" name="TestControllerTests" package="basedoc" tests="1" time="0.3" timestamp="2013-07-08T09:05:22">
+      <properties />
+
+      <testcase classname="basedoc.TestControllerTests" name="testSomething" time="0.179">
+          <failure message="junit.framework.AssertionFailedError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: junit.framework.AssertionFailedError: Implement me
+	at basedoc.TestControllerTests.testSomething(TestControllerTests.groovy:15)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="1" hostname="localhost" id="7" name="BaseDocTests" package="gfreg" tests="1" time="0.415" timestamp="2013-07-08T09:05:20">
+      <properties />
+
+      <testcase classname="gfreg.BaseDocTests" name="testSomething" time="0.322">
+          <failure message="junit.framework.AssertionFailedError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: junit.framework.AssertionFailedError: Implement me
+	at gfreg.BaseDocTests.testSomething(BaseDocTests.groovy:15)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="1" hostname="localhost" id="8" name="FhfhgfControllerTests" package="gfreg" tests="1" time="1.83" timestamp="2013-07-08T09:05:18">
+      <properties />
+
+      <testcase classname="gfreg.FhfhgfControllerTests" name="testSomething" time="1.6">
+          <failure message="junit.framework.AssertionFailedError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: junit.framework.AssertionFailedError: Implement me
+	at gfreg.FhfhgfControllerTests.testSomething(FhfhgfControllerTests.groovy:15)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="1" hostname="localhost" id="9" name="TitiControllerTests" package="gfreg" tests="1" time="0.275" timestamp="2013-07-08T09:05:21">
+      <properties />
+
+      <testcase classname="gfreg.TitiControllerTests" name="testSomething" time="0.196">
+          <failure message="junit.framework.AssertionFailedError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: junit.framework.AssertionFailedError: Implement me
+	at gfreg.TitiControllerTests.testSomething(TitiControllerTests.groovy:15)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="1" hostname="localhost" id="10" name="TitiServiceTests" package="gfreg" tests="1" time="0.164" timestamp="2013-07-08T09:05:21">
+      <properties />
+
+      <testcase classname="gfreg.TitiServiceTests" name="testSomething" time="0.037">
+          <failure message="junit.framework.AssertionFailedError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: junit.framework.AssertionFailedError: Implement me
+	at gfreg.TitiServiceTests.testSomething(TitiServiceTests.groovy:15)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="1" hostname="localhost" id="11" name="ClassTestTests" package="test" tests="1" time="0.252" timestamp="2013-07-08T09:05:21">
+      <properties />
+
+      <testcase classname="test.ClassTestTests" name="testSomething" time="0.14">
+          <failure message="junit.framework.AssertionFailedError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: junit.framework.AssertionFailedError: Implement me
+	at test.ClassTestTests.testSomething(ClassTestTests.groovy:15)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+</testsuites>
