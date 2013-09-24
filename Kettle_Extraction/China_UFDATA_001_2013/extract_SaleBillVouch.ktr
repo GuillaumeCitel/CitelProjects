@@ -202,8 +202,24 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>list_of_delivery_code</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
+      <meta>        <name>sale_bill_date</name>
+        <rename>sale_bill_date</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>312</xloc>
       <yloc>251</yloc>
@@ -241,7 +257,7 @@ var currency_change_rate = iExchRate;&#47;&#47;number
 var tax_rate = iTaxRate;&#47;&#47;number
 var customer_name = cCusName;&#47;&#47;string
 var sale_class_code = cSCCode;&#47;&#47;string check this!
-&#47;&#47;var delivery_code = cDLCode;&#47;&#47;string ???
+var list_of_delivery_code = cDLCode;&#47;&#47;string
 
 
 
@@ -327,6 +343,12 @@ var sale_class_code = cSCCode;&#47;&#47;string check this!
         <replace>N</replace>
       </field>      <field>        <name>sale_class_code</name>
         <rename>sale_class_code</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>list_of_delivery_code</name>
+        <rename>list_of_delivery_code</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -429,6 +451,11 @@ var sale_class_code = cSCCode;&#47;&#47;string check this!
       <value>
         <name>sale_class_code</name>
         <rename>sale_class_code</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>list_of_delivery_code</name>
+        <rename>list_of_delivery_code</rename>
         <update>Y</update>
       </value>
     </lookup>

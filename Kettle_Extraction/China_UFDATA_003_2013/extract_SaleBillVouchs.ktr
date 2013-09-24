@@ -90,6 +90,28 @@
     </attributes>
   </connection>
   <connection>
+    <name>China_UFDATA_003_2013</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>China_UFDATA_003_2013</database>
+    <port>5432</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>Germany_Extract_DBF</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
@@ -117,6 +139,29 @@
     <type>MSSQL</type>
     <access>Native</access>
     <database>UFDATA_001_2013</database>
+    <port>1433</port>
+    <username>viewer</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10becaf782</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1433</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>SQL_Server_China_003_2013</name>
+    <server>192.168.1.254</server>
+    <type>MSSQL</type>
+    <access>Native</access>
+    <database>UFDATA_003_2013</database>
     <port>1433</port>
     <username>viewer</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79ce10becaf782</password>
@@ -414,7 +459,7 @@ delivery_code = upper(delivery_code);
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>China_UFDATA_001_2013</connection>
+    <connection>China_UFDATA_003_2013</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
@@ -545,7 +590,7 @@ delivery_code = upper(delivery_code);
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>SQL_Server_China_001_2013</connection>
+    <connection>SQL_Server_China_003_2013</connection>
     <sql>SELECT *
 FROM SaleBillVouchs</sql>
     <limit>0</limit>

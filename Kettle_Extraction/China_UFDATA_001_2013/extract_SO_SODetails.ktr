@@ -146,7 +146,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>Auto_ID</name>
+    <fields>      <field>        <name>auto_id</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -243,7 +243,7 @@
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
 
-var Auto_ID = AutoID;&#47;&#47;number
+var auto_id= AutoID;&#47;&#47;number
 var sale_order_code = cSOCode;&#47;&#47;string
 var inventory_code = cInvCode;&#47;&#47;string
 var quantity = iQuantity;&#47;&#47;number
@@ -264,8 +264,8 @@ var tax_rate = iTaxRate;&#47;&#47;number
 
 
 </jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>Auto_ID</name>
-        <rename>Auto_ID</rename>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>auto_id</name>
+        <rename>auto_id</rename>
         <type>Number</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -395,16 +395,16 @@ var tax_rate = iTaxRate;&#47;&#47;number
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema/>
-      <table>SO_SODetails</table>
+      <table>so_sodetails</table>
       <key>
-        <name>sale_order_code</name>
+        <name>auto_id</name>
         <field>auto_id</field>
         <condition>=</condition>
         <name2/>
       </key>
       <value>
-        <name>Auto_ID</name>
-        <rename>Auto_ID</rename>
+        <name>auto_id</name>
+        <rename>auto_id</rename>
         <update>Y</update>
       </value>
       <value>
@@ -540,7 +540,7 @@ FROM SO_SODetails</sql>
       <store_values>N</store_values>
       <reject_duplicate_row>N</reject_duplicate_row>
       <error_description/>
-    <fields>      <field>        <name>Auto_ID</name>
+    <fields>      <field>        <name>auto_id</name>
         </field>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>529</xloc>
