@@ -1346,6 +1346,10 @@ and bill_date >= '2012-01-01']]></xml-property>
                                     <cell id="506"/>
                                     <cell id="507">
                                         <data id="531">
+                                            <structure name="dateTimeFormat">
+                                                <property name="category">General Date</property>
+                                                <property name="pattern">General Date</property>
+                                            </structure>
                                             <property name="resultSetColumn">bill_date</property>
                                         </data>
                                     </cell>

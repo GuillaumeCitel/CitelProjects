@@ -1,0 +1,2575 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.3.0.v201306041519 Build &lt;4.3.0.v20130613-1152></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/simple_listing.gif</property>
+    <property name="cheatSheet">org.eclipse.birt.report.designer.ui.cheatsheet.simplelisting</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="China_UFDATA_003_2013" id="128">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">org.postgresql.Driver</property>
+            <property name="odaURL">jdbc:postgresql://localhost:5432/China_UFDATA_003_2013</property>
+            <property name="odaUser">RoleTest</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="sales" id="528">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">sale_bill_id</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">sale_bill_id</text-property>
+                    <text-property name="heading">sale_bill_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">wharehouse_code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">wharehouse_code</text-property>
+                    <text-property name="heading">wharehouse_code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">inventory_code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">inventory_code</text-property>
+                    <text-property name="heading">inventory_code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">quantity</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">quantity</text-property>
+                    <text-property name="heading">quantity</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">unit_gross_sell_price</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">unit_gross_sell_price</text-property>
+                    <text-property name="heading">unit_gross_sell_price</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">unit_net_sell_price</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">unit_net_sell_price</text-property>
+                    <text-property name="heading">unit_net_sell_price</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">total_gross_sell_price</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">total_gross_sell_price</text-property>
+                    <text-property name="heading">total_gross_sell_price</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">total_net_sell_price</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">total_net_sell_price</text-property>
+                    <text-property name="heading">total_net_sell_price</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">signature_date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">signature_date</text-property>
+                    <text-property name="heading">signature_date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">inventory_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">inventory_name</text-property>
+                    <text-property name="heading">inventory_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">sale_order_code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">sale_order_code</text-property>
+                    <text-property name="heading">sale_order_code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">total_tax_price</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">total_tax_price</text-property>
+                    <text-property name="heading">total_tax_price</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">discount_price</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">discount_price</text-property>
+                    <text-property name="heading">discount_price</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">unit_gross_sell_price_in_local_currency</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">unit_gross_sell_price_in_local_currency</text-property>
+                    <text-property name="heading">unit_gross_sell_price_in_local_currency</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">total_gross_sell_price_in_local_currency</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">total_gross_sell_price_in_local_currency</text-property>
+                    <text-property name="heading">total_gross_sell_price_in_local_currency</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">total_tax_price_in_local_currency</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">total_tax_price_in_local_currency</text-property>
+                    <text-property name="heading">total_tax_price_in_local_currency</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">total_net_sell_price_in_local_currency</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">total_net_sell_price_in_local_currency</text-property>
+                    <text-property name="heading">total_net_sell_price_in_local_currency</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">tax_rate</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">tax_rate</text-property>
+                    <text-property name="heading">tax_rate</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">delivery_code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">delivery_code</text-property>
+                    <text-property name="heading">delivery_code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">currency_change_rate</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">currency_change_rate</text-property>
+                    <text-property name="heading">currency_change_rate</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">currency</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">currency</text-property>
+                    <text-property name="heading">currency</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">sale_class_code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">sale_class_code</text-property>
+                    <text-property name="heading">sale_class_code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">customer_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">customer_name</text-property>
+                    <text-property name="heading">customer_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">customer_code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">customer_code</text-property>
+                    <text-property name="heading">customer_code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">person_code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">person_code</text-property>
+                    <text-property name="heading">person_code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">department_code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">department_code</text-property>
+                    <text-property name="heading">department_code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">sale_bill_date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">sale_bill_date</text-property>
+                    <text-property name="heading">sale_bill_date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">sale_type_code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">sale_type_code</text-property>
+                    <text-property name="heading">sale_type_code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">vouch_type</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">vouch_type</text-property>
+                    <text-property name="heading">vouch_type</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">sale_bill_code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">sale_bill_code</text-property>
+                    <text-property name="heading">sale_bill_code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">delivery_date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">delivery_date</text-property>
+                    <text-property name="heading">delivery_date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">inventory_class_code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">inventory_class_code</text-property>
+                    <text-property name="heading">inventory_class_code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">inventory_class_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">inventory_class_name</text-property>
+                    <text-property name="heading">inventory_class_name</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">sale_bill_id</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">wharehouse_code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">inventory_code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">quantity</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">unit_gross_sell_price</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">unit_net_sell_price</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">total_gross_sell_price</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">total_net_sell_price</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">signature_date</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">inventory_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">sale_order_code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">total_tax_price</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">discount_price</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">unit_gross_sell_price_in_local_currency</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">total_gross_sell_price_in_local_currency</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">total_tax_price_in_local_currency</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">total_net_sell_price_in_local_currency</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">tax_rate</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">delivery_code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">currency_change_rate</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">currency</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">sale_class_code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">customer_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">customer_code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">25</property>
+                        <property name="name">person_code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">26</property>
+                        <property name="name">department_code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">27</property>
+                        <property name="name">sale_bill_date</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">28</property>
+                        <property name="name">sale_type_code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">29</property>
+                        <property name="name">vouch_type</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">30</property>
+                        <property name="name">sale_bill_code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">31</property>
+                        <property name="name">delivery_date</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">32</property>
+                        <property name="name">inventory_class_code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">33</property>
+                        <property name="name">inventory_class_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">China_UFDATA_003_2013</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">sale_bill_id</property>
+                    <property name="nativeName">sale_bill_id</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">wharehouse_code</property>
+                    <property name="nativeName">wharehouse_code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">inventory_code</property>
+                    <property name="nativeName">inventory_code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">quantity</property>
+                    <property name="nativeName">quantity</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">unit_gross_sell_price</property>
+                    <property name="nativeName">unit_gross_sell_price</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">unit_net_sell_price</property>
+                    <property name="nativeName">unit_net_sell_price</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">total_gross_sell_price</property>
+                    <property name="nativeName">total_gross_sell_price</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">total_net_sell_price</property>
+                    <property name="nativeName">total_net_sell_price</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">signature_date</property>
+                    <property name="nativeName">signature_date</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">inventory_name</property>
+                    <property name="nativeName">inventory_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">sale_order_code</property>
+                    <property name="nativeName">sale_order_code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">total_tax_price</property>
+                    <property name="nativeName">total_tax_price</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">discount_price</property>
+                    <property name="nativeName">discount_price</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">unit_gross_sell_price_in_local_currency</property>
+                    <property name="nativeName">unit_gross_sell_price_in_local_currency</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">total_gross_sell_price_in_local_currency</property>
+                    <property name="nativeName">total_gross_sell_price_in_local_currency</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">total_tax_price_in_local_currency</property>
+                    <property name="nativeName">total_tax_price_in_local_currency</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">total_net_sell_price_in_local_currency</property>
+                    <property name="nativeName">total_net_sell_price_in_local_currency</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">tax_rate</property>
+                    <property name="nativeName">tax_rate</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">delivery_code</property>
+                    <property name="nativeName">delivery_code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">currency_change_rate</property>
+                    <property name="nativeName">currency_change_rate</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">currency</property>
+                    <property name="nativeName">currency</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">sale_class_code</property>
+                    <property name="nativeName">sale_class_code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">customer_name</property>
+                    <property name="nativeName">customer_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">24</property>
+                    <property name="name">customer_code</property>
+                    <property name="nativeName">customer_code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">25</property>
+                    <property name="name">person_code</property>
+                    <property name="nativeName">person_code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">26</property>
+                    <property name="name">department_code</property>
+                    <property name="nativeName">department_code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">27</property>
+                    <property name="name">sale_bill_date</property>
+                    <property name="nativeName">sale_bill_date</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">28</property>
+                    <property name="name">sale_type_code</property>
+                    <property name="nativeName">sale_type_code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">29</property>
+                    <property name="name">vouch_type</property>
+                    <property name="nativeName">vouch_type</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">30</property>
+                    <property name="name">sale_bill_code</property>
+                    <property name="nativeName">sale_bill_code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">31</property>
+                    <property name="name">delivery_date</property>
+                    <property name="nativeName">delivery_date</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">32</property>
+                    <property name="name">inventory_class_code</property>
+                    <property name="nativeName">inventory_class_code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">33</property>
+                    <property name="name">inventory_class_name</property>
+                    <property name="nativeName">inventory_class_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select *
+from "sales"
+where sale_bill_date < '2013-09-01']]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>bill_date</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+            <design:precision>29</design:precision>
+            <design:scale>6</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>bill_date</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>bill_date</design:label>
+            <design:formattingHints>
+              <design:displaySize>29</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>total_gross_sell_price_with_discount</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>8</design:nativeDataTypeCode>
+            <design:precision>17</design:precision>
+            <design:scale>17</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>total_gross_sell_price_with_discount</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>total_gross_sell_price_with_discount</design:label>
+            <design:formattingHints>
+              <design:displaySize>25</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="24">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="25">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="26">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="height">29.7cm</property>
+            <property name="width">21cm</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="582">
+            <property name="width">13.833333333333334in</property>
+            <column id="583">
+                <property name="width">7.729166666666667in</property>
+            </column>
+            <column id="584">
+                <property name="width">6.104166666666667in</property>
+            </column>
+            <row id="585">
+                <cell id="586">
+                    <extended-item extensionName="Chart" id="565">
+                        <xml-property name="xmlRepresentation"><![CDATA[<model:ChartWithoutAxes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:attribute="http://www.birt.eclipse.org/ChartModelAttribute" xmlns:layout="http://www.birt.eclipse.org/ChartModelLayout" xmlns:model="http://www.birt.eclipse.org/ChartModel" xmlns:type="http://www.birt.eclipse.org/ChartModelType">
+  <Version>2.6</Version>
+  <Type>Pie Chart</Type>
+  <SubType>Standard</SubType>
+  <Block>
+    <Children xsi:type="layout:TitleBlock">
+      <Bounds>
+        <Left>0.0</Left>
+        <Top>0.0</Top>
+        <Width>0.0</Width>
+        <Height>0.0</Height>
+      </Bounds>
+      <Insets>
+        <Top>3.0</Top>
+        <Left>3.0</Left>
+        <Bottom>3.0</Bottom>
+        <Right>3.0</Right>
+      </Insets>
+      <Row>-1</Row>
+      <Column>-1</Column>
+      <Rowspan>-1</Rowspan>
+      <Columnspan>-1</Columnspan>
+      <Outline>
+        <Style>Solid</Style>
+        <Thickness>1</Thickness>
+        <Color>
+          <Transparency>255</Transparency>
+          <Red>0</Red>
+          <Green>0</Green>
+          <Blue>0</Blue>
+        </Color>
+        <Visible>false</Visible>
+      </Outline>
+      <Visible>true</Visible>
+      <Label>
+        <Caption>
+          <Value>Gross Sales per Category</Value>
+          <Font>
+            <Size>16.0</Size>
+            <Bold>true</Bold>
+            <Alignment>
+              <horizontalAlignment>Center</horizontalAlignment>
+              <verticalAlignment>Center</verticalAlignment>
+            </Alignment>
+          </Font>
+        </Caption>
+        <Background xsi:type="attribute:ColorDefinition">
+          <Transparency>0</Transparency>
+          <Red>255</Red>
+          <Green>255</Green>
+          <Blue>255</Blue>
+        </Background>
+        <Outline>
+          <Style>Solid</Style>
+          <Thickness>1</Thickness>
+          <Color>
+            <Transparency>255</Transparency>
+            <Red>0</Red>
+            <Green>0</Green>
+            <Blue>0</Blue>
+          </Color>
+        </Outline>
+        <Insets>
+          <Top>0.0</Top>
+          <Left>2.0</Left>
+          <Bottom>0.0</Bottom>
+          <Right>3.0</Right>
+        </Insets>
+        <Visible>true</Visible>
+      </Label>
+    </Children>
+    <Children xsi:type="layout:Plot">
+      <Bounds>
+        <Left>0.0</Left>
+        <Top>0.0</Top>
+        <Width>0.0</Width>
+        <Height>0.0</Height>
+      </Bounds>
+      <Insets>
+        <Top>3.0</Top>
+        <Left>3.0</Left>
+        <Bottom>3.0</Bottom>
+        <Right>3.0</Right>
+      </Insets>
+      <Row>-1</Row>
+      <Column>-1</Column>
+      <Rowspan>-1</Rowspan>
+      <Columnspan>-1</Columnspan>
+      <Outline>
+        <Style>Solid</Style>
+        <Thickness>1</Thickness>
+        <Color>
+          <Transparency>255</Transparency>
+          <Red>0</Red>
+          <Green>0</Green>
+          <Blue>0</Blue>
+        </Color>
+        <Visible>false</Visible>
+      </Outline>
+      <Visible>true</Visible>
+      <HorizontalSpacing>5</HorizontalSpacing>
+      <VerticalSpacing>5</VerticalSpacing>
+      <ClientArea>
+        <Outline>
+          <Style>Solid</Style>
+          <Thickness>0</Thickness>
+          <Color>
+            <Transparency>255</Transparency>
+            <Red>0</Red>
+            <Green>0</Green>
+            <Blue>0</Blue>
+          </Color>
+          <Visible>false</Visible>
+        </Outline>
+        <Insets>
+          <Top>0.0</Top>
+          <Left>0.0</Left>
+          <Bottom>0.0</Bottom>
+          <Right>0.0</Right>
+        </Insets>
+      </ClientArea>
+    </Children>
+    <Children xsi:type="layout:Legend">
+      <Bounds>
+        <Left>0.0</Left>
+        <Top>0.0</Top>
+        <Width>0.0</Width>
+        <Height>0.0</Height>
+      </Bounds>
+      <Insets>
+        <Top>3.0</Top>
+        <Left>3.0</Left>
+        <Bottom>3.0</Bottom>
+        <Right>3.0</Right>
+      </Insets>
+      <Row>-1</Row>
+      <Column>-1</Column>
+      <Rowspan>-1</Rowspan>
+      <Columnspan>-1</Columnspan>
+      <Outline>
+        <Style>Solid</Style>
+        <Thickness>1</Thickness>
+        <Color>
+          <Transparency>255</Transparency>
+          <Red>0</Red>
+          <Green>0</Green>
+          <Blue>0</Blue>
+        </Color>
+        <Visible>false</Visible>
+      </Outline>
+      <Visible>false</Visible>
+      <Cursor>
+        <Type>Auto</Type>
+      </Cursor>
+      <ClientArea>
+        <Outline>
+          <Style>Solid</Style>
+          <Thickness>0</Thickness>
+          <Color>
+            <Transparency>255</Transparency>
+            <Red>0</Red>
+            <Green>0</Green>
+            <Blue>0</Blue>
+          </Color>
+          <Visible>false</Visible>
+        </Outline>
+        <Insets>
+          <Top>2.0</Top>
+          <Left>2.0</Left>
+          <Bottom>2.0</Bottom>
+          <Right>2.0</Right>
+        </Insets>
+      </ClientArea>
+      <Text>
+        <Value></Value>
+        <Font>
+          <Alignment/>
+        </Font>
+      </Text>
+      <Orientation>Vertical</Orientation>
+      <Direction>Top_Bottom</Direction>
+      <Separator>
+        <Style>Solid</Style>
+        <Thickness>1</Thickness>
+        <Color>
+          <Transparency>255</Transparency>
+          <Red>0</Red>
+          <Green>0</Green>
+          <Blue>0</Blue>
+        </Color>
+        <Visible>true</Visible>
+      </Separator>
+      <Position>Right</Position>
+      <ItemType>Categories</ItemType>
+      <Title>
+        <Caption>
+          <Value></Value>
+          <Font>
+            <Alignment/>
+          </Font>
+        </Caption>
+        <Background xsi:type="attribute:ColorDefinition">
+          <Transparency>0</Transparency>
+          <Red>255</Red>
+          <Green>255</Green>
+          <Blue>255</Blue>
+        </Background>
+        <Outline>
+          <Style>Solid</Style>
+          <Thickness>1</Thickness>
+          <Color>
+            <Transparency>255</Transparency>
+            <Red>0</Red>
+            <Green>0</Green>
+            <Blue>0</Blue>
+          </Color>
+          <Visible>false</Visible>
+        </Outline>
+        <Insets>
+          <Top>0.0</Top>
+          <Left>2.0</Left>
+          <Bottom>0.0</Bottom>
+          <Right>3.0</Right>
+        </Insets>
+        <Visible>false</Visible>
+      </Title>
+      <TitlePosition>Above</TitlePosition>
+      <Ellipsis>0</Ellipsis>
+    </Children>
+    <Bounds>
+      <Left>0.0</Left>
+      <Top>0.0</Top>
+      <Width>212.0</Width>
+      <Height>130.0</Height>
+    </Bounds>
+    <Insets>
+      <Top>3.0</Top>
+      <Left>3.0</Left>
+      <Bottom>3.0</Bottom>
+      <Right>3.0</Right>
+    </Insets>
+    <Row>-1</Row>
+    <Column>-1</Column>
+    <Rowspan>-1</Rowspan>
+    <Columnspan>-1</Columnspan>
+    <Outline>
+      <Style>Solid</Style>
+      <Thickness>1</Thickness>
+      <Color>
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>0</Green>
+        <Blue>0</Blue>
+      </Color>
+      <Visible>false</Visible>
+    </Outline>
+    <Visible>true</Visible>
+  </Block>
+  <Dimension>Two_Dimensional</Dimension>
+  <Units>Points</Units>
+  <SeriesThickness>10.0</SeriesThickness>
+  <GridColumnCount>0</GridColumnCount>
+  <ExtendedProperties>
+    <Name>enable.area.alt</Name>
+    <Value>false</Value>
+  </ExtendedProperties>
+  <SampleData>
+    <BaseSampleData>
+      <DataSetRepresentation>01/05/2000,02/01/2000,04/12/2000,03/12/2000,02/29/2000</DataSetRepresentation>
+    </BaseSampleData>
+    <OrthogonalSampleData>
+      <DataSetRepresentation>6,4,12,8,10</DataSetRepresentation>
+      <SeriesDefinitionIndex>0</SeriesDefinitionIndex>
+    </OrthogonalSampleData>
+  </SampleData>
+  <Interactivity/>
+  <EmptyMessage>
+    <Caption>
+      <Value>This chart contains no data.</Value>
+      <Font>
+        <Alignment>
+          <horizontalAlignment>Center</horizontalAlignment>
+          <verticalAlignment>Center</verticalAlignment>
+        </Alignment>
+      </Font>
+    </Caption>
+    <Background xsi:type="attribute:ColorDefinition">
+      <Transparency>64</Transparency>
+      <Red>127</Red>
+      <Green>127</Green>
+      <Blue>127</Blue>
+    </Background>
+    <Outline>
+      <Color>
+        <Transparency>128</Transparency>
+        <Red>127</Red>
+        <Green>127</Green>
+        <Blue>127</Blue>
+      </Color>
+      <Visible>true</Visible>
+    </Outline>
+    <Insets>
+      <Top>10.0</Top>
+      <Left>10.0</Left>
+      <Bottom>10.0</Bottom>
+      <Right>10.0</Right>
+    </Insets>
+    <Visible>false</Visible>
+  </EmptyMessage>
+  <SeriesDefinitions>
+    <Query>
+      <Definition></Definition>
+    </Query>
+    <SeriesPalette>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>80</Red>
+        <Green>166</Green>
+        <Blue>218</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>242</Red>
+        <Green>88</Green>
+        <Blue>106</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>232</Red>
+        <Green>172</Green>
+        <Blue>57</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>128</Red>
+        <Green>255</Green>
+        <Blue>128</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>64</Red>
+        <Green>128</Green>
+        <Blue>128</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>128</Red>
+        <Green>128</Green>
+        <Blue>192</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>170</Red>
+        <Green>85</Green>
+        <Blue>85</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>128</Red>
+        <Green>128</Green>
+        <Blue>0</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>192</Red>
+        <Green>192</Green>
+        <Blue>192</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>128</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>128</Red>
+        <Green>192</Green>
+        <Blue>128</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>7</Red>
+        <Green>146</Green>
+        <Blue>94</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>128</Green>
+        <Blue>255</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>255</Red>
+        <Green>128</Green>
+        <Blue>192</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>255</Red>
+        <Green>128</Green>
+        <Blue>128</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>128</Green>
+        <Blue>192</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>128</Red>
+        <Green>128</Green>
+        <Blue>192</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>255</Red>
+        <Green>0</Green>
+        <Blue>255</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>128</Red>
+        <Green>64</Green>
+        <Blue>64</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>255</Red>
+        <Green>128</Green>
+        <Blue>64</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>80</Red>
+        <Green>240</Green>
+        <Blue>120</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>64</Green>
+        <Blue>128</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>128</Red>
+        <Green>0</Green>
+        <Blue>64</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>255</Red>
+        <Green>0</Green>
+        <Blue>128</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>128</Red>
+        <Green>128</Green>
+        <Blue>64</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>128</Red>
+        <Green>128</Green>
+        <Blue>128</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>255</Red>
+        <Green>128</Green>
+        <Blue>255</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>64</Green>
+        <Blue>0</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>0</Red>
+        <Green>0</Green>
+        <Blue>0</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+      </Entries>
+      <Entries xsi:type="attribute:ColorDefinition">
+        <Transparency>255</Transparency>
+        <Red>255</Red>
+        <Green>128</Green>
+        <Blue>0</Blue>
+      </Entries>
+    </SeriesPalette>
+    <SeriesDefinitions>
+      <Query>
+        <Definition></Definition>
+        <Grouping>
+          <GroupingUnit>Years</GroupingUnit>
+          <GroupType>DateTime</GroupType>
+        </Grouping>
+      </Query>
+      <SeriesPalette>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>80</Red>
+          <Green>166</Green>
+          <Blue>218</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>242</Red>
+          <Green>88</Green>
+          <Blue>106</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>232</Red>
+          <Green>172</Green>
+          <Blue>57</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>128</Red>
+          <Green>255</Green>
+          <Blue>128</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>64</Red>
+          <Green>128</Green>
+          <Blue>128</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>128</Red>
+          <Green>128</Green>
+          <Blue>192</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>170</Red>
+          <Green>85</Green>
+          <Blue>85</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>128</Red>
+          <Green>128</Green>
+          <Blue>0</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>192</Red>
+          <Green>192</Green>
+          <Blue>192</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>255</Red>
+          <Green>255</Green>
+          <Blue>128</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>128</Red>
+          <Green>192</Green>
+          <Blue>128</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>7</Red>
+          <Green>146</Green>
+          <Blue>94</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>0</Red>
+          <Green>128</Green>
+          <Blue>255</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>255</Red>
+          <Green>128</Green>
+          <Blue>192</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>0</Red>
+          <Green>255</Green>
+          <Blue>255</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>255</Red>
+          <Green>128</Green>
+          <Blue>128</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>0</Red>
+          <Green>128</Green>
+          <Blue>192</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>128</Red>
+          <Green>128</Green>
+          <Blue>192</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>255</Red>
+          <Green>0</Green>
+          <Blue>255</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>128</Red>
+          <Green>64</Green>
+          <Blue>64</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>255</Red>
+          <Green>128</Green>
+          <Blue>64</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>80</Red>
+          <Green>240</Green>
+          <Blue>120</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>0</Red>
+          <Green>64</Green>
+          <Blue>128</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>128</Red>
+          <Green>0</Green>
+          <Blue>64</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>255</Red>
+          <Green>0</Green>
+          <Blue>128</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>128</Red>
+          <Green>128</Green>
+          <Blue>64</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>128</Red>
+          <Green>128</Green>
+          <Blue>128</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>255</Red>
+          <Green>128</Green>
+          <Blue>255</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>0</Red>
+          <Green>64</Green>
+          <Blue>0</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>0</Red>
+          <Green>0</Green>
+          <Blue>0</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>255</Red>
+          <Green>255</Green>
+          <Blue>255</Blue>
+        </Entries>
+        <Entries xsi:type="attribute:ColorDefinition">
+          <Transparency>255</Transparency>
+          <Red>255</Red>
+          <Green>128</Green>
+          <Blue>0</Blue>
+        </Entries>
+      </SeriesPalette>
+      <Series xsi:type="type:PieSeries">
+        <Visible>true</Visible>
+        <Label>
+          <Caption>
+            <Value></Value>
+            <Font>
+              <Alignment/>
+            </Font>
+          </Caption>
+          <Background xsi:type="attribute:ColorDefinition">
+            <Transparency>0</Transparency>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+          </Background>
+          <Outline>
+            <Style>Solid</Style>
+            <Thickness>1</Thickness>
+            <Color>
+              <Transparency>255</Transparency>
+              <Red>0</Red>
+              <Green>0</Green>
+              <Blue>0</Blue>
+            </Color>
+            <Visible>false</Visible>
+          </Outline>
+          <Insets>
+            <Top>0.0</Top>
+            <Left>2.0</Left>
+            <Bottom>0.0</Bottom>
+            <Right>3.0</Right>
+          </Insets>
+          <Visible>true</Visible>
+        </Label>
+        <DataDefinition>
+          <Definition>row[&quot;Aggregation&quot;]</Definition>
+          <Grouping>
+            <Enabled>true</Enabled>
+            <GroupType>Text</GroupType>
+            <AggregateExpression>Sum</AggregateExpression>
+          </Grouping>
+        </DataDefinition>
+        <SeriesIdentifier>Series 1</SeriesIdentifier>
+        <DataPoint>
+          <Components>
+            <Type>Base_Value</Type>
+          </Components>
+          <Components>
+            <Type>Percentile_Orthogonal_Value</Type>
+          </Components>
+          <Separator>, </Separator>
+        </DataPoint>
+        <LabelPosition>Outside</LabelPosition>
+        <Stacked>false</Stacked>
+        <Triggers>
+          <Condition>onmouseover</Condition>
+          <Action>
+            <Type>Show_Tooltip</Type>
+            <Value xsi:type="attribute:TooltipValue">
+              <Text></Text>
+              <Delay>200</Delay>
+            </Value>
+          </Action>
+        </Triggers>
+        <Explosion>0</Explosion>
+        <Title>
+          <Caption>
+            <Value></Value>
+            <Font>
+              <Size>16.0</Size>
+              <Bold>true</Bold>
+              <Alignment/>
+            </Font>
+          </Caption>
+          <Background xsi:type="attribute:ColorDefinition">
+            <Transparency>0</Transparency>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+          </Background>
+          <Outline>
+            <Style>Solid</Style>
+            <Thickness>1</Thickness>
+            <Color>
+              <Transparency>255</Transparency>
+              <Red>0</Red>
+              <Green>0</Green>
+              <Blue>0</Blue>
+            </Color>
+          </Outline>
+          <Insets>
+            <Top>0.0</Top>
+            <Left>2.0</Left>
+            <Bottom>0.0</Bottom>
+            <Right>3.0</Right>
+          </Insets>
+          <Visible>false</Visible>
+        </Title>
+        <TitlePosition>Below</TitlePosition>
+        <LeaderLineAttributes>
+          <Style>Solid</Style>
+          <Thickness>1</Thickness>
+          <Visible>true</Visible>
+        </LeaderLineAttributes>
+        <LeaderLineStyle>Stretch_To_Side</LeaderLineStyle>
+        <LeaderLineLength>10.0</LeaderLineLength>
+      </Series>
+      <Grouping>
+        <GroupType>Text</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </SeriesDefinitions>
+    <Series>
+      <Visible>true</Visible>
+      <Label>
+        <Caption>
+          <Value></Value>
+          <Font>
+            <Alignment/>
+          </Font>
+        </Caption>
+        <Background xsi:type="attribute:ColorDefinition">
+          <Transparency>0</Transparency>
+          <Red>255</Red>
+          <Green>255</Green>
+          <Blue>255</Blue>
+        </Background>
+        <Outline>
+          <Style>Solid</Style>
+          <Thickness>1</Thickness>
+          <Color>
+            <Transparency>255</Transparency>
+            <Red>0</Red>
+            <Green>0</Green>
+            <Blue>0</Blue>
+          </Color>
+          <Visible>false</Visible>
+        </Outline>
+        <Insets>
+          <Top>0.0</Top>
+          <Left>2.0</Left>
+          <Bottom>0.0</Bottom>
+          <Right>3.0</Right>
+        </Insets>
+        <Visible>false</Visible>
+      </Label>
+      <DataDefinition>
+        <Definition>row[&quot;inventory_class_name&quot;]</Definition>
+      </DataDefinition>
+      <SeriesIdentifier></SeriesIdentifier>
+      <DataPoint>
+        <Components>
+          <Type>Orthogonal_Value</Type>
+        </Components>
+        <Separator>, </Separator>
+      </DataPoint>
+      <LabelPosition>Outside</LabelPosition>
+      <Stacked>false</Stacked>
+    </Series>
+    <Grouping>
+      <Enabled>true</Enabled>
+      <GroupingUnit>Years</GroupingUnit>
+      <GroupType>Text</GroupType>
+      <AggregateExpression>Sum</AggregateExpression>
+    </Grouping>
+    <SortKey>
+      <Definition>row[&quot;sale_bill_date&quot;]</Definition>
+    </SortKey>
+  </SeriesDefinitions>
+  <MinSlice>500000.0</MinSlice>
+  <MinSlicePercent>false</MinSlicePercent>
+</model:ChartWithoutAxes>
+]]></xml-property>
+                        <property name="outputFormat">SVG</property>
+                        <property name="inheritColumns">true</property>
+                        <property name="height">3.9479166666666665in</property>
+                        <property name="width">7.65625in</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">Aggregation</property>
+                                <property name="dataType">float</property>
+                                <property name="aggregateFunction">SUM</property>
+                                <list-property name="arguments">
+                                    <structure>
+                                        <property name="name">Expression</property>
+                                        <expression name="value" type="javascript">row["total_gross_sell_price_in_local_currency"]</expression>
+                                    </structure>
+                                </list-property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Aggregation3</property>
+                                <property name="dataType">float</property>
+                                <property name="aggregateFunction">SUM</property>
+                                <list-property name="arguments">
+                                    <structure>
+                                        <property name="name">Expression</property>
+                                        <expression name="value" type="javascript">row["total_gross_sell_price_in_local_currency"]</expression>
+                                    </structure>
+                                </list-property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">sale_bill_id</property>
+                                <text-property name="displayName">sale_bill_id</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["sale_bill_id"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">wharehouse_code</property>
+                                <text-property name="displayName">wharehouse_code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["wharehouse_code"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">inventory_code</property>
+                                <text-property name="displayName">inventory_code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["inventory_code"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">quantity</property>
+                                <text-property name="displayName">quantity</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["quantity"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">unit_gross_sell_price</property>
+                                <text-property name="displayName">unit_gross_sell_price</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["unit_gross_sell_price"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">unit_net_sell_price</property>
+                                <text-property name="displayName">unit_net_sell_price</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["unit_net_sell_price"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">total_gross_sell_price</property>
+                                <text-property name="displayName">total_gross_sell_price</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["total_gross_sell_price"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">total_net_sell_price</property>
+                                <text-property name="displayName">total_net_sell_price</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["total_net_sell_price"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">signature_date</property>
+                                <text-property name="displayName">signature_date</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["signature_date"]</expression>
+                                <property name="dataType">date-time</property>
+                            </structure>
+                            <structure>
+                                <property name="name">inventory_name</property>
+                                <text-property name="displayName">inventory_name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["inventory_name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">sale_order_code</property>
+                                <text-property name="displayName">sale_order_code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["sale_order_code"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">total_tax_price</property>
+                                <text-property name="displayName">total_tax_price</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["total_tax_price"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">discount_price</property>
+                                <text-property name="displayName">discount_price</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["discount_price"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">unit_gross_sell_price_in_local_currency</property>
+                                <text-property name="displayName">unit_gross_sell_price_in_local_currency</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["unit_gross_sell_price_in_local_currency"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">total_gross_sell_price_in_local_currency</property>
+                                <text-property name="displayName">total_gross_sell_price_in_local_currency</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["total_gross_sell_price_in_local_currency"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">total_tax_price_in_local_currency</property>
+                                <text-property name="displayName">total_tax_price_in_local_currency</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["total_tax_price_in_local_currency"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">total_net_sell_price_in_local_currency</property>
+                                <text-property name="displayName">total_net_sell_price_in_local_currency</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["total_net_sell_price_in_local_currency"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">tax_rate</property>
+                                <text-property name="displayName">tax_rate</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["tax_rate"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">currency_change_rate</property>
+                                <text-property name="displayName">currency_change_rate</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["currency_change_rate"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">currency</property>
+                                <text-property name="displayName">currency</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["currency"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">sale_class_code</property>
+                                <text-property name="displayName">sale_class_code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["sale_class_code"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">customer_name</property>
+                                <text-property name="displayName">customer_name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["customer_name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">customer_code</property>
+                                <text-property name="displayName">customer_code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["customer_code"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">person_code</property>
+                                <text-property name="displayName">person_code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["person_code"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">department_code</property>
+                                <text-property name="displayName">department_code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["department_code"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">sale_bill_date</property>
+                                <text-property name="displayName">sale_bill_date</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["sale_bill_date"]</expression>
+                                <property name="dataType">date</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">sale_type_code</property>
+                                <text-property name="displayName">sale_type_code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["sale_type_code"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">vouch_type</property>
+                                <text-property name="displayName">vouch_type</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["vouch_type"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">sale_bill_code</property>
+                                <text-property name="displayName">sale_bill_code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["sale_bill_code"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Aggregation_1</property>
+                                <property name="dataType">float</property>
+                                <property name="aggregateFunction">SUM</property>
+                                <list-property name="arguments">
+                                    <structure>
+                                        <property name="name">Expression</property>
+                                        <expression name="value" type="javascript">row["total_net_sell_price_in_local_currency"]</expression>
+                                    </structure>
+                                </list-property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Aggregation_5</property>
+                                <property name="dataType">float</property>
+                                <property name="aggregateFunction">SUM</property>
+                                <list-property name="arguments">
+                                    <structure>
+                                        <property name="name">Expression</property>
+                                        <expression name="value" type="javascript">row["total_net_sell_price_in_local_currency"]</expression>
+                                    </structure>
+                                </list-property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="dataBindingRef">Table Chart</property>
+                    </extended-item>
+                </cell>
+                <cell id="587">
+                    <table name="Table Chart" id="639">
+                        <property name="dataSet">sales</property>
+                        <list-property name="visibility">
+                            <structure>
+                                <property name="format">all</property>
+                                <expression name="valueExpr" type="javascript">true</expression>
+                            </structure>
+                        </list-property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">sale_bill_id</property>
+                                <text-property name="displayName">sale_bill_id</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["sale_bill_id"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">wharehouse_code</property>
+                                <text-property name="displayName">wharehouse_code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["wharehouse_code"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">inventory_code</property>
+                                <text-property name="displayName">inventory_code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["inventory_code"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">quantity</property>
+                                <text-property name="displayName">quantity</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["quantity"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">unit_gross_sell_price</property>
+                                <text-property name="displayName">unit_gross_sell_price</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["unit_gross_sell_price"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">unit_net_sell_price</property>
+                                <text-property name="displayName">unit_net_sell_price</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["unit_net_sell_price"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">total_gross_sell_price</property>
+                                <text-property name="displayName">total_gross_sell_price</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["total_gross_sell_price"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">total_net_sell_price</property>
+                                <text-property name="displayName">total_net_sell_price</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["total_net_sell_price"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">signature_date</property>
+                                <text-property name="displayName">signature_date</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["signature_date"]</expression>
+                                <property name="dataType">date-time</property>
+                            </structure>
+                            <structure>
+                                <property name="name">inventory_name</property>
+                                <text-property name="displayName">inventory_name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["inventory_name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">sale_order_code</property>
+                                <text-property name="displayName">sale_order_code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["sale_order_code"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">total_tax_price</property>
+                                <text-property name="displayName">total_tax_price</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["total_tax_price"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">discount_price</property>
+                                <text-property name="displayName">discount_price</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["discount_price"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">unit_gross_sell_price_in_local_currency</property>
+                                <text-property name="displayName">unit_gross_sell_price_in_local_currency</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["unit_gross_sell_price_in_local_currency"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">total_gross_sell_price_in_local_currency</property>
+                                <text-property name="displayName">total_gross_sell_price_in_local_currency</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["total_gross_sell_price_in_local_currency"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">total_tax_price_in_local_currency</property>
+                                <text-property name="displayName">total_tax_price_in_local_currency</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["total_tax_price_in_local_currency"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">total_net_sell_price_in_local_currency</property>
+                                <text-property name="displayName">total_net_sell_price_in_local_currency</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["total_net_sell_price_in_local_currency"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">tax_rate</property>
+                                <text-property name="displayName">tax_rate</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["tax_rate"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">delivery_code</property>
+                                <text-property name="displayName">delivery_code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["delivery_code"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">currency_change_rate</property>
+                                <text-property name="displayName">currency_change_rate</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["currency_change_rate"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">currency</property>
+                                <text-property name="displayName">currency</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["currency"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">sale_class_code</property>
+                                <text-property name="displayName">sale_class_code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["sale_class_code"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">customer_name</property>
+                                <text-property name="displayName">customer_name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["customer_name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">customer_code</property>
+                                <text-property name="displayName">customer_code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["customer_code"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">person_code</property>
+                                <text-property name="displayName">person_code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["person_code"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">department_code</property>
+                                <text-property name="displayName">department_code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["department_code"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">sale_bill_date</property>
+                                <text-property name="displayName">sale_bill_date</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["sale_bill_date"]</expression>
+                                <property name="dataType">date-time</property>
+                            </structure>
+                            <structure>
+                                <property name="name">sale_type_code</property>
+                                <text-property name="displayName">sale_type_code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["sale_type_code"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">vouch_type</property>
+                                <text-property name="displayName">vouch_type</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["vouch_type"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">sale_bill_code</property>
+                                <text-property name="displayName">sale_bill_code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["sale_bill_code"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">delivery_date</property>
+                                <text-property name="displayName">delivery_date</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["delivery_date"]</expression>
+                                <property name="dataType">date-time</property>
+                            </structure>
+                            <structure>
+                                <property name="name">inventory_class_code</property>
+                                <text-property name="displayName">inventory_class_code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["inventory_class_code"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">inventory_class_name</property>
+                                <text-property name="displayName">inventory_class_name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["inventory_class_name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Aggregation</property>
+                                <property name="dataType">float</property>
+                                <simple-property-list name="aggregateOn">
+                                    <value>NewTableGroup3</value>
+                                </simple-property-list>
+                                <property name="aggregateFunction">SUM</property>
+                                <list-property name="arguments">
+                                    <structure>
+                                        <property name="name">Expression</property>
+                                        <expression name="value" type="javascript">row["total_gross_sell_price_in_local_currency"]</expression>
+                                    </structure>
+                                </list-property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <column id="649"/>
+                        <column id="650"/>
+                        <header>
+                            <row id="640">
+                                <cell id="641"/>
+                                <cell id="642"/>
+                            </row>
+                        </header>
+                        <group id="658">
+                            <property name="groupName">NewTableGroup1</property>
+                            <property name="interval">year</property>
+                            <expression name="keyExpr" type="javascript">row["sale_bill_date"]</expression>
+                            <structure name="toc">
+                                <expression name="expressionValue" type="javascript">row["sale_bill_date"]</expression>
+                            </structure>
+                            <property name="hideDetail">false</property>
+                            <header>
+                                <row id="659">
+                                    <cell id="660">
+                                        <data id="665">
+                                            <property name="resultSetColumn">sale_bill_date</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="661"/>
+                                </row>
+                            </header>
+                        </group>
+                        <group id="667">
+                            <property name="groupName">NewTableGroup2</property>
+                            <expression name="keyExpr" type="javascript">row["inventory_class_code"]</expression>
+                            <structure name="toc">
+                                <expression name="expressionValue" type="javascript">row["inventory_class_code"]</expression>
+                            </structure>
+                            <property name="hideDetail">false</property>
+                            <header>
+                                <row id="668">
+                                    <cell id="669">
+                                        <data id="674">
+                                            <property name="resultSetColumn">inventory_class_code</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="670"/>
+                                </row>
+                            </header>
+                        </group>
+                        <group id="676">
+                            <property name="groupName">NewTableGroup3</property>
+                            <expression name="keyExpr" type="javascript">row["inventory_class_name"]</expression>
+                            <structure name="toc">
+                                <expression name="expressionValue" type="javascript">row["inventory_class_name"]</expression>
+                            </structure>
+                            <property name="hideDetail">false</property>
+                            <header>
+                                <row id="677">
+                                    <cell id="678">
+                                        <data id="683">
+                                            <property name="resultSetColumn">inventory_class_name</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="679">
+                                        <data id="675">
+                                            <property name="resultSetColumn">Aggregation</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                            </header>
+                            <footer>
+                                <row id="680">
+                                    <cell id="681"/>
+                                    <cell id="682"/>
+                                </row>
+                            </footer>
+                        </group>
+                        <footer>
+                            <row id="646">
+                                <cell id="647"/>
+                                <cell id="648"/>
+                            </row>
+                        </footer>
+                    </table>
+                </cell>
+            </row>
+        </grid>
+        <table name="Table1" id="132">
+            <property name="width">6.302083333333333in</property>
+            <property name="dataSet">sales</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Aggregation</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["total_gross_sell_price_in_local_currency"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation2</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>NewTableGroup2</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["total_gross_sell_price_in_local_currency"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation3</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>NewTableGroup1</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["total_gross_sell_price_in_local_currency"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_1</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["total_net_sell_price_in_local_currency"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_4</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>NewTableGroup2</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["total_net_sell_price_in_local_currency"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_5</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>NewTableGroup1</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["total_net_sell_price_in_local_currency"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">sale_bill_id</property>
+                    <text-property name="displayName">sale_bill_id</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["sale_bill_id"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">wharehouse_code</property>
+                    <text-property name="displayName">wharehouse_code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["wharehouse_code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">inventory_code</property>
+                    <text-property name="displayName">inventory_code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["inventory_code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">quantity</property>
+                    <text-property name="displayName">quantity</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["quantity"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">unit_gross_sell_price</property>
+                    <text-property name="displayName">unit_gross_sell_price</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["unit_gross_sell_price"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">unit_net_sell_price</property>
+                    <text-property name="displayName">unit_net_sell_price</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["unit_net_sell_price"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">total_gross_sell_price</property>
+                    <text-property name="displayName">total_gross_sell_price</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["total_gross_sell_price"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">total_net_sell_price</property>
+                    <text-property name="displayName">total_net_sell_price</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["total_net_sell_price"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">signature_date</property>
+                    <text-property name="displayName">signature_date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["signature_date"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">inventory_name</property>
+                    <text-property name="displayName">inventory_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["inventory_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">sale_order_code</property>
+                    <text-property name="displayName">sale_order_code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["sale_order_code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">total_tax_price</property>
+                    <text-property name="displayName">total_tax_price</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["total_tax_price"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">discount_price</property>
+                    <text-property name="displayName">discount_price</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["discount_price"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">unit_gross_sell_price_in_local_currency</property>
+                    <text-property name="displayName">unit_gross_sell_price_in_local_currency</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["unit_gross_sell_price_in_local_currency"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">total_gross_sell_price_in_local_currency</property>
+                    <text-property name="displayName">total_gross_sell_price_in_local_currency</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["total_gross_sell_price_in_local_currency"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">total_tax_price_in_local_currency</property>
+                    <text-property name="displayName">total_tax_price_in_local_currency</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["total_tax_price_in_local_currency"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">total_net_sell_price_in_local_currency</property>
+                    <text-property name="displayName">total_net_sell_price_in_local_currency</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["total_net_sell_price_in_local_currency"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">tax_rate</property>
+                    <text-property name="displayName">tax_rate</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["tax_rate"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">delivery_code</property>
+                    <text-property name="displayName">delivery_code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["delivery_code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">currency_change_rate</property>
+                    <text-property name="displayName">currency_change_rate</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["currency_change_rate"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">currency</property>
+                    <text-property name="displayName">currency</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["currency"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">sale_class_code</property>
+                    <text-property name="displayName">sale_class_code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["sale_class_code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">customer_name</property>
+                    <text-property name="displayName">customer_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["customer_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">customer_code</property>
+                    <text-property name="displayName">customer_code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["customer_code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">person_code</property>
+                    <text-property name="displayName">person_code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["person_code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">department_code</property>
+                    <text-property name="displayName">department_code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["department_code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">sale_bill_date</property>
+                    <text-property name="displayName">sale_bill_date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["sale_bill_date"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">sale_type_code</property>
+                    <text-property name="displayName">sale_type_code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["sale_type_code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">vouch_type</property>
+                    <text-property name="displayName">vouch_type</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["vouch_type"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">sale_bill_code</property>
+                    <text-property name="displayName">sale_bill_code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["sale_bill_code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">delivery_date</property>
+                    <text-property name="displayName">delivery_date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["delivery_date"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">inventory_class_code</property>
+                    <text-property name="displayName">inventory_class_code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["inventory_class_code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">inventory_class_name</property>
+                    <text-property name="displayName">inventory_class_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["inventory_class_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="145">
+                <property name="width">2.0416666666666665in</property>
+            </column>
+            <column id="147">
+                <property name="width">2.0729166666666665in</property>
+            </column>
+            <header>
+                <row id="133">
+                    <cell id="134">
+                        <label id="551">
+                            <text-property name="text">Category</text-property>
+                        </label>
+                    </cell>
+                    <cell id="136">
+                        <label id="552">
+                            <text-property name="text">total gross sell price</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <group id="148">
+                <property name="groupName">NewTableGroup1</property>
+                <property name="interval">year</property>
+                <property name="sortDirection">desc</property>
+                <expression name="keyExpr" type="javascript">row["sale_bill_date"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["sale_bill_date"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+                <header>
+                    <row id="149">
+                        <cell id="150">
+                            <data id="548">
+                                <structure name="dateTimeFormat">
+                                    <property name="category">Custom</property>
+                                    <property name="pattern">yyyy</property>
+                                </structure>
+                                <property name="resultSetColumn">sale_bill_date</property>
+                            </data>
+                        </cell>
+                        <cell id="152">
+                            <property name="backgroundColor">red</property>
+                            <data id="547">
+                                <structure name="numberFormat">
+                                    <property name="category">Fixed</property>
+                                    <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="resultSetColumn">Aggregation3</property>
+                            </data>
+                        </cell>
+                    </row>
+                </header>
+            </group>
+            <group id="159">
+                <property name="groupName">NewTableGroup2</property>
+                <property name="interval">none</property>
+                <property name="sortDirection">desc</property>
+                <expression name="keyExpr" type="javascript">row["inventory_class_code"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["inventory_class_code"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+                <list-property name="sort">
+                    <structure>
+                        <expression name="key" type="javascript">row["Aggregation2"]</expression>
+                        <property name="direction">desc</property>
+                        <property name="strength">-1</property>
+                    </structure>
+                </list-property>
+                <header>
+                    <row id="160">
+                        <cell id="161">
+                            <grid id="170">
+                                <property name="width">2.5833333333333335in</property>
+                                <column id="171">
+                                    <property name="width">0.5520833333333334in</property>
+                                </column>
+                                <column id="172">
+                                    <property name="width">2.03125in</property>
+                                </column>
+                                <row id="173">
+                                    <cell id="174"/>
+                                    <cell id="175">
+                                        <data id="684">
+                                            <property name="resultSetColumn">inventory_class_name</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                            </grid>
+                        </cell>
+                        <cell id="163">
+                            <data id="546">
+                                <structure name="numberFormat">
+                                    <property name="category">Fixed</property>
+                                    <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="resultSetColumn">Aggregation2</property>
+                            </data>
+                        </cell>
+                    </row>
+                </header>
+            </group>
+            <footer>
+                <row id="141">
+                    <cell id="142"/>
+                    <cell id="144"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

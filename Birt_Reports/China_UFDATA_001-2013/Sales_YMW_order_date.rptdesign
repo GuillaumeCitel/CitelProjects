@@ -915,6 +915,18 @@ from "salesorders"]]></xml-property>
                     <expression name="expression" type="javascript">dataSetRow["sale_order_date"]</expression>
                     <property name="dataType">date-time</property>
                 </structure>
+                <structure>
+                    <property name="name">Aggregation_1</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["total_gross_sell_price_in_local_currency"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
             </list-property>
             <column id="145">
                 <property name="width">2.6458333333333335in</property>
@@ -933,7 +945,16 @@ from "salesorders"]]></xml-property>
                         </label>
                     </cell>
                     <cell id="135"/>
-                    <cell id="136"/>
+                    <cell id="136">
+                        <property name="textAlign">right</property>
+                        <data id="551">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">Aggregation_1</property>
+                        </data>
+                    </cell>
                 </row>
             </header>
             <group id="148">
