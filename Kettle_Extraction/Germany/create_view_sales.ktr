@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>create_view_salesorders</name>
+    <name>create_view_sales</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -61,9 +61,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#47;09&#47;13 13:29:39.023</created_date>
+  <created_date>2013&#47;09&#47;26 15:23:55.268</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#47;09&#47;13 13:29:39.023</modified_date>
+  <modified_date>2013&#47;09&#47;26 15:23:55.268</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -73,6 +73,50 @@
     <type>POSTGRESQL</type>
     <access>Native</access>
     <database>China_UFDATA_001_2013</database>
+    <port>5432</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>China_UFDATA_003_2013</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>China_UFDATA_003_2013</database>
+    <port>5432</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>DUMP_SQL_SERVER_UFDATA_001_2013</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>DUMP_SQL_SERVER_UFDATA_001_2013</database>
     <port>5432</port>
     <username/>
     <password>Encrypted </password>
@@ -112,11 +156,78 @@
     </attributes>
   </connection>
   <connection>
+    <name>PostGre_China_UFDATA_001_2013</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>China_UFDATA_001_2013</database>
+    <port>5432</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>PostGre_China_UFDATA_003_2013</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>China_UFDATA_003_2013</database>
+    <port>5432</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>SQL_Server_China_001_2013</name>
     <server>192.168.1.254</server>
     <type>MSSQL</type>
     <access>Native</access>
     <database>UFDATA_001_2013</database>
+    <port>1433</port>
+    <username>viewer</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10becaf782</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1433</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>SQL_Server_China_003_2013</name>
+    <server>192.168.1.254</server>
+    <type>MSSQL</type>
+    <access>Native</access>
+    <database>UFDATA_003_2013</database>
     <port>1433</port>
     <username>viewer</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79ce10becaf782</password>
@@ -146,17 +257,33 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>China_UFDATA_001_2013</connection>
+    <connection>Germany_Extract_DBF</connection>
     <execute_each_row>N</execute_each_row>
     <single_statement>N</single_statement>
     <replace_variables>N</replace_variables>
-    <sql>CREATE OR REPLACE VIEW salesorders AS
-SELECT 
-  sales.*,
-  so_somain.sale_order_date
-FROM 
-public.sales
-LEFT JOIN public.so_somain ON sales.sale_order_code = so_somain.sale_order_code</sql>
+    <sql>CREATE OR REPLACE VIEW sales AS
+SELECT
+	umsatz.bill_id,
+	umsatz.order_nb,
+	umsatz.bill_date,
+	umsatz.customer_id,
+	umsatz.product_gmbh_code,
+	umsatz.quantity,
+	umsatz.unit_buy_price,
+	umsatz.total_buy_price,
+	umsatz.unit_gross_sell_price_without_discount,
+	umsatz.unit_net_sell_price_without_discount,
+	umsatz.discount,
+	umsatz.total_gross_sell_price_with_discount,
+	umsatz.seller_acronym,
+	umsatz.provision,
+	kunden.short_name as customer_name,
+	artikel.&quot;name&quot; as product_name,
+	artikel.gmbh_group_1 as product_gmbh_group_1,
+	artikel.gmbh_group_2 as product_gmbh_group_2
+from umsatz
+left outer join artikel on umsatz.product_gmbh_code = artikel.gmbh_code
+left outer join kunden on umsatz.customer_id = kunden.id</sql>
     <insert_field/>
     <update_field/>
     <delete_field/>
@@ -165,8 +292,8 @@ LEFT JOIN public.so_somain ON sales.sale_order_code = so_somain.sale_order_code<
     </arguments>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>352</xloc>
-      <yloc>233</yloc>
+      <xloc>181</xloc>
+      <yloc>101</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

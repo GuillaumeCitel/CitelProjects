@@ -135,6 +135,50 @@
     </attributes>
   </connection>
   <connection>
+    <name>PostGre_China_UFDATA_001_2013</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>China_UFDATA_001_2013</database>
+    <port>5432</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>PostGre_China_UFDATA_003_2013</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>China_UFDATA_003_2013</database>
+    <port>5432</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>SQL_Server_China_001_2013</name>
     <server>192.168.1.254</server>
     <type>MSSQL</type>
@@ -212,13 +256,13 @@
   salebillvouchs.unit_gross_sell_price_in_local_currency, 
   salebillvouchs.total_gross_sell_price_in_local_currency, 
   salebillvouchs.total_tax_price_in_local_currency, 
-  salebillvouchs.total_net_sell_price_in_local_currency, 
+  salebillvouchs.total_net_sell_price_in_local_currency,
+  salebillvouchs.transfer, 
   salebillvouchs.tax_rate,
   salebillvouchs.delivery_code,
   salebillvouch.currency_change_rate, 
   salebillvouch.currency, 
   salebillvouch.sale_class_code, 
-  &#47;*salebillvouch.customer_name,*&#47; 
   salebillvouch.customer_code, 
   salebillvouch.person_code, 
   salebillvouch.department_code, 
@@ -230,15 +274,18 @@
   inventory.inventory_name,
   inventory.inventory_class_code,
   inventoryclass.inventory_class_name,
-  customer.customer_name,
-  customer.customer_english_name
+  crm_customer_list.name as customer_name,
+  crm_customer_list.english_name as customer_english_name,
+  crm_customer_list.class_name as customer_class_name,
+  person.name as person_name
 	FROM 
 		salebillvouchs
 	LEFT JOIN salebillvouch ON salebillvouchs.sale_bill_id = salebillvouch.sale_bill_id
 	LEFT JOIN dispatchlist ON salebillvouchs.delivery_code = dispatchlist.delivery_code
     LEFT JOIN inventory ON salebillvouchs.inventory_code = inventory.inventory_code
     LEFT JOIN inventoryclass ON inventory.inventory_class_code = inventoryclass.inventory_class_code
-    LEFT JOIN customer ON salebillvouch.customer_code=customer.customer_code</sql>
+    LEFT JOIN crm_customer_list ON salebillvouch.customer_code=crm_customer_list.code
+    LEFT JOIN person ON salebillvouch.person_code=person.code</sql>
     <insert_field/>
     <update_field/>
     <delete_field/>
