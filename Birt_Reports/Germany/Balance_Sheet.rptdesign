@@ -30,106 +30,126 @@
         </oda-data-source>
     </data-sources>
     <data-sets>
-        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="sales" id="129">
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="umsatz" id="129">
             <property name="nullsOrdering">nulls lowest</property>
             <list-property name="columnHints">
                 <structure>
                     <property name="columnName">bill_id</property>
+                    <property name="analysis">measure</property>
                     <text-property name="displayName">bill_id</text-property>
                     <text-property name="heading">bill_id</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">order_nb</property>
+                    <property name="analysis">dimension</property>
                     <text-property name="displayName">order_nb</text-property>
                     <text-property name="heading">order_nb</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">bill_date</property>
+                    <property name="analysis">dimension</property>
                     <text-property name="displayName">bill_date</text-property>
                     <text-property name="heading">bill_date</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">customer_id</property>
+                    <property name="analysis">measure</property>
                     <text-property name="displayName">customer_id</text-property>
                     <text-property name="heading">customer_id</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">customer_nb</property>
+                    <property name="analysis">dimension</property>
                     <text-property name="displayName">customer_nb</text-property>
                     <text-property name="heading">customer_nb</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">customer_name</property>
+                    <property name="analysis">dimension</property>
                     <text-property name="displayName">customer_name</text-property>
                     <text-property name="heading">customer_name</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">product_gmbh_code</property>
+                    <property name="analysis">dimension</property>
                     <text-property name="displayName">product_gmbh_code</text-property>
                     <text-property name="heading">product_gmbh_code</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">product_name</property>
+                    <property name="analysis">dimension</property>
                     <text-property name="displayName">product_name</text-property>
                     <text-property name="heading">product_name</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">product_gmbh_group_1</property>
+                    <property name="analysis">dimension</property>
                     <text-property name="displayName">product_gmbh_group_1</text-property>
                     <text-property name="heading">product_gmbh_group_1</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">product_gmbh_group_2</property>
+                    <property name="analysis">dimension</property>
                     <text-property name="displayName">product_gmbh_group_2</text-property>
                     <text-property name="heading">product_gmbh_group_2</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">quantity</property>
+                    <property name="analysis">measure</property>
                     <text-property name="displayName">quantity</text-property>
                     <text-property name="heading">quantity</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">unit_buy_price</property>
+                    <property name="analysis">measure</property>
                     <text-property name="displayName">unit_buy_price</text-property>
                     <text-property name="heading">unit_buy_price</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">total_buy_price</property>
+                    <property name="analysis">measure</property>
                     <text-property name="displayName">total_buy_price</text-property>
                     <text-property name="heading">total_buy_price</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">unit_gross_sell_price_without_discount</property>
+                    <property name="analysis">measure</property>
                     <text-property name="displayName">unit_gross_sell_price_without_discount</text-property>
                     <text-property name="heading">unit_gross_sell_price_without_discount</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">unit_net_sell_price_without_discount</property>
+                    <property name="analysis">measure</property>
                     <text-property name="displayName">unit_net_sell_price_without_discount</text-property>
                     <text-property name="heading">unit_net_sell_price_without_discount</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">discount</property>
+                    <property name="analysis">measure</property>
                     <text-property name="displayName">discount</text-property>
                     <text-property name="heading">discount</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">total_gross_sell_price_with_discount</property>
+                    <property name="analysis">measure</property>
                     <text-property name="displayName">total_gross_sell_price_with_discount</text-property>
                     <text-property name="heading">total_gross_sell_price_with_discount</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">margin</property>
+                    <property name="analysis">measure</property>
                     <text-property name="displayName">margin</text-property>
                     <text-property name="heading">margin</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">seller_acronym</property>
+                    <property name="analysis">dimension</property>
                     <text-property name="displayName">seller_acronym</text-property>
                     <text-property name="heading">seller_acronym</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">provision</property>
+                    <property name="analysis">measure</property>
                     <text-property name="displayName">provision</text-property>
                     <text-property name="heading">provision</text-property>
                 </structure>
@@ -383,7 +403,7 @@
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[select *
-from public."sales"
+from umsatz
 where bill_date >= '2012-01-01']]></xml-property>
         </oda-data-set>
     </data-sets>
@@ -437,7 +457,7 @@ where bill_date >= '2012-01-01']]></xml-property>
     <body>
         <table id="132">
             <property name="width">11.135416666666666in</property>
-            <property name="dataSet">sales</property>
+            <property name="dataSet">umsatz</property>
             <list-property name="boundDataColumns">
                 <structure>
                     <property name="name">Aggregation</property>

@@ -31,104 +31,7 @@
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="orders" id="512">
-            <list-property name="columnHints">
-                <structure>
-                    <property name="columnName">order_nb</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">order_nb</text-property>
-                    <text-property name="heading">order_nb</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">customer_id</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">customer_id</text-property>
-                    <text-property name="heading">customer_id</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">customer_nb</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">customer_nb</text-property>
-                    <text-property name="heading">customer_nb</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">customer_name</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">customer_name</text-property>
-                    <text-property name="heading">customer_name</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">product_name</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">product_name</text-property>
-                    <text-property name="heading">product_name</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">quantity</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">quantity</text-property>
-                    <text-property name="heading">quantity</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">unit_buy_price</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">unit_buy_price</text-property>
-                    <text-property name="heading">unit_buy_price</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">unit_gross_sell_price_without_discount</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">unit_gross_sell_price_without_discount</text-property>
-                    <text-property name="heading">unit_gross_sell_price_without_discount</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">unit_net_sell_price_without_discount</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">unit_net_sell_price_without_discount</text-property>
-                    <text-property name="heading">unit_net_sell_price_without_discount</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">unit_gross_sell_price_with_discount</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">unit_gross_sell_price_with_discount</text-property>
-                    <text-property name="heading">unit_gross_sell_price_with_discount</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">unit_net_sell_price_with_discount</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">unit_net_sell_price_with_discount</text-property>
-                    <text-property name="heading">unit_net_sell_price_with_discount</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">discount</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">discount</text-property>
-                    <text-property name="heading">discount</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">order_date</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">order_date</text-property>
-                    <text-property name="heading">order_date</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">total_gross_sell_price_with_discount</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">total_gross_sell_price_with_discount</text-property>
-                    <text-property name="heading">total_gross_sell_price_with_discount</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">total_net_sell_price_with_discount</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">total_net_sell_price_with_discount</text-property>
-                    <text-property name="heading">total_net_sell_price_with_discount</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">product_gmbh_code</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">product_gmbh_code</text-property>
-                    <text-property name="heading">product_gmbh_code</text-property>
-                </structure>
-            </list-property>
+            <list-property name="columnHints"/>
             <list-property name="parameters"/>
             <structure name="cachedMetaData">
                 <list-property name="resultSet">
@@ -139,77 +42,82 @@
                     </structure>
                     <structure>
                         <property name="position">2</property>
-                        <property name="name">customer_id</property>
-                        <property name="dataType">float</property>
+                        <property name="name">product_gmbh_code</property>
+                        <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">3</property>
-                        <property name="name">customer_nb</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">4</property>
-                        <property name="name">customer_name</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">5</property>
                         <property name="name">product_name</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">6</property>
+                        <property name="position">4</property>
                         <property name="name">quantity</property>
                         <property name="dataType">float</property>
                     </structure>
                     <structure>
-                        <property name="position">7</property>
+                        <property name="position">5</property>
                         <property name="name">unit_buy_price</property>
                         <property name="dataType">float</property>
                     </structure>
                     <structure>
-                        <property name="position">8</property>
+                        <property name="position">6</property>
+                        <property name="name">total_buy_price</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
                         <property name="name">unit_gross_sell_price_without_discount</property>
                         <property name="dataType">float</property>
                     </structure>
                     <structure>
-                        <property name="position">9</property>
+                        <property name="position">8</property>
                         <property name="name">unit_net_sell_price_without_discount</property>
                         <property name="dataType">float</property>
                     </structure>
                     <structure>
-                        <property name="position">10</property>
+                        <property name="position">9</property>
                         <property name="name">unit_gross_sell_price_with_discount</property>
                         <property name="dataType">float</property>
                     </structure>
                     <structure>
-                        <property name="position">11</property>
+                        <property name="position">10</property>
                         <property name="name">unit_net_sell_price_with_discount</property>
                         <property name="dataType">float</property>
                     </structure>
                     <structure>
-                        <property name="position">12</property>
+                        <property name="position">11</property>
                         <property name="name">discount</property>
                         <property name="dataType">float</property>
                     </structure>
                     <structure>
-                        <property name="position">13</property>
-                        <property name="name">order_date</property>
-                        <property name="dataType">date-time</property>
-                    </structure>
-                    <structure>
-                        <property name="position">14</property>
+                        <property name="position">12</property>
                         <property name="name">total_gross_sell_price_with_discount</property>
                         <property name="dataType">float</property>
                     </structure>
                     <structure>
-                        <property name="position">15</property>
+                        <property name="position">13</property>
                         <property name="name">total_net_sell_price_with_discount</property>
                         <property name="dataType">float</property>
                     </structure>
                     <structure>
+                        <property name="position">14</property>
+                        <property name="name">order_date</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">customer_id</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
                         <property name="position">16</property>
-                        <property name="name">product_gmbh_code</property>
+                        <property name="name">customer_nb</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">customer_name</property>
                         <property name="dataType">string</property>
                     </structure>
                 </list-property>
@@ -221,122 +129,112 @@
                     <property name="name">order_nb</property>
                     <property name="nativeName">order_nb</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
-                    <property name="name">customer_id</property>
-                    <property name="nativeName">customer_id</property>
-                    <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
-                </structure>
-                <structure>
-                    <property name="position">3</property>
-                    <property name="name">customer_nb</property>
-                    <property name="nativeName">customer_nb</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">4</property>
-                    <property name="name">customer_name</property>
-                    <property name="nativeName">customer_name</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">5</property>
-                    <property name="name">product_name</property>
-                    <property name="nativeName">product_name</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">6</property>
-                    <property name="name">quantity</property>
-                    <property name="nativeName">quantity</property>
-                    <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
-                </structure>
-                <structure>
-                    <property name="position">7</property>
-                    <property name="name">unit_buy_price</property>
-                    <property name="nativeName">unit_buy_price</property>
-                    <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
-                </structure>
-                <structure>
-                    <property name="position">8</property>
-                    <property name="name">unit_gross_sell_price_without_discount</property>
-                    <property name="nativeName">unit_gross_sell_price_without_discount</property>
-                    <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
-                </structure>
-                <structure>
-                    <property name="position">9</property>
-                    <property name="name">unit_net_sell_price_without_discount</property>
-                    <property name="nativeName">unit_net_sell_price_without_discount</property>
-                    <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
-                </structure>
-                <structure>
-                    <property name="position">10</property>
-                    <property name="name">unit_gross_sell_price_with_discount</property>
-                    <property name="nativeName">unit_gross_sell_price_with_discount</property>
-                    <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
-                </structure>
-                <structure>
-                    <property name="position">11</property>
-                    <property name="name">unit_net_sell_price_with_discount</property>
-                    <property name="nativeName">unit_net_sell_price_with_discount</property>
-                    <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
-                </structure>
-                <structure>
-                    <property name="position">12</property>
-                    <property name="name">discount</property>
-                    <property name="nativeName">discount</property>
-                    <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
-                </structure>
-                <structure>
-                    <property name="position">13</property>
-                    <property name="name">order_date</property>
-                    <property name="nativeName">order_date</property>
-                    <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
-                </structure>
-                <structure>
-                    <property name="position">14</property>
-                    <property name="name">total_gross_sell_price_with_discount</property>
-                    <property name="nativeName">total_gross_sell_price_with_discount</property>
-                    <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
-                </structure>
-                <structure>
-                    <property name="position">15</property>
-                    <property name="name">total_net_sell_price_with_discount</property>
-                    <property name="nativeName">total_net_sell_price_with_discount</property>
-                    <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
-                </structure>
-                <structure>
-                    <property name="position">16</property>
                     <property name="name">product_gmbh_code</property>
                     <property name="nativeName">product_gmbh_code</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">product_name</property>
+                    <property name="nativeName">product_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">quantity</property>
+                    <property name="nativeName">quantity</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">unit_buy_price</property>
+                    <property name="nativeName">unit_buy_price</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">total_buy_price</property>
+                    <property name="nativeName">total_buy_price</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">unit_gross_sell_price_without_discount</property>
+                    <property name="nativeName">unit_gross_sell_price_without_discount</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">unit_net_sell_price_without_discount</property>
+                    <property name="nativeName">unit_net_sell_price_without_discount</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">unit_gross_sell_price_with_discount</property>
+                    <property name="nativeName">unit_gross_sell_price_with_discount</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">unit_net_sell_price_with_discount</property>
+                    <property name="nativeName">unit_net_sell_price_with_discount</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">discount</property>
+                    <property name="nativeName">discount</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">total_gross_sell_price_with_discount</property>
+                    <property name="nativeName">total_gross_sell_price_with_discount</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">total_net_sell_price_with_discount</property>
+                    <property name="nativeName">total_net_sell_price_with_discount</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">order_date</property>
+                    <property name="nativeName">order_date</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">customer_id</property>
+                    <property name="nativeName">customer_id</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">customer_nb</property>
+                    <property name="nativeName">customer_nb</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">customer_name</property>
+                    <property name="nativeName">customer_name</property>
+                    <property name="dataType">string</property>
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[select *
-from "orders"
+from orders
 where product_gmbh_code <> '1000'
 and product_gmbh_code <> '1001'
 and product_gmbh_code <> '1002'
 and order_date >= '2012-01-01']]></xml-property>
         </oda-data-set>
-        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="sales" id="528">
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="umsatz" id="528">
             <list-property name="columnHints">
                 <structure>
                     <property name="columnName">bill_id</property>
@@ -708,7 +606,7 @@ and order_date >= '2012-01-01']]></xml-property>
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[select *
-from "sales"
+from umsatz
 where product_gmbh_code <> '1000'
 and product_gmbh_code <> '1001'
 and product_gmbh_code <> '1002'
@@ -1101,7 +999,7 @@ and bill_date >= '2012-01-01']]></xml-property>
         </table>
         <table id="132">
             <property name="width">11.71875in</property>
-            <property name="dataSet">sales</property>
+            <property name="dataSet">umsatz</property>
             <list-property name="boundDataColumns">
                 <structure>
                     <property name="name">bill_date</property>
@@ -1347,8 +1245,8 @@ and bill_date >= '2012-01-01']]></xml-property>
                                     <cell id="507">
                                         <data id="531">
                                             <structure name="dateTimeFormat">
-                                                <property name="category">General Date</property>
-                                                <property name="pattern">General Date</property>
+                                                <property name="category">Long Date</property>
+                                                <property name="pattern">Long Date</property>
                                             </structure>
                                             <property name="resultSetColumn">bill_date</property>
                                         </data>
