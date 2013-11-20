@@ -345,11 +345,19 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>unit_gross_sell_price_with_discount</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>      <field>        <name>total_gross_sell_price_with_discount</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
       </field>      <field>        <name>margin</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>sign</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -399,7 +407,8 @@ var unit_buy_price = EK;&#47;&#47;number
 var total_buy_price = quantity * unit_buy_price;&#47;&#47;number
 var unit_gross_sell_price_without_discount = VK;&#47;&#47;number
 var unit_net_sell_price_without_discount = BVK;&#47;&#47;number
-var discount = LRAB;&#47;&#47;number
+var discount = LRAB;&#47;&#47;number (in%)
+var unit_gross_sell_price_with_discount;
 var total_gross_sell_price_with_discount = GSUM;&#47;&#47;number
 var margin = (total_gross_sell_price_with_discount - total_buy_price) &#47; total_buy_price;&#47;&#47;number
 var sign = TITEL;&#47;&#47;string - NO
@@ -413,6 +422,13 @@ if ( sign == &apos;G&apos;) {
 	unit_gross_sell_price_without_discount = -unit_gross_sell_price_without_discount;
 	unit_net_sell_price_without_discount = -unit_net_sell_price_without_discount;
 	total_gross_sell_price_with_discount = -total_gross_sell_price_with_discount;
+}
+
+if ( null != discount &amp;&amp; 0 != discount) {
+	unit_gross_sell_price_with_discount = (100-discount)&#47;100*unit_gross_sell_price_without_discount;
+}
+else {
+	unit_gross_sell_price_with_discount = unit_gross_sell_price_without_discount;
 }</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>bill_id</name>
         <rename>bill_id</rename>
@@ -510,6 +526,12 @@ if ( sign == &apos;G&apos;) {
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
+      </field>      <field>        <name>unit_gross_sell_price_with_discount</name>
+        <rename>unit_gross_sell_price_with_discount</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
       </field>      <field>        <name>total_gross_sell_price_with_discount</name>
         <rename>total_gross_sell_price_with_discount</rename>
         <type>Number</type>
@@ -519,6 +541,12 @@ if ( sign == &apos;G&apos;) {
       </field>      <field>        <name>margin</name>
         <rename>margin</rename>
         <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>sign</name>
+        <rename>sign</rename>
+        <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>

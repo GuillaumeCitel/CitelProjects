@@ -300,6 +300,14 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>country</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>class_name</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>      <field>        <name>tel_number</name>
         <rename/>
         <length>-2</length>
@@ -342,9 +350,22 @@ var nb = SORTNR;&#47;&#47;string
 var short_name = SORT; &#47;&#47; string The one to use
 var long_name = NAME1+NAME2+NAME3;&#47;&#47;string
 var address = STR+&quot;-&quot;+PLZ+&quot;-&quot;+ORT+&quot;(LAND: &quot;+LAND+&quot;)&quot;;&#47;&#47;string
+var country = LAND;&#47;&#47;string
+var class_name;&#47;&#47;string
 var tel_number = TEL;&#47;&#47;string
 var fax_number= FAX;&#47;&#47;string
-var email = MAILBOX;&#47;&#47;String</jsScript_script>
+var email = MAILBOX;&#47;&#47;String
+
+if (country == &apos;D&apos;)  {
+	class_name=&apos;local&apos;;
+}
+else {
+	class_name=&apos;export&apos;;
+}
+
+if (short_name.indexOf(&apos;CITEL&apos;) != -1) {
+	class_name=&apos;citel&apos;;
+}</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>id</name>
         <rename>id</rename>
         <type>Number</type>
@@ -371,6 +392,18 @@ var email = MAILBOX;&#47;&#47;String</jsScript_script>
         <replace>N</replace>
       </field>      <field>        <name>address</name>
         <rename>address</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>country</name>
+        <rename>country</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>class_name</name>
+        <rename>class_name</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>

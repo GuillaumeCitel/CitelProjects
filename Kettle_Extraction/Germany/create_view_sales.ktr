@@ -267,6 +267,8 @@ SELECT
 	umsatz.order_nb,
 	umsatz.bill_date,
 	umsatz.customer_id,
+	umsatz.customer_nb,
+	umsatz.customer_name,
 	umsatz.product_gmbh_code,
 	umsatz.quantity,
 	umsatz.unit_buy_price,
@@ -274,16 +276,27 @@ SELECT
 	umsatz.unit_gross_sell_price_without_discount,
 	umsatz.unit_net_sell_price_without_discount,
 	umsatz.discount,
+	umsatz.unit_gross_sell_price_with_discount,
 	umsatz.total_gross_sell_price_with_discount,
 	umsatz.seller_acronym,
 	umsatz.provision,
-	kunden.short_name as customer_name,
+	kunden.short_name as customer_short_name,
+	kunden.country as ERP_country,
+	kunden.class_name as customer_ERP_class_name,
 	artikel.&quot;name&quot; as product_name,
 	artikel.gmbh_group_1 as product_gmbh_group_1,
-	artikel.gmbh_group_2 as product_gmbh_group_2
+	artikel.gmbh_group_2 as product_gmbh_group_2,
+    vergleich_A.code_2cp,
+	vergleich_A.group_2cp,
+	vergleich_L.country as excel_country,
+	vergleich_L.customer_class_name as customer_excel_class_name,
+	vergleich_V.seller_name
 from umsatz
 left outer join artikel on umsatz.product_gmbh_code = artikel.gmbh_code
-left outer join kunden on umsatz.customer_id = kunden.id</sql>
+left outer join kunden on umsatz.customer_id = kunden.id
+left outer join vergleich_A on umsatz.product_gmbh_code = vergleich_A.gmbh_code
+left outer join vergleich_L on umsatz.customer_nb = vergleich_L.customer_nb
+left outer join vergleich_V on umsatz.seller_acronym= vergleich_V.seller_acronym</sql>
     <insert_field/>
     <update_field/>
     <delete_field/>

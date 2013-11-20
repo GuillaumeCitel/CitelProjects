@@ -335,6 +335,10 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>customer_class_name</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
@@ -362,7 +366,15 @@
 
 var customer_nb = Num_Client;&#47;&#47;string
 var customer_name = Nom_Client;&#47;&#47;string
-var country = Pays;&#47;&#47;string</jsScript_script>
+var country = Pays;&#47;&#47;string
+var customer_class_name; &#47;&#47;string - Il n&apos;y a que les clients internationaux et citel dans le excel
+
+if ( country == &apos;Groupe Citel&apos;) {
+	customer_class_name = &apos;citel&apos;
+}
+else {
+	customer_class_name = &apos;export&apos;
+}</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>customer_nb</name>
         <rename>customer_nb</rename>
         <type>String</type>
@@ -377,6 +389,12 @@ var country = Pays;&#47;&#47;string</jsScript_script>
         <replace>N</replace>
       </field>      <field>        <name>country</name>
         <rename>country</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>customer_class_name</name>
+        <rename>customer_class_name</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -424,6 +442,11 @@ var country = Pays;&#47;&#47;string</jsScript_script>
       <value>
         <name>country</name>
         <rename>country</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>customer_class_name</name>
+        <rename>customer_class_name</rename>
         <update>Y</update>
       </value>
     </lookup>
