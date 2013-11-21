@@ -33,6 +33,12 @@
     <property name="iconFile">/templates/blank_report.gif</property>
     <property name="bidiLayoutOrientation">ltr</property>
     <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">library.rptlibrary</property>
+            <property name="namespace">library</property>
+        </structure>
+    </list-property>
     <parameters>
         <parameter-group name="NewParameterGroup" id="897">
             <parameters>
@@ -97,27 +103,8 @@
         </scalar-parameter>
     </parameters>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Germany_Extract_DBF" id="128">
-            <list-property name="privateDriverProperties">
-                <ex-property>
-                    <name>metadataBidiFormatStr</name>
-                    <value>ILYNN</value>
-                </ex-property>
-                <ex-property>
-                    <name>disabledMetadataBidiFormatStr</name>
-                </ex-property>
-                <ex-property>
-                    <name>contentBidiFormatStr</name>
-                    <value>ILYNN</value>
-                </ex-property>
-                <ex-property>
-                    <name>disabledContentBidiFormatStr</name>
-                </ex-property>
-            </list-property>
-            <property name="odaDriverClass">org.postgresql.Driver</property>
-            <property name="odaURL">jdbc:postgresql://localhost:5432/Germany_Extract_DBF</property>
-            <property name="odaUser">RoleTest</property>
-        </oda-data-source>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="kettlede" id="908"
+ extends="library.kettlede"/>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="sales" id="528">
@@ -458,7 +445,7 @@
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">Germany_Extract_DBF</property>
+            <property name="dataSource">kettlede</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
@@ -771,7 +758,7 @@ order by bill_date desc]]></xml-property>
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">Germany_Extract_DBF</property>
+            <property name="dataSource">kettlede</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
