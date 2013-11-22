@@ -140,8 +140,8 @@
     <access>Native</access>
     <database>Germany_Extract_DBF</database>
     <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
+    <username>Stat_Guillaume</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cd86aece</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
