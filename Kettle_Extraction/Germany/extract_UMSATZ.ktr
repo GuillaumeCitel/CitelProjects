@@ -648,7 +648,7 @@ else {
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <file_dbf>&#47;home&#47;guillaume&#47;Bureau&#47;UMSATZ.DBF</file_dbf>
+    <file_dbf>&#47;home&#47;guillaume&#47;Source_DBF_CSV_Files_Germany&#47;UMSATZ.DBF</file_dbf>
     <limit>0</limit>
     <add_rownr>N</add_rownr>
     <field_rownr/>
