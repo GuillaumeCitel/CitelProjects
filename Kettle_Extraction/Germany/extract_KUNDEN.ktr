@@ -112,36 +112,14 @@
     </attributes>
   </connection>
   <connection>
-    <name>DUMP_SQL_SERVER_UFDATA_001_2013</name>
+    <name>kettlede</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>DUMP_SQL_SERVER_UFDATA_001_2013</database>
+    <database>kettlede</database>
     <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>Germany_Extract_DBF</name>
-    <server>localhost</server>
-    <type>POSTGRESQL</type>
-    <access>Native</access>
-    <database>Germany_Extract_DBF</database>
-    <port>5432</port>
-    <username>Stat_Guillaume</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cd86aece</password>
+    <username>kettlede</username>
+    <password>Encrypted 2be98afc86a96c0d7a01cba64d297abdf</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -359,10 +337,15 @@ var email = MAILBOX;&#47;&#47;String
 if (country == &apos;D&apos;)  {
 	class_name=&apos;local&apos;;
 }
-else {
-	class_name=&apos;export&apos;;
+else if (country == &apos;BY&apos; || country == &apos;RU&apos; || country ==&apos;UA&apos; || country == &apos;KZ&apos;) {
+	class_name=&apos;export Russia&apos;;
 }
-
+else if (country != &apos;&apos;) {
+	class_name=&apos;export w&#47;o Russia&apos;
+}
+else {
+	class_name = &apos;unknown&apos;;
+}
 if (short_name.indexOf(&apos;CITEL&apos;) != -1) {
 	class_name=&apos;citel&apos;;
 }</jsScript_script>
@@ -429,7 +412,7 @@ if (short_name.indexOf(&apos;CITEL&apos;) != -1) {
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>449</xloc>
-      <yloc>188</yloc>
+      <yloc>181</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -444,7 +427,7 @@ if (short_name.indexOf(&apos;CITEL&apos;) != -1) {
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>Germany_Extract_DBF</connection>
+    <connection>kettlede</connection>
     <execute_each_row>N</execute_each_row>
     <single_statement>N</single_statement>
     <replace_variables>N</replace_variables>
@@ -473,7 +456,7 @@ if (short_name.indexOf(&apos;CITEL&apos;) != -1) {
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <file_dbf>&#47;home&#47;guillaume&#47;Bureau&#47;Source_DBF_CSV_Files_Germany&#47;KUNDEN.DBF</file_dbf>
+    <file_dbf>&#47;home&#47;guillaume&#47;KUNDEN.DBF</file_dbf>
     <limit>0</limit>
     <add_rownr>N</add_rownr>
     <field_rownr/>
@@ -523,7 +506,7 @@ if (short_name.indexOf(&apos;CITEL&apos;) != -1) {
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>Germany_Extract_DBF</connection>
+    <connection>kettlede</connection>
     <schema/>
     <table>kunden</table>
     <commit>1000</commit>
