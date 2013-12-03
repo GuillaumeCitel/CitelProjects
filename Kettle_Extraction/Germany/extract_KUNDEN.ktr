@@ -334,17 +334,14 @@ var tel_number = TEL;&#47;&#47;string
 var fax_number= FAX;&#47;&#47;string
 var email = MAILBOX;&#47;&#47;String
 
-if (country == &apos;D&apos;)  {
-	class_name=&apos;local&apos;;
-}
-else if (country == &apos;BY&apos; || country == &apos;RU&apos; || country ==&apos;UA&apos; || country == &apos;KZ&apos;) {
+if (country == &apos;BY&apos; || country == &apos;RU&apos; || country ==&apos;UA&apos; || country == &apos;KZ&apos;) {
 	class_name=&apos;export Russia&apos;;
 }
 else if (country != &apos;&apos;) {
 	class_name=&apos;export w&#47;o Russia&apos;
 }
 else {
-	class_name = &apos;unknown&apos;;
+	class_name = &apos;local&apos;;
 }
 if (short_name.indexOf(&apos;CITEL&apos;) != -1) {
 	class_name=&apos;citel&apos;;
@@ -411,8 +408,8 @@ if (short_name.indexOf(&apos;CITEL&apos;) != -1) {
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>449</xloc>
-      <yloc>181</yloc>
+      <xloc>448</xloc>
+      <yloc>180</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
