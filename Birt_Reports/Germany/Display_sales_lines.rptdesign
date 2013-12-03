@@ -868,7 +868,7 @@
 list_of_excluded_codes = [];
 list_of_excluded_customer_erp_class_names = [];
 if (reportContext.getParameterValue("excluded_codes") == 'transport&amp;packaging') {
-	list_of_excluded_codes = ["1000","1001"];
+	list_of_excluded_codes = ["1000","1001","1002-SCUH","1003"];
 }
 if (reportContext.getParameterValue("customer_erp_class_name") == 'All_Except_Russia'){
 	list_of_excluded_customer_erp_class_names = ["export Russia"];
