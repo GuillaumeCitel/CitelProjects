@@ -40,7 +40,7 @@
                     <property name="dataType">dateTime</property>
                     <property name="distinct">true</property>
                     <simple-property-list name="defaultValue">
-                        <value type="javascript">BirtDateTime.today()</value>
+                        <value type="javascript">"2013-11-01"</value>
                     </simple-property-list>
                     <list-property name="selectionList"/>
                     <property name="paramType">simple</property>
@@ -58,7 +58,7 @@
                     <property name="dataType">dateTime</property>
                     <property name="distinct">true</property>
                     <simple-property-list name="defaultValue">
-                        <value type="javascript">BirtDateTime.today()</value>
+                        <value type="javascript">"2013-11-30"</value>
                     </simple-property-list>
                     <list-property name="selectionList"/>
                     <property name="paramType">simple</property>
@@ -196,18 +196,36 @@
                 </scalar-parameter>
                 <scalar-parameter name="customer_erp_class_name" id="950">
                     <text-property name="promptText">country class</text-property>
-                    <property name="valueType">dynamic</property>
-                    <property name="dataSetName">country_list</property>
-                    <expression name="valueExpr" type="javascript">dataSetRow["customer_erp_class_name"]</expression>
-                    <expression name="labelExpr" type="javascript">dataSetRow["customer_erp_class_name"]</expression>
-                    <expression name="sortByColumn">dataSetRow["customer_erp_class_name"]</expression>
+                    <property name="valueType">static</property>
+                    <property name="sortBy">label</property>
                     <property name="sortDirection">asc</property>
                     <property name="dataType">string</property>
                     <property name="distinct">true</property>
                     <simple-property-list name="defaultValue">
                         <value type="constant">All</value>
                     </simple-property-list>
-                    <list-property name="selectionList"/>
+                    <list-property name="selectionList">
+                        <structure>
+                            <property name="value">All</property>
+                            <property name="label">All</property>
+                        </structure>
+                        <structure>
+                            <property name="value">All_Except_Russia</property>
+                            <property name="label">All Except Russia</property>
+                        </structure>
+                        <structure>
+                            <property name="value">Only_Russia</property>
+                            <property name="label">Only Russia</property>
+                        </structure>
+                        <structure>
+                            <property name="value">Local</property>
+                            <property name="label">Local</property>
+                        </structure>
+                        <structure>
+                            <property name="value">Only_Export</property>
+                            <property name="label">Only Export</property>
+                        </structure>
+                    </list-property>
                     <property name="paramType">simple</property>
                     <property name="controlType">list-box</property>
                     <property name="mustMatch">true</property>
@@ -268,7 +286,7 @@
                     <list-property name="selectionList">
                         <structure>
                             <property name="value">transport&amp;packaging</property>
-                            <property name="label">transport, packaging and other</property>
+                            <property name="label">transport &amp; packaging</property>
                         </structure>
                         <structure>
                             <property name="value">none</property>
@@ -391,7 +409,7 @@
                     <property name="dataType">string</property>
                     <property name="distinct">true</property>
                     <simple-property-list name="defaultValue">
-                        <value type="constant">none</value>
+                        <value type="constant">customer_erp_class_name</value>
                     </simple-property-list>
                     <list-property name="selectionList">
                         <structure>
@@ -848,11 +866,24 @@
             <method name="beforeOpen"><![CDATA[query_String = this.queryText;
 
 list_of_excluded_codes = [];
+list_of_excluded_customer_erp_class_names = [];
 if (reportContext.getParameterValue("excluded_codes") == 'transport&amp;packaging') {
-	list_of_excluded_codes = ["1000","1001","1002"];
+	list_of_excluded_codes = ["1000","1001"];
 }
-list_of_parameters_names = ["seller_name", "product_gmbh_code1","product_gmbh_code2", "customer_nb1", "customer_nb2", "bill_id", "group_2cp","country","customer_erp_class_name"];
-list_of_parameters_value_fields = ["seller_name", "product_gmbh_code","product_gmbh_code", "customer_nb", "customer_nb", "bill_id", "group_2cp","erp_country","customer_erp_class_name"];
+if (reportContext.getParameterValue("customer_erp_class_name") == 'All_Except_Russia'){
+	list_of_excluded_customer_erp_class_names = ["export Russia"];
+}
+if (reportContext.getParameterValue("customer_erp_class_name") == 'Only_Russia'){
+	list_of_excluded_customer_erp_class_names = ["unknown","local","export w/o Russia","citel"];
+}
+if (reportContext.getParameterValue("customer_erp_class_name") == 'Local'){
+	list_of_excluded_customer_erp_class_names = ["unknown","export Russia","export w/o Russia","citel"];
+}
+if (reportContext.getParameterValue("customer_erp_class_name") == 'Only_Export'){
+	list_of_excluded_customer_erp_class_names = ["unknown","local","citel"];
+}
+list_of_parameters_names = ["seller_name", "product_gmbh_code1","product_gmbh_code2", "customer_nb1", "customer_nb2", "bill_id", "group_2cp","country"];
+list_of_parameters_value_fields = ["seller_name", "product_gmbh_code","product_gmbh_code", "customer_nb", "customer_nb", "bill_id", "group_2cp","erp_country"];
 
 query_select = " select * ";
 query_from = " from sales ";
@@ -861,9 +892,12 @@ query_where = query_String.substring(query_String.indexOf("where"));
 for (var i=0;i<list_of_excluded_codes.length;i++){
 	query_where += " and product_gmbh_code <> " + "'" + list_of_excluded_codes[i] + "'";
 }
-for (var j=0;j<list_of_parameters_names.length;j++){
-	if (reportContext.getParameterValue(list_of_parameters_names[j]) != "All"){
-		query_where += " and " + list_of_parameters_value_fields[j] + " = " + "'" + reportContext.getParameterValue(list_of_parameters_names[j]) + "'";
+for (var j=0;j<list_of_excluded_customer_erp_class_names.length;j++){
+	query_where += " and customer_erp_class_name <> " + "'" + list_of_excluded_customer_erp_class_names[j] +"'";
+}
+for (var k=0;k<list_of_parameters_names.length;k++){
+	if (reportContext.getParameterValue(list_of_parameters_names[k]) != "All"){
+		query_where += " and " + list_of_parameters_value_fields[k] + " = " + "'" + reportContext.getParameterValue(list_of_parameters_names[k]) + "'";
 	}
 }
 
@@ -1429,6 +1463,24 @@ and bill_date <= ?]]></xml-property>
                     <expression name="expression" type="javascript">dataSetRow["customer_excel_class_name"]</expression>
                     <property name="dataType">string</property>
                 </structure>
+                <structure>
+                    <property name="name">Aggregation_3</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">COUNT</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["row_id"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Column Binding_4</property>
+                    <expression name="expression" type="javascript">row["Aggregation_3"]</expression>
+                    <property name="dataType">float</property>
+                    <property name="allowExport">true</property>
+                </structure>
             </list-property>
             <structure name="toc"/>
             <column id="788">
@@ -1500,6 +1552,43 @@ and bill_date <= ?]]></xml-property>
                 <property name="width">0.6979166666666666in</property>
             </column>
             <header>
+                <row id="985">
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">4px</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">4px</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">4px</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">4px</property>
+                    <cell id="986"/>
+                    <cell id="987">
+                        <data id="1005">
+                            <property name="resultSetColumn">Column Binding_4</property>
+                        </data>
+                    </cell>
+                    <cell id="988"/>
+                    <cell id="989"/>
+                    <cell id="990"/>
+                    <cell id="991"/>
+                    <cell id="992"/>
+                    <cell id="993"/>
+                    <cell id="994"/>
+                    <cell id="995"/>
+                    <cell id="996"/>
+                    <cell id="997"/>
+                    <cell id="998"/>
+                    <cell id="999"/>
+                    <cell id="1000"/>
+                    <cell id="1001"/>
+                    <cell id="1002"/>
+                    <cell id="1003"/>
+                    <cell id="1004"/>
+                </row>
                 <row id="776">
                     <property name="borderBottomColor">#000000</property>
                     <property name="borderBottomStyle">solid</property>

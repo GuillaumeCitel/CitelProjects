@@ -3,6 +3,46 @@
     <property name="createdBy">Eclipse BIRT Designer Version 4.3.1.v201309091055 Build &lt;4.3.1.v20130917-1035></property>
     <property name="units">in</property>
     <property name="theme">defaultTheme</property>
+    <parameters>
+        <scalar-parameter name="customer_nb1" id="938">
+            <text-property name="promptText">customer code</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">All</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="customer_nb2" id="939">
+            <text-property name="promptText">customer name</text-property>
+            <property name="valueType">dynamic</property>
+            <property name="dataSetName">customer_list</property>
+            <expression name="valueExpr" type="javascript">dataSetRow["customer_nb"]</expression>
+            <expression name="labelExpr" type="javascript">dataSetRow["customer_name"]</expression>
+            <expression name="sortByColumn">dataSetRow["customer_name"]</expression>
+            <property name="sortDirection">asc</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">All</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">false</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
     <data-sources>
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="kettlede" id="128">
             <list-property name="privateDriverProperties">
