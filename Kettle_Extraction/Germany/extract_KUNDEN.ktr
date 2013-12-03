@@ -337,7 +337,7 @@ var email = MAILBOX;&#47;&#47;String
 if (country == &apos;BY&apos; || country == &apos;RU&apos; || country ==&apos;UA&apos; || country == &apos;KZ&apos;) {
 	class_name=&apos;export Russia&apos;;
 }
-else if (country != &apos;&apos;) {
+else if (country != &apos;D&apos;) {
 	class_name=&apos;export w&#47;o Russia&apos;
 }
 else {
