@@ -1211,9 +1211,62 @@ and bill_date <= ?]]></xml-property>
         </simple-master-page>
     </page-setup>
     <body>
+        <label id="1006">
+            <property name="fontSize">xx-large</property>
+            <property name="fontWeight">bold</property>
+            <property name="textAlign">center</property>
+            <text-property name="text">LIST OF SALES CITEL GMBH</text-property>
+        </label>
         <text-data id="966">
-            <expression name="valueExpr">"Extract From Citel GMBH ERP &lt;br/>" +
-"From: " + params["beginning_date"].value + " --- To: " + params["end_date"].value + "&lt;br/>" +
+            <list-property name="visibility">
+                <structure>
+                    <property name="format">doc</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+                <structure>
+                    <property name="format">docx</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+                <structure>
+                    <property name="format">odp</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+                <structure>
+                    <property name="format">ods</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+                <structure>
+                    <property name="format">odt</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+                <structure>
+                    <property name="format">pdf</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+                <structure>
+                    <property name="format">ppt</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+                <structure>
+                    <property name="format">pptx</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+                <structure>
+                    <property name="format">xls</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+                <structure>
+                    <property name="format">xls_spudsoft</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+                <structure>
+                    <property name="format">xlsx</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+            </list-property>
+            <structure name="toc"/>
+            <property name="allowExport">true</property>
+            <expression name="valueExpr">"From: " + params["beginning_date"].value + " --- To: " + params["end_date"].value + "&lt;br/>" +
 "Customer: " + params["customer_nb1"].value + " --- " + params["customer_nb2"].value + "&lt;br/>" +
 "Product: " + params["product_gmbh_code1"].value + " --- " + params["product_gmbh_code2"].value + "&lt;br/>" +
 "Group: "+ params["group_2cp"].value + "&lt;br/>" +
@@ -1548,48 +1601,69 @@ and bill_date <= ?]]></xml-property>
             <column id="940">
                 <property name="width">0.6979166666666666in</property>
             </column>
-            <column id="954">
-                <property name="width">0.6979166666666666in</property>
-            </column>
             <header>
                 <row id="985">
-                    <property name="borderBottomColor">#000000</property>
-                    <property name="borderBottomStyle">solid</property>
-                    <property name="borderBottomWidth">4px</property>
-                    <property name="borderLeftColor">#000000</property>
-                    <property name="borderLeftStyle">solid</property>
-                    <property name="borderLeftWidth">4px</property>
-                    <property name="borderRightColor">#000000</property>
-                    <property name="borderRightStyle">solid</property>
-                    <property name="borderRightWidth">4px</property>
-                    <property name="borderTopColor">#000000</property>
-                    <property name="borderTopStyle">solid</property>
-                    <property name="borderTopWidth">4px</property>
-                    <cell id="986"/>
-                    <cell id="987">
-                        <data id="1005">
-                            <property name="resultSetColumn">Column Binding_4</property>
-                        </data>
+                    <property name="backgroundColor">#FFFFFF</property>
+                    <cell id="986">
+                        <property name="colSpan">18</property>
+                        <property name="rowSpan">1</property>
+                        <property name="backgroundColor">#FFFFFF</property>
+                        <text-data id="1045">
+                            <property name="backgroundColor">#FFFFFF</property>
+                            <property name="textAlign">left</property>
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">doc</property>
+                                    <expression name="valueExpr" type="javascript">true</expression>
+                                </structure>
+                                <structure>
+                                    <property name="format">docx</property>
+                                    <expression name="valueExpr" type="javascript">true</expression>
+                                </structure>
+                                <structure>
+                                    <property name="format">odp</property>
+                                    <expression name="valueExpr" type="javascript">true</expression>
+                                </structure>
+                                <structure>
+                                    <property name="format">ods</property>
+                                    <expression name="valueExpr" type="javascript">true</expression>
+                                </structure>
+                                <structure>
+                                    <property name="format">odt</property>
+                                    <expression name="valueExpr" type="javascript">true</expression>
+                                </structure>
+                                <structure>
+                                    <property name="format">pdf</property>
+                                    <expression name="valueExpr" type="javascript">true</expression>
+                                </structure>
+                                <structure>
+                                    <property name="format">ppt</property>
+                                    <expression name="valueExpr" type="javascript">true</expression>
+                                </structure>
+                                <structure>
+                                    <property name="format">pptx</property>
+                                    <expression name="valueExpr" type="javascript">true</expression>
+                                </structure>
+                                <structure>
+                                    <property name="format">xls</property>
+                                    <expression name="valueExpr" type="javascript">true</expression>
+                                </structure>
+                                <structure>
+                                    <property name="format">xls_spudsoft</property>
+                                    <expression name="valueExpr" type="javascript">true</expression>
+                                </structure>
+                                <structure>
+                                    <property name="format">xlsx</property>
+                                    <expression name="valueExpr" type="javascript">true</expression>
+                                </structure>
+                            </list-property>
+                            <expression name="valueExpr">"number of lines: " + row["Column Binding_4"]</expression>
+                            <property name="contentType">html</property>
+                        </text-data>
                     </cell>
-                    <cell id="988"/>
-                    <cell id="989"/>
-                    <cell id="990"/>
-                    <cell id="991"/>
-                    <cell id="992"/>
-                    <cell id="993"/>
-                    <cell id="994"/>
-                    <cell id="995"/>
-                    <cell id="996"/>
-                    <cell id="997"/>
-                    <cell id="998"/>
-                    <cell id="999"/>
-                    <cell id="1000"/>
-                    <cell id="1001"/>
-                    <cell id="1002"/>
-                    <cell id="1003"/>
-                    <cell id="1004"/>
                 </row>
                 <row id="776">
+                    <property name="fontWeight">bold</property>
                     <property name="borderBottomColor">#000000</property>
                     <property name="borderBottomStyle">solid</property>
                     <property name="borderBottomWidth">4px</property>
@@ -1605,13 +1679,13 @@ and bill_date <= ?]]></xml-property>
                     <cell id="777">
                         <label id="791">
                             <property name="backgroundColor">#E6E6FA</property>
-                            <text-property name="text">Code</text-property>
+                            <text-property name="text">Client Code</text-property>
                         </label>
                     </cell>
                     <cell id="797">
                         <label id="801">
                             <property name="backgroundColor">#E6E6FA</property>
-                            <text-property name="text">Name</text-property>
+                            <text-property name="text">Client Name</text-property>
                         </label>
                     </cell>
                     <cell id="778">
@@ -1635,7 +1709,7 @@ and bill_date <= ?]]></xml-property>
                     <cell id="810">
                         <label id="814">
                             <property name="backgroundColor">#ADD8E6</property>
-                            <text-property name="text">GMBH Code</text-property>
+                            <text-property name="text">Part Number</text-property>
                         </label>
                     </cell>
                     <cell id="816">
@@ -1649,76 +1723,44 @@ and bill_date <= ?]]></xml-property>
                             <property name="textAlign">center</property>
                             <text-property name="text">Qty</text-property>
                         </label>
-                        <data id="962">
-                            <structure name="numberFormat">
-                                <property name="category">Fixed</property>
-                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
-                            </structure>
-                            <property name="textAlign">right</property>
-                            <property name="resultSetColumn">Column Binding_1</property>
-                        </data>
                     </cell>
                     <cell id="828">
                         <label id="832">
                             <property name="textAlign">center</property>
                             <text-property name="text">USP</text-property>
                         </label>
-                        <data id="963">
-                            <structure name="numberFormat">
-                                <property name="category">Fixed</property>
-                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
-                            </structure>
-                            <property name="textAlign">right</property>
-                            <property name="resultSetColumn">Column Binding_2</property>
-                        </data>
                     </cell>
                     <cell id="834">
                         <label id="838">
                             <text-property name="text">Total</text-property>
                         </label>
-                        <data id="961">
-                            <structure name="numberFormat">
-                                <property name="category">Fixed</property>
-                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
-                            </structure>
-                            <property name="textAlign">right</property>
-                            <property name="resultSetColumn">Column Binding</property>
-                        </data>
                     </cell>
                     <cell id="840">
                         <label id="844">
                             <text-property name="text">UBP</text-property>
                         </label>
-                        <data id="964">
-                            <structure name="numberFormat">
-                                <property name="category">Fixed</property>
-                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
-                            </structure>
-                            <property name="textAlign">right</property>
-                            <property name="resultSetColumn">Column Binding_3</property>
-                        </data>
                     </cell>
                     <cell id="955">
                         <label id="959">
-                            <text-property name="text">Group 1</text-property>
+                            <text-property name="text">Category 1</text-property>
                         </label>
                     </cell>
                     <cell id="858">
                         <label id="862">
                             <property name="backgroundColor">#ADD8E6</property>
-                            <text-property name="text">Group 2cp</text-property>
+                            <text-property name="text">Category 2cp</text-property>
                         </label>
                     </cell>
                     <cell id="865">
                         <label id="869">
                             <property name="backgroundColor">#FFC0CB</property>
-                            <text-property name="text">ERP country</text-property>
+                            <text-property name="text">Country</text-property>
                         </label>
                     </cell>
                     <cell id="884">
                         <label id="888">
                             <property name="backgroundColor">#FFC0CB</property>
-                            <text-property name="text">ERP class</text-property>
+                            <text-property name="text">Class</text-property>
                         </label>
                     </cell>
                     <cell id="900">
@@ -1728,7 +1770,7 @@ and bill_date <= ?]]></xml-property>
                     </cell>
                     <cell id="925">
                         <label id="929">
-                            <text-property name="text">Provision</text-property>
+                            <text-property name="text">Sale Comission</text-property>
                         </label>
                     </cell>
                     <cell id="937">
@@ -1736,7 +1778,120 @@ and bill_date <= ?]]></xml-property>
                             <text-property name="text">Discount</text-property>
                         </label>
                     </cell>
-                    <cell id="951"/>
+                </row>
+                <row id="1026">
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">4px</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">4px</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">4px</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">4px</property>
+                    <list-property name="visibility">
+                        <structure>
+                            <property name="format">doc</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">docx</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">odp</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">ods</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">odt</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">pdf</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">ppt</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">pptx</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">xls</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">xls_spudsoft</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">xlsx</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                    </list-property>
+                    <cell id="1027"/>
+                    <cell id="1028"/>
+                    <cell id="1029"/>
+                    <cell id="1030"/>
+                    <cell id="1031"/>
+                    <cell id="1032"/>
+                    <cell id="1033"/>
+                    <cell id="1034">
+                        <data id="962">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">Column Binding_1</property>
+                        </data>
+                    </cell>
+                    <cell id="1035">
+                        <data id="963">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">Column Binding_2</property>
+                        </data>
+                    </cell>
+                    <cell id="1036">
+                        <data id="961">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">Column Binding</property>
+                        </data>
+                    </cell>
+                    <cell id="1037">
+                        <data id="964">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">Column Binding_3</property>
+                        </data>
+                    </cell>
+                    <cell id="1038"/>
+                    <cell id="1039"/>
+                    <cell id="1040"/>
+                    <cell id="1041"/>
+                    <cell id="1042"/>
+                    <cell id="1043"/>
+                    <cell id="1044"/>
                 </row>
             </header>
             <detail>
@@ -1781,14 +1936,10 @@ and bill_date <= ?]]></xml-property>
                     </cell>
                     <cell id="804">
                         <property name="textAlign">right</property>
-                        <data id="809">
-                            <property name="backgroundColor">#BFBFBF</property>
-                            <structure name="dateTimeFormat">
-                                <property name="category">Custom</property>
-                                <property name="pattern">MM</property>
-                            </structure>
-                            <property name="resultSetColumn">bill_date</property>
-                        </data>
+                        <text-data id="1047">
+                            <expression name="valueExpr">row["bill_date"].getMonth()+1</expression>
+                            <property name="contentType">html</property>
+                        </text-data>
                     </cell>
                     <cell id="783">
                         <data id="796">
@@ -1892,34 +2043,8 @@ and bill_date <= ?]]></xml-property>
                             <property name="resultSetColumn">discount</property>
                         </data>
                     </cell>
-                    <cell id="952">
-                        <property name="textAlign">right</property>
-                    </cell>
                 </row>
             </detail>
-            <footer>
-                <row id="784">
-                    <cell id="785"/>
-                    <cell id="799"/>
-                    <cell id="786"/>
-                    <cell id="805"/>
-                    <cell id="787"/>
-                    <cell id="812"/>
-                    <cell id="818"/>
-                    <cell id="824"/>
-                    <cell id="830"/>
-                    <cell id="836"/>
-                    <cell id="842"/>
-                    <cell id="957"/>
-                    <cell id="860"/>
-                    <cell id="867"/>
-                    <cell id="886"/>
-                    <cell id="902"/>
-                    <cell id="927"/>
-                    <cell id="939"/>
-                    <cell id="953"/>
-                </row>
-            </footer>
         </table>
     </body>
 </report>
