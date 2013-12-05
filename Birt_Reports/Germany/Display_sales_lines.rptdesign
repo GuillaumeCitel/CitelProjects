@@ -868,7 +868,7 @@
 list_of_excluded_codes = [];
 list_of_excluded_customer_erp_class_names = [];
 if (reportContext.getParameterValue("excluded_codes") == 'transport&amp;packaging') {
-	list_of_excluded_codes = ["1000","1001","1002-SCUH","1003"];
+	list_of_excluded_codes = ["1000","1002-SCUH","1003"];
 }
 if (reportContext.getParameterValue("customer_erp_class_name") == 'All_Except_Russia'){
 	list_of_excluded_customer_erp_class_names = ["export Russia"];
@@ -1201,7 +1201,7 @@ and bill_date <= ?]]></xml-property>
             <property name="type">custom</property>
             <property name="orientation">landscape</property>
             <property name="height">210mm</property>
-            <property name="width">520mm</property>
+            <property name="width">600mm</property>
             <page-footer>
                 <text id="3">
                     <property name="contentType">html</property>
