@@ -813,41 +813,30 @@ where bill_id = bill_id]]></xml-property>
         </simple-master-page>
     </page-setup>
     <body>
-        <grid id="757">
-            <property name="width">9.177083333333334in</property>
+        <text-data id="996">
             <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Column Binding_2</property>
+                    <expression name="expression" type="javascript">new Date(params["year"].value,params["month"].value-1)</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
                 <structure>
                     <property name="name">Column Binding</property>
                     <expression name="expression" type="javascript">params["year"].value</expression>
-                    <property name="dataType">integer</property>
+                    <property name="dataType">string</property>
                     <property name="allowExport">true</property>
                 </structure>
                 <structure>
                     <property name="name">Column Binding_1</property>
                     <expression name="expression" type="javascript">params["month"].value</expression>
-                    <property name="dataType">integer</property>
-                    <property name="allowExport">true</property>
-                </structure>
-                <structure>
-                    <property name="name">Column Binding_2</property>
-                    <expression name="expression" type="javascript">new Date(params["year"].value,params["month"].value-1)</expression>
-                    <property name="dataType">date-time</property>
+                    <property name="dataType">string</property>
                     <property name="allowExport">true</property>
                 </structure>
             </list-property>
-            <column id="995">
-                <property name="width">1.4375in</property>
-            </column>
-            <row id="771">
-                <property name="fontWeight">bold</property>
-                <cell id="994">
-                    <text-data id="996">
-                        <expression name="valueExpr">row["Column Binding_2"]+" REPORTING CITEL GmBH Currency: Euro " + row["Column Binding"] + " " + row["Column Binding_1"]</expression>
-                        <property name="contentType">html</property>
-                    </text-data>
-                </cell>
-            </row>
-        </grid>
+            <expression name="valueExpr">row["Column Binding_2"]+" REPORTING CITEL GmBH Currency: Euro " + row["Column Binding"] + " " + row["Column Binding_1"]</expression>
+            <property name="contentType">html</property>
+        </text-data>
         <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="802">
             <property name="cube">Data Cube</property>
             <property name="measures">
