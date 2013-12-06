@@ -73,127 +73,6 @@
         </parameter-group>
         <parameter-group name="parameters" id="949">
             <parameters>
-                <scalar-parameter name="customer_nb1" id="934">
-                    <text-property name="promptText">customer code</text-property>
-                    <property name="valueType">static</property>
-                    <property name="isRequired">true</property>
-                    <property name="dataType">string</property>
-                    <property name="distinct">true</property>
-                    <simple-property-list name="defaultValue">
-                        <value type="constant">All</value>
-                    </simple-property-list>
-                    <list-property name="selectionList"/>
-                    <property name="paramType">simple</property>
-                    <property name="controlType">text-box</property>
-                    <structure name="format">
-                        <property name="category">Unformatted</property>
-                    </structure>
-                </scalar-parameter>
-                <scalar-parameter name="customer_nb2" id="932">
-                    <text-property name="promptText">customer name</text-property>
-                    <property name="valueType">dynamic</property>
-                    <property name="dataSetName">customer_list</property>
-                    <expression name="valueExpr" type="javascript">dataSetRow["customer_nb"]</expression>
-                    <expression name="labelExpr" type="javascript">dataSetRow["customer_name"]</expression>
-                    <expression name="sortByColumn">dataSetRow["customer_name"]</expression>
-                    <property name="sortDirection">asc</property>
-                    <property name="dataType">string</property>
-                    <property name="distinct">true</property>
-                    <simple-property-list name="defaultValue">
-                        <value type="constant">All</value>
-                    </simple-property-list>
-                    <list-property name="selectionList"/>
-                    <property name="paramType">simple</property>
-                    <property name="controlType">list-box</property>
-                    <property name="mustMatch">true</property>
-                    <property name="fixedOrder">false</property>
-                    <structure name="format">
-                        <property name="category">Unformatted</property>
-                    </structure>
-                </scalar-parameter>
-                <scalar-parameter name="product_gmbh_code1" id="945">
-                    <text-property name="promptText">product code</text-property>
-                    <property name="valueType">static</property>
-                    <expression name="sortByColumn">dataSetRow["product_name"]</expression>
-                    <property name="sortDirection">asc</property>
-                    <property name="dataType">string</property>
-                    <property name="distinct">true</property>
-                    <simple-property-list name="defaultValue">
-                        <value type="constant">All</value>
-                    </simple-property-list>
-                    <list-property name="selectionList"/>
-                    <property name="paramType">simple</property>
-                    <property name="controlType">text-box</property>
-                    <structure name="format">
-                        <property name="category">Unformatted</property>
-                    </structure>
-                </scalar-parameter>
-                <scalar-parameter name="product_gmbh_code2" id="924">
-                    <text-property name="promptText">product name</text-property>
-                    <property name="valueType">dynamic</property>
-                    <property name="dataSetName">gmbh_product_list</property>
-                    <expression name="valueExpr" type="javascript">dataSetRow["product_gmbh_code"]</expression>
-                    <expression name="labelExpr" type="javascript">dataSetRow["product_gmbh_code"]</expression>
-                    <expression name="sortByColumn">dataSetRow["product_name"]</expression>
-                    <property name="sortDirection">asc</property>
-                    <property name="dataType">string</property>
-                    <property name="distinct">true</property>
-                    <simple-property-list name="defaultValue">
-                        <value type="constant">All</value>
-                    </simple-property-list>
-                    <list-property name="selectionList"/>
-                    <property name="paramType">simple</property>
-                    <property name="controlType">list-box</property>
-                    <property name="mustMatch">true</property>
-                    <property name="fixedOrder">false</property>
-                    <structure name="format">
-                        <property name="category">Unformatted</property>
-                    </structure>
-                </scalar-parameter>
-                <scalar-parameter name="group_2cp" id="943">
-                    <text-property name="promptText">group 2cp</text-property>
-                    <property name="valueType">dynamic</property>
-                    <property name="dataSetName">group_2cp_list</property>
-                    <expression name="valueExpr" type="javascript">dataSetRow["group_2cp"]</expression>
-                    <expression name="labelExpr" type="javascript">dataSetRow["group_2cp"]</expression>
-                    <expression name="sortByColumn">dataSetRow["group_2cp"]</expression>
-                    <property name="sortDirection">asc</property>
-                    <property name="dataType">string</property>
-                    <property name="distinct">true</property>
-                    <simple-property-list name="defaultValue">
-                        <value type="constant">All</value>
-                    </simple-property-list>
-                    <list-property name="selectionList"/>
-                    <property name="paramType">simple</property>
-                    <property name="controlType">list-box</property>
-                    <property name="mustMatch">true</property>
-                    <property name="fixedOrder">false</property>
-                    <structure name="format">
-                        <property name="category">Unformatted</property>
-                    </structure>
-                </scalar-parameter>
-                <scalar-parameter name="country" id="946">
-                    <text-property name="promptText">country</text-property>
-                    <property name="valueType">dynamic</property>
-                    <property name="dataSetName">country_list</property>
-                    <expression name="valueExpr" type="javascript">dataSetRow["erp_country"]</expression>
-                    <expression name="labelExpr" type="javascript">dataSetRow["erp_country"]</expression>
-                    <expression name="sortByColumn">dataSetRow["erp_country"]</expression>
-                    <property name="sortDirection">asc</property>
-                    <property name="dataType">string</property>
-                    <property name="distinct">true</property>
-                    <simple-property-list name="defaultValue">
-                        <value type="constant">All</value>
-                    </simple-property-list>
-                    <list-property name="selectionList"/>
-                    <property name="paramType">simple</property>
-                    <property name="controlType">list-box</property>
-                    <property name="mustMatch">true</property>
-                    <property name="fixedOrder">false</property>
-                    <structure name="format">
-                        <property name="category">Unformatted</property>
-                    </structure>
-                </scalar-parameter>
                 <scalar-parameter name="customer_erp_class_name" id="950">
                     <text-property name="promptText">country class</text-property>
                     <property name="valueType">static</property>
@@ -234,6 +113,67 @@
                         <property name="category">Unformatted</property>
                     </structure>
                 </scalar-parameter>
+                <scalar-parameter name="group_2cp" id="943">
+                    <text-property name="promptText">2CP Categories</text-property>
+                    <property name="valueType">dynamic</property>
+                    <property name="dataSetName">group_2cp_list</property>
+                    <expression name="valueExpr" type="javascript">dataSetRow["group_2cp"]</expression>
+                    <expression name="labelExpr" type="javascript">dataSetRow["group_2cp"]</expression>
+                    <expression name="sortByColumn">dataSetRow["group_2cp"]</expression>
+                    <property name="sortDirection">asc</property>
+                    <property name="dataType">string</property>
+                    <property name="distinct">true</property>
+                    <simple-property-list name="defaultValue">
+                        <value type="constant">All</value>
+                    </simple-property-list>
+                    <list-property name="selectionList"/>
+                    <property name="paramType">simple</property>
+                    <property name="controlType">list-box</property>
+                    <property name="mustMatch">true</property>
+                    <property name="fixedOrder">false</property>
+                    <structure name="format">
+                        <property name="category">Unformatted</property>
+                    </structure>
+                </scalar-parameter>
+                <scalar-parameter name="product_gmbh_code1" id="924">
+                    <text-property name="promptText">product name</text-property>
+                    <property name="valueType">dynamic</property>
+                    <property name="dataSetName">gmbh_product_list</property>
+                    <expression name="valueExpr" type="javascript">dataSetRow["product_gmbh_code"]</expression>
+                    <expression name="labelExpr" type="javascript">dataSetRow["product_name"]</expression>
+                    <expression name="sortByColumn">dataSetRow["product_name"]</expression>
+                    <property name="sortDirection">asc</property>
+                    <property name="dataType">string</property>
+                    <property name="distinct">true</property>
+                    <simple-property-list name="defaultValue">
+                        <value type="constant">All</value>
+                    </simple-property-list>
+                    <list-property name="selectionList"/>
+                    <property name="paramType">simple</property>
+                    <property name="controlType">list-box</property>
+                    <property name="mustMatch">true</property>
+                    <property name="fixedOrder">false</property>
+                    <structure name="format">
+                        <property name="category">Unformatted</property>
+                    </structure>
+                </scalar-parameter>
+                <scalar-parameter name="product_gmbh_code2" id="945">
+                    <text-property name="promptText">product code</text-property>
+                    <property name="valueType">static</property>
+                    <expression name="sortByColumn">dataSetRow["product_name"]</expression>
+                    <property name="sortDirection">asc</property>
+                    <property name="dataType">string</property>
+                    <property name="distinct">true</property>
+                    <simple-property-list name="defaultValue">
+                        <value type="constant">All</value>
+                    </simple-property-list>
+                    <list-property name="selectionList"/>
+                    <property name="paramType">simple</property>
+                    <property name="controlType">text-box</property>
+                    <structure name="format">
+                        <property name="category">Unformatted</property>
+                    </structure>
+                </scalar-parameter>
                 <scalar-parameter name="seller_name" id="907">
                     <property name="hidden">false</property>
                     <text-property name="promptText">seller name</text-property>
@@ -243,6 +183,66 @@
                     <expression name="valueExpr" type="javascript">dataSetRow["seller_name"]</expression>
                     <expression name="labelExpr" type="javascript">dataSetRow["seller_name"]</expression>
                     <expression name="sortByColumn">dataSetRow["seller_name"]</expression>
+                    <property name="sortDirection">asc</property>
+                    <property name="dataType">string</property>
+                    <property name="distinct">true</property>
+                    <simple-property-list name="defaultValue">
+                        <value type="constant">All</value>
+                    </simple-property-list>
+                    <list-property name="selectionList"/>
+                    <property name="paramType">simple</property>
+                    <property name="controlType">list-box</property>
+                    <property name="mustMatch">true</property>
+                    <property name="fixedOrder">false</property>
+                    <structure name="format">
+                        <property name="category">Unformatted</property>
+                    </structure>
+                </scalar-parameter>
+                <scalar-parameter name="customer_nb1" id="934">
+                    <text-property name="promptText">customer code</text-property>
+                    <property name="valueType">static</property>
+                    <property name="isRequired">true</property>
+                    <property name="dataType">string</property>
+                    <property name="distinct">true</property>
+                    <simple-property-list name="defaultValue">
+                        <value type="constant">All</value>
+                    </simple-property-list>
+                    <list-property name="selectionList"/>
+                    <property name="paramType">simple</property>
+                    <property name="controlType">text-box</property>
+                    <structure name="format">
+                        <property name="category">Unformatted</property>
+                    </structure>
+                </scalar-parameter>
+                <scalar-parameter name="customer_nb2" id="932">
+                    <text-property name="promptText">customer name</text-property>
+                    <property name="valueType">dynamic</property>
+                    <property name="dataSetName">customer_list</property>
+                    <expression name="valueExpr" type="javascript">dataSetRow["customer_nb"]</expression>
+                    <expression name="labelExpr" type="javascript">dataSetRow["customer_name"]</expression>
+                    <expression name="sortByColumn">dataSetRow["customer_name"]</expression>
+                    <property name="sortDirection">asc</property>
+                    <property name="dataType">string</property>
+                    <property name="distinct">true</property>
+                    <simple-property-list name="defaultValue">
+                        <value type="constant">All</value>
+                    </simple-property-list>
+                    <list-property name="selectionList"/>
+                    <property name="paramType">simple</property>
+                    <property name="controlType">list-box</property>
+                    <property name="mustMatch">true</property>
+                    <property name="fixedOrder">false</property>
+                    <structure name="format">
+                        <property name="category">Unformatted</property>
+                    </structure>
+                </scalar-parameter>
+                <scalar-parameter name="country" id="946">
+                    <text-property name="promptText">country</text-property>
+                    <property name="valueType">dynamic</property>
+                    <property name="dataSetName">country_list</property>
+                    <expression name="valueExpr" type="javascript">dataSetRow["erp_country"]</expression>
+                    <expression name="labelExpr" type="javascript">dataSetRow["erp_country"]</expression>
+                    <expression name="sortByColumn">dataSetRow["erp_country"]</expression>
                     <property name="sortDirection">asc</property>
                     <property name="dataType">string</property>
                     <property name="distinct">true</property>
