@@ -834,6 +834,10 @@ where bill_id = bill_id]]></xml-property>
             </column>
             <row id="1023">
                 <cell id="1024">
+                    <property name="paddingTop">0pt</property>
+                    <property name="paddingLeft">0pt</property>
+                    <property name="paddingBottom">0pt</property>
+                    <property name="paddingRight">0pt</property>
                     <label id="1026">
                         <text-property name="text">Date:</text-property>
                     </label>
@@ -841,6 +845,10 @@ where bill_id = bill_id]]></xml-property>
                 <cell id="1025">
                     <data id="1027">
                         <property name="fontWeight">bold</property>
+                        <property name="paddingTop">0pt</property>
+                        <property name="paddingLeft">0pt</property>
+                        <property name="paddingBottom">0pt</property>
+                        <property name="paddingRight">0pt</property>
                         <structure name="dateTimeFormat">
                             <property name="category">Custom</property>
                             <property name="pattern">MMMM yyyy</property>
@@ -863,6 +871,10 @@ where bill_id = bill_id]]></xml-property>
             </column>
             <row id="1014">
                 <cell id="1015">
+                    <property name="paddingTop">0pt</property>
+                    <property name="paddingLeft">0pt</property>
+                    <property name="paddingBottom">0pt</property>
+                    <property name="paddingRight">0pt</property>
                     <label id="1018">
                         <text-property name="text">Currency:</text-property>
                     </label>
@@ -870,6 +882,10 @@ where bill_id = bill_id]]></xml-property>
                 <cell id="1016">
                     <label id="1019">
                         <property name="fontWeight">bold</property>
+                        <property name="paddingTop">0pt</property>
+                        <property name="paddingLeft">0pt</property>
+                        <property name="paddingBottom">0pt</property>
+                        <property name="paddingRight">0pt</property>
                         <text-property name="text">Euro</text-property>
                     </label>
                 </cell>
