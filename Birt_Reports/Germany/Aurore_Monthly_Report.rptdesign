@@ -817,47 +817,58 @@ where bill_id = bill_id]]></xml-property>
             <property name="fontWeight">bold</property>
             <text-property name="text">MONTHLY REPORT OF CITEL GMBH</text-property>
         </label>
-        <grid id="1020">
-            <list-property name="boundDataColumns">
-                <structure>
-                    <property name="name">Column Binding</property>
-                    <expression name="expression" type="javascript">params["year"].value+"-"+params["month"].value</expression>
-                    <property name="dataType">string</property>
-                    <property name="allowExport">true</property>
-                </structure>
-            </list-property>
-            <column id="1021">
-                <property name="width">0.4375in</property>
+        <grid id="1028">
+            <column id="1029">
+                <property name="width">0.53125in</property>
             </column>
-            <column id="1022">
-                <property name="width">10.697916666666666in</property>
+            <column id="1030">
+                <property name="width">10.604166666666666in</property>
             </column>
-            <row id="1023">
-                <cell id="1024">
-                    <property name="paddingTop">0pt</property>
-                    <property name="paddingLeft">0pt</property>
-                    <property name="paddingBottom">0pt</property>
-                    <property name="paddingRight">0pt</property>
-                    <label id="1026">
-                        <text-property name="text">Date:</text-property>
+            <row id="1031">
+                <cell id="1032">
+                    <label id="1034">
+                        <text-property name="text">Month:</text-property>
                     </label>
                 </cell>
-                <cell id="1025">
-                    <data id="1027">
+                <cell id="1033">
+                    <data id="1035">
                         <property name="fontWeight">bold</property>
-                        <property name="paddingTop">0pt</property>
-                        <property name="paddingLeft">0pt</property>
-                        <property name="paddingBottom">0pt</property>
-                        <property name="paddingRight">0pt</property>
-                        <structure name="dateTimeFormat">
-                            <property name="category">Custom</property>
-                            <property name="pattern">MMMM yyyy</property>
-                            <property name="locale">en</property>
-                        </structure>
-                        <structure name="stringFormat">
-                            <property name="category">Unformatted</property>
-                        </structure>
-                        <property name="resultSetColumn">Column Binding</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">month</property>
+                                <expression name="expression" type="javascript">params["month"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">month</property>
+                    </data>
+                </cell>
+            </row>
+        </grid>
+        <grid id="1036">
+            <column id="1037">
+                <property name="width">0.4270833333333333in</property>
+            </column>
+            <column id="1038">
+                <property name="width">10.708333333333334in</property>
+            </column>
+            <row id="1039">
+                <cell id="1040">
+                    <label id="1042">
+                        <text-property name="text">Year:</text-property>
+                    </label>
+                </cell>
+                <cell id="1041">
+                    <data id="1043">
+                        <property name="fontWeight">bold</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">year</property>
+                                <expression name="expression" type="javascript">params["year"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">year</property>
                     </data>
                 </cell>
             </row>
