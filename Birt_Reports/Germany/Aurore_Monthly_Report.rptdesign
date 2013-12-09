@@ -834,7 +834,7 @@ where bill_id = bill_id]]></xml-property>
                     <property name="allowExport">true</property>
                 </structure>
             </list-property>
-            <expression name="valueExpr">row["Column Binding_2"]+" REPORTING CITEL GmBH Currency: Euro " + row["Column Binding"] + " " + row["Column Binding_1"]</expression>
+            <expression name="valueExpr">BirtDateTime.month(row["Column Binding_2"],2)+" "+BirtDateTime.year(row["Column Binding_2"])+" REPORTING CITEL GmBH Currency: Euro " + row["Column Binding"] + " " + row["Column Binding_1"]</expression>
             <property name="contentType">html</property>
         </text-data>
         <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="802">
@@ -901,6 +901,7 @@ where bill_id = bill_id]]></xml-property>
                                         <property name="category">Fixed</property>
                                         <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
                                     </structure>
+                                    <property name="display">block</property>
                                     <property name="resultSetColumn">total_gross_sell_price_with_discount_Group4/customer_erp_class_name</property>
                                 </data>
                             </property>
@@ -1144,6 +1145,11 @@ else if (data["group_2cp"] == 'Beacons'){
 	9;
 }</expression>
                     <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">Column Binding_1</property>
+                    <expression name="expression" type="javascript">data["Column Binding"]</expression>
+                    <property name="dataType">float</property>
                 </structure>
             </list-property>
         </extended-item>
