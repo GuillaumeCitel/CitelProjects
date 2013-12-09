@@ -1765,7 +1765,7 @@ and bill_date <= ?]]></xml-property>
                     </cell>
                     <cell id="900">
                         <label id="904">
-                            <text-property name="text">Seller name</text-property>
+                            <text-property name="text">Salesman</text-property>
                         </label>
                     </cell>
                     <cell id="925">
