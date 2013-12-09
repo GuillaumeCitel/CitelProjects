@@ -817,11 +817,43 @@ where bill_id = bill_id]]></xml-property>
             <property name="fontWeight">bold</property>
             <text-property name="text">MONTHLY REPORT OF CITEL GMBH</text-property>
         </label>
-        <text-data id="998">
-            <structure name="toc"/>
-            <expression name="valueExpr">"Date: " + BirtDateTime.month(params["year"].value+"-"+params["month"].value,2)+" "+params["year"].value</expression>
-            <property name="contentType">html</property>
-        </text-data>
+        <grid id="1020">
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Column Binding</property>
+                    <expression name="expression" type="javascript">params["year"].value+"-"+params["month"].value</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <column id="1021">
+                <property name="width">0.4375in</property>
+            </column>
+            <column id="1022">
+                <property name="width">10.697916666666666in</property>
+            </column>
+            <row id="1023">
+                <cell id="1024">
+                    <label id="1026">
+                        <text-property name="text">Date:</text-property>
+                    </label>
+                </cell>
+                <cell id="1025">
+                    <data id="1027">
+                        <property name="fontWeight">bold</property>
+                        <structure name="dateTimeFormat">
+                            <property name="category">Custom</property>
+                            <property name="pattern">MMMM yyyy</property>
+                            <property name="locale">en</property>
+                        </structure>
+                        <structure name="stringFormat">
+                            <property name="category">Unformatted</property>
+                        </structure>
+                        <property name="resultSetColumn">Column Binding</property>
+                    </data>
+                </cell>
+            </row>
+        </grid>
         <grid id="1010">
             <column id="1011">
                 <property name="width">0.7083333333333334in</property>
@@ -837,14 +869,12 @@ where bill_id = bill_id]]></xml-property>
                 </cell>
                 <cell id="1016">
                     <label id="1019">
+                        <property name="fontWeight">bold</property>
                         <text-property name="text">Euro</text-property>
                     </label>
                 </cell>
             </row>
         </grid>
-        <label id="1008">
-            <text-property name="text">Currency: Euro</text-property>
-        </label>
         <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="802">
             <property name="cube">Data Cube</property>
             <property name="measures">
