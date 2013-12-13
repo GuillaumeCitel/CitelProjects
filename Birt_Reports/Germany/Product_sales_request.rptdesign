@@ -129,13 +129,8 @@
         </parameter-group>
     </parameters>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="kettlede" id="696"
- extends="library.kettlede">
-            <property name="odaDriverClass">org.postgresql.Driver</property>
-            <property name="odaURL">jdbc:postgresql://localhost:5432/kettlede</property>
-            <property name="odaUser">kettlede</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">MTIza2V0dGxlZGU=</encrypted-property>
-        </oda-data-source>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="kettlede" id="949"
+ extends="library.kettlede"/>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="sales" id="528">
