@@ -129,7 +129,7 @@
         </parameter-group>
     </parameters>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="kettlede" id="949"
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="kettlede" id="950"
  extends="library.kettlede"/>
     </data-sources>
     <data-sets>
