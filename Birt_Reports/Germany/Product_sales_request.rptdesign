@@ -799,8 +799,6 @@ and bill_date <= ?]]></xml-property>
   </design:ResultSets>
 </model:DesignValues>]]></xml-property>
         </oda-data-set>
-        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="gmbh_product_list" id="697"
- extends="library.gmbh_product_list"/>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="gmbh_product_list_research" id="938">
             <list-property name="columnHints">
                 <structure>
@@ -882,6 +880,8 @@ where product_name like ?]]></xml-property>
   </DataSetParameters>
 </model:DesignValues>]]></xml-property>
         </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="gmbh_product_list" id="951"
+ extends="library.gmbh_product_list"/>
     </data-sets>
     <styles>
         <style name="report" id="4">
