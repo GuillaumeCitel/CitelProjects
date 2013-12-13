@@ -8,8 +8,8 @@
     <property name="imageDPI">96</property>
     <list-property name="libraries">
         <structure>
-            <property name="fileName">China_UFDATA_001-2013/library-China.rptlibrary</property>
-            <property name="namespace">library-China</property>
+            <property name="fileName">China_UFDATA_001-2013/library.rptlibrary</property>
+            <property name="namespace">library</property>
         </structure>
     </list-property>
     <parameters>
@@ -35,13 +35,8 @@
         </scalar-parameter>
     </parameters>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="China_UFDATA_001_2013" id="686"
- extends="library-China.China_UFDATA_001_2013">
-            <property name="odaDriverClass">org.postgresql.Driver</property>
-            <property name="odaURL">jdbc:postgresql://localhost:5432/China_UFDATA_001_2013</property>
-            <property name="odaUser">kettlesh</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">MTIza2V0dGxlc2g=</encrypted-property>
-        </oda-data-source>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="China_UFDATA_001_2013" id="687"
+ extends="library.China_UFDATA_001_2013"/>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="sales" id="528">

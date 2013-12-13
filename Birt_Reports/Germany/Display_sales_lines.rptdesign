@@ -199,7 +199,7 @@
                     </structure>
                 </scalar-parameter>
                 <scalar-parameter name="customer_nb1" id="934">
-                    <text-property name="promptText">customer code</text-property>
+                    <text-property name="promptText">client code</text-property>
                     <property name="valueType">static</property>
                     <property name="isRequired">true</property>
                     <property name="dataType">string</property>
@@ -215,7 +215,7 @@
                     </structure>
                 </scalar-parameter>
                 <scalar-parameter name="customer_nb2" id="932">
-                    <text-property name="promptText">customer name</text-property>
+                    <text-property name="promptText">client name</text-property>
                     <property name="valueType">dynamic</property>
                     <property name="dataSetName">customer_list</property>
                     <expression name="valueExpr" type="javascript">dataSetRow["customer_nb"]</expression>
