@@ -68,50 +68,6 @@
   <notepads>
   </notepads>
   <connection>
-    <name>China_UFDATA_001_2013</name>
-    <server>localhost</server>
-    <type>POSTGRESQL</type>
-    <access>Native</access>
-    <database>China_UFDATA_001_2013</database>
-    <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>China_UFDATA_003_2013</name>
-    <server>localhost</server>
-    <type>POSTGRESQL</type>
-    <access>Native</access>
-    <database>China_UFDATA_003_2013</database>
-    <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
     <name>kettlede</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
@@ -274,6 +230,10 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>stock_price</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
@@ -303,6 +263,7 @@ var gmbh_code = ARNR;&#47;&#47;string
 var name = BEZ;&#47;&#47;string
 var gmbh_group_1 = GRU;&#47;&#47;String
 var gmbh_group_2 = MWKZ; &#47;&#47;string There is differences between 1 and 2 sometimes. I don&apos;t know why
+var stock_price = EK;&#47;&#47;number
 
 </jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>gmbh_code</name>
@@ -326,6 +287,12 @@ var gmbh_group_2 = MWKZ; &#47;&#47;string There is differences between 1 and 2 s
       </field>      <field>        <name>gmbh_group_2</name>
         <rename>gmbh_group_2</rename>
         <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>stock_price</name>
+        <rename>stock_price</rename>
+        <type>Number</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>

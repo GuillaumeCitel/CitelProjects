@@ -68,50 +68,6 @@
   <notepads>
   </notepads>
   <connection>
-    <name>China_UFDATA_001_2013</name>
-    <server>localhost</server>
-    <type>POSTGRESQL</type>
-    <access>Native</access>
-    <database>China_UFDATA_001_2013</database>
-    <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>China_UFDATA_003_2013</name>
-    <server>localhost</server>
-    <type>POSTGRESQL</type>
-    <access>Native</access>
-    <database>China_UFDATA_003_2013</database>
-    <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
     <name>kettlede</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
@@ -313,12 +269,15 @@ GROUP BY
     <replace_variables>N</replace_variables>
     <sql>CREATE OR REPLACE VIEW stocks AS
 SELECT
-	in_stock.product_gmbh_code,
-	qty_in_stock,
-	qty_reserved
+	artikel.gmbh_code as product_gmbh_code,
+	artikel.stock_price,
+	in_stock.qty_in_stock,
+	reserved_stock.qty_reserved,
+	in_stock.qty_in_stock*artikel.stock_price as stock_value
 FROM
-	in_stock
-LEFT OUTER JOIN reserved_stock on in_stock.product_gmbh_code = reserved_stock.product_gmbh_code
+	artikel
+LEFT OUTER JOIN in_stock on artikel.gmbh_code = in_stock.product_gmbh_code
+LEFT OUTER JOIN reserved_stock on artikel.gmbh_code = reserved_stock.product_gmbh_code
 	
 	
 	</sql>
