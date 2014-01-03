@@ -894,16 +894,19 @@ where product_name ilike ?]]></xml-property>
             <list-property name="columnHints">
                 <structure>
                     <property name="columnName">product_gmbh_code</property>
+                    <property name="analysis">dimension</property>
                     <text-property name="displayName">product_gmbh_code</text-property>
                     <text-property name="heading">product_gmbh_code</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">qty_in_stock</property>
+                    <property name="analysis">measure</property>
                     <text-property name="displayName">qty_in_stock</text-property>
                     <text-property name="heading">qty_in_stock</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">qty_reserved</property>
+                    <property name="analysis">measure</property>
                     <text-property name="displayName">qty_reserved</text-property>
                     <text-property name="heading">qty_reserved</text-property>
                 </structure>
@@ -917,12 +920,22 @@ where product_name ilike ?]]></xml-property>
                     </structure>
                     <structure>
                         <property name="position">2</property>
-                        <property name="name">qty_in_stock</property>
+                        <property name="name">stock_price</property>
                         <property name="dataType">float</property>
                     </structure>
                     <structure>
                         <property name="position">3</property>
+                        <property name="name">qty_in_stock</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
                         <property name="name">qty_reserved</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">stock_value</property>
                         <property name="dataType">float</property>
                     </structure>
                 </list-property>
@@ -955,21 +968,30 @@ this.queryText = query_select + query_from + query_where;]]></method>
                     <property name="name">product_gmbh_code</property>
                     <property name="nativeName">product_gmbh_code</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
-                    <property name="name">qty_in_stock</property>
-                    <property name="nativeName">qty_in_stock</property>
+                    <property name="name">stock_price</property>
+                    <property name="nativeName">stock_price</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
+                    <property name="name">qty_in_stock</property>
+                    <property name="nativeName">qty_in_stock</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
                     <property name="name">qty_reserved</property>
                     <property name="nativeName">qty_reserved</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">stock_value</property>
+                    <property name="nativeName">stock_value</property>
+                    <property name="dataType">float</property>
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[select *
@@ -2428,7 +2450,7 @@ else {
             <property name="dataBindingRef">Table1</property>
         </extended-item>
         <grid id="1004">
-            <property name="width">7in</property>
+            <property name="width">8.5in</property>
             <property name="dataSet">stocks</property>
             <list-property name="boundDataColumns">
                 <structure>
@@ -2479,15 +2501,30 @@ else {
                     <property name="dataType">float</property>
                     <property name="allowExport">true</property>
                 </structure>
+                <structure>
+                    <property name="name">stock_price</property>
+                    <text-property name="displayName">stock_price</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["stock_price"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">stock_value</property>
+                    <text-property name="displayName">stock_value</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["stock_value"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
             </list-property>
             <column id="1005">
-                <property name="width">1.5729166666666667in</property>
+                <property name="width">2in</property>
             </column>
             <column id="1006">
-                <property name="width">1.7083333333333333in</property>
+                <property name="width">2in</property>
             </column>
             <column id="1007">
-                <property name="width">2.3020833333333335in</property>
+                <property name="width">2in</property>
+            </column>
+            <column id="1022">
+                <property name="width">2.4375in</property>
             </column>
             <row id="1008">
                 <property name="fontSize">medium</property>
@@ -2507,6 +2544,12 @@ else {
                 <cell id="1011">
                     <text-data id="1020">
                         <expression name="valueExpr">"Available: "+row["Column Binding"]</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="1021">
+                    <text-data id="1023">
+                        <expression name="valueExpr">"Stock price: "+row["stock_price"]</expression>
                         <property name="contentType">html</property>
                     </text-data>
                 </cell>
