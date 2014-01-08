@@ -12,14 +12,14 @@
     <parameters>
     </parameters>
   <connection>
-    <name>China_UFDATA_001_2013</name>
+    <name>kettlede</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>China_UFDATA_001_2013</database>
+    <database>kettlede</database>
     <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
+    <username>kettlede</username>
+    <password>Encrypted 2be98afc86a96c0d7a01cba64d297abdf</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -34,14 +34,14 @@
     </attributes>
   </connection>
   <connection>
-    <name>Germany_Extract_DBF</name>
+    <name>PostGre_China</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>Germany_Extract_DBF</database>
+    <database>${Apgsql_db_name}</database>
     <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
+    <username>kettlesh</username>
+    <password>Encrypted 2be98afc86a96c0d7a01cba64d297bcd2</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -56,11 +56,11 @@
     </attributes>
   </connection>
   <connection>
-    <name>SQL_Server_China_001_2013</name>
-    <server>192.168.1.254</server>
+    <name>SQL_Server_China</name>
+    <server>${Amssql_server}</server>
     <type>MSSQL</type>
     <access>Native</access>
-    <database>UFDATA_001_2013</database>
+    <database>${Amssql_db_name}</database>
     <port>1433</port>
     <username>viewer</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79ce10becaf782</password>
@@ -121,7 +121,7 @@
       <yloc>105</yloc>
       </entry>
     <entry>
-      <name>Transformation</name>
+      <name>extract_CurrentStock</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
@@ -153,12 +153,12 @@
       <yloc>114</yloc>
       </entry>
     <entry>
-      <name>Transformation 2</name>
+      <name>extract_CRM_Customer_List</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${Internal.Job.Filename.Directory}&#47;extract_Customer.ktr</filename>
+      <filename>${Internal.Job.Filename.Directory}&#47;extract_CRM_Customer_List.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -185,7 +185,7 @@
       <yloc>136</yloc>
       </entry>
     <entry>
-      <name>Transformation 3</name>
+      <name>extract_Inventory</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
@@ -217,7 +217,7 @@
       <yloc>180</yloc>
       </entry>
     <entry>
-      <name>Transformation 4</name>
+      <name>extract_InventoryClass</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
@@ -249,7 +249,7 @@
       <yloc>231</yloc>
       </entry>
     <entry>
-      <name>Transformation 5</name>
+      <name>extract_SaleBillVouch</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
@@ -281,7 +281,7 @@
       <yloc>327</yloc>
       </entry>
     <entry>
-      <name>Transformation 6</name>
+      <name>extract_SaleBillVouchs</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
@@ -313,7 +313,7 @@
       <yloc>275</yloc>
       </entry>
     <entry>
-      <name>Transformation 7</name>
+      <name>extract_SO_SODetails</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
@@ -345,7 +345,7 @@
       <yloc>250</yloc>
       </entry>
     <entry>
-      <name>Transformation 8</name>
+      <name>extract_SO_SOMain</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
@@ -377,7 +377,7 @@
       <yloc>205</yloc>
       </entry>
     <entry>
-      <name>Transformation 9</name>
+      <name>extract_VouchType</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
@@ -409,7 +409,7 @@
       <yloc>321</yloc>
       </entry>
     <entry>
-      <name>Transformation 10</name>
+      <name>extract_DispatchList</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
@@ -440,11 +440,203 @@
       <xloc>348</xloc>
       <yloc>353</yloc>
       </entry>
+    <entry>
+      <name>extract_DispatchLists</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>${Internal.Job.Filename.Directory}&#47;extract_DispatchLists.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>486</xloc>
+      <yloc>398</yloc>
+      </entry>
+    <entry>
+      <name>extract_SaleType</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>${Internal.Job.Filename.Directory}&#47;extract_SaleType.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>597</xloc>
+      <yloc>434</yloc>
+      </entry>
+    <entry>
+      <name>extract_PurBillVouch</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>${Internal.Job.Filename.Directory}&#47;extract_PurBillVouch.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>602</xloc>
+      <yloc>530</yloc>
+      </entry>
+    <entry>
+      <name>extract_PurBillVouchs</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>${Internal.Job.Filename.Directory}&#47;extract_PurBillVouchs.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>730</xloc>
+      <yloc>459</yloc>
+      </entry>
+    <entry>
+      <name>extract_Vendor</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>${Internal.Job.Filename.Directory}&#47;extract_Vendor.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>818</xloc>
+      <yloc>390</yloc>
+      </entry>
+    <entry>
+      <name>extract_Person</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>${Internal.Job.Filename.Directory}&#47;extract_Person.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>825</xloc>
+      <yloc>268</yloc>
+      </entry>
   </entries>
   <hops>
     <hop>
       <from>START</from>
-      <to>Transformation</to>
+      <to>extract_CurrentStock</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -452,8 +644,8 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Transformation</from>
-      <to>Transformation 2</to>
+      <from>extract_CurrentStock</from>
+      <to>extract_CRM_Customer_List</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -461,8 +653,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Transformation 2</from>
-      <to>Transformation 3</to>
+      <from>extract_CRM_Customer_List</from>
+      <to>extract_Inventory</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -470,8 +662,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Transformation 3</from>
-      <to>Transformation 4</to>
+      <from>extract_Inventory</from>
+      <to>extract_InventoryClass</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -479,8 +671,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Transformation 4</from>
-      <to>Transformation 5</to>
+      <from>extract_InventoryClass</from>
+      <to>extract_SaleBillVouch</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -488,8 +680,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Transformation 5</from>
-      <to>Transformation 6</to>
+      <from>extract_SaleBillVouch</from>
+      <to>extract_SaleBillVouchs</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -497,8 +689,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Transformation 6</from>
-      <to>Transformation 7</to>
+      <from>extract_SaleBillVouchs</from>
+      <to>extract_SO_SODetails</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -506,8 +698,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Transformation 7</from>
-      <to>Transformation 8</to>
+      <from>extract_SO_SODetails</from>
+      <to>extract_SO_SOMain</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -515,8 +707,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Transformation 8</from>
-      <to>Transformation 9</to>
+      <from>extract_SO_SOMain</from>
+      <to>extract_VouchType</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -524,8 +716,62 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Transformation 9</from>
-      <to>Transformation 10</to>
+      <from>extract_VouchType</from>
+      <to>extract_DispatchList</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>extract_DispatchList</from>
+      <to>extract_DispatchLists</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>extract_DispatchLists</from>
+      <to>extract_SaleType</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>extract_SaleType</from>
+      <to>extract_PurBillVouch</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>extract_PurBillVouch</from>
+      <to>extract_PurBillVouchs</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>extract_PurBillVouchs</from>
+      <to>extract_Vendor</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>extract_Vendor</from>
+      <to>extract_Person</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

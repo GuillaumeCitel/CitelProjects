@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>extract_InventoryClass</name>
+    <name>extract_PurBillVouch</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -61,21 +61,21 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#47;09&#47;16 15:58:15.450</created_date>
+  <created_date>2013&#47;09&#47;25 10:43:20.486</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#47;09&#47;16 15:58:15.450</modified_date>
+  <modified_date>2013&#47;09&#47;25 10:43:20.486</modified_date>
   </info>
   <notepads>
   </notepads>
   <connection>
-    <name>China_UFDATA_001_2013</name>
+    <name>kettlede</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>China_UFDATA_001_2013</database>
+    <database>kettlede</database>
     <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
+    <username>kettlede</username>
+    <password>Encrypted 2be98afc86a96c0d7a01cba64d297abdf</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -90,14 +90,14 @@
     </attributes>
   </connection>
   <connection>
-    <name>China_UFDATA_003_2013</name>
+    <name>PostGre_China</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>China_UFDATA_003_2013</database>
+    <database>${Apgsql_db_name}</database>
     <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
+    <username>kettlesh</username>
+    <password>Encrypted 2be98afc86a96c0d7a01cba64d297bcd2</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -112,56 +112,11 @@
     </attributes>
   </connection>
   <connection>
-    <name>Germany_Extract_DBF</name>
-    <server>localhost</server>
-    <type>POSTGRESQL</type>
-    <access>Native</access>
-    <database>Germany_Extract_DBF</database>
-    <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>SQL_Server_China_001_2013</name>
-    <server>192.168.1.254</server>
+    <name>SQL_Server_China</name>
+    <server>${Amssql_server}</server>
     <type>MSSQL</type>
     <access>Native</access>
-    <database>UFDATA_001_2013</database>
-    <port>1433</port>
-    <username>viewer</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10becaf782</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1433</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>SQL_Server_China_003_2013</name>
-    <server>192.168.1.254</server>
-    <type>MSSQL</type>
-    <access>Native</access>
-    <database>UFDATA_003_2013</database>
+    <database>${Amssql_db_name}</database>
     <port>1433</port>
     <username>viewer</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79ce10becaf782</password>
@@ -180,7 +135,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Columns_Selection</from><to>Unique rows (HashSet)</to><enabled>Y</enabled> </hop>  <hop> <from>Create variables</from><to>Columns_Selection</to><enabled>Y</enabled> </hop>  <hop> <from>Table input</from><to>Create variables</to><enabled>Y</enabled> </hop>  <hop> <from>Unique rows (HashSet)</from><to>Insert &#47; Update</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Columns_Selection</from><to>Unique rows (HashSet)</to><enabled>Y</enabled> </hop>  <hop> <from>Create variables</from><to>Columns_Selection</to><enabled>Y</enabled> </hop>  <hop> <from>Execute SQL script</from><to>Table input</to><enabled>Y</enabled> </hop>  <hop> <from>Table input</from><to>Create variables</to><enabled>Y</enabled> </hop>  <hop> <from>Unique rows (HashSet)</from><to>Insert &#47; Update</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Columns_Selection</name>
     <type>SelectValues</type>
@@ -191,23 +146,59 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>inventory_class_code</name>
+    <fields>      <field>        <name>purchase_bill_id</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>inventory_class_name</name>
+      </field>      <field>        <name>purchase_bill_type</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>inventory_class_grade</name>
+      </field>      <field>        <name>purchase_bill_code</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>purchase_type_code</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>purchase_bill_date</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>vendor_code</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>department_code</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>person_Code</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>currency</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>currency_change_rate</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>tax_rate</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>purchase_order_code</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>425</xloc>
-      <yloc>235</yloc>
+      <xloc>482</xloc>
+      <yloc>300</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -228,34 +219,128 @@
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
 
-var inventory_class_code = cInvCCode;&#47;&#47;string
-var inventory_class_name = cInvCName;&#47;&#47;string
-var inventory_class_grade = iInvCGrade;&#47;&#47;number
+var purchase_bill_id = PBVID;&#47;&#47;number
+var purchase_bill_type = cPBVBillType;&#47;&#47;string
+var purchase_bill_code = cPBVCode;&#47;&#47;string
+var purchase_type_code = cPTCode;&#47;&#47;string
+var purchase_bill_date = dPBVDate;&#47;&#47;date
+var vendor_code = cVenCode;&#47;&#47;string
+var department_code = cDepCode;&#47;&#47;string
+var person_Code = cPersonCode;&#47;&#47;string
+var currency = cexch_name;&#47;&#47;string
+var currency_change_rate = cExchRate;&#47;&#47;number
+var tax_rate = iPBVTaxRate;&#47;&#47;number
+var purchase_order_code = cOrderCode&#47;&#47;string always null
+
+
 
 
 </jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>inventory_class_code</name>
-        <rename>inventory_class_code</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>inventory_class_name</name>
-        <rename>inventory_class_name</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>inventory_class_grade</name>
-        <rename>inventory_class_grade</rename>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>purchase_bill_id</name>
+        <rename>purchase_bill_id</rename>
         <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>purchase_bill_type</name>
+        <rename>purchase_bill_type</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>purchase_bill_code</name>
+        <rename>purchase_bill_code</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>purchase_type_code</name>
+        <rename>purchase_type_code</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>purchase_bill_date</name>
+        <rename>purchase_bill_date</rename>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>vendor_code</name>
+        <rename>vendor_code</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>department_code</name>
+        <rename>department_code</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>person_Code</name>
+        <rename>person_Code</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>currency</name>
+        <rename>currency</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>currency_change_rate</name>
+        <rename>currency_change_rate</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>tax_rate</name>
+        <rename>tax_rate</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>purchase_order_code</name>
+        <rename>purchase_order_code</rename>
+        <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>306</xloc>
-      <yloc>234</yloc>
+      <xloc>363</xloc>
+      <yloc>299</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Execute SQL script</name>
+    <type>ExecSQL</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>PostGre_China</connection>
+    <execute_each_row>N</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <sql>DELETE FROM &quot;purbillvouch&quot;;</sql>
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
+    <arguments>
+    </arguments>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>156</xloc>
+      <yloc>195</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -270,38 +355,83 @@ var inventory_class_grade = iInvCGrade;&#47;&#47;number
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>China_UFDATA_003_2013</connection>
+    <connection>PostGre_China</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema/>
-      <table>inventoryclass</table>
+      <table>PurBillVouch</table>
       <key>
-        <name>inventory_class_code</name>
-        <field>inventory_class_code</field>
+        <name>purchase_bill_id</name>
+        <field>purchase_bill_id</field>
         <condition>=</condition>
         <name2/>
       </key>
       <value>
-        <name>inventory_class_code</name>
-        <rename>inventory_class_code</rename>
+        <name>purchase_bill_id</name>
+        <rename>purchase_bill_id</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>inventory_class_name</name>
-        <rename>inventory_class_name</rename>
+        <name>purchase_bill_type</name>
+        <rename>purchase_bill_type</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>inventory_class_grade</name>
-        <rename>inventory_class_grade</rename>
+        <name>purchase_bill_code</name>
+        <rename>purchase_bill_code</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>purchase_type_code</name>
+        <rename>purchase_type_code</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>purchase_bill_date</name>
+        <rename>purchase_bill_date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>vendor_code</name>
+        <rename>vendor_code</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>department_code</name>
+        <rename>department_code</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>person_Code</name>
+        <rename>person_Code</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>currency</name>
+        <rename>currency</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>currency_change_rate</name>
+        <rename>currency_change_rate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>tax_rate</name>
+        <rename>tax_rate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>purchase_order_code</name>
+        <rename>purchase_order_code</rename>
         <update>Y</update>
       </value>
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>695</xloc>
-      <yloc>235</yloc>
+      <xloc>752</xloc>
+      <yloc>300</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -316,9 +446,9 @@ var inventory_class_grade = iInvCGrade;&#47;&#47;number
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>SQL_Server_China_003_2013</connection>
+    <connection>SQL_Server_China</connection>
     <sql>SELECT *
-FROM InventoryClass</sql>
+FROM PurBillVouch</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -326,8 +456,8 @@ FROM InventoryClass</sql>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>180</xloc>
-      <yloc>234</yloc>
+      <xloc>237</xloc>
+      <yloc>299</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -345,11 +475,11 @@ FROM InventoryClass</sql>
       <store_values>N</store_values>
       <reject_duplicate_row>N</reject_duplicate_row>
       <error_description/>
-    <fields>      <field>        <name>inventory_class_code</name>
+    <fields>      <field>        <name>purchase_bill_id</name>
         </field>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>564</xloc>
-      <yloc>235</yloc>
+      <xloc>621</xloc>
+      <yloc>300</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

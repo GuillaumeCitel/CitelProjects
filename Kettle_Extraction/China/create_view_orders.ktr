@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>create_view_sales</name>
+    <name>create_view_orders</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <trans_status>0</trans_status>
     <directory>&#47;</directory>
     <parameters>
     </parameters>
@@ -62,21 +61,21 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#47;09&#47;13 12:56:30.399</created_date>
+  <created_date>2013&#47;09&#47;13 13:18:16.825</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#47;09&#47;13 12:56:30.399</modified_date>
+  <modified_date>2013&#47;09&#47;13 13:18:16.825</modified_date>
   </info>
   <notepads>
   </notepads>
   <connection>
-    <name>China_UFDATA_001_2013</name>
+    <name>kettlede</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>China_UFDATA_001_2013</database>
+    <database>kettlede</database>
     <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
+    <username>kettlede</username>
+    <password>Encrypted 2be98afc86a96c0d7a01cba64d297abdf</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -91,14 +90,14 @@
     </attributes>
   </connection>
   <connection>
-    <name>China_UFDATA_003_2013</name>
+    <name>PostGre_China</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>China_UFDATA_003_2013</database>
+    <database>${Apgsql_db_name}</database>
     <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
+    <username>${Apgsql_user_name}</username>
+    <password>${Apgsql_user_psw}</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -113,59 +112,14 @@
     </attributes>
   </connection>
   <connection>
-    <name>Germany_Extract_DBF</name>
-    <server>localhost</server>
-    <type>POSTGRESQL</type>
-    <access>Native</access>
-    <database>Germany_Extract_DBF</database>
-    <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>SQL_Server_China_001_2013</name>
-    <server>192.168.1.254</server>
+    <name>SQL_Server_China</name>
+    <server>${Amssql_server}</server>
     <type>MSSQL</type>
     <access>Native</access>
-    <database>UFDATA_001_2013</database>
+    <database>${Amssql_db_name}</database>
     <port>1433</port>
-    <username>viewer</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10becaf782</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1433</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>SQL_Server_China_003_2013</name>
-    <server>192.168.1.254</server>
-    <type>MSSQL</type>
-    <access>Native</access>
-    <database>UFDATA_003_2013</database>
-    <port>1433</port>
-    <username>viewer</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10becaf782</password>
+    <username>${Amssql_user_name}</username>
+    <password>${Amssql_user_psw}</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -192,53 +146,42 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>China_UFDATA_003_2013</connection>
+    <connection>PostGre_China</connection>
     <execute_each_row>N</execute_each_row>
     <single_statement>N</single_statement>
     <replace_variables>N</replace_variables>
-    <sql>CREATE OR REPLACE VIEW sales AS
-	SELECT
-  salebillvouchs.sale_bill_id, 
-  salebillvouchs.wharehouse_code, 
-  salebillvouchs.inventory_code, 
-  salebillvouchs.quantity, 
-  salebillvouchs.unit_gross_sell_price, 
-  salebillvouchs.unit_net_sell_price, 
-  salebillvouchs.total_gross_sell_price, 
-  salebillvouchs.total_net_sell_price, 
-  salebillvouchs.signature_date, 
-  salebillvouchs.sale_order_code, 
-  salebillvouchs.total_tax_price, 
-  salebillvouchs.discount_price, 
-  salebillvouchs.unit_gross_sell_price_in_local_currency, 
-  salebillvouchs.total_gross_sell_price_in_local_currency, 
-  salebillvouchs.total_tax_price_in_local_currency, 
-  salebillvouchs.total_net_sell_price_in_local_currency, 
-  salebillvouchs.tax_rate,
-  salebillvouchs.delivery_code,
-  salebillvouch.currency_change_rate, 
-  salebillvouch.currency, 
-  salebillvouch.sale_class_code, 
-  salebillvouch.customer_name, 
-  salebillvouch.customer_code, 
-  salebillvouch.person_code, 
-  salebillvouch.department_code, 
-  salebillvouch.sale_bill_date, 
-  salebillvouch.sale_type_code, 
-  salebillvouch.vouch_type, 
-  salebillvouch.sale_bill_code,
-  dispatchlist.delivery_date,
-  inventory.inventory_name,
-  inventory.inventory_class_code,
-  inventoryclass.inventory_class_name,
-  customer.customer_english_name
-	FROM 
-		salebillvouchs
-	LEFT JOIN salebillvouch ON salebillvouchs.sale_bill_id = salebillvouch.sale_bill_id
-	LEFT JOIN dispatchlist ON salebillvouchs.delivery_code = dispatchlist.delivery_code
-    LEFT JOIN inventory ON salebillvouchs.inventory_code = inventory.inventory_code
-    LEFT JOIN inventoryclass ON inventory.inventory_class_code = inventoryclass.inventory_class_code
-    LEFT JOIN customer ON salebillvouch.customer_code=customer.customer_code</sql>
+    <sql>CREATE OR REPLACE VIEW orders AS
+SELECT 
+  so_sodetails.sale_order_code, 
+  so_sodetails.inventory_code, 
+  so_sodetails.quantity, 
+  so_sodetails.unit_gross_sell_price, 
+  so_sodetails.unit_tax_price, 
+  so_sodetails.unit_net_sell_price, 
+  so_sodetails.total_gross_sell_price, 
+  so_sodetails.total_tax_price, 
+  so_sodetails.total_net_sell_price, 
+  so_sodetails.discount, 
+  so_sodetails.unit_gross_sell_price_in_local_currency, 
+  so_sodetails.total_gross_sell_price_in_local_currency, 
+  so_sodetails.total_tax_price_in_local_currency, 
+  so_sodetails.total_net_sell_price_in_local_currency, 
+  so_sodetails.discount_in_local_currency, 
+  so_sodetails.inventory_name, 
+  so_sodetails.tax_rate, 
+  so_sodetails.auto_id, 
+  so_somain.sale_type_code, 
+  so_somain.sale_order_date, 
+  so_somain.customer_code, 
+  so_somain.department_code, 
+  so_somain.person_code, 
+  so_somain.sale_class_code, 
+  so_somain.currency, 
+  so_somain.currency_change_rate, 
+  so_somain.customer_name
+FROM 
+  public.so_sodetails
+LEFT JOIN public.so_somain ON so_sodetails.sale_order_code = so_somain.sale_order_code;</sql>
     <insert_field/>
     <update_field/>
     <delete_field/>
@@ -247,8 +190,8 @@
     </arguments>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>292</xloc>
-      <yloc>155</yloc>
+      <xloc>305</xloc>
+      <yloc>229</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

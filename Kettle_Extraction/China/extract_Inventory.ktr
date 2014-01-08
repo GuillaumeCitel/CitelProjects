@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>extract_CRM_Customer_List</name>
+    <name>extract_Inventory</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <trans_status>0</trans_status>
     <directory>&#47;</directory>
     <parameters>
     </parameters>
@@ -62,21 +61,21 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#47;09&#47;11 09:21:08.029</created_date>
+  <created_date>2013&#47;09&#47;16 14:38:26.742</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#47;09&#47;11 09:21:08.029</modified_date>
+  <modified_date>2013&#47;09&#47;16 14:38:26.742</modified_date>
   </info>
   <notepads>
   </notepads>
   <connection>
-    <name>China_UFDATA_001_2013</name>
+    <name>kettlede</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>China_UFDATA_001_2013</database>
+    <database>kettlede</database>
     <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
+    <username>kettlede</username>
+    <password>Encrypted 2be98afc86a96c0d7a01cba64d297abdf</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -91,14 +90,14 @@
     </attributes>
   </connection>
   <connection>
-    <name>China_UFDATA_003_2013</name>
+    <name>PostGre_China</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>China_UFDATA_003_2013</database>
+    <database>${Apgsql_db_name}</database>
     <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
+    <username>kettlesh</username>
+    <password>Encrypted 2be98afc86a96c0d7a01cba64d297bcd2</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -113,56 +112,11 @@
     </attributes>
   </connection>
   <connection>
-    <name>Germany_Extract_DBF</name>
-    <server>localhost</server>
-    <type>POSTGRESQL</type>
-    <access>Native</access>
-    <database>Germany_Extract_DBF</database>
-    <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>SQL_Server_China_001_2013</name>
-    <server>192.168.1.254</server>
+    <name>SQL_Server_China</name>
+    <server>${Amssql_server}</server>
     <type>MSSQL</type>
     <access>Native</access>
-    <database>UFDATA_001_2013</database>
-    <port>1433</port>
-    <username>viewer</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10becaf782</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1433</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>SQL_Server_China_003_2013</name>
-    <server>192.168.1.254</server>
-    <type>MSSQL</type>
-    <access>Native</access>
-    <database>UFDATA_003_2013</database>
+    <database>${Amssql_db_name}</database>
     <port>1433</port>
     <username>viewer</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79ce10becaf782</password>
@@ -181,7 +135,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Table input</from><to>Create variables</to><enabled>Y</enabled> </hop>  <hop> <from>Create variables</from><to>Columns_Selection</to><enabled>Y</enabled> </hop>  <hop> <from>Columns_Selection</from><to>Unique rows (HashSet)</to><enabled>Y</enabled> </hop>  <hop> <from>Unique rows (HashSet)</from><to>Insert &#47; Update</to><enabled>Y</enabled> </hop>  <hop> <from>Execute SQL script</from><to>Table input</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Columns_Selection</from><to>Unique rows (HashSet)</to><enabled>Y</enabled> </hop>  <hop> <from>Create variables</from><to>Columns_Selection</to><enabled>Y</enabled> </hop>  <hop> <from>Table input</from><to>Create variables</to><enabled>Y</enabled> </hop>  <hop> <from>Unique rows (HashSet)</from><to>Insert &#47; Update</to><enabled>Y</enabled> </hop>  <hop> <from>Execute SQL script</from><to>Table input</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Columns_Selection</name>
     <type>SelectValues</type>
@@ -192,55 +146,35 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>ID</name>
+    <fields>      <field>        <name>inventory_code</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>code</name>
+      </field>      <field>        <name>inventory_name</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>name</name>
+      </field>      <field>        <name>inventory_description</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>short_name</name>
+      </field>      <field>        <name>inventory_class_code</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>class_code</name>
+      </field>      <field>        <name>tax_rate</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>class_name</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>address</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>postal_code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>rank_code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>rank_name</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>english_name</name>
+      </field>      <field>        <name>warehouse_code</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>389</xloc>
-      <yloc>203</yloc>
+      <xloc>449</xloc>
+      <yloc>275</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -261,91 +195,55 @@
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
 
-var id = ID;&#47;&#47;string
-var code = cCusCode;&#47;&#47;string
-var name = cCusName;&#47;&#47;string
-var short_name = cCusAbbName;&#47;&#47;string
-var class_code = cCCCode;&#47;&#47;string
-var class_name = cCCName;&#47;&#47;string
-var address = cCusAddress;&#47;&#47;string
-var postal_code = cCusPostCode;&#47;&#47;string
-var rank_code = CustomerKCode;&#47;&#47;string
-var rank_name = cCusRankName;&#47;&#47;String
-var english_name = cCusDefine7;&#47;&#47;string
-
+var inventory_code = cInvCode;&#47;&#47;string
+var inventory_name = cInvName;&#47;&#47;string
+var inventory_description = cInvStd;&#47;&#47;string
+var inventory_class_code = cInvCCode;&#47;&#47;string
+var tax_rate = iTaxRate;&#47;&#47;number
+var warehouse_code = cDefWareHouse;&#47;&#47;string
 
 
 </jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>id</name>
-        <rename>id</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>      <field>        <name>code</name>
-        <rename>code</rename>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>inventory_code</name>
+        <rename>inventory_code</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>name</name>
-        <rename>name</rename>
+      </field>      <field>        <name>inventory_name</name>
+        <rename>inventory_name</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>short_name</name>
-        <rename>short_name</rename>
+      </field>      <field>        <name>inventory_description</name>
+        <rename>inventory_description</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>class_code</name>
-        <rename>class_code</rename>
+      </field>      <field>        <name>inventory_class_code</name>
+        <rename>inventory_class_code</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>class_name</name>
-        <rename>class_name</rename>
-        <type>String</type>
+      </field>      <field>        <name>tax_rate</name>
+        <rename>tax_rate</rename>
+        <type>Number</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>address</name>
-        <rename>address</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>postal_code</name>
-        <rename>postal_code</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>rank_code</name>
-        <rename>rank_code</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>rank_name</name>
-        <rename>rank_name</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>english_name</name>
-        <rename>english_name</rename>
+      </field>      <field>        <name>warehouse_code</name>
+        <rename>warehouse_code</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>270</xloc>
-      <yloc>202</yloc>
+      <xloc>341</xloc>
+      <yloc>276</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -360,11 +258,11 @@ var english_name = cCusDefine7;&#47;&#47;string
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>China_UFDATA_001_2013</connection>
+    <connection>PostGre_China</connection>
     <execute_each_row>N</execute_each_row>
     <single_statement>N</single_statement>
     <replace_variables>N</replace_variables>
-    <sql>DELETE FROM &quot;crm_customer_list&quot;;</sql>
+    <sql>DELETE FROM &quot;inventory&quot;;</sql>
     <insert_field/>
     <update_field/>
     <delete_field/>
@@ -373,8 +271,8 @@ var english_name = cCusDefine7;&#47;&#47;string
     </arguments>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>141</xloc>
-      <yloc>105</yloc>
+      <xloc>135</xloc>
+      <yloc>268</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -389,78 +287,53 @@ var english_name = cCusDefine7;&#47;&#47;string
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>China_UFDATA_001_2013</connection>
+    <connection>PostGre_China</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema/>
-      <table>crm_customer_list</table>
+      <table>inventory</table>
       <key>
-        <name>ID</name>
-        <field>ID</field>
+        <name>inventory_code</name>
+        <field>inventory_code</field>
         <condition>=</condition>
         <name2/>
       </key>
       <value>
-        <name>ID</name>
-        <rename>ID</rename>
+        <name>inventory_code</name>
+        <rename>inventory_code</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>code</name>
-        <rename>code</rename>
+        <name>inventory_name</name>
+        <rename>inventory_name</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>name</name>
-        <rename>name</rename>
+        <name>inventory_description</name>
+        <rename>inventory_description</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>short_name</name>
-        <rename>short_name</rename>
+        <name>inventory_class_code</name>
+        <rename>inventory_class_code</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>class_code</name>
-        <rename>class_code</rename>
+        <name>tax_rate</name>
+        <rename>tax_rate</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>class_name</name>
-        <rename>class_name</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>address</name>
-        <rename>address</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>postal_code</name>
-        <rename>postal_code</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>rank_code</name>
-        <rename>rank_code</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>rank_name</name>
-        <rename>rank_name</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>english_name</name>
-        <rename>english_name</rename>
+        <name>warehouse_code</name>
+        <rename>warehouse_code</rename>
         <update>Y</update>
       </value>
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>658</xloc>
-      <yloc>203</yloc>
+      <xloc>746</xloc>
+      <yloc>279</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -475,9 +348,9 @@ var english_name = cCusDefine7;&#47;&#47;string
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>SQL_Server_China_001_2013</connection>
+    <connection>SQL_Server_China</connection>
     <sql>SELECT *
-FROM CRM_Customer_List</sql>
+FROM Inventory</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -485,8 +358,8 @@ FROM CRM_Customer_List</sql>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>144</xloc>
-      <yloc>202</yloc>
+      <xloc>251</xloc>
+      <yloc>275</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -504,11 +377,11 @@ FROM CRM_Customer_List</sql>
       <store_values>N</store_values>
       <reject_duplicate_row>N</reject_duplicate_row>
       <error_description/>
-    <fields>      <field>        <name>ID</name>
+    <fields>      <field>        <name>inventory_code</name>
         </field>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>528</xloc>
-      <yloc>203</yloc>
+      <xloc>587</xloc>
+      <yloc>279</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

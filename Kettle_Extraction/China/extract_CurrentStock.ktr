@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>extract_DispatchList</name>
+    <name>extract_CurrentStock</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -61,21 +61,21 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#47;09&#47;18 10:13:32.218</created_date>
+  <created_date>2013&#47;09&#47;16 16:19:45.060</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#47;09&#47;18 10:13:32.218</modified_date>
+  <modified_date>2013&#47;09&#47;16 16:19:45.060</modified_date>
   </info>
   <notepads>
   </notepads>
   <connection>
-    <name>China_UFDATA_001_2013</name>
+    <name>kettlede</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>China_UFDATA_001_2013</database>
+    <database>kettlede</database>
     <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
+    <username>kettlede</username>
+    <password>Encrypted 2be98afc86a96c0d7a01cba64d297abdf</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -90,14 +90,14 @@
     </attributes>
   </connection>
   <connection>
-    <name>China_UFDATA_003_2013</name>
+    <name>PostGre_China</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>China_UFDATA_003_2013</database>
+    <database>${Apgsql_db_name}</database>
     <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
+    <username>${Apgsql_user_name}</username>
+    <password>${Apgsql_user_psw}</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -112,59 +112,14 @@
     </attributes>
   </connection>
   <connection>
-    <name>Germany_Extract_DBF</name>
-    <server>localhost</server>
-    <type>POSTGRESQL</type>
-    <access>Native</access>
-    <database>Germany_Extract_DBF</database>
-    <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>SQL_Server_China_001_2013</name>
-    <server>192.168.1.254</server>
+    <name>SQL_Server_China</name>
+    <server>${Amssql_server}</server>
     <type>MSSQL</type>
     <access>Native</access>
-    <database>UFDATA_001_2013</database>
+    <database>${Amssql_db_name}</database>
     <port>1433</port>
-    <username>viewer</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10becaf782</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1433</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>SQL_Server_China_003_2013</name>
-    <server>192.168.1.254</server>
-    <type>MSSQL</type>
-    <access>Native</access>
-    <database>UFDATA_003_2013</database>
-    <port>1433</port>
-    <username>viewer</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10becaf782</password>
+    <username>${Amssql_user_name}</username>
+    <password>${Amssql_user_psw}</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -180,7 +135,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Columns_Selection</from><to>Unique rows (HashSet)</to><enabled>Y</enabled> </hop>  <hop> <from>Create variables</from><to>Columns_Selection</to><enabled>Y</enabled> </hop>  <hop> <from>Table input</from><to>Create variables</to><enabled>Y</enabled> </hop>  <hop> <from>Unique rows (HashSet)</from><to>Insert &#47; Update</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Columns_Selection</from><to>Unique rows (HashSet)</to><enabled>Y</enabled> </hop>  <hop> <from>Create variables</from><to>Columns_Selection</to><enabled>Y</enabled> </hop>  <hop> <from>Table input</from><to>Create variables</to><enabled>Y</enabled> </hop>  <hop> <from>Unique rows (HashSet)</from><to>Insert &#47; Update</to><enabled>Y</enabled> </hop>  <hop> <from>Execute SQL script</from><to>Table input</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Columns_Selection</name>
     <type>SelectValues</type>
@@ -191,47 +146,35 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>delivery_id</name>
+    <fields>      <field>        <name>auto_id</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>delivery_code</name>
+      </field>      <field>        <name>warehouse_code</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>vouch_type</name>
+      </field>      <field>        <name>inventory_code</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>delivery_date</name>
+      </field>      <field>        <name>item_id</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>department_code</name>
+      </field>      <field>        <name>batch</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>sale_order_code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>customer_code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>shipping_choice_code</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>currency</name>
+      </field>      <field>        <name>quantity</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>317</xloc>
-      <yloc>290</yloc>
+      <xloc>307</xloc>
+      <yloc>309</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -252,77 +195,84 @@
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>&#47;&#47;Script here
 
-var delivery_id = DLID;&#47;&#47;number
-var delivery_code = cDLCode;&#47;&#47;string
-var vouch_type = cVouchType;&#47;&#47;String
-var delivery_date = dDate;&#47;&#47;date
-var department_code = cDepCode;&#47;&#47;string
-var sale_order_code = cSOCode;&#47;&#47;string
-var customer_code = cCusCode;&#47;&#47;string
-var shipping_choice_code = cSCCode;&#47;&#47;string
-var currency = cexch_name;&#47;&#47;string
-&#47;&#47;... other infos...
-&#47;&#47;var date_of_creation_in_system = dcreatesystime;&#47;&#47;date
+var auto_id = AutoID;&#47;&#47;number
+var warehouse_code = cWhCode;&#47;&#47;string
+var inventory_code = cInvCode;&#47;&#47;string
+var item_id = ItemId;&#47;&#47;number
+var batch = cBatch;&#47;&#47;string
+var quantity = iQuantity;&#47;&#47;number
+
 
 </jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>delivery_id</name>
-        <rename>delivery_id</rename>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>auto_id</name>
+        <rename>auto_id</rename>
         <type>Number</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>delivery_code</name>
-        <rename>delivery_code</rename>
+      </field>      <field>        <name>warehouse_code</name>
+        <rename>warehouse_code</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>vouch_type</name>
-        <rename>vouch_type</rename>
+      </field>      <field>        <name>inventory_code</name>
+        <rename>inventory_code</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>delivery_date</name>
-        <rename>delivery_date</rename>
-        <type>Date</type>
+      </field>      <field>        <name>item_id</name>
+        <rename>item_id</rename>
+        <type>Number</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>department_code</name>
-        <rename>department_code</rename>
+      </field>      <field>        <name>batch</name>
+        <rename>batch</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>sale_order_code</name>
-        <rename>sale_order_code</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>customer_code</name>
-        <rename>customer_code</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>shipping_choice_code</name>
-        <rename>shipping_choice_code</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>currency</name>
-        <rename>currency</rename>
-        <type>String</type>
+      </field>      <field>        <name>quantity</name>
+        <rename>quantity</rename>
+        <type>Number</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>198</xloc>
-      <yloc>289</yloc>
+      <xloc>188</xloc>
+      <yloc>308</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Execute SQL script</name>
+    <type>ExecSQL</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>PostGre_China</connection>
+    <execute_each_row>N</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <sql>DELETE FROM &quot;currentstock&quot;;</sql>
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
+    <arguments>
+    </arguments>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>144</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -337,68 +287,53 @@ var currency = cexch_name;&#47;&#47;string
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>China_UFDATA_003_2013</connection>
+    <connection>PostGre_China</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema/>
-      <table>dispatchlist</table>
+      <table>currentstock</table>
       <key>
-        <name>delivery_code</name>
-        <field>delivery_code</field>
+        <name>auto_id</name>
+        <field>auto_id</field>
         <condition>=</condition>
         <name2/>
       </key>
       <value>
-        <name>delivery_id</name>
-        <rename>delivery_id</rename>
+        <name>auto_id</name>
+        <rename>auto_id</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>delivery_code</name>
-        <rename>delivery_code</rename>
+        <name>warehouse_code</name>
+        <rename>warehouse_code</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>vouch_type</name>
-        <rename>vouch_type</rename>
+        <name>inventory_code</name>
+        <rename>inventory_code</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>delivery_date</name>
-        <rename>delivery_date</rename>
+        <name>item_id</name>
+        <rename>item_id</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>department_code</name>
-        <rename>department_code</rename>
+        <name>batch</name>
+        <rename>batch</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>sale_order_code</name>
-        <rename>sale_order_code</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>customer_code</name>
-        <rename>customer_code</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>shipping_choice_code</name>
-        <rename>shipping_choice_code</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>currency</name>
-        <rename>currency</rename>
+        <name>quantity</name>
+        <rename>quantity</rename>
         <update>Y</update>
       </value>
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>586</xloc>
-      <yloc>290</yloc>
+      <xloc>577</xloc>
+      <yloc>309</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -413,9 +348,9 @@ var currency = cexch_name;&#47;&#47;string
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>SQL_Server_China_003_2013</connection>
+    <connection>SQL_Server_China</connection>
     <sql>SELECT *
-FROM DispatchList</sql>
+FROM CurrentStock</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -423,8 +358,8 @@ FROM DispatchList</sql>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>72</xloc>
-      <yloc>289</yloc>
+      <xloc>62</xloc>
+      <yloc>308</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -442,11 +377,11 @@ FROM DispatchList</sql>
       <store_values>N</store_values>
       <reject_duplicate_row>N</reject_duplicate_row>
       <error_description/>
-    <fields>      <field>        <name>delivery_code</name>
+    <fields>      <field>        <name>auto_id</name>
         </field>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>456</xloc>
-      <yloc>290</yloc>
+      <xloc>446</xloc>
+      <yloc>309</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

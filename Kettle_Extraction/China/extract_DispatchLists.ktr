@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>create_view_orders</name>
+    <name>extract_DispatchLists</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -61,21 +61,21 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#47;09&#47;13 13:18:16.825</created_date>
+  <created_date>2013&#47;09&#47;22 14:22:30.633</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#47;09&#47;13 13:18:16.825</modified_date>
+  <modified_date>2013&#47;09&#47;22 14:22:30.633</modified_date>
   </info>
   <notepads>
   </notepads>
   <connection>
-    <name>China_UFDATA_001_2013</name>
+    <name>kettlede</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>China_UFDATA_001_2013</database>
+    <database>kettlede</database>
     <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
+    <username>kettlede</username>
+    <password>Encrypted 2be98afc86a96c0d7a01cba64d297abdf</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -90,11 +90,33 @@
     </attributes>
   </connection>
   <connection>
-    <name>SQL_Server_China_001_2013</name>
-    <server>192.168.1.254</server>
+    <name>PostGre_China</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>${Apgsql_db_name}</database>
+    <port>5432</port>
+    <username>kettlesh</username>
+    <password>Encrypted 2be98afc86a96c0d7a01cba64d297bcd2</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>SQL_Server_China</name>
+    <server>${Amssql_server}</server>
     <type>MSSQL</type>
     <access>Native</access>
-    <database>UFDATA_001_2013</database>
+    <database>${Amssql_db_name}</database>
     <port>1433</port>
     <username>viewer</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79ce10becaf782</password>
@@ -113,7 +135,63 @@
     </attributes>
   </connection>
   <order>
-  </order>
+  <hop> <from>Columns_Selection</from><to>Unique rows (HashSet)</to><enabled>Y</enabled> </hop>  <hop> <from>Create variables</from><to>Columns_Selection</to><enabled>Y</enabled> </hop>  <hop> <from>Table input</from><to>Create variables</to><enabled>Y</enabled> </hop>  <hop> <from>Unique rows (HashSet)</from><to>Insert &#47; Update</to><enabled>Y</enabled> </hop>  <hop> <from>Execute SQL script</from><to>Table input</to><enabled>Y</enabled> </hop>  </order>
+  <step>
+    <name>Columns_Selection</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>delivery_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>323</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Create variables</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#47;&#47;Script here
+
+var delivery_id = DLID;&#47;&#47;number
+&#47;&#47;table non utilisee pour le moment
+</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>delivery_id</name>
+        <rename>delivery_id</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>204</xloc>
+      <yloc>319</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
   <step>
     <name>Execute SQL script</name>
     <type>ExecSQL</type>
@@ -124,42 +202,11 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>China_UFDATA_001_2013</connection>
+    <connection>PostGre_China</connection>
     <execute_each_row>N</execute_each_row>
     <single_statement>N</single_statement>
     <replace_variables>N</replace_variables>
-    <sql>CREATE OR REPLACE VIEW orders AS
-SELECT 
-  so_sodetails.sale_order_code, 
-  so_sodetails.inventory_code, 
-  so_sodetails.quantity, 
-  so_sodetails.unit_gross_sell_price, 
-  so_sodetails.unit_tax_price, 
-  so_sodetails.unit_net_sell_price, 
-  so_sodetails.total_gross_sell_price, 
-  so_sodetails.total_tax_price, 
-  so_sodetails.total_net_sell_price, 
-  so_sodetails.discount, 
-  so_sodetails.unit_gross_sell_price_in_local_currency, 
-  so_sodetails.total_gross_sell_price_in_local_currency, 
-  so_sodetails.total_tax_price_in_local_currency, 
-  so_sodetails.total_net_sell_price_in_local_currency, 
-  so_sodetails.discount_in_local_currency, 
-  so_sodetails.inventory_name, 
-  so_sodetails.tax_rate, 
-  so_sodetails.auto_id, 
-  so_somain.sale_type_code, 
-  so_somain.sale_order_date, 
-  so_somain.customer_code, 
-  so_somain.department_code, 
-  so_somain.person_code, 
-  so_somain.sale_class_code, 
-  so_somain.currency, 
-  so_somain.currency_change_rate, 
-  so_somain.customer_name
-FROM 
-  public.so_sodetails
-LEFT JOIN public.so_somain ON so_sodetails.sale_order_code = so_somain.sale_order_code;</sql>
+    <sql>DELETE FROM &quot;dispatchlists&quot;;</sql>
     <insert_field/>
     <update_field/>
     <delete_field/>
@@ -168,8 +215,92 @@ LEFT JOIN public.so_somain ON so_sodetails.sale_order_code = so_somain.sale_orde
     </arguments>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>305</xloc>
-      <yloc>229</yloc>
+      <xloc>112</xloc>
+      <yloc>222</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Insert &#47; Update</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>PostGre_China</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>dispatchlists</table>
+      <key>
+        <name>delivery_id</name>
+        <field>delivery_id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>delivery_id</name>
+        <rename>delivery_id</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>592</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Table input</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>SQL_Server_China</connection>
+    <sql>SELECT *
+FROM DispatchLists</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>78</xloc>
+      <yloc>319</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Unique rows (HashSet)</name>
+    <type>UniqueRowsByHashSet</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <store_values>N</store_values>
+      <reject_duplicate_row>N</reject_duplicate_row>
+      <error_description/>
+    <fields>      <field>        <name>delivery_id</name>
+        </field>      </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>462</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
