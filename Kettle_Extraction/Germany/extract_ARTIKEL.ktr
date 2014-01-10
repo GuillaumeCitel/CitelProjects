@@ -90,6 +90,28 @@
     </attributes>
   </connection>
   <connection>
+    <name>PostGre_China</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>${Apgsql_db_name}</database>
+    <port>5432</port>
+    <username>kettlesh</username>
+    <password>Encrypted 2be98afc86a96c0d7a01cba64d297bcd2</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>PostGre_China_UFDATA_001_2013</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
@@ -128,6 +150,29 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
       <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>SQL_Server_China</name>
+    <server>${Amssql_server}</server>
+    <type>MSSQL</type>
+    <access>Native</access>
+    <database>${Amssql_db_name}</database>
+    <port>1433</port>
+    <username>viewer</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10becaf782</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1433</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
@@ -230,7 +275,15 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>stock_price</name>
+      </field>      <field>        <name>stock_price_without_transport</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>stock_price_with_transport</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>stock_average_price</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -263,7 +316,9 @@ var gmbh_code = ARNR;&#47;&#47;string
 var name = BEZ;&#47;&#47;string
 var gmbh_group_1 = GRU;&#47;&#47;String
 var gmbh_group_2 = MWKZ; &#47;&#47;string There is differences between 1 and 2 sometimes. I don&apos;t know why
-var stock_price = EK;&#47;&#47;number
+var stock_price_without_transport = EK;&#47;&#47;number
+var stock_price_with_transport = KEK;&#47;&#47;number
+var stock_average_price= DEK;&#47;&#47;number PMP?
 
 </jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>gmbh_code</name>
@@ -290,8 +345,20 @@ var stock_price = EK;&#47;&#47;number
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>stock_price</name>
-        <rename>stock_price</rename>
+      </field>      <field>        <name>stock_price_without_transport</name>
+        <rename>stock_price_without_transport</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>stock_price_with_transport</name>
+        <rename>stock_price_with_transport</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>stock_average_price</name>
+        <rename>stock_average_price</rename>
         <type>Number</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -377,8 +444,8 @@ var stock_price = EK;&#47;&#47;number
     <fields>      <field>        <name>gmbh_code</name>
         </field>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>706</xloc>
-      <yloc>268</yloc>
+      <xloc>705</xloc>
+      <yloc>267</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

@@ -90,6 +90,28 @@
     </attributes>
   </connection>
   <connection>
+    <name>PostGre_China</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>${Apgsql_db_name}</database>
+    <port>5432</port>
+    <username>kettlesh</username>
+    <password>Encrypted 2be98afc86a96c0d7a01cba64d297bcd2</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>PostGre_China_UFDATA_001_2013</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
@@ -128,6 +150,29 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
       <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>SQL_Server_China</name>
+    <server>${Amssql_server}</server>
+    <type>MSSQL</type>
+    <access>Native</access>
+    <database>${Amssql_db_name}</database>
+    <port>1433</port>
+    <username>viewer</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10becaf782</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1433</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
@@ -180,12 +225,12 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Execute SQL script</from><to>Execute SQL script 2</to><enabled>Y</enabled> </hop>  <hop> <from>Execute SQL script 2</from><to>Execute SQL script 3</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Execute SQL script 2</from><to>Execute SQL script 3</to><enabled>Y</enabled> </hop>  <hop> <from>Execute SQL script</from><to>Execute SQL script 2</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Execute SQL script</name>
     <type>ExecSQL</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -247,8 +292,8 @@ GROUP BY
     </arguments>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>476</xloc>
-      <yloc>211</yloc>
+      <xloc>544</xloc>
+      <yloc>214</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -270,10 +315,12 @@ GROUP BY
     <sql>CREATE OR REPLACE VIEW stocks AS
 SELECT
 	artikel.gmbh_code as product_gmbh_code,
-	artikel.stock_price,
+	artikel.stock_price_without_transport,
+	artikel.stock_price_with_transport,
+	artikel.stock_average_price,
 	in_stock.qty_in_stock,
 	reserved_stock.qty_reserved,
-	in_stock.qty_in_stock*artikel.stock_price as stock_value
+	in_stock.qty_in_stock*artikel.stock_average_price as stock_value
 FROM
 	artikel
 LEFT OUTER JOIN in_stock on artikel.gmbh_code = in_stock.product_gmbh_code
@@ -289,8 +336,8 @@ LEFT OUTER JOIN reserved_stock on artikel.gmbh_code = reserved_stock.product_gmb
     </arguments>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>623</xloc>
-      <yloc>212</yloc>
+      <xloc>774</xloc>
+      <yloc>211</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
