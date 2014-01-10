@@ -3436,7 +3436,7 @@ else {
                                     <expression name="valueExpr" type="javascript">true</expression>
                                 </structure>
                             </list-property>
-                            <text-property name="text">UBP</text-property>
+                            <text-property name="text">UBP (with transport)</text-property>
                             <list-property name="action">
                                 <structure>
                                     <property name="linkType">drill-through</property>
@@ -3557,7 +3557,7 @@ else {
                                     <expression name="valueExpr" type="javascript">true</expression>
                                 </structure>
                             </list-property>
-                            <text-property name="text">UBP</text-property>
+                            <text-property name="text">UBP (with transport)</text-property>
                             <list-property name="action">
                                 <structure>
                                     <property name="linkType">none</property>

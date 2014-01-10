@@ -920,21 +920,31 @@ where product_name ilike ?]]></xml-property>
                     </structure>
                     <structure>
                         <property name="position">2</property>
-                        <property name="name">stock_price</property>
+                        <property name="name">stock_price_without_transport</property>
                         <property name="dataType">float</property>
                     </structure>
                     <structure>
                         <property name="position">3</property>
-                        <property name="name">qty_in_stock</property>
+                        <property name="name">stock_price_with_transport</property>
                         <property name="dataType">float</property>
                     </structure>
                     <structure>
                         <property name="position">4</property>
-                        <property name="name">qty_reserved</property>
+                        <property name="name">stock_average_price</property>
                         <property name="dataType">float</property>
                     </structure>
                     <structure>
                         <property name="position">5</property>
+                        <property name="name">qty_in_stock</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">qty_reserved</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
                         <property name="name">stock_value</property>
                         <property name="dataType">float</property>
                     </structure>
@@ -971,24 +981,36 @@ this.queryText = query_select + query_from + query_where;]]></method>
                 </structure>
                 <structure>
                     <property name="position">2</property>
-                    <property name="name">stock_price</property>
-                    <property name="nativeName">stock_price</property>
+                    <property name="name">stock_price_without_transport</property>
+                    <property name="nativeName">stock_price_without_transport</property>
                     <property name="dataType">float</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
+                    <property name="name">stock_price_with_transport</property>
+                    <property name="nativeName">stock_price_with_transport</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">stock_average_price</property>
+                    <property name="nativeName">stock_average_price</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
                     <property name="name">qty_in_stock</property>
                     <property name="nativeName">qty_in_stock</property>
                     <property name="dataType">float</property>
                 </structure>
                 <structure>
-                    <property name="position">4</property>
+                    <property name="position">6</property>
                     <property name="name">qty_reserved</property>
                     <property name="nativeName">qty_reserved</property>
                     <property name="dataType">float</property>
                 </structure>
                 <structure>
-                    <property name="position">5</property>
+                    <property name="position">7</property>
                     <property name="name">stock_value</property>
                     <property name="nativeName">stock_value</property>
                     <property name="dataType">float</property>
@@ -2502,9 +2524,21 @@ else {
                     <property name="allowExport">true</property>
                 </structure>
                 <structure>
-                    <property name="name">stock_price</property>
-                    <text-property name="displayName">stock_price</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["stock_price"]</expression>
+                    <property name="name">stock_price_without_transport</property>
+                    <text-property name="displayName">stock_price_without_transport</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["stock_price_without_transport"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">stock_price_with_transport</property>
+                    <text-property name="displayName">stock_price_with_transport</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["stock_price_with_transport"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">stock_average_price</property>
+                    <text-property name="displayName">stock_average_price</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["stock_average_price"]</expression>
                     <property name="dataType">float</property>
                 </structure>
                 <structure>
@@ -2547,12 +2581,41 @@ else {
                         <property name="contentType">html</property>
                     </text-data>
                 </cell>
-                <cell id="1021">
-                    <text-data id="1023">
-                        <expression name="valueExpr">"Stock price: "+row["stock_price"]</expression>
+                <cell id="1021"/>
+            </row>
+            <row id="1024">
+                <property name="fontSize">medium</property>
+                <property name="fontWeight">bold</property>
+                <cell id="1025">
+                    <property name="paddingTop">1pt</property>
+                    <text-data id="1029">
+                        <property name="paddingTop">10pt</property>
+                        <expression name="valueExpr">"Current UBP (w/o transport): "+row["stock_price_without_transport"]</expression>
                         <property name="contentType">html</property>
                     </text-data>
                 </cell>
+                <cell id="1026">
+                    <text-data id="1035">
+                        <property name="paddingTop">10pt</property>
+                        <expression name="valueExpr">"Current UBP (with transport): "+row["stock_price_with_transport"]</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="1027">
+                    <text-data id="1036">
+                        <property name="paddingTop">10pt</property>
+                        <expression name="valueExpr">"Stock price: "</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                    <data id="1037">
+                        <structure name="numberFormat">
+                            <property name="category">Fixed</property>
+                            <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                        </structure>
+                        <property name="resultSetColumn">stock_average_price</property>
+                    </data>
+                </cell>
+                <cell id="1028"/>
             </row>
         </grid>
         <table name="Table1" id="529">
