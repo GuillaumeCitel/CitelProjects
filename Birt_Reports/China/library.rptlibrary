@@ -1,10 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <library xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
     <property name="createdBy">Eclipse BIRT Designer Version 4.3.1.v201309091055 Build &lt;4.3.1.v20130917-1035></property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">128</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">128</property>
+            <expression name="value" type="javascript">"jdbc:postgresql://localhost:5432/"+params["datasource"].value</expression>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">128</property>
+        </structure>
+        <structure>
+            <property name="name">odaAutoCommit</property>
+            <property name="id">128</property>
+        </structure>
+        <structure>
+            <property name="name">odaIsolationMode</property>
+            <property name="id">128</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">128</property>
+        </structure>
+        <structure>
+            <property name="name">odaJndiName</property>
+            <property name="id">128</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">128</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">128</property>
+        </structure>
+    </list-property>
     <property name="units">in</property>
     <property name="theme">defaultTheme</property>
+    <parameters>
+        <scalar-parameter name="datasource" id="939">
+            <text-property name="promptText">Company</text-property>
+            <property name="valueType">static</property>
+            <property name="sortBy">label</property>
+            <property name="sortDirection">desc</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList">
+                <structure>
+                    <property name="value">China_UFDATA_003_2013</property>
+                    <property name="label">CCSH</property>
+                </structure>
+                <structure>
+                    <property name="value">China_UFDATA_001_2013</property>
+                    <property name="label">Citel Shanghai</property>
+                </structure>
+            </list-property>
+            <property name="paramType">simple</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">false</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="China_UFDATA_001_2013" id="128">
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="PostGre_China" id="128">
             <list-property name="privateDriverProperties">
                 <ex-property>
                     <name>metadataBidiFormatStr</name>
@@ -22,7 +88,7 @@
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">org.postgresql.Driver</property>
-            <property name="odaURL">jdbc:postgresql://localhost:5432/China_UFDATA_001_2013</property>
+            <property name="odaURL">jdbc:postgresql://localhost:5432/China_UFDATA_003_2013</property>
             <property name="odaUser">kettlesh</property>
             <encrypted-property name="odaPassword" encryptionID="base64">MTIza2V0dGxlc2g=</encrypted-property>
         </oda-data-source>
@@ -47,7 +113,7 @@
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">China_UFDATA_001_2013</property>
+            <property name="dataSource">PostGre_China</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
@@ -103,7 +169,7 @@ from sales]]></xml-property>
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">China_UFDATA_001_2013</property>
+            <property name="dataSource">PostGre_China</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
@@ -137,7 +203,7 @@ from sales]]></xml-property>
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">China_UFDATA_001_2013</property>
+            <property name="dataSource">PostGre_China</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
@@ -231,7 +297,7 @@ from sales]]></xml-property>
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">China_UFDATA_001_2013</property>
+            <property name="dataSource">PostGre_China</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
@@ -887,7 +953,7 @@ from sales]]></xml-property>
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">China_UFDATA_001_2013</property>
+            <property name="dataSource">PostGre_China</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
@@ -975,7 +1041,7 @@ from sales]]></xml-property>
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">China_UFDATA_001_2013</property>
+            <property name="dataSource">PostGre_China</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
