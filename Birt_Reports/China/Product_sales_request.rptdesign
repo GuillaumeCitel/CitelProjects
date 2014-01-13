@@ -8,7 +8,7 @@
     <property name="imageDPI">96</property>
     <list-property name="libraries">
         <structure>
-            <property name="fileName">China_UFDATA_001-2013/library.rptlibrary</property>
+            <property name="fileName">China/library.rptlibrary</property>
             <property name="namespace">library</property>
         </structure>
     </list-property>
@@ -35,8 +35,8 @@
         </scalar-parameter>
     </parameters>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="China_UFDATA_001_2013" id="696"
- extends="library.China_UFDATA_001_2013"/>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="PostGre_China" id="695"
+ extends="library.PostGre_China"/>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="sales" id="528">
@@ -433,7 +433,7 @@
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">China_UFDATA_001_2013</property>
+            <property name="dataSource">PostGre_China</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
@@ -780,7 +780,7 @@ and delivery_date is not null]]></xml-property>
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">China_UFDATA_001_2013</property>
+            <property name="dataSource">PostGre_China</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>

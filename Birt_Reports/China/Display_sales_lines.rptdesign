@@ -22,12 +22,8 @@
     <property name="imageDPI">96</property>
     <list-property name="libraries">
         <structure>
-            <property name="fileName">library.rptlibrary</property>
+            <property name="fileName">China/library.rptlibrary</property>
             <property name="namespace">library</property>
-        </structure>
-        <structure>
-            <property name="fileName">library.rptlibrary</property>
-            <property name="namespace">library2</property>
         </structure>
     </list-property>
     <parameters>
@@ -423,14 +419,12 @@
         </parameter-group>
     </parameters>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="China_UFDATA_001_2013" id="1048"
- extends="library.China_UFDATA_001_2013"/>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="PostGre_China" id="1077"
+ extends="library.PostGre_China"/>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="customer_list" id="976"
  extends="library.customer_list"/>
-        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="country_list" id="977"
- extends="library.country_list"/>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="seller_list" id="982"
  extends="library.seller_list"/>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="sales" id="984">
@@ -886,7 +880,7 @@ else {
 }
 
 this.queryText = query_select + query_from + query_where + query_orderby;]]></method>
-            <property name="dataSource">China_UFDATA_001_2013</property>
+            <property name="dataSource">PostGre_China</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
@@ -1186,6 +1180,8 @@ and sale_bill_date <= ?]]></xml-property>
  extends="library.group_2cp_list"/>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="product_list" id="1050"
  extends="library.product_list"/>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="country_list" id="1078"
+ extends="library.country_list"/>
     </data-sets>
     <styles>
         <style name="report" id="4">

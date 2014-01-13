@@ -762,14 +762,6 @@ where bill_id = bill_id]]></xml-property>
                         </tabular-measure>
                     </property>
                 </tabular-measure-group>
-                <tabular-measure-group name="Summary Field1" id="1044">
-                    <property name="measures">
-                        <tabular-measure name="total_buy_price" id="1045">
-                            <expression name="measureExpression" type="javascript">dataSetRow["total_buy_price"]</expression>
-                            <property name="dataType">float</property>
-                        </tabular-measure>
-                    </property>
-                </tabular-measure-group>
             </property>
             <property name="dataSet">sales</property>
         </tabular-cube>
@@ -936,7 +928,6 @@ where bill_id = bill_id]]></xml-property>
                             <property name="aggregationOnRow">Group3/Month</property>
                             <property name="aggregationOnColumn">Group1/group_2cp</property>
                             <property name="backgroundColor">#E6E6FA</property>
-                            <property name="height">93px</property>
                             <property name="content">
                                 <data id="842">
                                     <property name="backgroundColor">#E6E6FA</property>
@@ -946,26 +937,6 @@ where bill_id = bill_id]]></xml-property>
                                     </structure>
                                     <property name="textAlign">right</property>
                                     <property name="resultSetColumn">total_gross_sell_price_with_discount_Group3/Month_Group1/group_2cp</property>
-                                </data>
-                                <data id="1049">
-                                    <property name="borderTopStyle">solid</property>
-                                    <property name="borderTopWidth">thin</property>
-                                    <structure name="numberFormat">
-                                        <property name="category">Fixed</property>
-                                        <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
-                                    </structure>
-                                    <property name="textAlign">right</property>
-                                    <property name="resultSetColumn">total_buy_price_Group3/Month_Group1/group_2cp</property>
-                                </data>
-                                <data id="1057">
-                                    <property name="borderTopStyle">solid</property>
-                                    <property name="borderTopWidth">thin</property>
-                                    <structure name="numberFormat">
-                                        <property name="category">Fixed</property>
-                                        <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
-                                    </structure>
-                                    <property name="textAlign">right</property>
-                                    <property name="resultSetColumn">Column Binding_2</property>
                                 </data>
                             </property>
                         </extended-item>
@@ -981,26 +952,6 @@ where bill_id = bill_id]]></xml-property>
                                     </structure>
                                     <property name="textAlign">right</property>
                                     <property name="resultSetColumn">total_gross_sell_price_with_discount_Group3/Month</property>
-                                </data>
-                                <data id="1054">
-                                    <property name="borderTopStyle">solid</property>
-                                    <property name="borderTopWidth">thin</property>
-                                    <structure name="numberFormat">
-                                        <property name="category">Fixed</property>
-                                        <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
-                                    </structure>
-                                    <property name="textAlign">right</property>
-                                    <property name="resultSetColumn">total_buy_price_Group3/Month</property>
-                                </data>
-                                <data id="1058">
-                                    <property name="borderTopStyle">solid</property>
-                                    <property name="borderTopWidth">thin</property>
-                                    <structure name="numberFormat">
-                                        <property name="category">Fixed</property>
-                                        <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
-                                    </structure>
-                                    <property name="textAlign">right</property>
-                                    <property name="resultSetColumn">Column Binding_3</property>
                                 </data>
                             </property>
                         </extended-item>
@@ -1055,20 +1006,7 @@ where bill_id = bill_id]]></xml-property>
                                         <extended-item extensionName="CrosstabCell" id="840">
                                             <property name="content">
                                                 <data name="Month_TOTAL1" id="843">
-                                                    <property name="textAlign">left</property>
                                                     <property name="resultSetColumn">Month_TOTAL</property>
-                                                </data>
-                                                <data name="Month_TOTAL11" id="1060">
-                                                    <property name="borderTopStyle">solid</property>
-                                                    <property name="borderTopWidth">thin</property>
-                                                    <property name="textAlign">left</property>
-                                                    <property name="resultSetColumn">Month_TOTAL_2</property>
-                                                </data>
-                                                <data name="Month_TOTAL111" id="1064">
-                                                    <property name="borderTopStyle">solid</property>
-                                                    <property name="borderTopWidth">thin</property>
-                                                    <property name="textAlign">left</property>
-                                                    <property name="resultSetColumn">Month_TOTAL_3</property>
                                                 </data>
                                             </property>
                                             <property name="backgroundColor">#E6E6FA</property>
@@ -1086,7 +1024,6 @@ where bill_id = bill_id]]></xml-property>
                                         <extended-item extensionName="CrosstabCell" id="826">
                                             <property name="content">
                                                 <data name="customer_erp_class_name" id="828">
-                                                    <property name="textAlign">left</property>
                                                     <property name="resultSetColumn">customer_erp_class_name</property>
                                                 </data>
                                             </property>
@@ -1278,64 +1215,6 @@ else if (data["group_2cp"] == 'Beacons'){
                     <property name="name">Column Binding_1</property>
                     <expression name="expression" type="javascript">data["Column Binding"]</expression>
                     <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="name">total_buy_price_Group3/Month_Group1/group_2cp</property>
-                    <expression name="expression">measure["total_buy_price"]</expression>
-                    <property name="dataType">float</property>
-                    <simple-property-list name="aggregateOn">
-                        <value>Group3/Month</value>
-                        <value>Group1/group_2cp</value>
-                    </simple-property-list>
-                    <property name="aggregateFunction">SUM</property>
-                </structure>
-                <structure>
-                    <property name="name">total_buy_price_Group4/customer_erp_class_name_Group1/group_2cp</property>
-                    <expression name="expression">measure["total_buy_price"]</expression>
-                    <property name="dataType">float</property>
-                    <simple-property-list name="aggregateOn">
-                        <value>Group4/customer_erp_class_name</value>
-                        <value>Group1/group_2cp</value>
-                    </simple-property-list>
-                    <property name="aggregateFunction">SUM</property>
-                </structure>
-                <structure>
-                    <property name="name">total_buy_price_Group3/Month</property>
-                    <expression name="expression">measure["total_buy_price"]</expression>
-                    <property name="dataType">float</property>
-                    <simple-property-list name="aggregateOn">
-                        <value>Group3/Month</value>
-                    </simple-property-list>
-                    <property name="aggregateFunction">sum</property>
-                </structure>
-                <structure>
-                    <property name="name">total_buy_price_Group4/customer_erp_class_name</property>
-                    <expression name="expression">measure["total_buy_price"]</expression>
-                    <property name="dataType">float</property>
-                    <simple-property-list name="aggregateOn">
-                        <value>Group4/customer_erp_class_name</value>
-                    </simple-property-list>
-                    <property name="aggregateFunction">sum</property>
-                </structure>
-                <structure>
-                    <property name="name">Column Binding_2</property>
-                    <expression name="expression" type="javascript">data["total_gross_sell_price_with_discount_Group3/Month_Group1/group_2cp"]-data["total_buy_price_Group3/Month_Group1/group_2cp"]</expression>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="name">Column Binding_3</property>
-                    <expression name="expression" type="javascript">data["total_gross_sell_price_with_discount_Group3/Month"]-data["total_buy_price_Group3/Month"]</expression>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="name">Month_TOTAL_2</property>
-                    <expression name="expression" type="javascript">"Cost of sales (with transport)"</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">Month_TOTAL_3</property>
-                    <expression name="expression" type="javascript">"Gross margin"</expression>
-                    <property name="dataType">string</property>
                 </structure>
             </list-property>
         </extended-item>

@@ -9,7 +9,6 @@
         <structure>
             <property name="name">odaURL</property>
             <property name="id">128</property>
-            <expression name="value" type="javascript">"jdbc:postgresql://localhost:5432/"+params["datasource"].value</expression>
         </structure>
         <structure>
             <property name="name">odaUser</property>
@@ -88,7 +87,7 @@
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">org.postgresql.Driver</property>
-            <property name="odaURL">jdbc:postgresql://localhost:5432/China_UFDATA_003_2013</property>
+            <property name="odaURL">jdbc:postgresql://localhost:5432/China_UFDATA_001_2013</property>
             <property name="odaUser">kettlesh</property>
             <encrypted-property name="odaPassword" encryptionID="base64">MTIza2V0dGxlc2g=</encrypted-property>
         </oda-data-source>
