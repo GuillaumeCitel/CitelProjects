@@ -12,6 +12,9 @@
             <property name="namespace">library</property>
         </structure>
     </list-property>
+    <parameters>
+        <scalar-parameter name="datasource" id="694" extends="library.datasource"/>
+    </parameters>
     <data-sources>
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="PostGre_China" id="693"
  extends="library.PostGre_China"/>

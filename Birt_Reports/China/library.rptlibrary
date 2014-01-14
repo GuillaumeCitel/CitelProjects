@@ -53,7 +53,7 @@
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">China_UFDATA_001_2013</value>
+                <value type="constant">shanghai</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -82,9 +82,9 @@
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">org.postgresql.Driver</property>
-            <property name="odaURL">not_used</property>
-            <property name="odaUser">kettlesh</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">MTIza2V0dGxlc2g=</encrypted-property>
+            <property name="odaURL">jdbc:postgresql://localhost:5432/shanghai</property>
+            <property name="odaUser">kettlecn</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">MTIza2V0dGxlY24=</encrypted-property>
         </oda-data-source>
     </data-sources>
     <data-sets>
