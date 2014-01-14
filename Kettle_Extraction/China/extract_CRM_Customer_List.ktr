@@ -92,13 +92,13 @@
   </connection>
   <connection>
     <name>PostGre_China</name>
-    <server>localhost</server>
+    <server>${Apgsql_server}</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
     <database>${Apgsql_db_name}</database>
-    <port>5432</port>
+    <port>${Apgsql_port_nb}</port>
     <username>${Apgsql_user_name}</username>
-    <password>${Apgsql_user_psw}</password>
+    <password>${Amssql_user_psw}</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -106,7 +106,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>${Apgsql_port_nb}</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
@@ -118,7 +118,7 @@
     <type>MSSQL</type>
     <access>Native</access>
     <database>${Amssql_db_name}</database>
-    <port>1433</port>
+    <port>${Amssql_port_nb}</port>
     <username>${Amssql_user_name}</username>
     <password>${Amssql_user_psw}</password>
     <servername/>
@@ -129,7 +129,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
       <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1433</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>${Amssql_port_nb}</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
