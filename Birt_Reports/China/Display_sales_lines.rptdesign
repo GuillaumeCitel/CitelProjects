@@ -417,6 +417,7 @@
                 </scalar-parameter>
             </parameters>
         </parameter-group>
+        <scalar-parameter name="datasource" id="1079" extends="library.datasource"/>
     </parameters>
     <data-sources>
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="PostGre_China" id="1077"
@@ -1138,7 +1139,8 @@ this.queryText = query_select + query_from + query_where + query_orderby;]]></me
             <xml-property name="queryText"><![CDATA[select *
 from sales
 where sale_bill_date >= ?
-and sale_bill_date <= ?]]></xml-property>
+and sale_bill_date <= ?
+and delivery_date is not null]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
@@ -1561,6 +1563,7 @@ and sale_bill_date <= ?]]></xml-property>
                 </structure>
             </list-property>
             <structure name="toc"/>
+            <property name="pageBreakInterval">9999</property>
             <column id="788">
                 <property name="backgroundColor">#E6E6FA</property>
                 <property name="width">0.9484536082474226in</property>

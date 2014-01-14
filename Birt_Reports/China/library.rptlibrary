@@ -9,6 +9,7 @@
         <structure>
             <property name="name">odaURL</property>
             <property name="id">128</property>
+            <expression name="value" type="javascript">"jdbc:postgresql://localhost:5432/"+params["datasource"].value</expression>
         </structure>
         <structure>
             <property name="name">odaUser</property>
@@ -43,26 +44,20 @@
     <property name="theme">defaultTheme</property>
     <parameters>
         <scalar-parameter name="datasource" id="939">
+            <property name="hidden">true</property>
             <text-property name="promptText">Company</text-property>
             <property name="valueType">static</property>
+            <property name="isRequired">true</property>
             <property name="sortBy">label</property>
             <property name="sortDirection">desc</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
-            <list-property name="selectionList">
-                <structure>
-                    <property name="value">China_UFDATA_003_2013</property>
-                    <property name="label">CCSH</property>
-                </structure>
-                <structure>
-                    <property name="value">China_UFDATA_001_2013</property>
-                    <property name="label">Citel Shanghai</property>
-                </structure>
-            </list-property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">China_UFDATA_001_2013</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
             <property name="paramType">simple</property>
-            <property name="controlType">list-box</property>
-            <property name="mustMatch">true</property>
-            <property name="fixedOrder">false</property>
+            <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
