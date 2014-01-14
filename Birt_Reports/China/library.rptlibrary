@@ -82,7 +82,7 @@
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">org.postgresql.Driver</property>
-            <property name="odaURL">jdbc:postgresql://localhost:5432/China_UFDATA_001_2013</property>
+            <property name="odaURL">not_used</property>
             <property name="odaUser">kettlesh</property>
             <encrypted-property name="odaPassword" encryptionID="base64">MTIza2V0dGxlc2g=</encrypted-property>
         </oda-data-source>
