@@ -2547,6 +2547,42 @@ else {
                     <expression name="expression" type="javascript">dataSetRow["stock_value"]</expression>
                     <property name="dataType">float</property>
                 </structure>
+                <structure>
+                    <property name="name">Aggregation_2</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["qty_in_stock"]*dataSetRow["stock_price_without_transport"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_3</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["qty_in_stock"]*dataSetRow["stock_price_with_transport"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_4</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["qty_in_stock"]*dataSetRow["stock_average_price"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
             </list-property>
             <column id="1005">
                 <property name="width">2in</property>
@@ -2590,30 +2626,38 @@ else {
                     <property name="paddingTop">1pt</property>
                     <text-data id="1029">
                         <property name="paddingTop">10pt</property>
-                        <expression name="valueExpr">"Current UBP (w/o transport): "+row["stock_price_without_transport"]</expression>
+                        <expression name="valueExpr">if (params["product_gmbh_code1"].value == "All" &amp; params["product_gmbh_code2"].value == "All") {
+	"Current UBP (w/o transport): "+(row["Aggregation_2"]/row["Aggregation"]).toFixed(5)
+}
+else {
+	"Current UBP (w/o transport): "+row["stock_price_without_transport"].toFixed(2)
+}</expression>
                         <property name="contentType">html</property>
                     </text-data>
                 </cell>
                 <cell id="1026">
                     <text-data id="1035">
                         <property name="paddingTop">10pt</property>
-                        <expression name="valueExpr">"Current UBP (with transport): "+row["stock_price_with_transport"]</expression>
+                        <expression name="valueExpr">if (params["product_gmbh_code1"].value == "All" &amp; params["product_gmbh_code2"].value == "All") {
+	"Current UBP (with transport): "+(row["Aggregation_3"]/row["Aggregation"]).toFixed(5)
+}
+else {
+	"Current UBP (with transport): "+row["stock_price_with_transport"].toFixed(2)
+}</expression>
                         <property name="contentType">html</property>
                     </text-data>
                 </cell>
                 <cell id="1027">
-                    <text-data id="1036">
+                    <text-data id="1038">
                         <property name="paddingTop">10pt</property>
-                        <expression name="valueExpr">"Stock price: "</expression>
+                        <expression name="valueExpr">if (params["product_gmbh_code1"].value == "All" &amp; params["product_gmbh_code2"].value == "All") {
+	"Stock Price: "+(row["Aggregation_4"]/row["Aggregation"]).toFixed(5)
+}
+else {
+	"Stock Price: "+row["stock_average_price"].toFixed(2)
+}</expression>
                         <property name="contentType">html</property>
                     </text-data>
-                    <data id="1037">
-                        <structure name="numberFormat">
-                            <property name="category">Fixed</property>
-                            <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
-                        </structure>
-                        <property name="resultSetColumn">stock_average_price</property>
-                    </data>
                 </cell>
                 <cell id="1028"/>
             </row>
