@@ -170,6 +170,14 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>out_quantity</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>in_quantity</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
@@ -201,6 +209,8 @@ var inventory_code = cInvCode;&#47;&#47;string
 var item_id = ItemId;&#47;&#47;number
 var batch = cBatch;&#47;&#47;string
 var quantity = iQuantity;&#47;&#47;number
+var out_quantity = fOutQuantity;&#47;&#47;number
+var in_quantity=fInQuantity;&#47;&#47;number
 
 
 </jsScript_script>
@@ -240,6 +250,18 @@ var quantity = iQuantity;&#47;&#47;number
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
+      </field>      <field>        <name>out_quantity</name>
+        <rename>out_quantity</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>in_quantity</name>
+        <rename>in_quantity</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>188</xloc>
@@ -271,7 +293,7 @@ var quantity = iQuantity;&#47;&#47;number
     </arguments>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>144</xloc>
+      <xloc>143</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
       </GUI>
@@ -327,6 +349,16 @@ var quantity = iQuantity;&#47;&#47;number
       <value>
         <name>quantity</name>
         <rename>quantity</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>out_quantity</name>
+        <rename>out_quantity</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>in_quantity</name>
+        <rename>in_quantity</rename>
         <update>Y</update>
       </value>
     </lookup>
