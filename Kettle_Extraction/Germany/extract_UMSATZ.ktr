@@ -92,13 +92,13 @@
   </connection>
   <connection>
     <name>PostGre_China</name>
-    <server>localhost</server>
+    <server>${Apgsql_server}</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
     <database>${Apgsql_db_name}</database>
-    <port>5432</port>
-    <username>kettlesh</username>
-    <password>Encrypted 2be98afc86a96c0d7a01cba64d297bcd2</password>
+    <port>${Apgsql_port_nb}</port>
+    <username>${Apgsql_user_name}</username>
+    <password>${Amssql_user_psw}</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -106,7 +106,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>${Apgsql_port_nb}</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
@@ -162,9 +162,9 @@
     <type>MSSQL</type>
     <access>Native</access>
     <database>${Amssql_db_name}</database>
-    <port>1433</port>
-    <username>viewer</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10becaf782</password>
+    <port>${Amssql_port_nb}</port>
+    <username>${Amssql_user_name}</username>
+    <password>${Amssql_user_psw}</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -173,7 +173,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
       <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1433</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>${Amssql_port_nb}</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
@@ -226,7 +226,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Execute SQL script</from><to>Blocking Step</to><enabled>Y</enabled> </hop>  <hop> <from>Blocking Step</from><to>Extract</to><enabled>Y</enabled> </hop>  <hop> <from>Columns_Selection</from><to>Table output</to><enabled>Y</enabled> </hop>  <hop> <from>Create variables</from><to>Columns_Selection</to><enabled>Y</enabled> </hop>  <hop> <from>Add sequence</from><to>Create variables</to><enabled>Y</enabled> </hop>  <hop> <from>Blocking Step 2</from><to>Add sequence</to><enabled>Y</enabled> </hop>  <hop> <from>Extract</from><to>Blocking Step 2</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Create variables</from><to>Columns_Selection</to><enabled>Y</enabled> </hop>  <hop> <from>Add sequence</from><to>Create variables</to><enabled>Y</enabled> </hop>  <hop> <from>Blocking Step 2</from><to>Add sequence</to><enabled>Y</enabled> </hop>  <hop> <from>Extract</from><to>Blocking Step 2</to><enabled>Y</enabled> </hop>  <hop> <from>Columns_Selection</from><to>Blocking Step 3</to><enabled>Y</enabled> </hop>  <hop> <from>Blocking Step 3</from><to>Table output</to><enabled>Y</enabled> </hop>  <hop> <from>Execute SQL script</from><to>Extract</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Add sequence</name>
     <type>Sequence</type>
@@ -256,29 +256,6 @@
     </step>
 
   <step>
-    <name>Blocking Step</name>
-    <type>BlockingStep</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <pass_all_rows>N</pass_all_rows>
-      <directory>%%java.io.tmpdir%%</directory>
-      <prefix>block</prefix>
-      <cache_size>5000</cache_size>
-      <compress>Y</compress>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>269</xloc>
-      <yloc>184</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Blocking Step 2</name>
     <type>BlockingStep</type>
     <description/>
@@ -296,6 +273,29 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>489</xloc>
+      <yloc>183</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Blocking Step 3</name>
+    <type>BlockingStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <pass_all_rows>Y</pass_all_rows>
+      <directory>%%java.io.tmpdir%%</directory>
+      <prefix>block</prefix>
+      <cache_size>5000</cache_size>
+      <compress>Y</compress>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>949</xloc>
       <yloc>183</yloc>
       <draw>Y</draw>
       </GUI>
@@ -451,10 +451,7 @@ var provision = PROV;&#47;&#47;number
 
 if ( sign == &apos;G&apos;) {
 	quantity = -quantity;
-	&#47;&#47;unit_buy_price = - unit_buy_price;
 	total_buy_price = -total_buy_price;
-	&#47;&#47;unit_gross_sell_price_without_discount = -unit_gross_sell_price_without_discount;
-	&#47;&#47;unit_net_sell_price_without_discount = -unit_net_sell_price_without_discount;
 	total_gross_sell_price_with_discount = -total_gross_sell_price_with_discount;
 }
 
@@ -633,8 +630,8 @@ else {
     </arguments>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>146</xloc>
-      <yloc>184</yloc>
+      <xloc>250</xloc>
+      <yloc>181</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -698,8 +695,8 @@ else {
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>952</xloc>
-      <yloc>182</yloc>
+      <xloc>1099</xloc>
+      <yloc>188</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
