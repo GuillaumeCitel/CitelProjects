@@ -90,14 +90,38 @@
     </attributes>
   </connection>
   <connection>
+    <name>Pervasive_Sage_US</name>
+    <server/>
+    <type>GENERIC</type>
+    <access>Native</access>
+    <database/>
+    <port>1521</port>
+    <username>${Aperva_sql_us_user_name}</username>
+    <password>${Aperva_sql_us_user_psw}</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>CUSTOM_DRIVER_CLASS</code><attribute>com.pervasive.jdbc.v2.Driver</attribute></attribute>
+      <attribute><code>CUSTOM_URL</code><attribute>${Aperva_sql_us_con_string}</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>PostGre_China</name>
-    <server>localhost</server>
+    <server>${Apgsql_server}</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
     <database>${Apgsql_db_name}</database>
-    <port>5432</port>
-    <username>kettlesh</username>
-    <password>Encrypted 2be98afc86a96c0d7a01cba64d297bcd2</password>
+    <port>${Apgsql_port_nb}</port>
+    <username>${Apgsql_user_name}</username>
+    <password>${Amssql_user_psw}</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -105,7 +129,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>${Apgsql_port_nb}</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
@@ -156,14 +180,36 @@
     </attributes>
   </connection>
   <connection>
+    <name>PostGre_US</name>
+    <server>${Apgsql_us_server}</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>${Apgsql_us_db_name}</database>
+    <port>${Apgsql_us_port_nb}</port>
+    <username>${Apgsql_us_user_name}</username>
+    <password>${Aperva_sql_us_user_psw}</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>${Apgsql_us_port_nb}</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>SQL_Server_China</name>
     <server>${Amssql_server}</server>
     <type>MSSQL</type>
     <access>Native</access>
     <database>${Amssql_db_name}</database>
-    <port>1433</port>
-    <username>viewer</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10becaf782</password>
+    <port>${Amssql_port_nb}</port>
+    <username>${Amssql_user_name}</username>
+    <password>${Amssql_user_psw}</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -172,7 +218,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
       <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1433</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>${Amssql_port_nb}</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
@@ -267,7 +313,7 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>gmbh_group_1</name>
+      </field>      <field>        <name>group_2cp</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -314,7 +360,7 @@
 
 var gmbh_code = ARNR;&#47;&#47;string
 var name = BEZ;&#47;&#47;string
-var gmbh_group_1 = GRU;&#47;&#47;String
+var group_2cp = GRU;&#47;&#47;String
 var gmbh_group_2 = MWKZ; &#47;&#47;string There is differences between 1 and 2 sometimes. I don&apos;t know why
 var stock_price_without_transport = EK;&#47;&#47;number
 var stock_price_with_transport = KEK;&#47;&#47;number
@@ -333,8 +379,8 @@ var stock_average_price= DEK;&#47;&#47;number PMP?
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>gmbh_group_1</name>
-        <rename>gmbh_group_1</rename>
+      </field>      <field>        <name>group_2cp</name>
+        <rename>group_2cp</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
