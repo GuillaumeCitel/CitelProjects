@@ -423,6 +423,10 @@
                             <property name="value">total_buy_price</property>
                             <property name="label">buy price (total)</property>
                         </structure>
+                        <structure>
+                            <property name="value">product_gmbh_group_1</property>
+                            <property name="label">product_gmbh_group_1</property>
+                        </structure>
                     </list-property>
                     <property name="paramType">simple</property>
                     <property name="controlType">list-box</property>
@@ -899,22 +903,10 @@ where product_name ilike ?]]></xml-property>
                     <text-property name="heading">product_name</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">product_gmbh_group_1</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">product_gmbh_group_1</text-property>
-                    <text-property name="heading">product_gmbh_group_1</text-property>
-                </structure>
-                <structure>
                     <property name="columnName">product_gmbh_group_2</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">product_gmbh_group_2</text-property>
                     <text-property name="heading">product_gmbh_group_2</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">code_2cp</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">code_2cp</text-property>
-                    <text-property name="heading">code_2cp</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">group_2cp</property>
@@ -1077,7 +1069,7 @@ where product_name ilike ?]]></xml-property>
                     </structure>
                     <structure>
                         <property name="position">23</property>
-                        <property name="name">product_gmbh_group_1</property>
+                        <property name="name">group_2cp</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
@@ -1087,26 +1079,16 @@ where product_name ilike ?]]></xml-property>
                     </structure>
                     <structure>
                         <property name="position">25</property>
-                        <property name="name">code_2cp</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">26</property>
-                        <property name="name">group_2cp</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">27</property>
                         <property name="name">excel_country</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">28</property>
+                        <property name="position">26</property>
                         <property name="name">customer_excel_class_name</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">29</property>
+                        <property name="position">27</property>
                         <property name="name">seller_name</property>
                         <property name="dataType">string</property>
                     </structure>
@@ -1170,203 +1152,162 @@ this.queryText = query_select + query_from + query_where + query_orderby;]]></me
                     <property name="name">row_id</property>
                     <property name="nativeName">row_id</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
                     <property name="name">bill_id</property>
                     <property name="nativeName">bill_id</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
                     <property name="name">order_nb</property>
                     <property name="nativeName">order_nb</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">4</property>
                     <property name="name">bill_date</property>
                     <property name="nativeName">bill_date</property>
                     <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">5</property>
                     <property name="name">customer_id</property>
                     <property name="nativeName">customer_id</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">6</property>
                     <property name="name">customer_nb</property>
                     <property name="nativeName">customer_nb</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">7</property>
                     <property name="name">customer_name</property>
                     <property name="nativeName">customer_name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">8</property>
                     <property name="name">product_gmbh_code</property>
                     <property name="nativeName">product_gmbh_code</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">9</property>
                     <property name="name">quantity</property>
                     <property name="nativeName">quantity</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">10</property>
                     <property name="name">unit_buy_price</property>
                     <property name="nativeName">unit_buy_price</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">11</property>
                     <property name="name">total_buy_price</property>
                     <property name="nativeName">total_buy_price</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">12</property>
                     <property name="name">unit_gross_sell_price_without_discount</property>
                     <property name="nativeName">unit_gross_sell_price_without_discount</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">13</property>
                     <property name="name">unit_net_sell_price_without_discount</property>
                     <property name="nativeName">unit_net_sell_price_without_discount</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">14</property>
                     <property name="name">discount</property>
                     <property name="nativeName">discount</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">15</property>
                     <property name="name">unit_gross_sell_price_with_discount</property>
                     <property name="nativeName">unit_gross_sell_price_with_discount</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">16</property>
                     <property name="name">total_gross_sell_price_with_discount</property>
                     <property name="nativeName">total_gross_sell_price_with_discount</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">17</property>
                     <property name="name">seller_acronym</property>
                     <property name="nativeName">seller_acronym</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">18</property>
                     <property name="name">provision</property>
                     <property name="nativeName">provision</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">19</property>
                     <property name="name">customer_short_name</property>
                     <property name="nativeName">customer_short_name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">20</property>
                     <property name="name">erp_country</property>
                     <property name="nativeName">erp_country</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">21</property>
                     <property name="name">customer_erp_class_name</property>
                     <property name="nativeName">customer_erp_class_name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">22</property>
                     <property name="name">product_name</property>
                     <property name="nativeName">product_name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">23</property>
-                    <property name="name">product_gmbh_group_1</property>
-                    <property name="nativeName">product_gmbh_group_1</property>
+                    <property name="name">group_2cp</property>
+                    <property name="nativeName">group_2cp</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">24</property>
                     <property name="name">product_gmbh_group_2</property>
                     <property name="nativeName">product_gmbh_group_2</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">25</property>
-                    <property name="name">code_2cp</property>
-                    <property name="nativeName">code_2cp</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">26</property>
-                    <property name="name">group_2cp</property>
-                    <property name="nativeName">group_2cp</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">27</property>
                     <property name="name">excel_country</property>
                     <property name="nativeName">excel_country</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">28</property>
+                    <property name="position">26</property>
                     <property name="name">customer_excel_class_name</property>
                     <property name="nativeName">customer_excel_class_name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">29</property>
+                    <property name="position">27</property>
                     <property name="name">seller_name</property>
                     <property name="nativeName">seller_name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[select *
@@ -1637,21 +1578,9 @@ and bill_date <= ?]]></xml-property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="name">product_gmbh_group_1</property>
-                    <text-property name="displayName">product_gmbh_group_1</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["product_gmbh_group_1"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
                     <property name="name">product_gmbh_group_2</property>
                     <text-property name="displayName">product_gmbh_group_2</text-property>
                     <expression name="expression" type="javascript">dataSetRow["product_gmbh_group_2"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">code_2cp</property>
-                    <text-property name="displayName">code_2cp</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["code_2cp"]</expression>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
@@ -1838,10 +1767,6 @@ and bill_date <= ?]]></xml-property>
             <column id="1053">
                 <property name="width">1.0625in</property>
             </column>
-            <column id="958">
-                <property name="backgroundColor">#ADD8E6</property>
-                <property name="width">0.8in</property>
-            </column>
             <column id="861">
                 <property name="backgroundColor">#ADD8E6</property>
                 <property name="width">0.8in</property>
@@ -1867,7 +1792,7 @@ and bill_date <= ?]]></xml-property>
                 <row id="985">
                     <property name="backgroundColor">#FFFFFF</property>
                     <cell id="986">
-                        <property name="colSpan">19</property>
+                        <property name="colSpan">18</property>
                         <property name="rowSpan">1</property>
                         <property name="backgroundColor">#FFFFFF</property>
                         <text-data id="1045">
@@ -2333,7 +2258,7 @@ else {
                                                 <value type="javascript">"asc"</value>
                                             </simple-property-list>
                                         </structure>
-					<structure>
+                                        <structure>
                                             <property name="paramName">str_research_product</property>
                                             <simple-property-list name="expression">
                                                 <value type="javascript">params["str_research_product"].value</value>
@@ -2512,7 +2437,7 @@ else {
                                                 <value type="javascript">"asc"</value>
                                             </simple-property-list>
                                         </structure>
-					<structure>
+                                        <structure>
                                             <property name="paramName">str_research_product</property>
                                             <simple-property-list name="expression">
                                                 <value type="javascript">params["str_research_product"].value</value>
@@ -2697,7 +2622,7 @@ else {
                                                 <value type="javascript">"asc"</value>
                                             </simple-property-list>
                                         </structure>
-					<structure>
+                                        <structure>
                                             <property name="paramName">str_research_product</property>
                                             <simple-property-list name="expression">
                                                 <value type="javascript">params["str_research_product"].value</value>
@@ -2876,7 +2801,7 @@ else {
                                                 <value type="javascript">"asc"</value>
                                             </simple-property-list>
                                         </structure>
-					<structure>
+                                        <structure>
                                             <property name="paramName">str_research_product</property>
                                             <simple-property-list name="expression">
                                                 <value type="javascript">params["str_research_product"].value</value>
@@ -3055,7 +2980,7 @@ else {
                                                 <value type="javascript">"asc"</value>
                                             </simple-property-list>
                                         </structure>
-					<structure>
+                                        <structure>
                                             <property name="paramName">str_research_product</property>
                                             <simple-property-list name="expression">
                                                 <value type="javascript">params["str_research_product"].value</value>
@@ -3234,7 +3159,7 @@ else {
                                                 <value type="javascript">"asc"</value>
                                             </simple-property-list>
                                         </structure>
-					<structure>
+                                        <structure>
                                             <property name="paramName">str_research_product</property>
                                             <simple-property-list name="expression">
                                                 <value type="javascript">params["str_research_product"].value</value>
@@ -3413,7 +3338,7 @@ else {
                                                 <value type="javascript">"asc"</value>
                                             </simple-property-list>
                                         </structure>
-					<structure>
+                                        <structure>
                                             <property name="paramName">str_research_product</property>
                                             <simple-property-list name="expression">
                                                 <value type="javascript">params["str_research_product"].value</value>
@@ -3591,7 +3516,7 @@ else {
                                                 <value type="javascript">"asc"</value>
                                             </simple-property-list>
                                         </structure>
-					<structure>
+                                        <structure>
                                             <property name="paramName">str_research_product</property>
                                             <simple-property-list name="expression">
                                                 <value type="javascript">params["str_research_product"].value</value>
@@ -3769,7 +3694,7 @@ else {
                                                 <value type="javascript">"asc"</value>
                                             </simple-property-list>
                                         </structure>
-					<structure>
+                                        <structure>
                                             <property name="paramName">str_research_product</property>
                                             <simple-property-list name="expression">
                                                 <value type="javascript">params["str_research_product"].value</value>
@@ -3947,7 +3872,7 @@ else {
                                                 <value type="javascript">"asc"</value>
                                             </simple-property-list>
                                         </structure>
-					<structure>
+                                        <structure>
                                             <property name="paramName">str_research_product</property>
                                             <simple-property-list name="expression">
                                                 <value type="javascript">params["str_research_product"].value</value>
@@ -3962,11 +3887,6 @@ else {
                                     </list-property>
                                 </structure>
                             </list-property>
-                        </label>
-                    </cell>
-                    <cell id="955">
-                        <label id="959">
-                            <text-property name="text">Category 1</text-property>
                         </label>
                     </cell>
                     <cell id="858">
@@ -4131,7 +4051,7 @@ else {
                                                 <value type="javascript">"asc"</value>
                                             </simple-property-list>
                                         </structure>
-					<structure>
+                                        <structure>
                                             <property name="paramName">str_research_product</property>
                                             <simple-property-list name="expression">
                                                 <value type="javascript">params["str_research_product"].value</value>
@@ -4310,7 +4230,7 @@ else {
                                                 <value type="javascript">"asc"</value>
                                             </simple-property-list>
                                         </structure>
-					<structure>
+                                        <structure>
                                             <property name="paramName">str_research_product</property>
                                             <simple-property-list name="expression">
                                                 <value type="javascript">params["str_research_product"].value</value>
@@ -4489,7 +4409,7 @@ else {
                                                 <value type="javascript">"asc"</value>
                                             </simple-property-list>
                                         </structure>
-					<structure>
+                                        <structure>
                                             <property name="paramName">str_research_product</property>
                                             <simple-property-list name="expression">
                                                 <value type="javascript">params["str_research_product"].value</value>
@@ -4667,7 +4587,7 @@ else {
                                                 <value type="javascript">"asc"</value>
                                             </simple-property-list>
                                         </structure>
-					<structure>
+                                        <structure>
                                             <property name="paramName">str_research_product</property>
                                             <simple-property-list name="expression">
                                                 <value type="javascript">params["str_research_product"].value</value>
@@ -4845,7 +4765,7 @@ else {
                                                 <value type="javascript">"asc"</value>
                                             </simple-property-list>
                                         </structure>
-					<structure>
+                                        <structure>
                                             <property name="paramName">str_research_product</property>
                                             <simple-property-list name="expression">
                                                 <value type="javascript">params["str_research_product"].value</value>
@@ -5023,7 +4943,7 @@ else {
                                                 <value type="javascript">"asc"</value>
                                             </simple-property-list>
                                         </structure>
-					<structure>
+                                        <structure>
                                             <property name="paramName">str_research_product</property>
                                             <simple-property-list name="expression">
                                                 <value type="javascript">params["str_research_product"].value</value>
@@ -5254,11 +5174,6 @@ else {
                             </list-property>
                         </label>
                     </cell>
-                    <cell id="1102">
-                        <label id="1110">
-                            <text-property name="text">Category 1</text-property>
-                        </label>
-                    </cell>
                     <cell id="1103">
                         <label id="1071">
                             <property name="backgroundColor">#ADD8E6</property>
@@ -5478,7 +5393,6 @@ else {
                             <property name="resultSetColumn">Column Binding_5</property>
                         </data>
                     </cell>
-                    <cell id="1038"/>
                     <cell id="1039"/>
                     <cell id="1040"/>
                     <cell id="1041"/>
@@ -5601,16 +5515,9 @@ else {
                             <property name="resultSetColumn">total_buy_price</property>
                         </data>
                     </cell>
-                    <cell id="956">
-                        <property name="textAlign">right</property>
-                        <data id="960">
-                            <property name="resultSetColumn">product_gmbh_group_1</property>
-                        </data>
-                    </cell>
                     <cell id="859">
                         <property name="textAlign">right</property>
-                        <data id="863">
-                            <property name="backgroundColor">#ADD8E6</property>
+                        <data id="1110">
                             <property name="resultSetColumn">group_2cp</property>
                         </data>
                     </cell>
