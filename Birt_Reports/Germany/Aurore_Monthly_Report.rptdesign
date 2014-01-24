@@ -63,7 +63,7 @@
         </parameter-group>
     </parameters>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="kettlede" id="753"
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="kettlede" id="1065"
  extends="library.kettlede"/>
     </data-sources>
     <data-sets>
@@ -202,22 +202,10 @@
                     <text-property name="heading">product_name</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">product_gmbh_group_1</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">product_gmbh_group_1</text-property>
-                    <text-property name="heading">product_gmbh_group_1</text-property>
-                </structure>
-                <structure>
                     <property name="columnName">product_gmbh_group_2</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">product_gmbh_group_2</text-property>
                     <text-property name="heading">product_gmbh_group_2</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">code_2cp</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">code_2cp</text-property>
-                    <text-property name="heading">code_2cp</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">group_2cp</property>
@@ -359,7 +347,7 @@
                     </structure>
                     <structure>
                         <property name="position">23</property>
-                        <property name="name">product_gmbh_group_1</property>
+                        <property name="name">group_2cp</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
@@ -369,26 +357,16 @@
                     </structure>
                     <structure>
                         <property name="position">25</property>
-                        <property name="name">code_2cp</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">26</property>
-                        <property name="name">group_2cp</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">27</property>
                         <property name="name">excel_country</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">28</property>
+                        <property name="position">26</property>
                         <property name="name">customer_excel_class_name</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">29</property>
+                        <property name="position">27</property>
                         <property name="name">seller_name</property>
                         <property name="dataType">string</property>
                     </structure>
@@ -423,203 +401,162 @@ this.queryText = query_select + query_from + query_where;]]></method>
                     <property name="name">row_id</property>
                     <property name="nativeName">row_id</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
                     <property name="name">bill_id</property>
                     <property name="nativeName">bill_id</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
                     <property name="name">order_nb</property>
                     <property name="nativeName">order_nb</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">4</property>
                     <property name="name">bill_date</property>
                     <property name="nativeName">bill_date</property>
                     <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">5</property>
                     <property name="name">customer_id</property>
                     <property name="nativeName">customer_id</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">6</property>
                     <property name="name">customer_nb</property>
                     <property name="nativeName">customer_nb</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">7</property>
                     <property name="name">customer_name</property>
                     <property name="nativeName">customer_name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">8</property>
                     <property name="name">product_gmbh_code</property>
                     <property name="nativeName">product_gmbh_code</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">9</property>
                     <property name="name">quantity</property>
                     <property name="nativeName">quantity</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">10</property>
                     <property name="name">unit_buy_price</property>
                     <property name="nativeName">unit_buy_price</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">11</property>
                     <property name="name">total_buy_price</property>
                     <property name="nativeName">total_buy_price</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">12</property>
                     <property name="name">unit_gross_sell_price_without_discount</property>
                     <property name="nativeName">unit_gross_sell_price_without_discount</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">13</property>
                     <property name="name">unit_net_sell_price_without_discount</property>
                     <property name="nativeName">unit_net_sell_price_without_discount</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">14</property>
                     <property name="name">discount</property>
                     <property name="nativeName">discount</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">15</property>
                     <property name="name">unit_gross_sell_price_with_discount</property>
                     <property name="nativeName">unit_gross_sell_price_with_discount</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">16</property>
                     <property name="name">total_gross_sell_price_with_discount</property>
                     <property name="nativeName">total_gross_sell_price_with_discount</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">17</property>
                     <property name="name">seller_acronym</property>
                     <property name="nativeName">seller_acronym</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">18</property>
                     <property name="name">provision</property>
                     <property name="nativeName">provision</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">19</property>
                     <property name="name">customer_short_name</property>
                     <property name="nativeName">customer_short_name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">20</property>
                     <property name="name">erp_country</property>
                     <property name="nativeName">erp_country</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">21</property>
                     <property name="name">customer_erp_class_name</property>
                     <property name="nativeName">customer_erp_class_name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">22</property>
                     <property name="name">product_name</property>
                     <property name="nativeName">product_name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">23</property>
-                    <property name="name">product_gmbh_group_1</property>
-                    <property name="nativeName">product_gmbh_group_1</property>
+                    <property name="name">group_2cp</property>
+                    <property name="nativeName">group_2cp</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">24</property>
                     <property name="name">product_gmbh_group_2</property>
                     <property name="nativeName">product_gmbh_group_2</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">25</property>
-                    <property name="name">code_2cp</property>
-                    <property name="nativeName">code_2cp</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">26</property>
-                    <property name="name">group_2cp</property>
-                    <property name="nativeName">group_2cp</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">27</property>
                     <property name="name">excel_country</property>
                     <property name="nativeName">excel_country</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">28</property>
+                    <property name="position">26</property>
                     <property name="name">customer_excel_class_name</property>
                     <property name="nativeName">customer_excel_class_name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">29</property>
+                    <property name="position">27</property>
                     <property name="name">seller_name</property>
                     <property name="nativeName">seller_name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[select *
@@ -641,19 +578,19 @@ where bill_id = bill_id]]></xml-property>
                                     <expression name="defaultValue">Others</expression>
                                     <list-property name="staticValues">
                                         <structure>
-                                            <expression name="ruleExpre">dataSetRow["group_2cp"]=='AC 1'</expression>
+                                            <expression name="ruleExpre">dataSetRow["group_2cp"]=='AC1'</expression>
                                             <expression name="displayExpre">Type 1</expression>
                                         </structure>
                                         <structure>
-                                            <expression name="ruleExpre">dataSetRow["group_2cp"]=='AC 2'</expression>
+                                            <expression name="ruleExpre">dataSetRow["group_2cp"]=='AC2'</expression>
                                             <expression name="displayExpre">Type 2</expression>
                                         </structure>
                                         <structure>
-                                            <expression name="ruleExpre">dataSetRow["group_2cp"]=='AC 3'</expression>
+                                            <expression name="ruleExpre">dataSetRow["group_2cp"]=='AC3'</expression>
                                             <expression name="displayExpre">Type 3</expression>
                                         </structure>
                                         <structure>
-                                            <expression name="ruleExpre">dataSetRow["group_2cp"]=='AC ENCLOSURE'</expression>
+                                            <expression name="ruleExpre">dataSetRow["group_2cp"]=='ACC'</expression>
                                             <expression name="displayExpre">AC enclosure</expression>
                                         </structure>
                                         <structure>
@@ -661,20 +598,16 @@ where bill_id = bill_id]]></xml-property>
                                             <expression name="displayExpre">Coaxials</expression>
                                         </structure>
                                         <structure>
-                                            <expression name="ruleExpre">dataSetRow["group_2cp"]=='GAS TUBE'</expression>
+                                            <expression name="ruleExpre">dataSetRow["group_2cp"]=='GDT'</expression>
                                             <expression name="displayExpre">Surge arresters</expression>
                                         </structure>
                                         <structure>
-                                            <expression name="ruleExpre">dataSetRow["group_2cp"]=='TD'||dataSetRow["group_2cp"]=='TD DIN'</expression>
+                                            <expression name="ruleExpre">dataSetRow["group_2cp"]=='TD'||dataSetRow["group_2cp"]=='TDD'</expression>
                                             <expression name="displayExpre">Data</expression>
                                         </structure>
                                         <structure>
-                                            <expression name="ruleExpre">dataSetRow["group_2cp"]=='toto'</expression>
-                                            <expression name="displayExpre">Data trading</expression>
-                                        </structure>
-                                        <structure>
-                                            <expression name="ruleExpre">dataSetRow["group_2cp"]=='tata'</expression>
-                                            <expression name="displayExpre">Beacons</expression>
+                                            <expression name="ruleExpre">dataSetRow["group_2cp"]=='OBL'</expression>
+                                            <expression name="displayExpre">Obsta</expression>
                                         </structure>
                                     </list-property>
                                 </tabular-level>
@@ -1269,7 +1202,7 @@ else if (data["group_2cp"] == 'Data trading'){
 else if (data["group_2cp"] == 'Others'){
 	8;
 }
-else if (data["group_2cp"] == 'Beacons'){
+else if (data["group_2cp"] == 'Obsta'){
 	9;
 }</expression>
                     <property name="dataType">integer</property>
