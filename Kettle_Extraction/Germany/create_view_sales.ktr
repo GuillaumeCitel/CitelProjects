@@ -286,7 +286,8 @@
     <execute_each_row>N</execute_each_row>
     <single_statement>N</single_statement>
     <replace_variables>N</replace_variables>
-    <sql>CREATE OR REPLACE VIEW sales AS
+    <sql>DROP VIEW IF EXISTS sales;
+CREATE OR REPLACE VIEW sales AS
 SELECT
 	umsatz.row_id,
 	umsatz.bill_id,
@@ -307,6 +308,7 @@ SELECT
 	umsatz.seller_acronym,
 	umsatz.provision,
 	kunden.short_name as customer_short_name,
+	kunden.long_name as customer_long_name,
 	kunden.country as ERP_country,
 	kunden.class_name as customer_ERP_class_name,
 	artikel.&quot;name&quot; as product_name,
@@ -328,7 +330,7 @@ left outer join vergleich_V on umsatz.seller_acronym= vergleich_V.seller_acronym
     </arguments>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>181</xloc>
+      <xloc>179</xloc>
       <yloc>101</yloc>
       <draw>Y</draw>
       </GUI>
