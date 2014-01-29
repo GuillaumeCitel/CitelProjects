@@ -67,6 +67,27 @@
   <modified_date>2014&#47;01&#47;23 16:41:04.932</modified_date>
   </info>
   <notepads>
+    <notepad>
+      <note>This transformation will work only if the schma france exists</note>
+      <xloc>449</xloc>
+      <yloc>157</yloc>
+      <width>354</width>
+      <heigth>25</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>165</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>kettlede</name>
@@ -229,8 +250,8 @@ DROP VIEW IF EXISTS france.sales;</sql>
     </arguments>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>695</xloc>
-      <yloc>188</yloc>
+      <xloc>577</xloc>
+      <yloc>221</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
