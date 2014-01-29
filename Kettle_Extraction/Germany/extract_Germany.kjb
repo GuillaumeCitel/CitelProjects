@@ -34,6 +34,52 @@
     </attributes>
   </connection>
   <connection>
+    <name>Pervasive_Sage_US</name>
+    <server/>
+    <type>GENERIC</type>
+    <access>Native</access>
+    <database/>
+    <port>1521</port>
+    <username>${Aperva_sql_us_user_name}</username>
+    <password>${Aperva_sql_us_user_psw}</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>CUSTOM_DRIVER_CLASS</code><attribute>com.pervasive.jdbc.v2.Driver</attribute></attribute>
+      <attribute><code>CUSTOM_URL</code><attribute>${Aperva_sql_us_con_string}</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>PostGre_China</name>
+    <server>${Apgsql_server}</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>${Apgsql_db_name}</database>
+    <port>${Apgsql_port_nb}</port>
+    <username>${Apgsql_user_name}</username>
+    <password>${Amssql_user_psw}</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>${Apgsql_port_nb}</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>PostGre_China_UFDATA_001_2013</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
@@ -72,6 +118,51 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
       <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>PostGre_US</name>
+    <server>${Apgsql_us_server}</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>${Apgsql_us_db_name}</database>
+    <port>${Apgsql_us_port_nb}</port>
+    <username>${Apgsql_us_user_name}</username>
+    <password>${Aperva_sql_us_user_psw}</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>${Apgsql_us_port_nb}</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>SQL_Server_China</name>
+    <server>${Amssql_server}</server>
+    <type>MSSQL</type>
+    <access>Native</access>
+    <database>${Amssql_db_name}</database>
+    <port>${Amssql_port_nb}</port>
+    <username>${Amssql_user_name}</username>
+    <password>${Amssql_user_psw}</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>${Amssql_port_nb}</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
@@ -161,12 +252,12 @@
       <set_logfile>N</set_logfile>
       <logfile/>
       <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
+      <add_date>Y</add_date>
+      <add_time>Y</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
       <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
+      <set_append_logfile>Y</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
@@ -174,8 +265,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>608</xloc>
-      <yloc>117</yloc>
+      <xloc>771</xloc>
+      <yloc>52</yloc>
       </entry>
     <entry>
       <name>START</name>
@@ -226,8 +317,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>463</xloc>
-      <yloc>131</yloc>
+      <xloc>467</xloc>
+      <yloc>23</yloc>
       </entry>
     <entry>
       <name>extract_KUNDEN</name>
@@ -245,8 +336,8 @@
       <set_logfile>N</set_logfile>
       <logfile/>
       <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
+      <add_date>Y</add_date>
+      <add_time>Y</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
       <slave_server_name/>
@@ -258,8 +349,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>167</xloc>
-      <yloc>129</yloc>
+      <xloc>162</xloc>
+      <yloc>22</yloc>
       </entry>
     <entry>
       <name>extract_ARTIKEL</name>
@@ -290,8 +381,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>312</xloc>
-      <yloc>139</yloc>
+      <xloc>315</xloc>
+      <yloc>26</yloc>
       </entry>
     <entry>
       <name>Vergleich_A</name>
@@ -339,12 +430,12 @@
       <set_logfile>N</set_logfile>
       <logfile/>
       <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
+      <add_date>Y</add_date>
+      <add_time>Y</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
       <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
+      <set_append_logfile>Y</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
@@ -352,8 +443,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>516</xloc>
-      <yloc>54</yloc>
+      <xloc>626</xloc>
+      <yloc>22</yloc>
       </entry>
     <entry>
       <name>Vergleich_V</name>
@@ -444,8 +535,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>749</xloc>
-      <yloc>137</yloc>
+      <xloc>923</xloc>
+      <yloc>80</yloc>
       </entry>
     <entry>
       <name>Extract_ARTRES</name>
@@ -476,8 +567,98 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>859</xloc>
-      <yloc>177</yloc>
+      <xloc>1011</xloc>
+      <yloc>181</yloc>
+      </entry>
+    <entry>
+      <name>Mail Success</name>
+      <description/>
+      <type>MAIL</type>
+      <server>smtp.gmail.com</server>
+      <port>465</port>
+      <destination>guillaume.faure@citelbe.com</destination>
+      <destinationCc/>
+      <destinationBCc/>
+      <replyto>guillaume.faure@citelbe.com</replyto>
+      <replytoname>Kettle</replytoname>
+      <subject>Kettle Germany OK</subject>
+      <include_date>Y</include_date>
+      <contact_person/>
+      <contact_phone/>
+      <comment/>
+      <include_files>Y</include_files>
+      <zip_files>N</zip_files>
+      <zip_name/>
+      <use_auth>Y</use_auth>
+      <use_secure_auth>Y</use_secure_auth>
+      <auth_user>guillaume.faure@citelbe.com</auth_user>
+      <auth_password>Encrypted 2be98afc86aa7f2e4ac1ffb76df87bddf</auth_password>
+      <only_comment>N</only_comment>
+      <use_HTML>N</use_HTML>
+      <use_Priority>N</use_Priority>
+      <encoding>UTF-8</encoding>
+      <priority>normal</priority>
+      <importance>normal</importance>
+      <secureconnectiontype>SSL</secureconnectiontype>
+      <replyToAddresses/>
+      <filetypes>        <filetype>LOG</filetype>
+      </filetypes>      <embeddedimages>
+      </embeddedimages>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>304</xloc>
+      <yloc>445</yloc>
+      </entry>
+    <entry>
+      <name>Mail Failure</name>
+      <description/>
+      <type>MAIL</type>
+      <server>smtp.gmail.com</server>
+      <port>465</port>
+      <destination>guillaume.faure@citelbe.com</destination>
+      <destinationCc/>
+      <destinationBCc/>
+      <replyto>guillaume.faure@citelbe.com</replyto>
+      <replytoname>Kettle</replytoname>
+      <subject>KO Kettle Germany</subject>
+      <include_date>Y</include_date>
+      <contact_person/>
+      <contact_phone/>
+      <comment/>
+      <include_files>Y</include_files>
+      <zip_files>N</zip_files>
+      <zip_name/>
+      <use_auth>Y</use_auth>
+      <use_secure_auth>Y</use_secure_auth>
+      <auth_user>guillaume.faure@citelbe.com</auth_user>
+      <auth_password>Encrypted 2be98afc86aa7f2e4ac1ffb76df87bddf</auth_password>
+      <only_comment>N</only_comment>
+      <use_HTML>N</use_HTML>
+      <use_Priority>N</use_Priority>
+      <encoding>UTF-8</encoding>
+      <priority>normal</priority>
+      <importance>normal</importance>
+      <secureconnectiontype>SSL</secureconnectiontype>
+      <replyToAddresses/>
+      <filetypes>        <filetype>LOG</filetype>
+      </filetypes>      <embeddedimages>
+      </embeddedimages>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>481</xloc>
+      <yloc>210</yloc>
+      </entry>
+    <entry>
+      <name>Success</name>
+      <description/>
+      <type>SUCCESS</type>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>173</xloc>
+      <yloc>445</yloc>
       </entry>
   </entries>
   <hops>
@@ -569,6 +750,114 @@
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Vergleich_L</from>
+      <to>Mail Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>extract_ARTIKEL</from>
+      <to>Mail Failure</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>extract_AUFDAT1</from>
+      <to>Mail Failure</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>extract_AUFDAT2</from>
+      <to>Mail Failure</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Extract_UMSATZ</from>
+      <to>Mail Failure</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Extract_LAGER</from>
+      <to>Mail Failure</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Extract_ARTRES</from>
+      <to>Mail Failure</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Vergleich_A</from>
+      <to>Mail Failure</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Vergleich_V</from>
+      <to>Mail Failure</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Vergleich_L</from>
+      <to>Mail Failure</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Mail Success</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>extract_KUNDEN</from>
+      <to>Mail Failure</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
       <unconditional>N</unconditional>
     </hop>
   </hops>
