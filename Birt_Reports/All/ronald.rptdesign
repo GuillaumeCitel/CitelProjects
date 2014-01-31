@@ -631,7 +631,7 @@ else {
             </list-property>
             <property name="multiViews">
                 <multi-views id="1293">
-                    <property name="index">-1</property>
+                    <property name="index">0</property>
                     <property name="views">
                         <extended-item extensionName="Chart" id="1294">
                             <xml-property name="xmlRepresentation"><![CDATA[<model:ChartWithAxes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:attribute="http://www.birt.eclipse.org/ChartModelAttribute" xmlns:layout="http://www.birt.eclipse.org/ChartModelLayout" xmlns:model="http://www.birt.eclipse.org/ChartModel" xmlns:type="http://www.birt.eclipse.org/ChartModelType">
@@ -796,6 +796,7 @@ else {
         </Caption>
         <Outline/>
         <Insets/>
+        <Visible>false</Visible>
       </Label>
       <MajorGrid>
         <LineAttributes/>
@@ -844,6 +845,7 @@ else {
       </Caption>
       <Outline/>
       <Insets/>
+      <Visible>true</Visible>
     </Label>
     <MajorGrid>
       <LineAttributes/>
@@ -863,8 +865,8 @@ else {
 ]]></xml-property>
                             <property name="outputFormat">SVG</property>
                             <property name="inheritColumns">false</property>
-                            <property name="height">4.96875in</property>
-                            <property name="width">10.552083333333334in</property>
+                            <property name="height">6.114583333333333in</property>
+                            <property name="width">12.03125in</property>
                         </extended-item>
                     </property>
                 </multi-views>
@@ -1062,7 +1064,6 @@ else {
       <Visible>true</Visible>
       <Label>
         <Caption>
-          <Value>Gross sales per month (in k)</Value>
           <Font>
             <Size>16.0</Size>
             <Bold>true</Bold>
@@ -1644,7 +1645,7 @@ else {
               <Bottom>0.0</Bottom>
               <Right>3.0</Right>
             </Insets>
-            <Visible>true</Visible>
+            <Visible>false</Visible>
           </Label>
           <DataDefinition>
             <Definition>row[&quot;total_gross_sell_price_with_discount_in_local_currency&quot;]/1000</Definition>
@@ -1726,7 +1727,7 @@ else {
           <Bottom>0.0</Bottom>
           <Right>3.0</Right>
         </Insets>
-        <Visible>true</Visible>
+        <Visible>false</Visible>
       </Label>
       <LabelPosition>Left</LabelPosition>
       <Staggered>false</Staggered>
