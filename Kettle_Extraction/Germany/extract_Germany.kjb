@@ -411,8 +411,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>941</xloc>
-      <yloc>255</yloc>
+      <xloc>1008</xloc>
+      <yloc>329</yloc>
       </entry>
     <entry>
       <name>extract_AUFDAT2</name>
@@ -647,8 +647,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>481</xloc>
-      <yloc>210</yloc>
+      <xloc>469</xloc>
+      <yloc>233</yloc>
       </entry>
     <entry>
       <name>Success</name>
