@@ -527,7 +527,7 @@ group by customer_code, customer_name]]></xml-property>
             <method name="beforeOpen"><![CDATA[list_of_parameters_names = ["origin","customer_code1","customer_code2"];
 list_of_parameters_value_fields = ["origin","customer_code","customer_code"];
 
-query_select = " select *, sale_bill_date as sale_bill_date2 ";
+query_select = " select *";
 query_from = " from public.sales ";
 
 query_where = " where sale_bill_date >= " + "'" + reportContext.getParameterValue("beginning_date") + "'";

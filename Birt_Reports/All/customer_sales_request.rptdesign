@@ -57,125 +57,8 @@
     <data-sets>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="customer_list_research" id="948"
  extends="library.customer_list_research"/>
-        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="sales" id="977"
- extends="library.sales">
-            <list-property name="resultSet">
-                <structure>
-                    <property name="position">1</property>
-                    <property name="name">origin</property>
-                    <property name="nativeName">origin</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">2</property>
-                    <property name="name">sale_bill_id</property>
-                    <property name="nativeName">sale_bill_id</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">3</property>
-                    <property name="name">sale_bill_date</property>
-                    <property name="nativeName">sale_bill_date</property>
-                    <property name="dataType">date-time</property>
-                </structure>
-                <structure>
-                    <property name="position">4</property>
-                    <property name="name">delivery_date</property>
-                    <property name="nativeName">delivery_date</property>
-                    <property name="dataType">date-time</property>
-                </structure>
-                <structure>
-                    <property name="position">5</property>
-                    <property name="name">customer_code</property>
-                    <property name="nativeName">customer_code</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">6</property>
-                    <property name="name">customer_name</property>
-                    <property name="nativeName">customer_name</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">7</property>
-                    <property name="name">customer_class_name</property>
-                    <property name="nativeName">customer_class_name</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">8</property>
-                    <property name="name">customer_country</property>
-                    <property name="nativeName">customer_country</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">9</property>
-                    <property name="name">product_code</property>
-                    <property name="nativeName">product_code</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">10</property>
-                    <property name="name">product_name</property>
-                    <property name="nativeName">product_name</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">11</property>
-                    <property name="name">product_group</property>
-                    <property name="nativeName">product_group</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">12</property>
-                    <property name="name">quantity</property>
-                    <property name="nativeName">quantity</property>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="position">13</property>
-                    <property name="name">unit_gross_sell_price_with_discount_in_local_currency</property>
-                    <property name="nativeName">unit_gross_sell_price_with_discount_in_local_currency</property>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="position">14</property>
-                    <property name="name">total_gross_sell_price_with_discount_in_local_currency</property>
-                    <property name="nativeName">total_gross_sell_price_with_discount_in_local_currency</property>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="position">15</property>
-                    <property name="name">seller_code</property>
-                    <property name="nativeName">seller_code</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">16</property>
-                    <property name="name">seller_name</property>
-                    <property name="nativeName">seller_name</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">17</property>
-                    <property name="name">provision</property>
-                    <property name="nativeName">provision</property>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="position">18</property>
-                    <property name="name">is_transfered</property>
-                    <property name="nativeName">is_transfered</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">19</property>
-                    <property name="name">sale_bill_date2</property>
-                    <property name="nativeName">sale_bill_date2</property>
-                    <property name="dataType">date-time</property>
-                </structure>
-            </list-property>
-        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="sales" id="1665"
+ extends="library.sales"/>
     </data-sets>
     <cubes>
         <tabular-cube name="Data Cube" id="998">
@@ -212,103 +95,11 @@
                         </tabular-hierarchy>
                     </property>
                 </tabular-dimension>
-                <tabular-dimension name="Group3" id="1444">
-                    <property name="isTimeType">true</property>
-                    <property name="defaultHierarchy">NewTabularHierarchy3</property>
-                    <property name="hierarchies">
-                        <tabular-hierarchy name="NewTabularHierarchy3" id="1445">
-                            <property name="levels">
-                                <tabular-level name="Year" id="1446">
-                                    <property name="dataType">integer</property>
-                                    <property name="dateTimeLevelType">year</property>
-                                    <list-property name="attributes">
-                                        <structure>
-                                            <property name="name">DateTime</property>
-                                            <property name="dataType">date-time</property>
-                                        </structure>
-                                    </list-property>
-                                    <property name="columnName">sale_bill_date2</property>
-                                </tabular-level>
-                            </property>
-                        </tabular-hierarchy>
-                    </property>
-                </tabular-dimension>
-                <tabular-dimension name="Group2" id="1579">
-                    <property name="isTimeType">false</property>
-                    <property name="defaultHierarchy">NewTabularHierarchy4</property>
-                    <property name="hierarchies">
-                        <tabular-hierarchy name="NewTabularHierarchy4" id="1580">
-                            <property name="levels">
-                                <tabular-level name="sale_bill_date2" id="1581">
-                                    <property name="dataType">date-time</property>
-                                    <property name="columnName">sale_bill_date2</property>
-                                </tabular-level>
-                            </property>
-                        </tabular-hierarchy>
-                    </property>
-                </tabular-dimension>
             </property>
             <property name="measureGroups">
                 <tabular-measure-group name="Summary Field" id="1179">
                     <property name="measures">
                         <tabular-measure name="total_gross_sell_price_with_discount_in_local_currency" id="1180">
-                            <expression name="measureExpression" type="javascript">dataSetRow["total_gross_sell_price_with_discount_in_local_currency"]</expression>
-                            <property name="dataType">float</property>
-                        </tabular-measure>
-                    </property>
-                </tabular-measure-group>
-            </property>
-            <property name="dataSet">sales</property>
-        </tabular-cube>
-        <tabular-cube name="Data Cube1" id="1626">
-            <property name="dimensions">
-                <tabular-dimension name="Group1" id="1627">
-                    <property name="isTimeType">true</property>
-                    <property name="defaultHierarchy">NewTabularHierarchy2</property>
-                    <property name="hierarchies">
-                        <tabular-hierarchy name="NewTabularHierarchy2" id="1628">
-                            <property name="levels">
-                                <tabular-level name="Year" id="1629">
-                                    <property name="dataType">integer</property>
-                                    <property name="dateTimeLevelType">year</property>
-                                    <list-property name="attributes">
-                                        <structure>
-                                            <property name="name">DateTime</property>
-                                            <property name="dataType">date-time</property>
-                                        </structure>
-                                    </list-property>
-                                    <property name="columnName">sale_bill_date</property>
-                                </tabular-level>
-                            </property>
-                        </tabular-hierarchy>
-                    </property>
-                </tabular-dimension>
-                <tabular-dimension name="Group4" id="1632">
-                    <property name="isTimeType">true</property>
-                    <property name="defaultHierarchy">NewTabularHierarchy5</property>
-                    <property name="hierarchies">
-                        <tabular-hierarchy name="NewTabularHierarchy5" id="1633">
-                            <property name="levels">
-                                <tabular-level name="Month" id="1634">
-                                    <property name="dataType">integer</property>
-                                    <property name="dateTimeLevelType">month</property>
-                                    <list-property name="attributes">
-                                        <structure>
-                                            <property name="name">DateTime</property>
-                                            <property name="dataType">date-time</property>
-                                        </structure>
-                                    </list-property>
-                                    <property name="columnName">sale_bill_date2</property>
-                                </tabular-level>
-                            </property>
-                        </tabular-hierarchy>
-                    </property>
-                </tabular-dimension>
-            </property>
-            <property name="measureGroups">
-                <tabular-measure-group name="Summary Field1" id="1635">
-                    <property name="measures">
-                        <tabular-measure name="total_gross_sell_price_with_discount_in_local_currency1" id="1636">
                             <expression name="measureExpression" type="javascript">dataSetRow["total_gross_sell_price_with_discount_in_local_currency"]</expression>
                             <property name="dataType">float</property>
                         </tabular-measure>
@@ -355,8 +146,8 @@
     <page-setup>
         <simple-master-page name="Simple MasterPage" id="2">
             <property name="type">custom</property>
-            <property name="height">297mm</property>
-            <property name="width">420mm</property>
+            <property name="height">300mm</property>
+            <property name="width">375mm</property>
             <page-footer>
                 <text id="3">
                     <property name="contentType">html</property>
@@ -491,7 +282,10 @@
                     <property name="dataType">string</property>
                 </structure>
             </list-property>
-            <expression name="valueExpr">if (params["customer_code1"].value == "All" &amp;&amp; params["customer_code2"].value == "All") {
+            <structure name="toc">
+                <expression name="expressionValue" type="javascript">"Figures"</expression>
+            </structure>
+            <expression name="valueExpr" type="javascript">if (params["customer_code1"].value == "All" &amp;&amp; params["customer_code2"].value == "All") {
 	"Client: All"
 }
 else {
@@ -507,6 +301,20 @@ else {
                         <extended-item extensionName="AggregationCell" id="1585">
                             <property name="aggregationOnColumn">Group/Month</property>
                             <property name="content">
+                                <data id="1663">
+                                    <structure name="numberFormat">
+                                        <property name="category">Fixed</property>
+                                        <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                    </structure>
+                                    <property name="resultSetColumn">Period_2</property>
+                                </data>
+                                <data id="1662">
+                                    <structure name="numberFormat">
+                                        <property name="category">Fixed</property>
+                                        <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                    </structure>
+                                    <property name="resultSetColumn">Period_1</property>
+                                </data>
                                 <data name="Period1" id="1589">
                                     <structure name="numberFormat">
                                         <property name="category">Fixed</property>
@@ -518,13 +326,7 @@ else {
                         </extended-item>
                     </property>
                     <property name="header">
-                        <extended-item extensionName="CrosstabCell" id="1586">
-                            <property name="content">
-                                <label id="1587">
-                                    <text-property name="text">Period</text-property>
-                                </label>
-                            </property>
-                        </extended-item>
+                        <extended-item extensionName="CrosstabCell" id="1586"/>
                     </property>
                 </extended-item>
             </property>
@@ -539,6 +341,16 @@ else {
                             <property name="levels">
                                 <extended-item extensionName="LevelView" name="NewLevel View" id="1261">
                                     <property name="level">Group/Year</property>
+                                    <property name="filter">
+                                        <filter-condition-element>
+                                            <expression name="expr" type="javascript">data["Year"]</expression>
+                                            <property name="operator">eq</property>
+                                            <simple-property-list name="value1">
+                                                <value type="javascript">BirtDateTime.year(params["beginning_date"].value)</value>
+                                            </simple-property-list>
+                                            <property name="updateAggregation">false</property>
+                                        </filter-condition-element>
+                                    </property>
                                     <property name="member">
                                         <extended-item extensionName="CrosstabCell" id="1262">
                                             <property name="content">
@@ -628,13 +440,106 @@ else {
                     <property name="refDateType">today</property>
                     <property name="timeDimension">Group</property>
                 </structure>
+                <structure>
+                    <property name="name">Period_1</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/Month</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">measure["total_gross_sell_price_with_discount_in_local_currency"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="calculationType">PERIOD TO DATE FROM N PERIODS AGO</property>
+                    <list-property name="calculationArguments">
+                        <structure>
+                            <property name="name">Period1</property>
+                            <expression name="value" type="javascript">Year to Date</expression>
+                        </structure>
+                        <structure>
+                            <property name="name">Period2</property>
+                            <expression name="value" type="javascript">YEAR</expression>
+                        </structure>
+                        <structure>
+                            <property name="name">N for Period2</property>
+                            <expression name="value" type="javascript">-1</expression>
+                        </structure>
+                    </list-property>
+                    <property name="refDateType">today</property>
+                    <property name="timeDimension">Group</property>
+                </structure>
+                <structure>
+                    <property name="name">Period_2</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/Month</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">measure["total_gross_sell_price_with_discount_in_local_currency"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="calculationType">PERIOD TO DATE FROM N PERIODS AGO</property>
+                    <list-property name="calculationArguments">
+                        <structure>
+                            <property name="name">Period1</property>
+                            <expression name="value" type="javascript">Year to Date</expression>
+                        </structure>
+                        <structure>
+                            <property name="name">Period2</property>
+                            <expression name="value" type="javascript">YEAR</expression>
+                        </structure>
+                        <structure>
+                            <property name="name">N for Period2</property>
+                            <expression name="value" type="javascript">-2</expression>
+                        </structure>
+                    </list-property>
+                    <property name="refDateType">today</property>
+                    <property name="timeDimension">Group</property>
+                </structure>
+                <structure>
+                    <property name="name">Period_3</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/Month</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">measure["total_gross_sell_price_with_discount_in_local_currency"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="calculationType">PERIOD TO DATE FROM N PERIODS AGO</property>
+                    <list-property name="calculationArguments">
+                        <structure>
+                            <property name="name">Period1</property>
+                            <expression name="value" type="javascript">Year to Date</expression>
+                        </structure>
+                        <structure>
+                            <property name="name">Period2</property>
+                            <expression name="value" type="javascript">YEAR</expression>
+                        </structure>
+                        <structure>
+                            <property name="name">N for Period2</property>
+                            <expression name="value" type="javascript">-3</expression>
+                        </structure>
+                    </list-property>
+                    <property name="refDateType">today</property>
+                    <property name="timeDimension">Group</property>
+                </structure>
             </list-property>
             <property name="multiViews">
                 <multi-views id="1293">
-                    <property name="index">-1</property>
+                    <property name="index">0</property>
                     <property name="views">
                         <extended-item extensionName="Chart" id="1294">
-                            <xml-property name="xmlRepresentation"><![CDATA[<model:ChartWithAxes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:attribute="http://www.birt.eclipse.org/ChartModelAttribute" xmlns:layout="http://www.birt.eclipse.org/ChartModelLayout" xmlns:model="http://www.birt.eclipse.org/ChartModel" xmlns:type="http://www.birt.eclipse.org/ChartModelType">
+                            <xml-property name="xmlRepresentation"><![CDATA[<model:ChartWithAxes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:attribute="http://www.birt.eclipse.org/ChartModelAttribute" xmlns:data="http://www.birt.eclipse.org/ChartModelData" xmlns:layout="http://www.birt.eclipse.org/ChartModelLayout" xmlns:model="http://www.birt.eclipse.org/ChartModel" xmlns:type="http://www.birt.eclipse.org/ChartModelType">
   <Version>2.6.1</Version>
   <Type>Bar Chart</Type>
   <SubType>Side-by-side</SubType>
@@ -645,6 +550,7 @@ else {
       <Outline/>
       <Label>
         <Caption>
+          <Value>Year to Date (in k)</Value>
           <Font>
             <Alignment/>
           </Font>
@@ -666,6 +572,9 @@ else {
       <Bounds/>
       <Insets/>
       <Outline/>
+      <Cursor>
+        <Type>Auto</Type>
+      </Cursor>
       <ClientArea>
         <Outline/>
         <Insets/>
@@ -684,7 +593,9 @@ else {
         </Caption>
         <Outline/>
         <Insets/>
+        <Visible>false</Visible>
       </Title>
+      <ShowValue>false</ShowValue>
     </Children>
     <Bounds>
       <Left>0.0</Left>
@@ -701,11 +612,19 @@ else {
   </ExtendedProperties>
   <SampleData>
     <BaseSampleData>
-      <DataSetRepresentation>A, B, C</DataSetRepresentation>
+      <DataSetRepresentation>6,4,12,8,10</DataSetRepresentation>
     </BaseSampleData>
     <OrthogonalSampleData>
       <DataSetRepresentation>5,4,12</DataSetRepresentation>
       <SeriesDefinitionIndex>0</SeriesDefinitionIndex>
+    </OrthogonalSampleData>
+    <OrthogonalSampleData>
+      <DataSetRepresentation>10.0,8.0,24.0</DataSetRepresentation>
+      <SeriesDefinitionIndex>1</SeriesDefinitionIndex>
+    </OrthogonalSampleData>
+    <OrthogonalSampleData>
+      <DataSetRepresentation>15.0,12.0,36.0</DataSetRepresentation>
+      <SeriesDefinitionIndex>2</SeriesDefinitionIndex>
     </OrthogonalSampleData>
   </SampleData>
   <Interactivity/>
@@ -770,17 +689,148 @@ else {
             </Caption>
             <Outline/>
             <Insets/>
+            <Visible>true</Visible>
           </Label>
           <DataDefinition>
-            <Definition>data[&quot;Period&quot;]</Definition>
+            <Definition>data[&quot;Period&quot;]/1000</Definition>
             <Grouping>
               <Enabled>false</Enabled>
               <GroupType>Text</GroupType>
               <AggregateExpression xsi:nil="true"/>
             </Grouping>
           </DataDefinition>
-          <SeriesIdentifier>Series 1</SeriesIdentifier>
-          <DataPoint/>
+          <SeriesIdentifier>year n-2</SeriesIdentifier>
+          <DataPoint>
+            <Components>
+              <Type>Orthogonal_Value</Type>
+              <FormatSpecifier xsi:type="attribute:NumberFormatSpecifier">
+                <Prefix></Prefix>
+                <Suffix></Suffix>
+                <FractionDigits>0</FractionDigits>
+              </FormatSpecifier>
+            </Components>
+          </DataPoint>
+        </Series>
+        <Grouping>
+          <GroupType>Text</GroupType>
+          <AggregateExpression>Sum</AggregateExpression>
+        </Grouping>
+      </SeriesDefinitions>
+      <SeriesDefinitions>
+        <Query>
+          <Definition></Definition>
+          <Grouping>
+            <GroupType>Numeric</GroupType>
+          </Grouping>
+        </Query>
+        <SeriesPalette/>
+        <Series xsi:type="type:BarSeries">
+          <Label>
+            <Caption>
+              <Font>
+                <Alignment/>
+              </Font>
+            </Caption>
+            <Background xsi:type="attribute:ColorDefinition">
+              <Transparency>0</Transparency>
+              <Red>255</Red>
+              <Green>255</Green>
+              <Blue>255</Blue>
+            </Background>
+            <Outline/>
+            <Insets/>
+            <Visible>true</Visible>
+          </Label>
+          <DataDefinition>
+            <Definition>data[&quot;Period_1&quot;]/1000</Definition>
+            <Grouping>
+              <Enabled>false</Enabled>
+              <GroupType>Text</GroupType>
+              <AggregateExpression xsi:nil="true"/>
+            </Grouping>
+          </DataDefinition>
+          <SeriesIdentifier>year n-1</SeriesIdentifier>
+          <DataPoint>
+            <Components>
+              <Type>Orthogonal_Value</Type>
+              <FormatSpecifier xsi:type="attribute:NumberFormatSpecifier">
+                <Prefix></Prefix>
+                <Suffix></Suffix>
+                <FractionDigits>0</FractionDigits>
+              </FormatSpecifier>
+            </Components>
+          </DataPoint>
+          <Triggers>
+            <Condition>onmouseover</Condition>
+            <Action>
+              <Type>Show_Tooltip</Type>
+              <Value xsi:type="attribute:TooltipValue">
+                <Text></Text>
+                <Delay>200</Delay>
+              </Value>
+            </Action>
+          </Triggers>
+        </Series>
+        <Grouping>
+          <GroupType>Text</GroupType>
+          <AggregateExpression>Sum</AggregateExpression>
+        </Grouping>
+      </SeriesDefinitions>
+      <SeriesDefinitions>
+        <Query>
+          <Definition></Definition>
+          <Grouping>
+            <GroupType>Numeric</GroupType>
+          </Grouping>
+        </Query>
+        <SeriesPalette/>
+        <Series xsi:type="type:BarSeries">
+          <Label>
+            <Caption>
+              <Font>
+                <Bold>false</Bold>
+                <Alignment/>
+              </Font>
+            </Caption>
+            <Background xsi:type="attribute:ColorDefinition">
+              <Transparency>0</Transparency>
+              <Red>255</Red>
+              <Green>255</Green>
+              <Blue>255</Blue>
+            </Background>
+            <Outline/>
+            <Insets/>
+            <Visible>true</Visible>
+          </Label>
+          <DataDefinition>
+            <Definition>data[&quot;Period_2&quot;] /1000</Definition>
+            <Grouping>
+              <Enabled>false</Enabled>
+              <GroupType>Text</GroupType>
+              <AggregateExpression xsi:nil="true"/>
+            </Grouping>
+          </DataDefinition>
+          <SeriesIdentifier>year n</SeriesIdentifier>
+          <DataPoint>
+            <Components>
+              <Type>Orthogonal_Value</Type>
+              <FormatSpecifier xsi:type="attribute:NumberFormatSpecifier">
+                <Prefix></Prefix>
+                <Suffix></Suffix>
+                <FractionDigits>0</FractionDigits>
+              </FormatSpecifier>
+            </Components>
+          </DataPoint>
+          <Triggers>
+            <Condition>onmouseover</Condition>
+            <Action>
+              <Type>Show_Tooltip</Type>
+              <Value xsi:type="attribute:TooltipValue">
+                <Text></Text>
+                <Delay>200</Delay>
+              </Value>
+            </Action>
+          </Triggers>
         </Series>
         <Grouping>
           <GroupType>Text</GroupType>
@@ -806,8 +856,14 @@ else {
         <TickAttributes/>
       </MinorGrid>
       <Scale/>
-      <Origin/>
+      <Origin>
+        <Type>Value</Type>
+        <Value xsi:type="data:NumberDataElement">
+          <Value>0.0</Value>
+        </Value>
+      </Origin>
       <PrimaryAxis>true</PrimaryAxis>
+      <SideBySide>false</SideBySide>
     </AssociatedAxes>
     <SeriesDefinitions>
       <Query>
@@ -835,7 +891,9 @@ else {
         <AggregateExpression>Sum</AggregateExpression>
       </Grouping>
     </SeriesDefinitions>
-    <LineAttributes/>
+    <LineAttributes>
+      <Visible>true</Visible>
+    </LineAttributes>
     <Label>
       <Caption>
         <Font>
@@ -853,1297 +911,7 @@ else {
       <LineAttributes/>
       <TickAttributes/>
     </MinorGrid>
-    <Scale/>
-    <Origin/>
-  </Axes>
-  <Rotation>
-    <Angles/>
-  </Rotation>
-</model:ChartWithAxes>
-]]></xml-property>
-                            <property name="outputFormat">SVG</property>
-                            <property name="inheritColumns">false</property>
-                            <property name="height">4.96875in</property>
-                            <property name="width">10.552083333333334in</property>
-                        </extended-item>
-                    </property>
-                </multi-views>
-            </property>
-        </extended-item>
-        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="1630">
-            <property name="cube">Data Cube1</property>
-            <property name="measures">
-                <extended-item extensionName="MeasureView" id="1648">
-                    <property name="measure">total_gross_sell_price_with_discount_in_local_currency1</property>
-                    <property name="detail">
-                        <extended-item extensionName="AggregationCell" id="1649">
-                            <property name="aggregationOnRow">Group4/Month</property>
-                            <property name="aggregationOnColumn">Group1/Year</property>
-                            <property name="content">
-                                <data id="1650">
-                                    <structure name="numberFormat">
-                                        <property name="category">Fixed</property>
-                                        <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
-                                    </structure>
-                                    <property name="resultSetColumn">total_gross_sell_price_with_discount_in_local_currency1_Group4/Month_Group1/Year</property>
-                                </data>
-                                <data id="1656">
-                                    <structure name="numberFormat">
-                                        <property name="category">Fixed</property>
-                                        <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
-                                    </structure>
-                                    <property name="resultSetColumn">Period</property>
-                                </data>
-                            </property>
-                        </extended-item>
-                    </property>
-                    <property name="header">
-                        <extended-item extensionName="CrosstabCell" id="1651">
-                            <property name="content">
-                                <label id="1652">
-                                    <text-property name="text">total_gross_sell_price_with_discount_in_local_currency1</text-property>
-                                </label>
-                            </property>
-                        </extended-item>
-                    </property>
-                </extended-item>
-            </property>
-            <property name="rows">
-                <extended-item extensionName="CrosstabView" id="1643">
-                    <property name="views">
-                        <extended-item extensionName="DimensionView" id="1644">
-                            <property name="dimension">Group4</property>
-                            <property name="levels">
-                                <extended-item extensionName="LevelView" name="NewLevel View3" id="1645">
-                                    <property name="level">Group4/Month</property>
-                                    <property name="member">
-                                        <extended-item extensionName="CrosstabCell" id="1646">
-                                            <property name="content">
-                                                <data name="Month1" id="1647">
-                                                    <property name="resultSetColumn">Month</property>
-                                                </data>
-                                            </property>
-                                        </extended-item>
-                                    </property>
-                                </extended-item>
-                            </property>
-                        </extended-item>
-                    </property>
-                </extended-item>
-            </property>
-            <property name="columns">
-                <extended-item extensionName="CrosstabView" id="1637">
-                    <property name="views">
-                        <extended-item extensionName="DimensionView" id="1638">
-                            <property name="dimension">Group1</property>
-                            <property name="levels">
-                                <extended-item extensionName="LevelView" name="NewLevel View2" id="1639">
-                                    <property name="level">Group1/Year</property>
-                                    <property name="member">
-                                        <extended-item extensionName="CrosstabCell" id="1640">
-                                            <property name="content">
-                                                <data name="Year1" id="1641">
-                                                    <property name="resultSetColumn">Year</property>
-                                                </data>
-                                            </property>
-                                        </extended-item>
-                                    </property>
-                                </extended-item>
-                            </property>
-                        </extended-item>
-                    </property>
-                </extended-item>
-            </property>
-            <property name="header">
-                <extended-item extensionName="CrosstabCell" id="1653">
-                    <property name="content">
-                        <label id="1654">
-                            <text-property name="text">Year</text-property>
-                        </label>
-                    </property>
-                </extended-item>
-                <extended-item extensionName="CrosstabCell" id="1631">
-                    <property name="content">
-                        <label id="1642">
-                            <text-property name="text">Month</text-property>
-                        </label>
-                    </property>
-                </extended-item>
-            </property>
-            <list-property name="boundDataColumns">
-                <structure>
-                    <property name="name">Year</property>
-                    <expression name="expression">dimension["Group1"]["Year"]</expression>
-                    <property name="dataType">integer</property>
-                </structure>
-                <structure>
-                    <property name="name">Month</property>
-                    <expression name="expression">dimension["Group4"]["Month"]</expression>
-                    <property name="dataType">integer</property>
-                </structure>
-                <structure>
-                    <property name="name">total_gross_sell_price_with_discount_in_local_currency1_Group4/Month_Group1/Year</property>
-                    <expression name="expression">measure["total_gross_sell_price_with_discount_in_local_currency1"]</expression>
-                    <property name="dataType">float</property>
-                    <simple-property-list name="aggregateOn">
-                        <value>Group4/Month</value>
-                        <value>Group1/Year</value>
-                    </simple-property-list>
-                    <property name="aggregateFunction">SUM</property>
-                </structure>
-                <structure>
-                    <property name="name">Period</property>
-                    <property name="dataType">float</property>
-                    <simple-property-list name="aggregateOn">
-                        <value>Group4/Month</value>
-                        <value>Group1/Year</value>
-                    </simple-property-list>
-                    <property name="aggregateFunction">SUM</property>
-                    <list-property name="arguments">
-                        <structure>
-                            <property name="name">Expression</property>
-                            <expression name="value" type="javascript">data["total_gross_sell_price_with_discount_in_local_currency1_Group4/Month_Group1/Year"]</expression>
-                        </structure>
-                    </list-property>
-                    <property name="calculationType">PERIOD TO DATE FROM N PERIODS AGO</property>
-                    <list-property name="calculationArguments">
-                        <structure>
-                            <property name="name">Period1</property>
-                            <expression name="value" type="javascript">Year to Date</expression>
-                        </structure>
-                        <structure>
-                            <property name="name">Period2</property>
-                            <expression name="value" type="javascript">YEAR</expression>
-                        </structure>
-                        <structure>
-                            <property name="name">N for Period2</property>
-                            <expression name="value" type="javascript">0</expression>
-                        </structure>
-                    </list-property>
-                    <property name="refDateType">endingDateInDimension</property>
-                    <property name="timeDimension">Group1</property>
-                </structure>
-            </list-property>
-        </extended-item>
-        <extended-item extensionName="Chart" id="992">
-            <xml-property name="xmlRepresentation"><![CDATA[<model:ChartWithAxes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:attribute="http://www.birt.eclipse.org/ChartModelAttribute" xmlns:data="http://www.birt.eclipse.org/ChartModelData" xmlns:layout="http://www.birt.eclipse.org/ChartModelLayout" xmlns:model="http://www.birt.eclipse.org/ChartModel" xmlns:type="http://www.birt.eclipse.org/ChartModelType">
-  <Version>2.6.1</Version>
-  <Type>Bar Chart</Type>
-  <SubType>Side-by-side</SubType>
-  <Block>
-    <Children xsi:type="layout:TitleBlock">
-      <Bounds>
-        <Left>0.0</Left>
-        <Top>0.0</Top>
-        <Width>0.0</Width>
-        <Height>0.0</Height>
-      </Bounds>
-      <Insets>
-        <Top>3.0</Top>
-        <Left>3.0</Left>
-        <Bottom>3.0</Bottom>
-        <Right>3.0</Right>
-      </Insets>
-      <Row>-1</Row>
-      <Column>-1</Column>
-      <Rowspan>-1</Rowspan>
-      <Columnspan>-1</Columnspan>
-      <Outline>
-        <Style>Solid</Style>
-        <Thickness>1</Thickness>
-        <Color>
-          <Transparency>255</Transparency>
-          <Red>0</Red>
-          <Green>0</Green>
-          <Blue>0</Blue>
-        </Color>
-        <Visible>false</Visible>
-      </Outline>
-      <Visible>true</Visible>
-      <Label>
-        <Caption>
-          <Value>Gross sales per month (in k)</Value>
-          <Font>
-            <Size>16.0</Size>
-            <Bold>true</Bold>
-            <Alignment>
-              <horizontalAlignment>Center</horizontalAlignment>
-              <verticalAlignment>Center</verticalAlignment>
-            </Alignment>
-          </Font>
-        </Caption>
-        <Background xsi:type="attribute:ColorDefinition">
-          <Transparency>0</Transparency>
-          <Red>255</Red>
-          <Green>255</Green>
-          <Blue>255</Blue>
-        </Background>
-        <Outline>
-          <Style>Solid</Style>
-          <Thickness>1</Thickness>
-          <Color>
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>0</Green>
-            <Blue>0</Blue>
-          </Color>
-        </Outline>
-        <Insets>
-          <Top>0.0</Top>
-          <Left>2.0</Left>
-          <Bottom>0.0</Bottom>
-          <Right>3.0</Right>
-        </Insets>
-        <Visible>true</Visible>
-      </Label>
-    </Children>
-    <Children xsi:type="layout:Plot">
-      <Bounds>
-        <Left>0.0</Left>
-        <Top>0.0</Top>
-        <Width>0.0</Width>
-        <Height>0.0</Height>
-      </Bounds>
-      <Insets>
-        <Top>3.0</Top>
-        <Left>3.0</Left>
-        <Bottom>3.0</Bottom>
-        <Right>3.0</Right>
-      </Insets>
-      <Row>-1</Row>
-      <Column>-1</Column>
-      <Rowspan>-1</Rowspan>
-      <Columnspan>-1</Columnspan>
-      <Outline>
-        <Style>Solid</Style>
-        <Thickness>1</Thickness>
-        <Color>
-          <Transparency>255</Transparency>
-          <Red>0</Red>
-          <Green>0</Green>
-          <Blue>0</Blue>
-        </Color>
-        <Visible>false</Visible>
-      </Outline>
-      <Visible>true</Visible>
-      <HorizontalSpacing>5</HorizontalSpacing>
-      <VerticalSpacing>5</VerticalSpacing>
-      <ClientArea>
-        <Outline>
-          <Style>Solid</Style>
-          <Thickness>0</Thickness>
-          <Color>
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>0</Green>
-            <Blue>0</Blue>
-          </Color>
-          <Visible>false</Visible>
-        </Outline>
-        <Insets>
-          <Top>0.0</Top>
-          <Left>0.0</Left>
-          <Bottom>0.0</Bottom>
-          <Right>0.0</Right>
-        </Insets>
-      </ClientArea>
-    </Children>
-    <Children xsi:type="layout:Legend">
-      <Bounds>
-        <Left>0.0</Left>
-        <Top>0.0</Top>
-        <Width>0.0</Width>
-        <Height>0.0</Height>
-      </Bounds>
-      <Insets>
-        <Top>3.0</Top>
-        <Left>3.0</Left>
-        <Bottom>3.0</Bottom>
-        <Right>3.0</Right>
-      </Insets>
-      <Row>-1</Row>
-      <Column>-1</Column>
-      <Rowspan>-1</Rowspan>
-      <Columnspan>-1</Columnspan>
-      <Outline>
-        <Style>Solid</Style>
-        <Thickness>1</Thickness>
-        <Color>
-          <Transparency>255</Transparency>
-          <Red>0</Red>
-          <Green>0</Green>
-          <Blue>0</Blue>
-        </Color>
-        <Visible>false</Visible>
-      </Outline>
-      <Visible>true</Visible>
-      <ClientArea>
-        <Outline>
-          <Style>Solid</Style>
-          <Thickness>0</Thickness>
-          <Color>
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>0</Green>
-            <Blue>0</Blue>
-          </Color>
-          <Visible>false</Visible>
-        </Outline>
-        <Insets>
-          <Top>2.0</Top>
-          <Left>2.0</Left>
-          <Bottom>2.0</Bottom>
-          <Right>2.0</Right>
-        </Insets>
-      </ClientArea>
-      <Text>
-        <Value></Value>
-        <Font>
-          <Alignment/>
-        </Font>
-      </Text>
-      <Orientation>Vertical</Orientation>
-      <Direction>Top_Bottom</Direction>
-      <Separator>
-        <Style>Solid</Style>
-        <Thickness>1</Thickness>
-        <Color>
-          <Transparency>255</Transparency>
-          <Red>0</Red>
-          <Green>0</Green>
-          <Blue>0</Blue>
-        </Color>
-        <Visible>true</Visible>
-      </Separator>
-      <Position>Right</Position>
-      <ItemType>Series</ItemType>
-      <Title>
-        <Caption>
-          <Value></Value>
-          <Font>
-            <Alignment/>
-          </Font>
-        </Caption>
-        <Background xsi:type="attribute:ColorDefinition">
-          <Transparency>0</Transparency>
-          <Red>255</Red>
-          <Green>255</Green>
-          <Blue>255</Blue>
-        </Background>
-        <Outline>
-          <Style>Solid</Style>
-          <Thickness>1</Thickness>
-          <Color>
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>0</Green>
-            <Blue>0</Blue>
-          </Color>
-          <Visible>false</Visible>
-        </Outline>
-        <Insets>
-          <Top>0.0</Top>
-          <Left>2.0</Left>
-          <Bottom>0.0</Bottom>
-          <Right>3.0</Right>
-        </Insets>
-        <Visible>false</Visible>
-      </Title>
-      <TitlePosition>Above</TitlePosition>
-    </Children>
-    <Bounds>
-      <Left>0.0</Left>
-      <Top>0.0</Top>
-      <Width>212.0</Width>
-      <Height>130.0</Height>
-    </Bounds>
-    <Insets>
-      <Top>3.0</Top>
-      <Left>3.0</Left>
-      <Bottom>3.0</Bottom>
-      <Right>3.0</Right>
-    </Insets>
-    <Row>-1</Row>
-    <Column>-1</Column>
-    <Rowspan>-1</Rowspan>
-    <Columnspan>-1</Columnspan>
-    <Outline>
-      <Style>Solid</Style>
-      <Thickness>1</Thickness>
-      <Color>
-        <Transparency>255</Transparency>
-        <Red>0</Red>
-        <Green>0</Green>
-        <Blue>0</Blue>
-      </Color>
-      <Visible>false</Visible>
-    </Outline>
-    <Visible>true</Visible>
-  </Block>
-  <Dimension>Two_Dimensional</Dimension>
-  <Units>Points</Units>
-  <SeriesThickness>10.0</SeriesThickness>
-  <ExtendedProperties>
-    <Name>enable.area.alt</Name>
-    <Value>false</Value>
-  </ExtendedProperties>
-  <SampleData>
-    <BaseSampleData>
-      <DataSetRepresentation>6,4,12,8,10</DataSetRepresentation>
-    </BaseSampleData>
-    <OrthogonalSampleData>
-      <DataSetRepresentation>5,4,12</DataSetRepresentation>
-      <SeriesDefinitionIndex>0</SeriesDefinitionIndex>
-    </OrthogonalSampleData>
-  </SampleData>
-  <Interactivity>
-    <Enable>false</Enable>
-  </Interactivity>
-  <EmptyMessage>
-    <Caption>
-      <Value>This chart contains no data.</Value>
-      <Font>
-        <Alignment>
-          <horizontalAlignment>Center</horizontalAlignment>
-          <verticalAlignment>Center</verticalAlignment>
-        </Alignment>
-      </Font>
-    </Caption>
-    <Background xsi:type="attribute:ColorDefinition">
-      <Transparency>64</Transparency>
-      <Red>127</Red>
-      <Green>127</Green>
-      <Blue>127</Blue>
-    </Background>
-    <Outline>
-      <Color>
-        <Transparency>128</Transparency>
-        <Red>127</Red>
-        <Green>127</Green>
-        <Blue>127</Blue>
-      </Color>
-      <Visible>true</Visible>
-    </Outline>
-    <Insets>
-      <Top>10.0</Top>
-      <Left>10.0</Left>
-      <Bottom>10.0</Bottom>
-      <Right>10.0</Right>
-    </Insets>
-    <Visible>false</Visible>
-  </EmptyMessage>
-  <Axes>
-    <Type>Linear</Type>
-    <Title>
-      <Caption>
-        <Value>X-Axis Title</Value>
-        <Font>
-          <Size>14.0</Size>
-          <Bold>true</Bold>
-          <Alignment>
-            <horizontalAlignment>Center</horizontalAlignment>
-            <verticalAlignment>Center</verticalAlignment>
-          </Alignment>
-        </Font>
-      </Caption>
-      <Background xsi:type="attribute:ColorDefinition">
-        <Transparency>0</Transparency>
-        <Red>255</Red>
-        <Green>255</Green>
-        <Blue>255</Blue>
-      </Background>
-      <Outline>
-        <Style>Solid</Style>
-        <Thickness>1</Thickness>
-        <Color>
-          <Transparency>255</Transparency>
-          <Red>0</Red>
-          <Green>0</Green>
-          <Blue>0</Blue>
-        </Color>
-      </Outline>
-      <Insets>
-        <Top>0.0</Top>
-        <Left>2.0</Left>
-        <Bottom>0.0</Bottom>
-        <Right>3.0</Right>
-      </Insets>
-      <Visible>false</Visible>
-    </Title>
-    <TitlePosition>Below</TitlePosition>
-    <AssociatedAxes>
-      <Type>Linear</Type>
-      <Title>
-        <Caption>
-          <Value>Y-Axis Title</Value>
-          <Font>
-            <Size>14.0</Size>
-            <Bold>true</Bold>
-            <Alignment>
-              <horizontalAlignment>Center</horizontalAlignment>
-              <verticalAlignment>Center</verticalAlignment>
-            </Alignment>
-          </Font>
-        </Caption>
-        <Background xsi:type="attribute:ColorDefinition">
-          <Transparency>0</Transparency>
-          <Red>255</Red>
-          <Green>255</Green>
-          <Blue>255</Blue>
-        </Background>
-        <Outline>
-          <Style>Solid</Style>
-          <Thickness>1</Thickness>
-          <Color>
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>0</Green>
-            <Blue>0</Blue>
-          </Color>
-        </Outline>
-        <Insets>
-          <Top>0.0</Top>
-          <Left>2.0</Left>
-          <Bottom>0.0</Bottom>
-          <Right>3.0</Right>
-        </Insets>
-        <Visible>false</Visible>
-      </Title>
-      <TitlePosition>Left</TitlePosition>
-      <SeriesDefinitions>
-        <Query>
-          <Definition>row[&quot;Column Binding_1&quot;]</Definition>
-          <Grouping>
-            <GroupingUnit>Years</GroupingUnit>
-            <GroupType>Numeric</GroupType>
-          </Grouping>
-        </Query>
-        <SeriesPalette>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>80</Red>
-            <Green>166</Green>
-            <Blue>218</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>242</Red>
-            <Green>88</Green>
-            <Blue>106</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>232</Red>
-            <Green>172</Green>
-            <Blue>57</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>255</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>64</Red>
-            <Green>128</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>192</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>170</Red>
-            <Green>85</Green>
-            <Blue>85</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>0</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>192</Red>
-            <Green>192</Green>
-            <Blue>192</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>192</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>7</Red>
-            <Green>146</Green>
-            <Blue>94</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>128</Green>
-            <Blue>255</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>128</Green>
-            <Blue>192</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>128</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>128</Green>
-            <Blue>192</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>192</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>0</Green>
-            <Blue>255</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>64</Green>
-            <Blue>64</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>128</Green>
-            <Blue>64</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>80</Red>
-            <Green>240</Green>
-            <Blue>120</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>64</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>0</Green>
-            <Blue>64</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>0</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>64</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>128</Green>
-            <Blue>255</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>64</Green>
-            <Blue>0</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>0</Green>
-            <Blue>0</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>128</Green>
-            <Blue>0</Blue>
-          </Entries>
-        </SeriesPalette>
-        <Series xsi:type="type:BarSeries">
-          <Visible>true</Visible>
-          <Label>
-            <Caption>
-              <Value></Value>
-              <Font>
-                <Alignment/>
-              </Font>
-            </Caption>
-            <Background xsi:type="attribute:ColorDefinition">
-              <Transparency>0</Transparency>
-              <Red>255</Red>
-              <Green>255</Green>
-              <Blue>255</Blue>
-            </Background>
-            <Outline>
-              <Style>Solid</Style>
-              <Thickness>1</Thickness>
-              <Color>
-                <Transparency>255</Transparency>
-                <Red>0</Red>
-                <Green>0</Green>
-                <Blue>0</Blue>
-              </Color>
-              <Visible>false</Visible>
-            </Outline>
-            <Insets>
-              <Top>0.0</Top>
-              <Left>2.0</Left>
-              <Bottom>0.0</Bottom>
-              <Right>3.0</Right>
-            </Insets>
-            <Visible>true</Visible>
-          </Label>
-          <DataDefinition>
-            <Definition>row[&quot;total_gross_sell_price_with_discount_in_local_currency&quot;]/1000</Definition>
-            <Grouping>
-              <Enabled>true</Enabled>
-              <GroupType>Text</GroupType>
-              <AggregateExpression>Sum</AggregateExpression>
-            </Grouping>
-          </DataDefinition>
-          <SeriesIdentifier>Series 1</SeriesIdentifier>
-          <DataPoint>
-            <Components>
-              <Type>Orthogonal_Value</Type>
-              <FormatSpecifier xsi:type="attribute:NumberFormatSpecifier">
-                <Prefix></Prefix>
-                <Suffix></Suffix>
-                <FractionDigits>0</FractionDigits>
-              </FormatSpecifier>
-            </Components>
-            <Separator>, </Separator>
-          </DataPoint>
-          <LabelPosition>Outside</LabelPosition>
-          <Stacked>false</Stacked>
-          <Triggers>
-            <Condition>onmouseover</Condition>
-            <Action>
-              <Type>Show_Tooltip</Type>
-              <Value xsi:type="attribute:TooltipValue">
-                <Text></Text>
-                <Delay>200</Delay>
-              </Value>
-            </Action>
-          </Triggers>
-          <Riser>Rectangle</Riser>
-        </Series>
-        <Sorting>Ascending</Sorting>
-        <SortKey>
-          <Definition>row[&quot;Column Binding_1&quot;]</Definition>
-        </SortKey>
-      </SeriesDefinitions>
-      <Orientation>Vertical</Orientation>
-      <LineAttributes>
-        <Style>Solid</Style>
-        <Thickness>1</Thickness>
-        <Color>
-          <Transparency>255</Transparency>
-          <Red>0</Red>
-          <Green>0</Green>
-          <Blue>0</Blue>
-        </Color>
-        <Visible>true</Visible>
-      </LineAttributes>
-      <Label>
-        <Caption>
-          <Value></Value>
-          <Font>
-            <Alignment/>
-          </Font>
-        </Caption>
-        <Background xsi:type="attribute:ColorDefinition">
-          <Transparency>0</Transparency>
-          <Red>255</Red>
-          <Green>255</Green>
-          <Blue>255</Blue>
-        </Background>
-        <Outline>
-          <Style>Solid</Style>
-          <Thickness>1</Thickness>
-          <Color>
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>0</Green>
-            <Blue>0</Blue>
-          </Color>
-        </Outline>
-        <Insets>
-          <Top>0.0</Top>
-          <Left>2.0</Left>
-          <Bottom>0.0</Bottom>
-          <Right>3.0</Right>
-        </Insets>
-        <Visible>true</Visible>
-      </Label>
-      <LabelPosition>Left</LabelPosition>
-      <Staggered>false</Staggered>
-      <MajorGrid>
-        <LineAttributes>
-          <Style>Solid</Style>
-          <Thickness>1</Thickness>
-          <Color>
-            <Transparency>255</Transparency>
-            <Red>196</Red>
-            <Green>196</Green>
-            <Blue>196</Blue>
-          </Color>
-          <Visible>false</Visible>
-        </LineAttributes>
-        <TickStyle>Across</TickStyle>
-        <TickAttributes>
-          <Style>Solid</Style>
-          <Thickness>1</Thickness>
-          <Color>
-            <Transparency>255</Transparency>
-            <Red>196</Red>
-            <Green>196</Green>
-            <Blue>196</Blue>
-          </Color>
-          <Visible>true</Visible>
-        </TickAttributes>
-      </MajorGrid>
-      <MinorGrid>
-        <LineAttributes>
-          <Style>Solid</Style>
-          <Thickness>1</Thickness>
-          <Color>
-            <Transparency>255</Transparency>
-            <Red>225</Red>
-            <Green>225</Green>
-            <Blue>225</Blue>
-          </Color>
-          <Visible>false</Visible>
-        </LineAttributes>
-        <TickStyle>Across</TickStyle>
-        <TickAttributes>
-          <Style>Solid</Style>
-          <Thickness>1</Thickness>
-          <Color>
-            <Transparency>255</Transparency>
-            <Red>225</Red>
-            <Green>225</Green>
-            <Blue>225</Blue>
-          </Color>
-          <Visible>false</Visible>
-        </TickAttributes>
-      </MinorGrid>
-      <Scale>
-        <MinorGridsPerUnit>5</MinorGridsPerUnit>
-        <AutoExpand>true</AutoExpand>
-      </Scale>
-      <Origin>
-        <Type>Value</Type>
-        <Value xsi:type="data:NumberDataElement">
-          <Value>0.0</Value>
-        </Value>
-      </Origin>
-      <PrimaryAxis>true</PrimaryAxis>
-      <Percent>false</Percent>
-    </AssociatedAxes>
-    <SeriesDefinitions>
-      <Query>
-        <Definition></Definition>
-      </Query>
-      <SeriesPalette>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>80</Red>
-          <Green>166</Green>
-          <Blue>218</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>242</Red>
-          <Green>88</Green>
-          <Blue>106</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>232</Red>
-          <Green>172</Green>
-          <Blue>57</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>128</Red>
-          <Green>255</Green>
-          <Blue>128</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>64</Red>
-          <Green>128</Green>
-          <Blue>128</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>128</Red>
-          <Green>128</Green>
-          <Blue>192</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>170</Red>
-          <Green>85</Green>
-          <Blue>85</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>128</Red>
-          <Green>128</Green>
-          <Blue>0</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>192</Red>
-          <Green>192</Green>
-          <Blue>192</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>255</Red>
-          <Green>255</Green>
-          <Blue>128</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>128</Red>
-          <Green>192</Green>
-          <Blue>128</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>7</Red>
-          <Green>146</Green>
-          <Blue>94</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>0</Red>
-          <Green>128</Green>
-          <Blue>255</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>255</Red>
-          <Green>128</Green>
-          <Blue>192</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>0</Red>
-          <Green>255</Green>
-          <Blue>255</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>255</Red>
-          <Green>128</Green>
-          <Blue>128</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>0</Red>
-          <Green>128</Green>
-          <Blue>192</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>128</Red>
-          <Green>128</Green>
-          <Blue>192</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>255</Red>
-          <Green>0</Green>
-          <Blue>255</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>128</Red>
-          <Green>64</Green>
-          <Blue>64</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>255</Red>
-          <Green>128</Green>
-          <Blue>64</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>80</Red>
-          <Green>240</Green>
-          <Blue>120</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>0</Red>
-          <Green>64</Green>
-          <Blue>128</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>128</Red>
-          <Green>0</Green>
-          <Blue>64</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>255</Red>
-          <Green>0</Green>
-          <Blue>128</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>128</Red>
-          <Green>128</Green>
-          <Blue>64</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>128</Red>
-          <Green>128</Green>
-          <Blue>128</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>255</Red>
-          <Green>128</Green>
-          <Blue>255</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>0</Red>
-          <Green>64</Green>
-          <Blue>0</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>0</Red>
-          <Green>0</Green>
-          <Blue>0</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>255</Red>
-          <Green>255</Green>
-          <Blue>255</Blue>
-        </Entries>
-        <Entries xsi:type="attribute:ColorDefinition">
-          <Transparency>255</Transparency>
-          <Red>255</Red>
-          <Green>128</Green>
-          <Blue>0</Blue>
-        </Entries>
-      </SeriesPalette>
-      <Series>
-        <Visible>true</Visible>
-        <Label>
-          <Caption>
-            <Value></Value>
-            <Font>
-              <Alignment/>
-            </Font>
-          </Caption>
-          <Background xsi:type="attribute:ColorDefinition">
-            <Transparency>0</Transparency>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-          </Background>
-          <Outline>
-            <Style>Solid</Style>
-            <Thickness>1</Thickness>
-            <Color>
-              <Transparency>255</Transparency>
-              <Red>0</Red>
-              <Green>0</Green>
-              <Blue>0</Blue>
-            </Color>
-            <Visible>false</Visible>
-          </Outline>
-          <Insets>
-            <Top>0.0</Top>
-            <Left>2.0</Left>
-            <Bottom>0.0</Bottom>
-            <Right>3.0</Right>
-          </Insets>
-          <Visible>false</Visible>
-        </Label>
-        <DataDefinition>
-          <Definition>row[&quot;Column Binding&quot;]</Definition>
-        </DataDefinition>
-        <SeriesIdentifier></SeriesIdentifier>
-        <DataPoint>
-          <Components>
-            <Type>Orthogonal_Value</Type>
-          </Components>
-          <Separator>, </Separator>
-        </DataPoint>
-        <LabelPosition>Outside</LabelPosition>
-        <Stacked>false</Stacked>
-      </Series>
-      <Grouping>
-        <Enabled>true</Enabled>
-        <GroupingUnit>Months</GroupingUnit>
-        <GroupType>Numeric</GroupType>
-        <AggregateExpression>Sum</AggregateExpression>
-      </Grouping>
-      <SortKey/>
-    </SeriesDefinitions>
-    <Orientation>Horizontal</Orientation>
-    <LineAttributes>
-      <Style>Solid</Style>
-      <Thickness>1</Thickness>
-      <Color>
-        <Transparency>255</Transparency>
-        <Red>0</Red>
-        <Green>0</Green>
-        <Blue>0</Blue>
-      </Color>
-      <Visible>true</Visible>
-    </LineAttributes>
-    <Label>
-      <Caption>
-        <Value></Value>
-        <Font>
-          <Alignment/>
-        </Font>
-      </Caption>
-      <Background xsi:type="attribute:ColorDefinition">
-        <Transparency>0</Transparency>
-        <Red>255</Red>
-        <Green>255</Green>
-        <Blue>255</Blue>
-      </Background>
-      <Outline>
-        <Style>Solid</Style>
-        <Thickness>1</Thickness>
-        <Color>
-          <Transparency>255</Transparency>
-          <Red>0</Red>
-          <Green>0</Green>
-          <Blue>0</Blue>
-        </Color>
-      </Outline>
-      <Insets>
-        <Top>0.0</Top>
-        <Left>2.0</Left>
-        <Bottom>0.0</Bottom>
-        <Right>3.0</Right>
-      </Insets>
-      <Visible>true</Visible>
-    </Label>
-    <LabelPosition>Below</LabelPosition>
-    <Staggered>false</Staggered>
-    <Interval>1</Interval>
-    <MajorGrid>
-      <LineAttributes>
-        <Style>Solid</Style>
-        <Thickness>1</Thickness>
-        <Color>
-          <Transparency>255</Transparency>
-          <Red>196</Red>
-          <Green>196</Green>
-          <Blue>196</Blue>
-        </Color>
-        <Visible>false</Visible>
-      </LineAttributes>
-      <TickStyle>Across</TickStyle>
-      <TickAttributes>
-        <Style>Solid</Style>
-        <Thickness>1</Thickness>
-        <Color>
-          <Transparency>255</Transparency>
-          <Red>196</Red>
-          <Green>196</Green>
-          <Blue>196</Blue>
-        </Color>
-        <Visible>true</Visible>
-      </TickAttributes>
-    </MajorGrid>
-    <MinorGrid>
-      <LineAttributes>
-        <Style>Solid</Style>
-        <Thickness>1</Thickness>
-        <Color>
-          <Transparency>255</Transparency>
-          <Red>225</Red>
-          <Green>225</Green>
-          <Blue>225</Blue>
-        </Color>
-        <Visible>false</Visible>
-      </LineAttributes>
-      <TickStyle>Across</TickStyle>
-      <TickAttributes>
-        <Style>Solid</Style>
-        <Thickness>1</Thickness>
-        <Color>
-          <Transparency>255</Transparency>
-          <Red>225</Red>
-          <Green>225</Green>
-          <Blue>225</Blue>
-        </Color>
-        <Visible>false</Visible>
-      </TickAttributes>
-    </MinorGrid>
     <Scale>
-      <MinorGridsPerUnit>5</MinorGridsPerUnit>
       <ShowOutside>false</ShowOutside>
     </Scale>
     <Origin>
@@ -2152,133 +920,90 @@ else {
         <Value>0.0</Value>
       </Value>
     </Origin>
-    <PrimaryAxis>true</PrimaryAxis>
-    <CategoryAxis>true</CategoryAxis>
-    <Percent>false</Percent>
   </Axes>
-  <Orientation>Vertical</Orientation>
-  <UnitSpacing>50.0</UnitSpacing>
   <Rotation>
-    <Angles>
-      <XAngle>-20.0</XAngle>
-      <YAngle>45.0</YAngle>
-      <ZAngle>0.0</ZAngle>
-      <Type>None</Type>
-    </Angles>
+    <Angles/>
   </Rotation>
-  <ReverseCategory>false</ReverseCategory>
 </model:ChartWithAxes>
 ]]></xml-property>
-            <property name="outputFormat">SVG</property>
-            <property name="inheritColumns">false</property>
-            <property name="display">block</property>
-            <property name="height">7.989583333333333in</property>
-            <property name="width">15.958333333333334in</property>
-            <property name="dataSet">sales</property>
-            <list-property name="boundDataColumns">
-                <structure>
-                    <property name="name">origin</property>
-                    <expression name="expression" type="javascript">dataSetRow["origin"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">sale_bill_id</property>
-                    <expression name="expression" type="javascript">dataSetRow["sale_bill_id"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">sale_bill_date</property>
-                    <expression name="expression" type="javascript">dataSetRow["sale_bill_date"]</expression>
-                    <property name="dataType">date-time</property>
-                </structure>
-                <structure>
-                    <property name="name">delivery_date</property>
-                    <expression name="expression" type="javascript">dataSetRow["delivery_date"]</expression>
-                    <property name="dataType">date-time</property>
-                </structure>
-                <structure>
-                    <property name="name">customer_code</property>
-                    <expression name="expression" type="javascript">dataSetRow["customer_code"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">customer_name</property>
-                    <expression name="expression" type="javascript">dataSetRow["customer_name"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">customer_class_name</property>
-                    <expression name="expression" type="javascript">dataSetRow["customer_class_name"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">customer_country</property>
-                    <expression name="expression" type="javascript">dataSetRow["customer_country"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">product_code</property>
-                    <expression name="expression" type="javascript">dataSetRow["product_code"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">product_name</property>
-                    <expression name="expression" type="javascript">dataSetRow["product_name"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">product_group</property>
-                    <expression name="expression" type="javascript">dataSetRow["product_group"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">quantity</property>
-                    <expression name="expression" type="javascript">dataSetRow["quantity"]</expression>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="name">unit_gross_sell_price_with_discount_in_local_currency</property>
-                    <expression name="expression" type="javascript">dataSetRow["unit_gross_sell_price_with_discount_in_local_currency"]</expression>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="name">total_gross_sell_price_with_discount_in_local_currency</property>
-                    <expression name="expression" type="javascript">dataSetRow["total_gross_sell_price_with_discount_in_local_currency"]</expression>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="name">seller_code</property>
-                    <expression name="expression" type="javascript">dataSetRow["seller_code"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">seller_name</property>
-                    <expression name="expression" type="javascript">dataSetRow["seller_name"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">provision</property>
-                    <expression name="expression" type="javascript">dataSetRow["provision"]</expression>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="name">is_transfered</property>
-                    <expression name="expression" type="javascript">dataSetRow["is_transfered"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">Column Binding</property>
-                    <expression name="expression" type="javascript">BirtDateTime.month(row["sale_bill_date"],1)</expression>
-                    <property name="dataType">integer</property>
-                    <property name="allowExport">true</property>
-                </structure>
-                <structure>
-                    <property name="name">Column Binding_1</property>
-                    <expression name="expression" type="javascript">BirtDateTime.year(row["sale_bill_date"])</expression>
-                    <property name="dataType">integer</property>
-                    <property name="allowExport">true</property>
-                </structure>
-            </list-property>
+                            <property name="outputFormat">SVG</property>
+                            <property name="inheritColumns">false</property>
+                            <property name="height">6.96875in</property>
+                            <property name="width">14.010416666666666in</property>
+                            <list-property name="boundDataColumns">
+                                <structure>
+                                    <property name="name">Year</property>
+                                    <expression name="expression">dimension["Group"]["Year"]</expression>
+                                    <property name="dataType">integer</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Month</property>
+                                    <expression name="expression">dimension["Group"]["Month"]</expression>
+                                    <property name="dataType">integer</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">total_gross_sell_price_with_discount_in_local_currency_Group/Month</property>
+                                    <expression name="expression">measure["total_gross_sell_price_with_discount_in_local_currency"]</expression>
+                                    <property name="dataType">float</property>
+                                    <simple-property-list name="aggregateOn">
+                                        <value>Group/Month</value>
+                                    </simple-property-list>
+                                    <property name="aggregateFunction">SUM</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Period</property>
+                                    <property name="dataType">float</property>
+                                    <simple-property-list name="aggregateOn">
+                                        <value>Group3/Year</value>
+                                        <value>Group/Month</value>
+                                    </simple-property-list>
+                                    <property name="aggregateFunction">SUM</property>
+                                    <list-property name="arguments">
+                                        <structure>
+                                            <property name="name">Expression</property>
+                                            <expression name="value" type="javascript">measure["total_gross_sell_price_with_discount_in_local_currency"]</expression>
+                                        </structure>
+                                    </list-property>
+                                    <property name="calculationType">YEAR TO DATE</property>
+                                    <property name="refDateType">today</property>
+                                    <property name="timeDimension">Group</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Year_1</property>
+                                    <expression name="expression">dimension["Group3"]["Year"]</expression>
+                                    <property name="dataType">integer</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Summary Field/total_gross_sell_price_with_discount_in_local_currency</property>
+                                    <expression name="expression" type="javascript">measure["total_gross_sell_price_with_discount_in_local_currency"]</expression>
+                                    <property name="dataType">float</property>
+                                    <property name="aggregateFunction">SUM</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Group2/sale_bill_date2</property>
+                                    <expression name="expression" type="javascript">dimension["Group2"]["sale_bill_date2"]</expression>
+                                    <property name="dataType">date-time</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Group3/Year/DateTime</property>
+                                    <expression name="expression" type="javascript">dimension["Group3"]["Year"]["DateTime"]</expression>
+                                    <property name="dataType">date-time</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Group/Month/DateTime</property>
+                                    <expression name="expression" type="javascript">dimension["Group"]["Month"]["DateTime"]</expression>
+                                    <property name="dataType">date-time</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Group/Year/DateTime</property>
+                                    <expression name="expression" type="javascript">dimension["Group"]["Year"]["DateTime"]</expression>
+                                    <property name="dataType">date-time</property>
+                                </structure>
+                            </list-property>
+                        </extended-item>
+                    </property>
+                </multi-views>
+            </property>
         </extended-item>
         <extended-item extensionName="Chart" id="978">
             <xml-property name="xmlRepresentation"><![CDATA[<model:ChartWithoutAxes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:attribute="http://www.birt.eclipse.org/ChartModelAttribute" xmlns:layout="http://www.birt.eclipse.org/ChartModelLayout" xmlns:model="http://www.birt.eclipse.org/ChartModel" xmlns:type="http://www.birt.eclipse.org/ChartModelType">
@@ -3142,6 +1867,7 @@ else {
             </list-property>
         </extended-item>
         <table name="Table1" id="529">
+            <property name="pageBreakBefore">auto</property>
             <property name="width">9.5in</property>
             <property name="dataSet">sales</property>
             <list-property name="boundDataColumns">
@@ -3305,6 +2031,7 @@ else {
                     <property name="allowExport">true</property>
                 </structure>
             </list-property>
+            <structure name="toc"/>
             <column id="542">
                 <property name="width">1.5in</property>
             </column>
@@ -3326,7 +2053,7 @@ else {
                 <property name="sortDirection">desc</property>
                 <expression name="keyExpr" type="javascript">row["sale_bill_date"]</expression>
                 <structure name="toc">
-                    <expression name="expressionValue" type="javascript">row["sale_bill_date"]</expression>
+                    <expression name="expressionValue" type="javascript">BirtDateTime.year(row["sale_bill_date"])</expression>
                 </structure>
                 <property name="hideDetail">false</property>
                 <property name="pageBreakAfter">always</property>
@@ -3396,7 +2123,7 @@ else {
                 <property name="groupName">NewTableGroup2</property>
                 <expression name="keyExpr" type="javascript">row["product_code"]</expression>
                 <structure name="toc">
-                    <expression name="expressionValue" type="javascript">row["product_code"]</expression>
+                    <expression name="expressionValue" type="javascript">row["product_code"]+" || "+row["product_name"]</expression>
                 </structure>
                 <property name="hideDetail">false</property>
                 <list-property name="sort">
