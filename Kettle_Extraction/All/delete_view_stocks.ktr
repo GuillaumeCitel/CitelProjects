@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>delete_view</name>
+    <name>delete_view_stocks</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -68,10 +68,10 @@
   </info>
   <notepads>
     <notepad>
-      <note>This transformation will work only if the schma france exists</note>
-      <xloc>449</xloc>
-      <yloc>157</yloc>
-      <width>354</width>
+      <note>This transformation will work only if the schema france exists</note>
+      <xloc>201</xloc>
+      <yloc>169</yloc>
+      <width>361</width>
       <heigth>25</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
@@ -240,8 +240,8 @@
     <execute_each_row>N</execute_each_row>
     <single_statement>N</single_statement>
     <replace_variables>N</replace_variables>
-    <sql>DROP VIEW IF EXISTS public.sales;
-DROP VIEW IF EXISTS france.sales;</sql>
+    <sql>DROP VIEW IF EXISTS public.stocks;
+DROP VIEW IF EXISTS france.stocks;</sql>
     <insert_field/>
     <update_field/>
     <delete_field/>
@@ -250,8 +250,8 @@ DROP VIEW IF EXISTS france.sales;</sql>
     </arguments>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>577</xloc>
-      <yloc>221</yloc>
+      <xloc>380</xloc>
+      <yloc>241</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

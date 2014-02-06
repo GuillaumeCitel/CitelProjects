@@ -267,10 +267,36 @@ SELECT
 
 	person_code,
 	person_name,
-	123456.123456,
+	null,
 	transfer
 
 FROM shanghai.sales
+UNION ALL
+SELECT
+	&apos;ccsh&apos;,
+	sale_bill_code :: text,
+	sale_bill_date,
+	delivery_date,
+
+	customer_code,
+	concat(customer_name, &apos; || &apos; ,customer_english_name),
+	customer_class_name,
+	&apos;NOT AVAIL&apos;,
+
+	inventory_code,
+	inventory_name,
+	inventory_class_name,
+
+	quantity,
+	unit_gross_sell_price_in_local_currency,
+	total_gross_sell_price_in_local_currency,
+
+	person_code,
+	person_name,
+	null,
+	transfer
+
+FROM ccsh.sales
 UNION ALL
 SELECT
 	CASE WHEN site_vente = &apos;2C1&apos; THEN &apos;2cp&apos; WHEN site_vente = &apos;OB1&apos; THEN &apos;obsta&apos; WHEN site_vente = &apos;OV1&apos; THEN &apos;ovp&apos; ELSE &apos;unkonwn&apos; END,
@@ -288,12 +314,12 @@ SELECT
 	article_famille_statistique1,
 
 	qty,
-	123456.123456,
+	null,
 	montant_ht,
 
 	rep_code,
 	rep_name,
-	123456.123456,
+	null,
 	&apos;-&apos;
 	
 from france.sales;</sql>
@@ -305,8 +331,8 @@ from france.sales;</sql>
     </arguments>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>579</xloc>
-      <yloc>145</yloc>
+      <xloc>578</xloc>
+      <yloc>142</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

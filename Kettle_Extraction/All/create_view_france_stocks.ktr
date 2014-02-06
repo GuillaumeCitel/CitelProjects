@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>create_view_stocks</name>
+    <name>create_view_france_stocks</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>&#47;</directory>
     <parameters>
     </parameters>
@@ -61,11 +62,33 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#47;12&#47;20 10:00:45.596</created_date>
+  <created_date>2014&#47;01&#47;23 16:41:04.932</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#47;12&#47;20 10:00:45.596</modified_date>
+  <modified_date>2014&#47;01&#47;23 16:41:04.932</modified_date>
   </info>
   <notepads>
+    <notepad>
+      <note>In france.article and france.last_prices, only one ligne per article. In france.stock, several lines if different stocks in different subsiardies.
+So the number of lines in the view stocks must be the same than in the table france.stock</note>
+      <xloc>145</xloc>
+      <yloc>145</yloc>
+      <width>789</width>
+      <heigth>40</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>165</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>kettlede</name>
@@ -114,6 +137,28 @@
     </attributes>
   </connection>
   <connection>
+    <name>PostGre_All</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>All</database>
+    <port>5432</port>
+    <username>postgres</username>
+    <password>Encrypted 2be98afc86a96c0d7bb16bd64d980aac9</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>PostGre_China</name>
     <server>${Apgsql_server}</server>
     <type>POSTGRESQL</type>
@@ -130,50 +175,6 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
       <attribute><code>PORT_NUMBER</code><attribute>${Apgsql_port_nb}</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>PostGre_China_UFDATA_001_2013</name>
-    <server>localhost</server>
-    <type>POSTGRESQL</type>
-    <access>Native</access>
-    <database>China_UFDATA_001_2013</database>
-    <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>PostGre_China_UFDATA_003_2013</name>
-    <server>localhost</server>
-    <type>POSTGRESQL</type>
-    <access>Native</access>
-    <database>China_UFDATA_003_2013</database>
-    <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
@@ -224,101 +225,40 @@
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
-  <connection>
-    <name>SQL_Server_China_001_2013</name>
-    <server>192.168.1.254</server>
-    <type>MSSQL</type>
-    <access>Native</access>
-    <database>UFDATA_001_2013</database>
-    <port>1433</port>
-    <username>viewer</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10becaf782</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1433</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>SQL_Server_China_003_2013</name>
-    <server>192.168.1.254</server>
-    <type>MSSQL</type>
-    <access>Native</access>
-    <database>UFDATA_003_2013</database>
-    <port>1433</port>
-    <username>viewer</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10becaf782</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1433</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
   <order>
   </order>
   <step>
     <name>Execute SQL script</name>
     <type>ExecSQL</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>kettlede</connection>
+    <connection>PostGre_All</connection>
     <execute_each_row>N</execute_each_row>
     <single_statement>N</single_statement>
     <replace_variables>N</replace_variables>
-    <sql>CREATE OR REPLACE VIEW in_stock AS
+    <sql>DROP VIEW IF EXISTS france.stocks;
+CREATE OR REPLACE VIEW france.stocks AS
 SELECT
-	product_gmbh_code,
-	SUM(stock) as qty_in_stock
-FROM
-	lager
-GROUP BY
-	product_gmbh_code;
-
-CREATE OR REPLACE VIEW reserved_stock AS
-SELECT
-	product_gmbh_code,
-	SUM(quantity) as qty_reserved
-FROM
-	artres
-GROUP BY
-	product_gmbh_code;
-
-CREATE OR REPLACE VIEW stocks AS
-SELECT
-	artikel.gmbh_code as product_gmbh_code,
-	artikel.name as product_name,
-	artikel.stock_price_without_transport,
-	artikel.stock_price_with_transport,
-	artikel.stock_average_price,
-	in_stock.qty_in_stock,
-	reserved_stock.qty_reserved,
-	in_stock.qty_in_stock*artikel.stock_average_price as stock_value
-FROM
-	artikel
-LEFT OUTER JOIN in_stock on artikel.gmbh_code = in_stock.product_gmbh_code
-LEFT OUTER JOIN reserved_stock on artikel.gmbh_code = reserved_stock.product_gmbh_code
-	</sql>
+	stock.article,
+	stock.article_stock,
+	stock.qty_phys,
+	stock.qty_returned,
+	stock.qty_ordonned as qty_ordered,
+	stock.qty_saled as qty_sold,
+	article.article_designation_1,
+	last_prices.article_cout_annee,
+	last_prices.article_cout_type,
+	last_prices.article_cout_seq,
+	last_prices.article_cout_total,
+	last_prices.article_cout_date
+from france.stock
+left join france.article on france.stock.article=france.article.article
+left join france.last_prices on france.stock.article=france.last_prices.article</sql>
     <insert_field/>
     <update_field/>
     <delete_field/>
@@ -327,8 +267,8 @@ LEFT OUTER JOIN reserved_stock on artikel.gmbh_code = reserved_stock.product_gmb
     </arguments>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>431</xloc>
-      <yloc>166</yloc>
+      <xloc>410</xloc>
+      <yloc>223</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
