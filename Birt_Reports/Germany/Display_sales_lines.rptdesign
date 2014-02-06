@@ -1105,13 +1105,13 @@ if (reportContext.getParameterValue("customer_erp_class_name") == 'All_Except_Ru
 	list_of_excluded_customer_erp_class_names = ["export Russia"];
 }
 if (reportContext.getParameterValue("customer_erp_class_name") == 'Only_Russia'){
-	list_of_excluded_customer_erp_class_names = ["unknown","local","export w/o Russia","citel"];
+	list_of_excluded_customer_erp_class_names = ["unknown","local","export w/o Russia","group"];
 }
 if (reportContext.getParameterValue("customer_erp_class_name") == 'Local'){
-	list_of_excluded_customer_erp_class_names = ["unknown","export Russia","export w/o Russia","citel"];
+	list_of_excluded_customer_erp_class_names = ["unknown","export Russia","export w/o Russia","group"];
 }
 if (reportContext.getParameterValue("customer_erp_class_name") == 'Only_Export'){
-	list_of_excluded_customer_erp_class_names = ["unknown","local","citel"];
+	list_of_excluded_customer_erp_class_names = ["unknown","local","group"];
 }
 list_of_parameters_names = ["seller_name", "product_gmbh_code1","product_gmbh_code2", "customer_nb1", "customer_nb2", "bill_id", "group_2cp","country"];
 list_of_parameters_value_fields = ["seller_name", "product_gmbh_code","product_gmbh_code", "customer_nb", "customer_nb", "bill_id", "group_2cp","erp_country"];
