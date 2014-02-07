@@ -86,7 +86,7 @@
             <property name="dataType">date</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">2012-01-01</value>
+                <value type="javascript">BirtDateTime.year(BirtDateTime.today())-2+"-01-01"</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -109,7 +109,7 @@
             <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Custom</property>
-                <property name="pattern">dd/MM/YYYY</property>
+                <property name="pattern">dd/MM/yyyy</property>
             </structure>
         </scalar-parameter>
     </parameters>
