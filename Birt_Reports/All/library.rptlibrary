@@ -81,12 +81,13 @@
             </parameters>
         </cascading-parameter-group>
         <scalar-parameter name="beginning_date" id="12">
+            <property name="hidden">false</property>
             <text-property name="promptText">From</text-property>
             <property name="valueType">static</property>
-            <property name="dataType">date</property>
+            <property name="dataType">dateTime</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="javascript">BirtDateTime.year(BirtDateTime.today())-2+"-01-01"</value>
+                <value type="javascript">BirtDateTime.year(BirtDateTime.today())-8+"-01-01"</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -97,9 +98,10 @@
             </structure>
         </scalar-parameter>
         <scalar-parameter name="end_date" id="13">
+            <property name="hidden">false</property>
             <text-property name="promptText">To</text-property>
             <property name="valueType">static</property>
-            <property name="dataType">date</property>
+            <property name="dataType">dateTime</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
                 <value type="javascript">BirtDateTime.today()</value>

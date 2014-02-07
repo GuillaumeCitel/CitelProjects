@@ -330,7 +330,7 @@ else {
       <Visible>true</Visible>
       <Label>
         <Caption>
-          <Value>Gross sales per year (in k)</Value>
+          <Value>Chart Title</Value>
           <Font>
             <Size>16.0</Size>
             <Bold>true</Bold>
@@ -444,7 +444,7 @@ else {
         </Color>
         <Visible>false</Visible>
       </Outline>
-      <Visible>false</Visible>
+      <Visible>true</Visible>
       <ClientArea>
         <Outline>
           <Style>Solid</Style>
@@ -906,10 +906,10 @@ else {
               <Bottom>0.0</Bottom>
               <Right>3.0</Right>
             </Insets>
-            <Visible>true</Visible>
+            <Visible>false</Visible>
           </Label>
           <DataDefinition>
-            <Definition>row[&quot;total_gross_sell_price_with_discount_in_local_currency&quot;]/1000</Definition>
+            <Definition>row[&quot;total_gross_sell_price_with_discount_in_local_currency&quot;]</Definition>
             <Grouping>
               <GroupType>Text</GroupType>
               <AggregateExpression>Sum</AggregateExpression>
@@ -919,11 +919,6 @@ else {
           <DataPoint>
             <Components>
               <Type>Orthogonal_Value</Type>
-              <FormatSpecifier xsi:type="attribute:NumberFormatSpecifier">
-                <Prefix></Prefix>
-                <Suffix></Suffix>
-                <FractionDigits>0</FractionDigits>
-              </FormatSpecifier>
             </Components>
             <Separator>, </Separator>
           </DataPoint>
@@ -1573,7 +1568,7 @@ else {
                                             <expression name="expr" type="javascript">data["Year"]</expression>
                                             <property name="operator">eq</property>
                                             <simple-property-list name="value1">
-                                                <value type="javascript">BirtDateTime.year(params["end_date"].value)-2</value>
+                                                <value type="javascript">BirtDateTime.year(params["beginning_date"].value)</value>
                                             </simple-property-list>
                                             <property name="updateAggregation">false</property>
                                         </filter-condition-element>
@@ -2155,7 +2150,7 @@ else {
 ]]></xml-property>
                             <property name="outputFormat">SVG</property>
                             <property name="inheritColumns">false</property>
-                            <property name="height">7.885416666666667in</property>
+                            <property name="height">6.96875in</property>
                             <property name="width">14.010416666666666in</property>
                             <list-property name="boundDataColumns">
                                 <structure>
@@ -2999,7 +2994,7 @@ else {
                     <property name="operator">between</property>
                     <expression name="expr" type="javascript">row["sale_bill_date"]</expression>
                     <simple-property-list name="value1">
-                        <value>BirtDateTime.year(params["end_date"].value)-3+"-01-01"</value>
+                        <value>BirtDateTime.year(params["end_date"].value)-3+"01-01"</value>
                     </simple-property-list>
                     <expression name="value2">params["end_date"].value</expression>
                     <property name="updateAggregation">true</property>
