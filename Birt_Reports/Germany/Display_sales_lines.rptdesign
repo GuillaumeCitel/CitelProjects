@@ -1723,7 +1723,7 @@ and bill_date <= ?]]></xml-property>
                 </structure>
             </list-property>
             <structure name="toc"/>
-            <property name="pageBreakInterval">9999</property>
+            <property name="pageBreakInterval">200</property>
             <column id="788">
                 <property name="backgroundColor">#E6E6FA</property>
                 <property name="width">0.9484536082474226in</property>
