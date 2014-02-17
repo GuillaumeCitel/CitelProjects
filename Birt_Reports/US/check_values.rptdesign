@@ -1,0 +1,1244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.3.1.v201309091055 Build &lt;4.3.1.v20130917-1035></property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">odaAutoCommit</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">odaIsolationMode</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">odaJndiName</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">7</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">fixed layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="us" id="7">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">org.postgresql.Driver</property>
+            <property name="odaURL">jdbc:postgresql://localhost:5432/us</property>
+            <property name="odaUser">kettleus</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">MTIza2V0bGV1cw==</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="sales" id="8">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">oe_lineitem_id</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">oe_lineitem_id</text-property>
+                    <text-property name="heading">oe_lineitem_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">oe_lineitem_description</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">oe_lineitem_description</text-property>
+                    <text-property name="heading">oe_lineitem_description</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">oe_lineitem_concat_description</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">oe_lineitem_concat_description</text-property>
+                    <text-property name="heading">oe_lineitem_concat_description</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ic_part_key</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">ic_part_key</text-property>
+                    <text-property name="heading">ic_part_key</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ic_part_id</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ic_part_id</text-property>
+                    <text-property name="heading">ic_part_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">description</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">description</text-property>
+                    <text-property name="heading">description</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">concat_description</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">concat_description</text-property>
+                    <text-property name="heading">concat_description</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">part_group</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">part_group</text-property>
+                    <text-property name="heading">part_group</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">shipped_qty</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">shipped_qty</text-property>
+                    <text-property name="heading">shipped_qty</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">unit_price</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">unit_price</text-property>
+                    <text-property name="heading">unit_price</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">unit_discount</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">unit_discount</text-property>
+                    <text-property name="heading">unit_discount</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">extended_price</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">extended_price</text-property>
+                    <text-property name="heading">extended_price</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">cumulative_cost</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">cumulative_cost</text-property>
+                    <text-property name="heading">cumulative_cost</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">oe_lineitem_type</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">oe_lineitem_type</text-property>
+                    <text-property name="heading">oe_lineitem_type</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">entity_type</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">entity_type</text-property>
+                    <text-property name="heading">entity_type</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">invoice_date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">invoice_date</text-property>
+                    <text-property name="heading">invoice_date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ar_invoice_status</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">ar_invoice_status</text-property>
+                    <text-property name="heading">ar_invoice_status</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">invoice_number</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">invoice_number</text-property>
+                    <text-property name="heading">invoice_number</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">billing_state_or_country</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">billing_state_or_country</text-property>
+                    <text-property name="heading">billing_state_or_country</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">country</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">country</text-property>
+                    <text-property name="heading">country</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">person_nb</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">person_nb</text-property>
+                    <text-property name="heading">person_nb</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">area</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">area</text-property>
+                    <text-property name="heading">area</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">person_acronym</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">person_acronym</text-property>
+                    <text-property name="heading">person_acronym</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ar_salesaccount_description</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ar_salesaccount_description</text-property>
+                    <text-property name="heading">ar_salesaccount_description</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">oe_lineitem_id</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">oe_lineitem_description</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">oe_lineitem_concat_description</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">ic_part_key</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">ic_part_id</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">description</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">concat_description</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">part_group</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">shipped_qty</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">unit_price</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">unit_discount</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">extended_price</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">cumulative_cost</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">oe_lineitem_type</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">entity_type</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">invoice_date</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">ar_invoice_status</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">status_description</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">invoice_number</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">ar_customer_id</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">ar_customer_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">billing_state_or_country</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">country</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">person_nb</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">25</property>
+                        <property name="name">area</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">26</property>
+                        <property name="name">person_acronym</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">27</property>
+                        <property name="name">ar_salesaccount_description</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">28</property>
+                        <property name="name">gl_account_description</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">us</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">oe_lineitem_id</property>
+                    <property name="nativeName">oe_lineitem_id</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">oe_lineitem_description</property>
+                    <property name="nativeName">oe_lineitem_description</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">oe_lineitem_concat_description</property>
+                    <property name="nativeName">oe_lineitem_concat_description</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">ic_part_key</property>
+                    <property name="nativeName">ic_part_key</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">ic_part_id</property>
+                    <property name="nativeName">ic_part_id</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">description</property>
+                    <property name="nativeName">description</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">concat_description</property>
+                    <property name="nativeName">concat_description</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">part_group</property>
+                    <property name="nativeName">part_group</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">shipped_qty</property>
+                    <property name="nativeName">shipped_qty</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">unit_price</property>
+                    <property name="nativeName">unit_price</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">unit_discount</property>
+                    <property name="nativeName">unit_discount</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">extended_price</property>
+                    <property name="nativeName">extended_price</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">cumulative_cost</property>
+                    <property name="nativeName">cumulative_cost</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">oe_lineitem_type</property>
+                    <property name="nativeName">oe_lineitem_type</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">entity_type</property>
+                    <property name="nativeName">entity_type</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">invoice_date</property>
+                    <property name="nativeName">invoice_date</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">ar_invoice_status</property>
+                    <property name="nativeName">ar_invoice_status</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">status_description</property>
+                    <property name="nativeName">status_description</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">invoice_number</property>
+                    <property name="nativeName">invoice_number</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">ar_customer_id</property>
+                    <property name="nativeName">ar_customer_id</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">ar_customer_name</property>
+                    <property name="nativeName">ar_customer_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">billing_state_or_country</property>
+                    <property name="nativeName">billing_state_or_country</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">country</property>
+                    <property name="nativeName">country</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">24</property>
+                    <property name="name">person_nb</property>
+                    <property name="nativeName">person_nb</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">25</property>
+                    <property name="name">area</property>
+                    <property name="nativeName">area</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">26</property>
+                    <property name="name">person_acronym</property>
+                    <property name="nativeName">person_acronym</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">27</property>
+                    <property name="name">ar_salesaccount_description</property>
+                    <property name="nativeName">ar_salesaccount_description</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">28</property>
+                    <property name="name">gl_account_description</property>
+                    <property name="nativeName">gl_account_description</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select *
+from sales]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>sales_amount</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>8</design:nativeDataTypeCode>
+            <design:precision>17</design:precision>
+            <design:scale>17</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>sales_amount</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>sales_amount</design:label>
+            <design:formattingHints>
+              <design:displaySize>25</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>invoice_date</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+            <design:precision>29</design:precision>
+            <design:scale>6</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>invoice_date</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>invoice_date</design:label>
+            <design:formattingHints>
+              <design:displaySize>29</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="9">
+            <property name="pageBreakInside">avoid</property>
+            <property name="width">7.791666666666667in</property>
+            <property name="dataSet">sales</property>
+            <list-property name="visibility">
+                <structure>
+                    <property name="format">all</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+            </list-property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">invoice_date</property>
+                    <text-property name="displayName">invoice_date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["invoice_date"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_1</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>NewTableGroup2</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["extended_price"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_2</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>NewTableGroup1</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["extended_price"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>NewTableGroup3</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["extended_price"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">oe_lineitem_id</property>
+                    <text-property name="displayName">oe_lineitem_id</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["oe_lineitem_id"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">shipped_qty</property>
+                    <text-property name="displayName">shipped_qty</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["shipped_qty"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">unit_price</property>
+                    <text-property name="displayName">unit_price</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["unit_price"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">extended_price</property>
+                    <text-property name="displayName">extended_price</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["extended_price"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">cumulative_cost</property>
+                    <text-property name="displayName">cumulative_cost</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["cumulative_cost"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">oe_lineitem_type</property>
+                    <text-property name="displayName">oe_lineitem_type</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["oe_lineitem_type"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">ar_invoice_status</property>
+                    <text-property name="displayName">ar_invoice_status</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ar_invoice_status"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">invoice_number</property>
+                    <text-property name="displayName">invoice_number</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["invoice_number"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">oe_lineitem_description</property>
+                    <text-property name="displayName">oe_lineitem_description</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["oe_lineitem_description"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">oe_lineitem_concat_description</property>
+                    <text-property name="displayName">oe_lineitem_concat_description</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["oe_lineitem_concat_description"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">ic_part_key</property>
+                    <text-property name="displayName">ic_part_key</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ic_part_key"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">ic_part_id</property>
+                    <text-property name="displayName">ic_part_id</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ic_part_id"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">description</property>
+                    <text-property name="displayName">description</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["description"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">concat_description</property>
+                    <text-property name="displayName">concat_description</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["concat_description"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">part_group</property>
+                    <text-property name="displayName">part_group</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["part_group"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">unit_discount</property>
+                    <text-property name="displayName">unit_discount</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["unit_discount"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">entity_type</property>
+                    <text-property name="displayName">entity_type</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["entity_type"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">billing_state_or_country</property>
+                    <text-property name="displayName">billing_state_or_country</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["billing_state_or_country"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">country</property>
+                    <text-property name="displayName">country</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["country"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">person_nb</property>
+                    <text-property name="displayName">person_nb</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["person_nb"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">area</property>
+                    <text-property name="displayName">area</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["area"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">person_acronym</property>
+                    <text-property name="displayName">person_acronym</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["person_acronym"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">ar_salesaccount_description</property>
+                    <text-property name="displayName">ar_salesaccount_description</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ar_salesaccount_description"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <property name="pageBreakInterval">9999999</property>
+            <column id="22">
+                <property name="width">3.9791666666666665in</property>
+            </column>
+            <column id="23">
+                <property name="width">3.8125in</property>
+            </column>
+            <group id="43">
+                <property name="groupName">NewTableGroup1</property>
+                <property name="interval">year</property>
+                <property name="sortDirection">desc</property>
+                <expression name="keyExpr" type="javascript">row["invoice_date"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["invoice_date"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+                <header>
+                    <row id="44">
+                        <cell id="45">
+                            <data id="52">
+                                <structure name="dateTimeFormat">
+                                    <property name="category">Custom</property>
+                                    <property name="pattern">yyyy</property>
+                                </structure>
+                                <property name="resultSetColumn">invoice_date</property>
+                            </data>
+                        </cell>
+                        <cell id="46">
+                            <property name="backgroundColor">red</property>
+                            <property name="textAlign">right</property>
+                            <data id="80">
+                                <structure name="numberFormat">
+                                    <property name="category">Fixed</property>
+                                    <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                </structure>
+                                <property name="resultSetColumn">Aggregation_2</property>
+                            </data>
+                        </cell>
+                    </row>
+                </header>
+            </group>
+            <group id="53">
+                <property name="groupName">NewTableGroup2</property>
+                <property name="interval">month</property>
+                <property name="sortDirection">desc</property>
+                <expression name="keyExpr" type="javascript">row["invoice_date"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["invoice_date"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+                <header>
+                    <row id="54">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <cell id="55">
+                            <data id="62">
+                                <structure name="dateTimeFormat">
+                                    <property name="category">Custom</property>
+                                    <property name="pattern">MMMM</property>
+                                </structure>
+                                <property name="resultSetColumn">invoice_date</property>
+                            </data>
+                        </cell>
+                        <cell id="56">
+                            <property name="textAlign">right</property>
+                            <data id="79">
+                                <structure name="numberFormat">
+                                    <property name="category">Fixed</property>
+                                    <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                </structure>
+                                <property name="resultSetColumn">Aggregation_1</property>
+                            </data>
+                        </cell>
+                    </row>
+                </header>
+            </group>
+            <group id="88">
+                <property name="groupName">NewTableGroup3</property>
+                <property name="interval">day</property>
+                <property name="sortDirection">desc</property>
+                <expression name="keyExpr">row["invoice_date"]</expression>
+                <property name="hideDetail">false</property>
+                <header>
+                    <row id="89">
+                        <list-property name="visibility">
+                            <structure>
+                                <property name="format">all</property>
+                                <expression name="valueExpr" type="javascript">true</expression>
+                            </structure>
+                        </list-property>
+                        <cell id="90">
+                            <data id="95">
+                                <property name="resultSetColumn">invoice_date</property>
+                            </data>
+                        </cell>
+                        <cell id="91">
+                            <property name="textAlign">right</property>
+                            <data id="96">
+                                <structure name="numberFormat">
+                                    <property name="category">Fixed</property>
+                                    <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                </structure>
+                                <property name="resultSetColumn">Aggregation</property>
+                            </data>
+                        </cell>
+                    </row>
+                </header>
+            </group>
+        </table>
+        <table id="97">
+            <property name="pageBreakInside">avoid</property>
+            <property name="width">7.791666666666667in</property>
+            <property name="dataSet">sales</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">invoice_date</property>
+                    <text-property name="displayName">invoice_date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["invoice_date"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_2</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>NewTableGroup1</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["extended_price"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">oe_lineitem_id</property>
+                    <text-property name="displayName">oe_lineitem_id</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["oe_lineitem_id"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">shipped_qty</property>
+                    <text-property name="displayName">shipped_qty</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["shipped_qty"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">unit_price</property>
+                    <text-property name="displayName">unit_price</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["unit_price"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">extended_price</property>
+                    <text-property name="displayName">extended_price</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["extended_price"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">cumulative_cost</property>
+                    <text-property name="displayName">cumulative_cost</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["cumulative_cost"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">oe_lineitem_type</property>
+                    <text-property name="displayName">oe_lineitem_type</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["oe_lineitem_type"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">ar_invoice_status</property>
+                    <text-property name="displayName">ar_invoice_status</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ar_invoice_status"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">invoice_number</property>
+                    <text-property name="displayName">invoice_number</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["invoice_number"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">oe_lineitem_description</property>
+                    <text-property name="displayName">oe_lineitem_description</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["oe_lineitem_description"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">ic_part_id</property>
+                    <text-property name="displayName">ic_part_id</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ic_part_id"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">description</property>
+                    <text-property name="displayName">description</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["description"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">unit_discount</property>
+                    <text-property name="displayName">unit_discount</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["unit_discount"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">entity_type</property>
+                    <text-property name="displayName">entity_type</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["entity_type"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">billing_state_or_country</property>
+                    <text-property name="displayName">billing_state_or_country</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["billing_state_or_country"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">ar_salesaccount_description</property>
+                    <text-property name="displayName">ar_salesaccount_description</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ar_salesaccount_description"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>NewTableGroup</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["extended_price"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">oe_lineitem_concat_description</property>
+                    <text-property name="displayName">oe_lineitem_concat_description</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["oe_lineitem_concat_description"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">ic_part_key</property>
+                    <text-property name="displayName">ic_part_key</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ic_part_key"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">concat_description</property>
+                    <text-property name="displayName">concat_description</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["concat_description"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">part_group</property>
+                    <text-property name="displayName">part_group</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["part_group"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">country</property>
+                    <text-property name="displayName">country</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["country"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">person_nb</property>
+                    <text-property name="displayName">person_nb</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["person_nb"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">area</property>
+                    <text-property name="displayName">area</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["area"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">person_acronym</property>
+                    <text-property name="displayName">person_acronym</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["person_acronym"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">status_description</property>
+                    <text-property name="displayName">status_description</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["status_description"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">ar_customer_id</property>
+                    <text-property name="displayName">ar_customer_id</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ar_customer_id"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">ar_customer_name</property>
+                    <text-property name="displayName">ar_customer_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ar_customer_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">gl_account_description</property>
+                    <text-property name="displayName">gl_account_description</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["gl_account_description"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <property name="pageBreakInterval">9999999</property>
+            <column id="116">
+                <property name="width">3.9791666666666665in</property>
+            </column>
+            <column id="117">
+                <property name="width">3.8125in</property>
+            </column>
+            <group id="98">
+                <property name="groupName">NewTableGroup1</property>
+                <property name="interval">month</property>
+                <property name="sortDirection">desc</property>
+                <expression name="keyExpr" type="javascript">row["invoice_date"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["invoice_date"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+                <header>
+                    <row id="99">
+                        <cell id="100">
+                            <data id="101">
+                                <structure name="dateTimeFormat">
+                                    <property name="category">Custom</property>
+                                    <property name="pattern">MM/yyyy</property>
+                                </structure>
+                                <property name="resultSetColumn">invoice_date</property>
+                            </data>
+                        </cell>
+                        <cell id="102">
+                            <property name="backgroundColor">red</property>
+                            <property name="textAlign">right</property>
+                            <data id="103">
+                                <structure name="numberFormat">
+                                    <property name="category">Fixed</property>
+                                    <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                </structure>
+                                <property name="resultSetColumn">Aggregation_2</property>
+                            </data>
+                        </cell>
+                    </row>
+                </header>
+            </group>
+            <group id="125">
+                <property name="groupName">NewTableGroup</property>
+                <expression name="keyExpr" type="javascript">row["gl_account_description"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["gl_account_description"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+                <header>
+                    <row id="126">
+                        <cell id="127">
+                            <data id="135">
+                                <property name="resultSetColumn">gl_account_description</property>
+                            </data>
+                        </cell>
+                        <cell id="128">
+                            <data id="134">
+                                <structure name="numberFormat">
+                                    <property name="category">Fixed</property>
+                                    <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="resultSetColumn">Aggregation</property>
+                            </data>
+                        </cell>
+                    </row>
+                </header>
+            </group>
+            <group id="104">
+                <property name="groupName">NewTableGroup2</property>
+                <property name="interval">month</property>
+                <property name="sortDirection">desc</property>
+                <expression name="keyExpr" type="javascript">row["invoice_date"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["invoice_date"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+            </group>
+            <group id="110">
+                <property name="groupName">NewTableGroup3</property>
+                <property name="interval">day</property>
+                <property name="sortDirection">desc</property>
+                <expression name="keyExpr">row["invoice_date"]</expression>
+                <property name="hideDetail">false</property>
+            </group>
+        </table>
+    </body>
+</report>
