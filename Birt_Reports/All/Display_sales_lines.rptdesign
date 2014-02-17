@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.3.1.v201309091055 Build &lt;4.3.1.v20130917-1035></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">All/library.rptlibrary</property>
+            <property name="namespace">library</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="beginning_date" id="48">
+            <text-property name="promptText">From</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">dateTime</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="javascript">BirtDateTime.year(BirtDateTime.today())+"-"+BirtDateTime.month(BirtDateTime.today())+"-01"</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Custom</property>
+                <property name="pattern">dd/MM/yyyy</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="end_date" id="49">
+            <text-property name="promptText">To</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">dateTime</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="javascript">BirtDateTime.today()</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Custom</property>
+                <property name="pattern">dd/MM/yyyy</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="customer_country_class" id="1126" extends="library.customer_country_class"/>
+        <scalar-parameter name="product_group" id="54" extends="library.product_group"/>
+        <scalar-parameter name="product_code1" id="15" extends="library.product_code1"/>
+        <cascading-parameter-group name="Product research" id="16" extends="library.Product research">
+            <overridden-values>
+                <ref-entry baseId="22" name="str_research_product" id="22"/>
+                <ref-entry baseId="23" name="product_code2" id="23"/>
+            </overridden-values>
+        </cascading-parameter-group>
+        <scalar-parameter name="seller_name" id="60" extends="library.seller_name"/>
+        <scalar-parameter name="customer_code1" id="11" extends="library.customer_code1"/>
+        <cascading-parameter-group name="Customer research" id="12" extends="library.Customer research">
+            <overridden-values>
+                <ref-entry baseId="10" name="str_research_customer" id="1139"/>
+                <ref-entry baseId="11" name="customer_code2" id="1140"/>
+            </overridden-values>
+        </cascading-parameter-group>
+        <scalar-parameter name="customer_country" id="56" extends="library.customer_country"/>
+        <scalar-parameter name="sale_bill_id" id="57" extends="library.sale_bill_id"/>
+        <scalar-parameter name="origin" id="26" extends="library.origin"/>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="PostGre_All" id="7"
+ extends="library.PostGre_All"/>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="customer_list_research" id="8"
+ extends="library.customer_list_research"/>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="product_list_research" id="9"
+ extends="library.product_list_research"/>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="sales" id="10"
+ extends="library.sales"/>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="seller_list" id="65"
+ extends="library.seller_list"/>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="product_group_list" id="66"
+ extends="library.product_group_list"/>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="customer_country_list" id="67"
+ extends="library.customer_country_list"/>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="customer_country_class_list" id="1123"
+ extends="library.customer_country_class_list"/>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="orientation">landscape</property>
+            <property name="height">210mm</property>
+            <property name="width">600mm</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <text-data id="1080">
+            <property name="fontSize">xx-large</property>
+            <property name="fontWeight">bold</property>
+            <property name="textAlign">center</property>
+            <expression name="valueExpr">"LIST OF SALES CITEL " + params["origin"].value.toUpperCase()</expression>
+            <property name="contentType">html</property>
+        </text-data>
+        <text-data id="966">
+            <list-property name="visibility">
+                <structure>
+                    <property name="format">doc</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+                <structure>
+                    <property name="format">docx</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+                <structure>
+                    <property name="format">odp</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+                <structure>
+                    <property name="format">ods</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+                <structure>
+                    <property name="format">odt</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+                <structure>
+                    <property name="format">pdf</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+                <structure>
+                    <property name="format">ppt</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+                <structure>
+                    <property name="format">pptx</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+                <structure>
+                    <property name="format">xls</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+                <structure>
+                    <property name="format">xls_spudsoft</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+                <structure>
+                    <property name="format">xlsx</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+            </list-property>
+            <structure name="toc"/>
+            <property name="allowExport">true</property>
+            <expression name="valueExpr">"From: " + params["beginning_date"].value + " --- To: " + params["end_date"].value + "&lt;br/>" +
+"Customer: " + params["customer_code1"].value + " --- " + params["customer_code2"].value + "&lt;br/>" +
+"Product: " + params["product_code1"].value + " --- " + params["product_code2"].value + "&lt;br/>" +
+"Group: "+ params["product_group"].value + "&lt;br/>" +
+"Country: " + params["customer_country"].value + "&lt;br/>" +
+"Seller: " + params["seller_name"].value + "&lt;br/>" +
+"Bill: " + params["sale_bill_id"].value + "&lt;br/>"</expression>
+            <property name="contentType">html</property>
+        </text-data>
+        <table id="72">
+            <property name="dataSet">sales</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">customer_code</property>
+                    <text-property name="displayName">customer_code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["customer_code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">customer_name</property>
+                    <text-property name="displayName">customer_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["customer_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">sale_bill_date</property>
+                    <text-property name="displayName">sale_bill_date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["sale_bill_date"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">sale_bill_id</property>
+                    <text-property name="displayName">sale_bill_id</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["sale_bill_id"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">product_code</property>
+                    <text-property name="displayName">product_code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["product_code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">product_name</property>
+                    <text-property name="displayName">product_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["product_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">quantity</property>
+                    <text-property name="displayName">quantity</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["quantity"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">unit_gross_sell_price_with_discount_in_local_currency</property>
+                    <text-property name="displayName">unit_gross_sell_price_with_discount_in_local_currency</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["unit_gross_sell_price_with_discount_in_local_currency"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">total_gross_sell_price_with_discount_in_local_currency</property>
+                    <text-property name="displayName">total_gross_sell_price_with_discount_in_local_currency</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["total_gross_sell_price_with_discount_in_local_currency"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">product_group</property>
+                    <text-property name="displayName">product_group</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["product_group"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">customer_country</property>
+                    <text-property name="displayName">customer_country</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["customer_country"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">customer_class_name</property>
+                    <text-property name="displayName">customer_class_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["customer_class_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">seller_name</property>
+                    <text-property name="displayName">seller_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["seller_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">provision</property>
+                    <text-property name="displayName">provision</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["provision"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["quantity"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_1</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["total_gross_sell_price_with_discount_in_local_currency"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Column Binding</property>
+                    <expression name="expression" type="javascript">row["Aggregation_1"]/row["Aggregation"]</expression>
+                    <property name="dataType">float</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_2</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">COUNT</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["customer_code"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">unit_cost</property>
+                    <text-property name="displayName">unit_cost</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["unit_cost"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">total_cost</property>
+                    <text-property name="displayName">total_cost</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["total_cost"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_3</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["total_cost"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Column Binding_1</property>
+                    <expression name="expression" type="javascript">row["Aggregation_3"]/row["Aggregation"]</expression>
+                    <property name="dataType">float</property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <property name="pageBreakInterval">40</property>
+            <column id="85">
+                <property name="backgroundColor">#E6E6FA</property>
+            </column>
+            <column id="86">
+                <property name="backgroundColor">#E6E6FA</property>
+            </column>
+            <column id="87">
+                <property name="backgroundColor">#BFBFBF</property>
+            </column>
+            <column id="97">
+                <property name="backgroundColor">#BFBFBF</property>
+            </column>
+            <column id="94">
+                <property name="backgroundColor">#BFBFBF</property>
+            </column>
+            <column id="125">
+                <property name="backgroundColor">#ADD8E6</property>
+            </column>
+            <column id="131">
+                <property name="backgroundColor">#ADD8E6</property>
+            </column>
+            <column id="138"/>
+            <column id="144"/>
+            <column id="150"/>
+            <column id="156">
+                <list-property name="visibility">
+                    <structure>
+                        <property name="format">all</property>
+                        <expression name="valueExpr" type="javascript">if (params["origin"].value == 'gmbh') {
+  false;
+}
+else {
+  true;
+}</expression>
+                    </structure>
+                </list-property>
+            </column>
+            <column id="161">
+                <list-property name="visibility">
+                    <structure>
+                        <property name="format">all</property>
+                        <expression name="valueExpr" type="javascript">if (params["origin"].value == 'gmbh' || params["origin"].value == 'us') {
+  false;
+}
+else {
+  true;
+}</expression>
+                    </structure>
+                </list-property>
+            </column>
+            <column id="166">
+                <property name="backgroundColor">#ADD8E6</property>
+            </column>
+            <column id="172">
+                <property name="backgroundColor">#FFC0CB</property>
+            </column>
+            <column id="178">
+                <property name="backgroundColor">#FFC0CB</property>
+            </column>
+            <column id="184"/>
+            <column id="190">
+                <list-property name="visibility">
+                    <structure>
+                        <property name="format">all</property>
+                        <expression name="valueExpr" type="javascript">if (params["origin"].value == 'gmbh') {
+  false;
+}
+else {
+  true;
+}</expression>
+                    </structure>
+                </list-property>
+            </column>
+            <header>
+                <row id="193">
+                    <property name="backgroundColor">#FFFFFF</property>
+                    <cell id="194">
+                        <property name="colSpan">17</property>
+                        <property name="rowSpan">1</property>
+                        <property name="backgroundColor">#FFFFFF</property>
+                        <text-data id="1117">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">left</property>
+                            <expression name="valueExpr">"number of lines: "+row["Aggregation_2"]</expression>
+                            <property name="contentType">html</property>
+                        </text-data>
+                    </cell>
+                </row>
+                <row id="116">
+                    <property name="fontWeight">bold</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">medium</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">medium</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">medium</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">medium</property>
+                    <cell id="117">
+                        <label id="88">
+                            <text-property name="text">Client Code</text-property>
+                        </label>
+                    </cell>
+                    <cell id="118">
+                        <label id="90">
+                            <text-property name="text">Client Name</text-property>
+                        </label>
+                    </cell>
+                    <cell id="119">
+                        <label id="98">
+                            <text-property name="text">Date</text-property>
+                        </label>
+                    </cell>
+                    <cell id="120">
+                        <label id="102">
+                            <text-property name="text">Month</text-property>
+                        </label>
+                    </cell>
+                    <cell id="121">
+                        <label id="100">
+                            <text-property name="text">Bill ID</text-property>
+                        </label>
+                    </cell>
+                    <cell id="122">
+                        <label id="126">
+                            <text-property name="text">Part Number</text-property>
+                        </label>
+                    </cell>
+                    <cell id="128">
+                        <label id="133">
+                            <text-property name="text">Designation</text-property>
+                        </label>
+                    </cell>
+                    <cell id="135">
+                        <label id="139">
+                            <text-property name="text">Qty</text-property>
+                        </label>
+                    </cell>
+                    <cell id="141">
+                        <label id="145">
+                            <text-property name="text">USP</text-property>
+                        </label>
+                    </cell>
+                    <cell id="147">
+                        <label id="151">
+                            <text-property name="text">Total S</text-property>
+                        </label>
+                    </cell>
+                    <cell id="153">
+                        <text-data id="1132">
+                            <expression name="valueExpr">if (params["origin"].value == 'gmbh') {
+  'UBP';
+}
+else {
+  'hidden';
+}</expression>
+                            <property name="contentType">html</property>
+                        </text-data>
+                    </cell>
+                    <cell id="158">
+                        <text-data id="1131">
+                            <expression name="valueExpr">if (params["origin"].value == 'gmbh') {
+  'Total B';
+}
+else if (params["origin"].value == 'us') {
+  'Total Cost';
+}
+else {
+  'hidden';
+}</expression>
+                            <property name="contentType">html</property>
+                        </text-data>
+                    </cell>
+                    <cell id="163">
+                        <label id="167">
+                            <text-property name="text">Group</text-property>
+                        </label>
+                    </cell>
+                    <cell id="169">
+                        <label id="173">
+                            <text-property name="text">Country</text-property>
+                        </label>
+                    </cell>
+                    <cell id="175">
+                        <label id="179">
+                            <text-property name="text">Class</text-property>
+                        </label>
+                    </cell>
+                    <cell id="181">
+                        <label id="185">
+                            <text-property name="text">Salesman</text-property>
+                        </label>
+                    </cell>
+                    <cell id="187">
+                        <label id="191">
+                            <text-property name="text">Sale Comission</text-property>
+                        </label>
+                    </cell>
+                </row>
+                <row id="1099">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">medium</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">medium</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">medium</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">medium</property>
+                    <cell id="1100"/>
+                    <cell id="1101"/>
+                    <cell id="1102"/>
+                    <cell id="1103"/>
+                    <cell id="1104"/>
+                    <cell id="1105"/>
+                    <cell id="1106"/>
+                    <cell id="1107"/>
+                    <cell id="1108"/>
+                    <cell id="1109"/>
+                    <cell id="1110"/>
+                    <cell id="1111"/>
+                    <cell id="1112"/>
+                    <cell id="1113"/>
+                    <cell id="1114"/>
+                    <cell id="1115"/>
+                    <cell id="1116"/>
+                </row>
+                <row id="73">
+                    <property name="fontWeight">bold</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">medium</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">medium</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">medium</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">medium</property>
+                    <cell id="74"/>
+                    <cell id="75"/>
+                    <cell id="76"/>
+                    <cell id="95"/>
+                    <cell id="92"/>
+                    <cell id="123"/>
+                    <cell id="129"/>
+                    <cell id="136">
+                        <property name="textAlign">right</property>
+                        <data id="1118">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">Aggregation</property>
+                        </data>
+                    </cell>
+                    <cell id="142">
+                        <data id="1120">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">Column Binding</property>
+                        </data>
+                    </cell>
+                    <cell id="148">
+                        <property name="textAlign">right</property>
+                        <data id="1119">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">Aggregation_1</property>
+                        </data>
+                    </cell>
+                    <cell id="154">
+                        <data id="1138">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">Column Binding_1</property>
+                        </data>
+                    </cell>
+                    <cell id="159">
+                        <property name="textAlign">right</property>
+                        <data id="1137">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">Aggregation_3</property>
+                        </data>
+                    </cell>
+                    <cell id="164"/>
+                    <cell id="170"/>
+                    <cell id="176"/>
+                    <cell id="182"/>
+                    <cell id="188"/>
+                </row>
+            </header>
+            <detail>
+                <row id="77">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <cell id="78">
+                        <data id="89">
+                            <property name="resultSetColumn">customer_code</property>
+                        </data>
+                    </cell>
+                    <cell id="79">
+                        <data id="91">
+                            <property name="textAlign">left</property>
+                            <property name="resultSetColumn">customer_name</property>
+                        </data>
+                    </cell>
+                    <cell id="80">
+                        <data id="99">
+                            <structure name="dateTimeFormat">
+                                <property name="category">Custom</property>
+                                <property name="pattern">dd/MM/yyyy</property>
+                            </structure>
+                            <property name="textAlign">left</property>
+                            <property name="resultSetColumn">sale_bill_date</property>
+                        </data>
+                    </cell>
+                    <cell id="96">
+                        <data id="103">
+                            <structure name="dateTimeFormat">
+                                <property name="category">Custom</property>
+                                <property name="pattern">MM</property>
+                            </structure>
+                            <property name="textAlign">left</property>
+                            <property name="resultSetColumn">sale_bill_date</property>
+                        </data>
+                    </cell>
+                    <cell id="93">
+                        <property name="textAlign">left</property>
+                        <data id="101">
+                            <property name="textAlign">left</property>
+                            <property name="resultSetColumn">sale_bill_id</property>
+                        </data>
+                    </cell>
+                    <cell id="124">
+                        <data id="127">
+                            <property name="textAlign">left</property>
+                            <property name="resultSetColumn">product_code</property>
+                        </data>
+                    </cell>
+                    <cell id="130">
+                        <data id="134">
+                            <property name="textAlign">left</property>
+                            <property name="resultSetColumn">product_name</property>
+                        </data>
+                    </cell>
+                    <cell id="137">
+                        <data id="140">
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">quantity</property>
+                        </data>
+                    </cell>
+                    <cell id="143">
+                        <data id="146">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">unit_gross_sell_price_with_discount_in_local_currency</property>
+                        </data>
+                    </cell>
+                    <cell id="149">
+                        <data id="152">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">total_gross_sell_price_with_discount_in_local_currency</property>
+                        </data>
+                    </cell>
+                    <cell id="155">
+                        <data id="1135">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">unit_cost</property>
+                        </data>
+                    </cell>
+                    <cell id="160">
+                        <data id="1136">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">total_cost</property>
+                        </data>
+                    </cell>
+                    <cell id="165">
+                        <data id="168">
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">product_group</property>
+                        </data>
+                    </cell>
+                    <cell id="171">
+                        <data id="174">
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">customer_country</property>
+                        </data>
+                    </cell>
+                    <cell id="177">
+                        <data id="180">
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">customer_class_name</property>
+                        </data>
+                    </cell>
+                    <cell id="183">
+                        <data id="186">
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">seller_name</property>
+                        </data>
+                    </cell>
+                    <cell id="189">
+                        <data id="192">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">provision</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+        </table>
+    </body>
+</report>
