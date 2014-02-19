@@ -39,20 +39,84 @@
         </structure>
     </list-property>
     <parameters>
-        <scalar-parameter name="customer_code1" id="949" extends="library.customer_code1"/>
-        <scalar-parameter name="origin" id="950" extends="library.origin"/>
+        <scalar-parameter name="customer_code1" id="949" extends="library.customer_code1">
+            <text-property name="promptText">Client code</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">All</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="origin" id="950" extends="library.origin">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">us</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
         <cascading-parameter-group name="Customer research" id="1667" extends="library.Customer research">
+            <text-property name="promptText">Client name</text-property>
+            <property name="dataSetMode">multiple</property>
             <overridden-values>
                 <ref-entry baseId="10" name="str_research_customer" id="10"/>
                 <ref-entry baseId="11" name="customer_code2" id="11"/>
             </overridden-values>
         </cascading-parameter-group>
-        <scalar-parameter name="beginning_date" id="952" extends="library.beginning_date"/>
-        <scalar-parameter name="end_date" id="953" extends="library.end_date"/>
+        <scalar-parameter name="beginning_date" id="952" extends="library.beginning_date">
+            <text-property name="promptText">From</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">dateTime</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="javascript">BirtDateTime.year(BirtDateTime.today())-8+"-01-01";</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Custom</property>
+                <property name="pattern">dd/MM/yyyy</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="end_date" id="953" extends="library.end_date">
+            <text-property name="promptText">To</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">dateTime</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="javascript">BirtDateTime.today()</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Custom</property>
+                <property name="pattern">dd/MM/yyyy</property>
+            </structure>
+        </scalar-parameter>
     </parameters>
     <data-sources>
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="PostGre_All" id="947"
- extends="library.PostGre_All"/>
+ extends="library.PostGre_All">
+            <property name="odaDriverClass">org.postgresql.Driver</property>
+            <property name="odaURL">jdbc:postgresql://localhost:5432/All</property>
+            <property name="odaUser">postgres</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">MTIzcG9zdGdyZXM=</encrypted-property>
+        </oda-data-source>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="customer_list_research" id="948"
