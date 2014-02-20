@@ -58,8 +58,25 @@
             <text-property name="promptText">Client name</text-property>
             <property name="dataSetMode">multiple</property>
             <overridden-values>
-                <ref-entry baseId="10" name="str_research_customer" id="10"/>
-                <ref-entry baseId="11" name="customer_code2" id="11"/>
+                <ref-entry baseId="10" name="str_research_customer" id="10">
+                    <structure name="format">
+                        <property name="category">Unformatted</property>
+                    </structure>
+                    <property name="fixedOrder">true</property>
+                    <property name="isRequired">false</property>
+                    <property name="promptText">Search (write %TEST% to display all client names containing "TEST")</property>
+                </ref-entry>
+                <ref-entry baseId="11" name="customer_code2" id="11">
+                    <structure name="format"/>
+                    <property name="fixedOrder">false</property>
+                    <simple-property-list name="defaultValue">
+                        <value type="constant">All</value>
+                    </simple-property-list>
+                    <property name="isRequired">true</property>
+                    <property name="sortDirection">asc</property>
+                    <expression name="sortByColumn">dataSetRow["customer_name"]</expression>
+                    <property name="promptText">Select</property>
+                </ref-entry>
             </overridden-values>
         </cascading-parameter-group>
         <scalar-parameter name="beginning_date" id="952" extends="library.beginning_date">
