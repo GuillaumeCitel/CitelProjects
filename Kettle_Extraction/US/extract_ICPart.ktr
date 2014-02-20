@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>extract_ICPartPrice</name>
+    <name>extract_ICPart</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>&#47;</directory>
     <parameters>
     </parameters>
@@ -61,9 +62,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2014&#47;01&#47;21 17:55:23.097</created_date>
+  <created_date>2014&#47;01&#47;21 15:38:34.397</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#47;01&#47;21 17:55:23.097</modified_date>
+  <modified_date>2014&#47;01&#47;21 15:38:34.397</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -181,30 +182,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Execute SQL script</from><to>Table input</to><enabled>Y</enabled> </hop>  <hop> <from>Blocking Step</from><to>Table output</to><enabled>Y</enabled> </hop>  <hop> <from>Columns_Selection</from><to>Blocking Step</to><enabled>Y</enabled> </hop>  <hop> <from>Create variables</from><to>Columns_Selection</to><enabled>Y</enabled> </hop>  <hop> <from>Table input</from><to>Create variables</to><enabled>Y</enabled> </hop>  </order>
-  <step>
-    <name>Blocking Step</name>
-    <type>BlockingStep</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <pass_all_rows>Y</pass_all_rows>
-      <directory>%%java.io.tmpdir%%</directory>
-      <prefix>block</prefix>
-      <cache_size>5000</cache_size>
-      <compress>Y</compress>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>893</xloc>
-      <yloc>483</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
+  <hop> <from>Create variables</from><to>Columns_Selection</to><enabled>Y</enabled> </hop>  <hop> <from>Table input</from><to>Create variables</to><enabled>Y</enabled> </hop>  <hop> <from>Execute SQL script</from><to>Table input</to><enabled>Y</enabled> </hop>  <hop> <from>Columns_Selection</from><to>Table output</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Columns_Selection</name>
     <type>SelectValues</type>
@@ -215,27 +193,87 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>part_price_key</name>
+    <fields>      <field>        <name>ic_part_id</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>part_key</name>
+      </field>      <field>        <name>ic_part_key</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>pricing_method</name>
+      </field>      <field>        <name>description</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>rounding_method</name>
+      </field>      <field>        <name>concat_description</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>cat1</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>comment</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>ic_productline_key</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>cost</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>base_price</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>last_cost</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>part_price_key</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>on_hand_quantity</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>on_order_quantity</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>committed_quantity</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>back_ordered_quantity</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>min_quantity</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>max_quantity</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>reserved_quantity</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>main_warehouse_number</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>671</xloc>
-      <yloc>484</yloc>
+      <xloc>600</xloc>
+      <yloc>350</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -254,39 +292,144 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>var part_price_key = SKICPartPrice;&#47;&#47;number
-var part_key = FKICPart;&#47;&#47;number
-var pricing_method = PriceMethod;&#47;&#47;number
-var rounding_method = PriceRounding;&#47;&#47;number
+        <jsScript_script>var ic_part_key = SKICPart;&#47;&#47;integer
+var ic_part_id = ID; &#47;&#47;string
+var description = Description1&#47;&#47;String
+var concat_description = Description1 + &quot; || &quot; + Description2 + &quot; || &quot; + Description3 &#47;&#47;String
+var cat1 = ProductCategoryDesc1;&#47;&#47;string, not used in the ERP
+var comment = Comments1 + &quot; || &quot; + Comments2;&#47;&#47;string
+var ic_productline_key =FKICProductLine;&#47;&#47;string
+var cost = PartCost;&#47;&#47;number
+var base_price = BasePrice;&#47;&#47;number
+var last_cost = LastCost;&#47;&#47;number
+var part_price_key = FKICPartPrice;&#47;&#47;integer
+var on_hand_quantity = OnHandQty;&#47;&#47;number
+var on_order_quantity = OnOrderQty&#47;&#47;number
+var committed_quantity = CommittedQty;&#47;&#47;number
+var back_ordered_quantity = BackOrderedQty;&#47;&#47;number
+var min_quantity=MinimumBalance;&#47;&#47;number
+var max_quantity=MaximumBalance;&#47;&#47;number
+var reserved_quantity=ReservedQty;&#47;&#47;number
+var main_warehouse_number=MainWarehouseNo;&#47;&#47;number
 </jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>part_price_key</name>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>ic_part_key</name>
+        <rename>ic_part_key</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>ic_part_id</name>
+        <rename>ic_part_id</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>description</name>
+        <rename>description</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>concat_description</name>
+        <rename>concat_description</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>cat1</name>
+        <rename>cat1</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>comment</name>
+        <rename>comment</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>ic_productline_key</name>
+        <rename>ic_productline_key</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>cost</name>
+        <rename>cost</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>base_price</name>
+        <rename>base_price</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>last_cost</name>
+        <rename>last_cost</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>part_price_key</name>
         <rename>part_price_key</rename>
         <type>Number</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>part_key</name>
-        <rename>part_key</rename>
+      </field>      <field>        <name>on_hand_quantity</name>
+        <rename>on_hand_quantity</rename>
         <type>Number</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>pricing_method</name>
-        <rename>pricing_method</rename>
+      </field>      <field>        <name>on_order_quantity</name>
+        <rename>on_order_quantity</rename>
         <type>Number</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>rounding_method</name>
-        <rename>rounding_method</rename>
+      </field>      <field>        <name>committed_quantity</name>
+        <rename>committed_quantity</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>back_ordered_quantity</name>
+        <rename>back_ordered_quantity</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>min_quantity</name>
+        <rename>min_quantity</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>max_quantity</name>
+        <rename>max_quantity</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>reserved_quantity</name>
+        <rename>reserved_quantity</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>main_warehouse_number</name>
+        <rename>main_warehouse_number</rename>
         <type>Number</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>511</xloc>
-      <yloc>483</yloc>
+      <xloc>440</xloc>
+      <yloc>349</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -305,7 +448,7 @@ var rounding_method = PriceRounding;&#47;&#47;number
     <execute_each_row>N</execute_each_row>
     <single_statement>N</single_statement>
     <replace_variables>N</replace_variables>
-    <sql>DELETE FROM ic_partprice;</sql>
+    <sql>DELETE FROM ic_part;</sql>
     <insert_field/>
     <update_field/>
     <delete_field/>
@@ -314,8 +457,8 @@ var rounding_method = PriceRounding;&#47;&#47;number
     </arguments>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>265</xloc>
-      <yloc>288</yloc>
+      <xloc>194</xloc>
+      <yloc>154</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -331,8 +474,116 @@ var rounding_method = PriceRounding;&#47;&#47;number
            <schema_name/>
            </partitioning>
     <connection>Pervasive_Sage_US</connection>
-    <sql>SELECT *
-FROM ICPartPrice</sql>
+    <sql>SELECT 
+SKICPart,
+ID,
+SeqNum,
+Description1,
+Description2,
+Description3,
+LongDescription,
+BinLocation,
+ProductCategoryDesc1,
+ProductCategoryDesc2,
+ProductCategoryDesc3,
+ProductCategoryDesc4,
+ProductCategoryDesc5,
+Comments1,
+Comments2,
+IsUsed,
+PartStatus,
+FKICProductLine,
+FKProductLineSeqNum,
+IsInventoryItem,
+UnitOfMeasure,
+IsFractQty,
+IsDiscount,
+IsBackOrderOK,
+IsTaxable,
+IsUPSShippingOK,
+ShippingWeight,
+IsFractionalCost,
+FKICSalesPromo,
+FKSalesPromoSeqNum,
+ReceiptsLink,
+IssuesLink,
+QtyAdjLink,
+ReceiptsAdjLink,
+PurchaseOrderLink,
+SalesOrderLink,
+ComponentListLink,
+VendorDataLink,
+SortLink,
+HistoryLink,
+HistoryRecAdjLink,
+HistoryXferLink,
+NegativeTierLink,
+Sub1_FKICPart,
+Sub1_FKPartSeqNum,
+Sub2_FKICPart,
+Sub2_FKPartSeqNum,
+Sub3_FKICPart,
+Sub3_FKPartSeqNum,
+Sub4_FKICPart,
+Sub4_FKPartSeqNum,
+Sub5_FKICPart,
+Sub5_FKPartSeqNum,
+PartCost,
+BasePrice,
+LastCost,
+FKICPartPrice,
+FKPartPriceSeqNum,
+FKICPartActual,
+FKPartActualSeqNum,
+OnHandQty,
+OnOrderQty,
+CommittedQty,
+BackOrderedQty,
+MinimumBalance,
+MaximumBalance,
+EconomicOrderQty,
+OrderPoint,
+ReservedQty,
+BookedQty,
+LastInventoryDate,
+WorksheetQty,
+IsWorksheetValid,
+LastReceiptDate,
+LastIssueDate,
+OrigAddedDate,
+Vend_FKAPVendor,
+Vend_MFGPartID,
+Vend_BestCost,
+Vend_LastCost,
+Vend_MinimumOrder,
+Vend_EconomicOrder,
+Vend_LeadTime,
+Vend_LastPODate,
+MTDReceipts,
+YTDReceipts,
+PriorYTDReceipts,
+MTDIssues,
+YTDIssues,
+PriorYTDIssues,
+MTDAdjust,
+YTDAdjust,
+PriorYTDAdjust,
+MTDSales,
+YTDSales,
+PriorYTDSales,
+MTDCostOfGoods,
+YTDCostOfGoods,
+PriorYTDCostOfGoods,
+V12Flag,
+IsUseSerialNumbers,
+SerialNumberLink,
+HistorySNLink,
+TransferLink,
+WarehouseLink,
+MainWarehouseNo,
+Notes,
+ImageType
+FROM ICPART</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -340,8 +591,8 @@ FROM ICPartPrice</sql>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>382</xloc>
-      <yloc>478</yloc>
+      <xloc>311</xloc>
+      <yloc>344</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -358,7 +609,7 @@ FROM ICPartPrice</sql>
            </partitioning>
     <connection>PostGre_US</connection>
     <schema/>
-    <table>ic_partprice</table>
+    <table>ic_part</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -377,8 +628,8 @@ FROM ICPartPrice</sql>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1069</xloc>
-      <yloc>484</yloc>
+      <xloc>998</xloc>
+      <yloc>350</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

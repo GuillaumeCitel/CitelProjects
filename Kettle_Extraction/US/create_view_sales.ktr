@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>create_view_public_sales</name>
+    <name>create_view_sales</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <trans_status>0</trans_status>
     <directory>&#47;</directory>
     <parameters>
     </parameters>
@@ -62,11 +61,38 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2014&#47;01&#47;23 16:41:04.932</created_date>
+  <created_date>2014&#47;02&#47;10 17:27:27.470</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#47;01&#47;23 16:41:04.932</modified_date>
+  <modified_date>2014&#47;02&#47;10 17:27:27.470</modified_date>
   </info>
   <notepads>
+    <notepad>
+      <note>Stats Monthly
+
+where ar_invoice.status_description &lt;&gt; &apos;Voided&apos;
+	and ar_invoice.invoice_date is not null
+	and oe_lineitem.oe_lineitem_type = 6
+	and oe_lineitem.entity_type = &apos;I&apos;
+	and oe_lineitem.extended_price &lt;&gt; 0</note>
+      <xloc>362</xloc>
+      <yloc>78</yloc>
+      <width>282</width>
+      <heigth>115</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>165</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>kettlede</name>
@@ -109,28 +135,6 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
       <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>PostGre_All</name>
-    <server>localhost</server>
-    <type>POSTGRESQL</type>
-    <access>Native</access>
-    <database>All</database>
-    <port>5432</port>
-    <username>postgres</username>
-    <password>Encrypted 2be98afc86a96c0d7bb16bd64d980aac9</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
@@ -215,151 +219,56 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>PostGre_All</connection>
+    <connection>PostGre_US</connection>
     <execute_each_row>N</execute_each_row>
     <single_statement>N</single_statement>
     <replace_variables>N</replace_variables>
-    <sql>DROP VIEW IF EXISTS public.sales;
-CREATE OR REPLACE VIEW public.sales AS
+    <sql>DROP VIEW IF EXISTS sales;
+CREATE OR REPLACE VIEW sales AS
 SELECT
-	&apos;gmbh&apos; as origin,
-	bill_id :: text as sale_bill_id,
-	bill_date as sale_bill_date,
-	null :: timestamp without time zone as delivery_date,
-
-	customer_nb as customer_code,
-	concat(customer_short_name, &apos; || &apos; ,customer_long_name) as customer_name,
-	customer_erp_class_name as customer_class_name,
-	erp_country as customer_country,
-
-	product_gmbh_code as product_code,
-	product_name as product_name,
-	group_2cp as product_group,
-	
-	quantity as quantity,
-	unit_gross_sell_price_with_discount as unit_gross_sell_price_with_discount_in_local_currency,
-	total_gross_sell_price_with_discount as total_gross_sell_price_with_discount_in_local_currency,
-	unit_buy_price as unit_cost,
-	total_buy_price as total_cost,
-
-	seller_acronym as seller_code,
-	seller_name as seller_name,
-	provision as provision,
-	&apos;-&apos; as is_transfered
-
-FROM kettlede.sales
-UNION ALL
-SELECT
-	&apos;shanghai&apos;,
-	sale_bill_code :: text,
-	sale_bill_date,
-	delivery_date,
-
-	customer_code,
-	concat(customer_name, &apos; || &apos; ,customer_english_name),
-	customer_class_name,
-	null,
-
-	inventory_code,
-	inventory_name,
-	inventory_class_name,
-
-	quantity,
-	unit_gross_sell_price_in_local_currency,
-	total_gross_sell_price_in_local_currency,
-	null,
-	null,
-
-	person_code,
-	person_name,
-	null,
-	transfer
-
-FROM shanghai.sales
-UNION ALL
-SELECT
-	&apos;ccsh&apos;,
-	sale_bill_code :: text,
-	sale_bill_date,
-	delivery_date,
-
-	customer_code,
-	concat(customer_name, &apos; || &apos; ,customer_english_name),
-	customer_class_name,
-	null,
-
-	inventory_code,
-	inventory_name,
-	inventory_class_name,
-
-	quantity,
-	unit_gross_sell_price_in_local_currency,
-	total_gross_sell_price_in_local_currency,
-	null,
-	null,
-
-	person_code,
-	person_name,
-	null,
-	transfer
-
-FROM ccsh.sales
-UNION ALL
-SELECT
-	CASE WHEN site_vente = &apos;2C1&apos; THEN &apos;2cp&apos; WHEN site_vente = &apos;OB1&apos; THEN &apos;obsta&apos; WHEN site_vente = &apos;OV1&apos; THEN &apos;ovp&apos; ELSE &apos;unkonwn&apos; END,
-	concat(facture_number, &apos;---&apos;, facture_line_number),
-	facture_date,
-	null :: timestamp without time zone,
-
-	client_facture,
-	client_nom,
-	customer_class_name,
-	client_country_code,
-
-	article_code,
-	article_designation_1,
-	article_famille_statistique1,
-
-	qty,
-	null,
-	montant_ht,
-	null,
-	null,
-
-	rep_code,
-	rep_name,
-	null,
-	&apos;-&apos;
-	
-from france.sales
-UNION ALL
-SELECT
-	&apos;us&apos;,
-	invoice_number :: text,
-	invoice_date,
-	null :: timestamp without time zone,
-
-	ar_customer_id,
-	ar_customer_name,
-	area,
-	country,
-
-	ic_part_id,
-	description,
-	part_group,
-
-	shipped_qty,
-	unit_price,
-	final_price,
-	null,
-	cumulative_cost,
-
-	person_nb,
-	person_acronym,
-	null,
-	&apos;-&apos;
-
-from us.sales;</sql>
+	oe_lineitem.oe_lineitem_id,
+	oe_lineitem.oe_lineitem_description,
+	oe_lineitem.oe_lineitem_concat_description,
+	ic_part.ic_part_key,
+	ic_part.ic_part_id,
+	ic_part.description,
+	ic_part.concat_description,
+	matching_part_and_group.part_group,
+	oe_lineitem.shipped_qty,
+	oe_lineitem.unit_price,
+	oe_lineitem.unit_discount,
+	oe_lineitem.extended_price,
+	oe_lineitem.oe_lineitem_amount,
+	CASE oe_lineitem.extended_price WHEN 0 THEN oe_lineitem.oe_lineitem_amount ELSE oe_lineitem.extended_price END as final_price,
+	oe_lineitem.cumulative_cost,
+	oe_lineitem.oe_lineitem_type,
+	oe_lineitem.entity_type,
+	ar_invoice.invoice_date,
+	ar_invoice.ar_invoice_status,
+	ar_invoice.status_description,
+	ar_invoice.invoice_number,
+	ar_customer.ar_customer_id,
+	ar_customer.ar_customer_name,
+	ar_customer.billing_state_or_country,
+	ar_customer.country,
+	ar_customer.person_nb,
+	ar_customer.area,
+	matching_person_number_and_acronym.person_acronym,
+	ar_salesaccount.ar_salesaccount_description,
+	gl_account.gl_account_description
+from oe_lineitem
+	left outer join oe_invoice on oe_lineitem.oe_entity_key = oe_invoice.oe_invoice_key
+	left outer join ar_invoice on oe_invoice.ar_invoice_key=ar_invoice.ar_invoice_key
+	left outer join ar_customer on ar_invoice.ar_customer_key=ar_customer.ar_customer_key
+	left outer join ic_part on ic_part.ic_part_key=oe_lineitem.ic_part_key
+	left outer join matching_part_and_group on matching_part_and_group.part_description = oe_lineitem.oe_lineitem_description
+	left outer join matching_person_number_and_acronym on matching_person_number_and_acronym.person_number = ar_customer.person_nb
+	left outer join ar_salesaccount on ar_salesaccount.ar_salesaccount_key = oe_lineitem.ar_salesaccount_key
+	left outer join gl_account on gl_account.gl_account_number=ar_salesaccount.gl_account_number
+where ar_invoice.status_description &lt;&gt; &apos;Voided&apos;
+	and oe_lineitem.entity_type = &apos;I&apos;
+	and ar_invoice.invoice_date is not null
+	and (oe_lineitem.extended_price &lt;&gt; 0 or oe_lineitem.oe_lineitem_amount &lt;&gt; 0)</sql>
     <insert_field/>
     <update_field/>
     <delete_field/>
@@ -368,8 +277,8 @@ from us.sales;</sql>
     </arguments>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>578</xloc>
-      <yloc>142</yloc>
+      <xloc>249</xloc>
+      <yloc>86</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

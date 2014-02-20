@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>extract_ICPART</name>
+    <name>extract_ARSalesRep</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>&#47;</directory>
     <parameters>
     </parameters>
@@ -61,9 +62,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2014&#47;01&#47;21 15:38:34.397</created_date>
+  <created_date>2014&#47;01&#47;21 17:55:23.097</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#47;01&#47;21 15:38:34.397</modified_date>
+  <modified_date>2014&#47;01&#47;21 17:55:23.097</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -158,30 +159,6 @@
     </attributes>
   </connection>
   <connection>
-    <name>ronald</name>
-    <server/>
-    <type>GENERIC</type>
-    <access>Native</access>
-    <database/>
-    <port>1521</port>
-    <username>Aurore</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb4bf773d786aad6</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>CUSTOM_DRIVER_CLASS</code><attribute>com.pervasive.jdbc.v2.Driver</attribute></attribute>
-      <attribute><code>CUSTOM_URL</code><attribute>jdbc:pervasive:&#47;&#47;localhost:10008&#47;Demo</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
     <name>SQL_Server_China</name>
     <server>${Amssql_server}</server>
     <type>MSSQL</type>
@@ -205,30 +182,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Blocking Step</from><to>Table output</to><enabled>Y</enabled> </hop>  <hop> <from>Create variables</from><to>Columns_Selection</to><enabled>Y</enabled> </hop>  <hop> <from>Table input</from><to>Create variables</to><enabled>Y</enabled> </hop>  <hop> <from>Execute SQL script</from><to>Table input</to><enabled>Y</enabled> </hop>  <hop> <from>Columns_Selection</from><to>Blocking Step</to><enabled>Y</enabled> </hop>  </order>
-  <step>
-    <name>Blocking Step</name>
-    <type>BlockingStep</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <pass_all_rows>Y</pass_all_rows>
-      <directory>%%java.io.tmpdir%%</directory>
-      <prefix>block</prefix>
-      <cache_size>5000</cache_size>
-      <compress>Y</compress>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>885</xloc>
-      <yloc>347</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
+  <hop> <from>Execute SQL script</from><to>Table input</to><enabled>Y</enabled> </hop>  <hop> <from>Create variables</from><to>Columns_Selection</to><enabled>Y</enabled> </hop>  <hop> <from>Table input</from><to>Create variables</to><enabled>Y</enabled> </hop>  <hop> <from>Columns_Selection</from><to>Table output</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Columns_Selection</name>
     <type>SelectValues</type>
@@ -239,27 +193,35 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>part_key</name>
+    <fields>      <field>        <name>ar_salesarep_key</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>ID</name>
+      </field>      <field>        <name>ar_salesrep_name</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>description</name>
+      </field>      <field>        <name>address</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>cat1</name>
+      </field>      <field>        <name>ar_salesrep_city</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>zip_code</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>ar_salesrep_phone</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>600</xloc>
-      <yloc>350</yloc>
+      <xloc>671</xloc>
+      <yloc>484</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -278,38 +240,54 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>var part_key = SKICPart;&#47;&#47;integer
-var id = ID; &#47;&#47;string
-var description = Description1 &#47;&#47;String
-var cat1 = ProductCategoryDesc1;&#47;&#47;string</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>part_key</name>
-        <rename>part_key</rename>
+        <jsScript_script>var ar_salesarep_key = SKARSalesRep;&#47;&#47;number
+var ar_salesrep_name = Name;&#47;&#47;string
+var address = Address1 + &quot;, &quot; + Address2 + &quot;, &quot; + City + &quot;, &quot; + State;&#47;&#47;string
+var ar_salesrep_city = City;&#47;&#47;string
+var ar_salesrep_city = State;&#47;&#47;string
+var zip_code = ZIPCode;&#47;&#47;string
+var ar_salesrep_phone = Phone;&#47;&#47;string
+</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>ar_salesarep_key</name>
+        <rename>ar_salesarep_key</rename>
         <type>Number</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>id</name>
-        <rename>id</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>      <field>        <name>description</name>
-        <rename>description</rename>
+      </field>      <field>        <name>ar_salesrep_name</name>
+        <rename>ar_salesrep_name</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>cat1</name>
-        <rename>cat1</rename>
+      </field>      <field>        <name>address</name>
+        <rename>address</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>ar_salesrep_city</name>
+        <rename>ar_salesrep_city</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>zip_code</name>
+        <rename>zip_code</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>ar_salesrep_phone</name>
+        <rename>ar_salesrep_phone</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>440</xloc>
-      <yloc>349</yloc>
+      <xloc>511</xloc>
+      <yloc>484</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -328,7 +306,7 @@ var cat1 = ProductCategoryDesc1;&#47;&#47;string</jsScript_script>
     <execute_each_row>N</execute_each_row>
     <single_statement>N</single_statement>
     <replace_variables>N</replace_variables>
-    <sql>DELETE FROM icpart;</sql>
+    <sql>DELETE FROM ar_salesrep;</sql>
     <insert_field/>
     <update_field/>
     <delete_field/>
@@ -337,8 +315,8 @@ var cat1 = ProductCategoryDesc1;&#47;&#47;string</jsScript_script>
     </arguments>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>194</xloc>
-      <yloc>154</yloc>
+      <xloc>265</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -354,116 +332,8 @@ var cat1 = ProductCategoryDesc1;&#47;&#47;string</jsScript_script>
            <schema_name/>
            </partitioning>
     <connection>Pervasive_Sage_US</connection>
-    <sql>SELECT 
-SKICPart,
-ID,
-SeqNum,
-Description1,
-Description2,
-Description3,
-LongDescription,
-BinLocation,
-ProductCategoryDesc1,
-ProductCategoryDesc2,
-ProductCategoryDesc3,
-ProductCategoryDesc4,
-ProductCategoryDesc5,
-Comments1,
-Comments2,
-IsUsed,
-PartStatus,
-FKICProductLine,
-FKProductLineSeqNum,
-IsInventoryItem,
-UnitOfMeasure,
-IsFractQty,
-IsDiscount,
-IsBackOrderOK,
-IsTaxable,
-IsUPSShippingOK,
-ShippingWeight,
-IsFractionalCost,
-FKICSalesPromo,
-FKSalesPromoSeqNum,
-ReceiptsLink,
-IssuesLink,
-QtyAdjLink,
-ReceiptsAdjLink,
-PurchaseOrderLink,
-SalesOrderLink,
-ComponentListLink,
-VendorDataLink,
-SortLink,
-HistoryLink,
-HistoryRecAdjLink,
-HistoryXferLink,
-NegativeTierLink,
-Sub1_FKICPart,
-Sub1_FKPartSeqNum,
-Sub2_FKICPart,
-Sub2_FKPartSeqNum,
-Sub3_FKICPart,
-Sub3_FKPartSeqNum,
-Sub4_FKICPart,
-Sub4_FKPartSeqNum,
-Sub5_FKICPart,
-Sub5_FKPartSeqNum,
-PartCost,
-BasePrice,
-LastCost,
-FKICPartPrice,
-FKPartPriceSeqNum,
-FKICPartActual,
-FKPartActualSeqNum,
-OnHandQty,
-OnOrderQty,
-CommittedQty,
-BackOrderedQty,
-MinimumBalance,
-MaximumBalance,
-EconomicOrderQty,
-OrderPoint,
-ReservedQty,
-BookedQty,
-LastInventoryDate,
-WorksheetQty,
-IsWorksheetValid,
-LastReceiptDate,
-LastIssueDate,
-OrigAddedDate,
-Vend_FKAPVendor,
-Vend_MFGPartID,
-Vend_BestCost,
-Vend_LastCost,
-Vend_MinimumOrder,
-Vend_EconomicOrder,
-Vend_LeadTime,
-Vend_LastPODate,
-MTDReceipts,
-YTDReceipts,
-PriorYTDReceipts,
-MTDIssues,
-YTDIssues,
-PriorYTDIssues,
-MTDAdjust,
-YTDAdjust,
-PriorYTDAdjust,
-MTDSales,
-YTDSales,
-PriorYTDSales,
-MTDCostOfGoods,
-YTDCostOfGoods,
-PriorYTDCostOfGoods,
-V12Flag,
-IsUseSerialNumbers,
-SerialNumberLink,
-HistorySNLink,
-TransferLink,
-WarehouseLink,
-MainWarehouseNo,
-Notes,
-ImageType
-FROM ICPART</sql>
+    <sql>SELECT *
+FROM ARSalesRep</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -471,8 +341,8 @@ FROM ICPART</sql>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>311</xloc>
-      <yloc>344</yloc>
+      <xloc>382</xloc>
+      <yloc>478</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -489,7 +359,7 @@ FROM ICPART</sql>
            </partitioning>
     <connection>PostGre_US</connection>
     <schema/>
-    <table>icpart</table>
+    <table>ar_salesrep</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -508,8 +378,8 @@ FROM ICPART</sql>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>998</xloc>
-      <yloc>350</yloc>
+      <xloc>1069</xloc>
+      <yloc>484</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
