@@ -235,6 +235,8 @@
                 </structure>
             </list-property>
         </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="customer_list_research" id="1668"
+ extends="library.customer_list_research"/>
     </data-sets>
     <cubes>
         <tabular-cube name="Data Cube" id="998">
