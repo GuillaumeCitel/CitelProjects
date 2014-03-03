@@ -90,7 +90,7 @@
             </parameters>
         </cascading-parameter-group>
         <scalar-parameter name="beginning_date" id="12">
-            <property name="hidden">false</property>
+            <property name="hidden">true</property>
             <text-property name="promptText">From</text-property>
             <property name="valueType">static</property>
             <property name="dataType">dateTime</property>
@@ -107,7 +107,7 @@
             </structure>
         </scalar-parameter>
         <scalar-parameter name="end_date" id="13">
-            <property name="hidden">false</property>
+            <property name="hidden">true</property>
             <text-property name="promptText">To</text-property>
             <property name="valueType">static</property>
             <property name="dataType">dateTime</property>
