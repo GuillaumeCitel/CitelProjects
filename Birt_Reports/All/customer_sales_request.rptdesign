@@ -279,8 +279,8 @@
                 </structure>
             </list-property>
         </oda-data-set>
-        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="customer_list_research" id="1668"
- extends="library.customer_list_research">
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="customer_list_research" id="1671">
+            <property name="nullsOrdering">nulls lowest</property>
             <list-property name="columnHints">
                 <structure>
                     <property name="columnName">customer_code</property>
@@ -344,6 +344,7 @@
                     </structure>
                 </list-property>
             </structure>
+            <property name="dataSource">PostGre_All</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
