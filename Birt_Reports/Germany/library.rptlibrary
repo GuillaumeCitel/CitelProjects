@@ -41,6 +41,23 @@
     </list-property>
     <property name="units">in</property>
     <property name="theme">defaultTheme</property>
+    <parameters>
+        <scalar-parameter name="param_test" id="938">
+            <text-property name="promptText">test</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">All</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
     <data-sources>
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="kettlede" id="128">
             <list-property name="privateDriverProperties">
