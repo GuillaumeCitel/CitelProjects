@@ -57,7 +57,7 @@
     <data-sets>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="customer_list_research" id="948"
  extends="library.customer_list_research"/>
-        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="sales" id="977"
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="sales" id="1665"
  extends="library.sales">
             <list-property name="resultSet">
                 <structure>
@@ -146,33 +146,39 @@
                 </structure>
                 <structure>
                     <property name="position">15</property>
+                    <property name="name">unit_cost</property>
+                    <property name="nativeName">unit_cost</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">total_cost</property>
+                    <property name="nativeName">total_cost</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
                     <property name="name">seller_code</property>
                     <property name="nativeName">seller_code</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">16</property>
+                    <property name="position">18</property>
                     <property name="name">seller_name</property>
                     <property name="nativeName">seller_name</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">17</property>
+                    <property name="position">19</property>
                     <property name="name">provision</property>
                     <property name="nativeName">provision</property>
                     <property name="dataType">float</property>
                 </structure>
                 <structure>
-                    <property name="position">18</property>
+                    <property name="position">20</property>
                     <property name="name">is_transfered</property>
                     <property name="nativeName">is_transfered</property>
                     <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">19</property>
-                    <property name="name">sale_bill_date2</property>
-                    <property name="nativeName">sale_bill_date2</property>
-                    <property name="dataType">date-time</property>
                 </structure>
             </list-property>
         </oda-data-set>
@@ -263,8 +269,8 @@
     <page-setup>
         <simple-master-page name="Simple MasterPage" id="2">
             <property name="type">custom</property>
-            <property name="height">297mm</property>
-            <property name="width">420mm</property>
+            <property name="height">300mm</property>
+            <property name="width">375mm</property>
             <page-footer>
                 <text id="3">
                     <property name="contentType">html</property>
@@ -399,7 +405,10 @@
                     <property name="dataType">string</property>
                 </structure>
             </list-property>
-            <expression name="valueExpr">if (params["customer_code1"].value == "All" &amp;&amp; params["customer_code2"].value == "All") {
+            <structure name="toc">
+                <expression name="expressionValue" type="javascript">"Figures"</expression>
+            </structure>
+            <expression name="valueExpr" type="javascript">if (params["customer_code1"].value == "All" &amp;&amp; params["customer_code2"].value == "All") {
 	"Client: All"
 }
 else {
@@ -407,622 +416,7 @@ else {
 }</expression>
             <property name="contentType">html</property>
         </text-data>
-        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="1257">
-            <property name="cube">Data Cube</property>
-            <property name="measures">
-                <extended-item extensionName="ComputedMeasureView" name="Period" id="1584">
-                    <property name="detail">
-                        <extended-item extensionName="AggregationCell" id="1585">
-                            <property name="aggregationOnColumn">Group/Month</property>
-                            <property name="content">
-                                <data id="1663">
-                                    <structure name="numberFormat">
-                                        <property name="category">Fixed</property>
-                                        <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
-                                    </structure>
-                                    <property name="resultSetColumn">Period_2</property>
-                                </data>
-                                <data id="1662">
-                                    <structure name="numberFormat">
-                                        <property name="category">Fixed</property>
-                                        <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
-                                    </structure>
-                                    <property name="resultSetColumn">Period_1</property>
-                                </data>
-                                <data name="Period1" id="1589">
-                                    <structure name="numberFormat">
-                                        <property name="category">Fixed</property>
-                                        <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
-                                    </structure>
-                                    <property name="resultSetColumn">Period</property>
-                                </data>
-                            </property>
-                        </extended-item>
-                    </property>
-                    <property name="header">
-                        <extended-item extensionName="CrosstabCell" id="1586">
-                            <property name="content">
-                                <label id="1587">
-                                    <text-property name="text">Period</text-property>
-                                </label>
-                            </property>
-                        </extended-item>
-                    </property>
-                </extended-item>
-            </property>
-            <property name="rows">
-                <extended-item extensionName="CrosstabView" id="1268"/>
-            </property>
-            <property name="columns">
-                <extended-item extensionName="CrosstabView" id="1259">
-                    <property name="views">
-                        <extended-item extensionName="DimensionView" id="1260">
-                            <property name="dimension">Group</property>
-                            <property name="levels">
-                                <extended-item extensionName="LevelView" name="NewLevel View" id="1261">
-                                    <property name="level">Group/Year</property>
-                                    <property name="filter">
-                                        <filter-condition-element>
-                                            <expression name="expr" type="javascript">data["Year"]</expression>
-                                            <property name="operator">eq</property>
-                                            <simple-property-list name="value1">
-                                                <value type="javascript">BirtDateTime.year(params["beginning_date"].value)</value>
-                                            </simple-property-list>
-                                            <property name="updateAggregation">false</property>
-                                        </filter-condition-element>
-                                    </property>
-                                    <property name="member">
-                                        <extended-item extensionName="CrosstabCell" id="1262">
-                                            <property name="content">
-                                                <data name="Year" id="1263">
-                                                    <property name="resultSetColumn">Year</property>
-                                                </data>
-                                            </property>
-                                        </extended-item>
-                                    </property>
-                                </extended-item>
-                                <extended-item extensionName="LevelView" name="NewLevel View1" id="1264">
-                                    <property name="level">Group/Month</property>
-                                    <property name="member">
-                                        <extended-item extensionName="CrosstabCell" id="1265">
-                                            <property name="content">
-                                                <data name="Month" id="1267">
-                                                    <property name="resultSetColumn">Month</property>
-                                                </data>
-                                            </property>
-                                        </extended-item>
-                                    </property>
-                                </extended-item>
-                            </property>
-                        </extended-item>
-                    </property>
-                </extended-item>
-            </property>
-            <property name="header">
-                <extended-item extensionName="CrosstabCell" id="1258">
-                    <property name="content">
-                        <label id="1280">
-                            <text-property name="text">Year</text-property>
-                        </label>
-                    </property>
-                </extended-item>
-                <extended-item extensionName="CrosstabCell" id="1291"/>
-                <extended-item extensionName="CrosstabCell" id="1588">
-                    <property name="content">
-                        <label id="1661">
-                            <text-property name="text">Year</text-property>
-                        </label>
-                    </property>
-                </extended-item>
-            </property>
-            <list-property name="boundDataColumns">
-                <structure>
-                    <property name="name">Year</property>
-                    <expression name="expression">dimension["Group"]["Year"]</expression>
-                    <property name="dataType">integer</property>
-                </structure>
-                <structure>
-                    <property name="name">Month</property>
-                    <expression name="expression">dimension["Group"]["Month"]</expression>
-                    <property name="dataType">integer</property>
-                </structure>
-                <structure>
-                    <property name="name">total_gross_sell_price_with_discount_in_local_currency_Group/Month</property>
-                    <expression name="expression">measure["total_gross_sell_price_with_discount_in_local_currency"]</expression>
-                    <property name="dataType">float</property>
-                    <simple-property-list name="aggregateOn">
-                        <value>Group/Month</value>
-                    </simple-property-list>
-                    <property name="aggregateFunction">SUM</property>
-                </structure>
-                <structure>
-                    <property name="name">Period</property>
-                    <property name="dataType">float</property>
-                    <simple-property-list name="aggregateOn">
-                        <value>Group/Month</value>
-                    </simple-property-list>
-                    <property name="aggregateFunction">SUM</property>
-                    <list-property name="arguments">
-                        <structure>
-                            <property name="name">Expression</property>
-                            <expression name="value" type="javascript">measure["total_gross_sell_price_with_discount_in_local_currency"]</expression>
-                        </structure>
-                    </list-property>
-                    <property name="calculationType">YEAR TO DATE</property>
-                    <property name="refDateType">today</property>
-                    <property name="timeDimension">Group</property>
-                </structure>
-                <structure>
-                    <property name="name">Period_1</property>
-                    <property name="dataType">float</property>
-                    <simple-property-list name="aggregateOn">
-                        <value>Group/Month</value>
-                    </simple-property-list>
-                    <property name="aggregateFunction">SUM</property>
-                    <list-property name="arguments">
-                        <structure>
-                            <property name="name">Expression</property>
-                            <expression name="value" type="javascript">measure["total_gross_sell_price_with_discount_in_local_currency"]</expression>
-                        </structure>
-                    </list-property>
-                    <property name="calculationType">PERIOD TO DATE FROM N PERIODS AGO</property>
-                    <list-property name="calculationArguments">
-                        <structure>
-                            <property name="name">Period1</property>
-                            <expression name="value" type="javascript">Year to Date</expression>
-                        </structure>
-                        <structure>
-                            <property name="name">Period2</property>
-                            <expression name="value" type="javascript">YEAR</expression>
-                        </structure>
-                        <structure>
-                            <property name="name">N for Period2</property>
-                            <expression name="value" type="javascript">-1</expression>
-                        </structure>
-                    </list-property>
-                    <property name="refDateType">today</property>
-                    <property name="timeDimension">Group</property>
-                </structure>
-                <structure>
-                    <property name="name">Period_2</property>
-                    <property name="dataType">float</property>
-                    <simple-property-list name="aggregateOn">
-                        <value>Group/Month</value>
-                    </simple-property-list>
-                    <property name="aggregateFunction">SUM</property>
-                    <list-property name="arguments">
-                        <structure>
-                            <property name="name">Expression</property>
-                            <expression name="value" type="javascript">measure["total_gross_sell_price_with_discount_in_local_currency"]</expression>
-                        </structure>
-                    </list-property>
-                    <property name="calculationType">PERIOD TO DATE FROM N PERIODS AGO</property>
-                    <list-property name="calculationArguments">
-                        <structure>
-                            <property name="name">Period1</property>
-                            <expression name="value" type="javascript">Year to Date</expression>
-                        </structure>
-                        <structure>
-                            <property name="name">Period2</property>
-                            <expression name="value" type="javascript">YEAR</expression>
-                        </structure>
-                        <structure>
-                            <property name="name">N for Period2</property>
-                            <expression name="value" type="javascript">-2</expression>
-                        </structure>
-                    </list-property>
-                    <property name="refDateType">today</property>
-                    <property name="timeDimension">Group</property>
-                </structure>
-            </list-property>
-            <property name="multiViews">
-                <multi-views id="1293">
-                    <property name="index">-1</property>
-                    <property name="views">
-                        <extended-item extensionName="Chart" id="1294">
-                            <xml-property name="xmlRepresentation"><![CDATA[<model:ChartWithAxes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:attribute="http://www.birt.eclipse.org/ChartModelAttribute" xmlns:layout="http://www.birt.eclipse.org/ChartModelLayout" xmlns:model="http://www.birt.eclipse.org/ChartModel" xmlns:type="http://www.birt.eclipse.org/ChartModelType">
-  <Version>2.6.1</Version>
-  <Type>Bar Chart</Type>
-  <SubType>Side-by-side</SubType>
-  <Block>
-    <Children xsi:type="layout:TitleBlock">
-      <Bounds/>
-      <Insets/>
-      <Outline/>
-      <Label>
-        <Caption>
-          <Font>
-            <Alignment/>
-          </Font>
-        </Caption>
-        <Outline/>
-        <Insets/>
-      </Label>
-    </Children>
-    <Children xsi:type="layout:Plot">
-      <Bounds/>
-      <Insets/>
-      <Outline/>
-      <ClientArea>
-        <Outline/>
-        <Insets/>
-      </ClientArea>
-    </Children>
-    <Children xsi:type="layout:Legend">
-      <Bounds/>
-      <Insets/>
-      <Outline/>
-      <ClientArea>
-        <Outline/>
-        <Insets/>
-      </ClientArea>
-      <Text>
-        <Font>
-          <Alignment/>
-        </Font>
-      </Text>
-      <Separator/>
-      <Title>
-        <Caption>
-          <Font>
-            <Alignment/>
-          </Font>
-        </Caption>
-        <Outline/>
-        <Insets/>
-      </Title>
-    </Children>
-    <Bounds>
-      <Left>0.0</Left>
-      <Top>0.0</Top>
-      <Width>212.0</Width>
-      <Height>130.0</Height>
-    </Bounds>
-    <Insets/>
-    <Outline/>
-  </Block>
-  <ExtendedProperties>
-    <Name>enable.area.alt</Name>
-    <Value>false</Value>
-  </ExtendedProperties>
-  <SampleData>
-    <BaseSampleData>
-      <DataSetRepresentation>A, B, C</DataSetRepresentation>
-    </BaseSampleData>
-    <OrthogonalSampleData>
-      <DataSetRepresentation>5,4,12</DataSetRepresentation>
-      <SeriesDefinitionIndex>0</SeriesDefinitionIndex>
-    </OrthogonalSampleData>
-    <OrthogonalSampleData>
-      <DataSetRepresentation>10.0,8.0,24.0</DataSetRepresentation>
-      <SeriesDefinitionIndex>1</SeriesDefinitionIndex>
-    </OrthogonalSampleData>
-    <OrthogonalSampleData>
-      <DataSetRepresentation>15.0,12.0,36.0</DataSetRepresentation>
-      <SeriesDefinitionIndex>2</SeriesDefinitionIndex>
-    </OrthogonalSampleData>
-  </SampleData>
-  <Interactivity/>
-  <EmptyMessage>
-    <Caption>
-      <Value>This chart contains no data.</Value>
-      <Font>
-        <Alignment/>
-      </Font>
-    </Caption>
-    <Background xsi:type="attribute:ColorDefinition">
-      <Transparency>64</Transparency>
-      <Red>127</Red>
-      <Green>127</Green>
-      <Blue>127</Blue>
-    </Background>
-    <Outline>
-      <Color>
-        <Transparency>128</Transparency>
-        <Red>127</Red>
-        <Green>127</Green>
-        <Blue>127</Blue>
-      </Color>
-    </Outline>
-    <Insets/>
-  </EmptyMessage>
-  <Axes>
-    <Type>Linear</Type>
-    <Title>
-      <Caption>
-        <Font>
-          <Alignment/>
-        </Font>
-      </Caption>
-      <Outline/>
-      <Insets/>
-    </Title>
-    <AssociatedAxes>
-      <Title>
-        <Caption>
-          <Font>
-            <Alignment/>
-          </Font>
-        </Caption>
-        <Outline/>
-        <Insets/>
-      </Title>
-      <SeriesDefinitions>
-        <Query>
-          <Definition></Definition>
-          <Grouping>
-            <GroupType>Numeric</GroupType>
-          </Grouping>
-        </Query>
-        <SeriesPalette/>
-        <Series xsi:type="type:BarSeries">
-          <Label>
-            <Caption>
-              <Font>
-                <Alignment/>
-              </Font>
-            </Caption>
-            <Outline/>
-            <Insets/>
-          </Label>
-          <DataDefinition>
-            <Definition>data[&quot;Period&quot;]</Definition>
-            <Grouping>
-              <Enabled>false</Enabled>
-              <GroupType>Text</GroupType>
-              <AggregateExpression xsi:nil="true"/>
-            </Grouping>
-          </DataDefinition>
-          <SeriesIdentifier>Series 1</SeriesIdentifier>
-          <DataPoint/>
-        </Series>
-        <Grouping>
-          <GroupType>Text</GroupType>
-          <AggregateExpression>Sum</AggregateExpression>
-        </Grouping>
-      </SeriesDefinitions>
-      <SeriesDefinitions>
-        <Query>
-          <Definition></Definition>
-          <Grouping>
-            <GroupType>Numeric</GroupType>
-          </Grouping>
-        </Query>
-        <SeriesPalette/>
-        <Series xsi:type="type:BarSeries">
-          <Label>
-            <Caption>
-              <Font>
-                <Alignment/>
-              </Font>
-            </Caption>
-            <Outline/>
-            <Insets/>
-          </Label>
-          <DataDefinition>
-            <Definition>data[&quot;Period_1&quot;]</Definition>
-            <Grouping>
-              <Enabled>false</Enabled>
-              <GroupType>Text</GroupType>
-              <AggregateExpression xsi:nil="true"/>
-            </Grouping>
-          </DataDefinition>
-          <SeriesIdentifier>Series 2</SeriesIdentifier>
-          <DataPoint/>
-          <Triggers>
-            <Condition>onmouseover</Condition>
-            <Action>
-              <Type>Show_Tooltip</Type>
-              <Value xsi:type="attribute:TooltipValue">
-                <Text></Text>
-                <Delay>200</Delay>
-              </Value>
-            </Action>
-          </Triggers>
-        </Series>
-        <Grouping>
-          <GroupType>Text</GroupType>
-          <AggregateExpression>Sum</AggregateExpression>
-        </Grouping>
-      </SeriesDefinitions>
-      <SeriesDefinitions>
-        <Query>
-          <Definition></Definition>
-          <Grouping>
-            <GroupType>Numeric</GroupType>
-          </Grouping>
-        </Query>
-        <SeriesPalette/>
-        <Series xsi:type="type:BarSeries">
-          <Label>
-            <Caption>
-              <Font>
-                <Alignment/>
-              </Font>
-            </Caption>
-            <Outline/>
-            <Insets/>
-          </Label>
-          <DataDefinition>
-            <Definition>data[&quot;Period_2&quot;]</Definition>
-            <Grouping>
-              <Enabled>false</Enabled>
-              <GroupType>Text</GroupType>
-              <AggregateExpression xsi:nil="true"/>
-            </Grouping>
-          </DataDefinition>
-          <SeriesIdentifier>Series 3</SeriesIdentifier>
-          <DataPoint/>
-          <Triggers>
-            <Condition>onmouseover</Condition>
-            <Action>
-              <Type>Show_Tooltip</Type>
-              <Value xsi:type="attribute:TooltipValue">
-                <Text></Text>
-                <Delay>200</Delay>
-              </Value>
-            </Action>
-          </Triggers>
-        </Series>
-        <Grouping>
-          <GroupType>Text</GroupType>
-          <AggregateExpression>Sum</AggregateExpression>
-        </Grouping>
-      </SeriesDefinitions>
-      <LineAttributes/>
-      <Label>
-        <Caption>
-          <Font>
-            <Alignment/>
-          </Font>
-        </Caption>
-        <Outline/>
-        <Insets/>
-      </Label>
-      <MajorGrid>
-        <LineAttributes/>
-        <TickAttributes/>
-      </MajorGrid>
-      <MinorGrid>
-        <LineAttributes/>
-        <TickAttributes/>
-      </MinorGrid>
-      <Scale/>
-      <Origin/>
-      <PrimaryAxis>true</PrimaryAxis>
-    </AssociatedAxes>
-    <SeriesDefinitions>
-      <Query>
-        <Definition></Definition>
-      </Query>
-      <SeriesPalette/>
-      <Series>
-        <Label>
-          <Caption>
-            <Font>
-              <Alignment/>
-            </Font>
-          </Caption>
-          <Outline/>
-          <Insets/>
-        </Label>
-        <DataDefinition>
-          <Definition>data[&quot;Month&quot;]</Definition>
-        </DataDefinition>
-        <SeriesIdentifier></SeriesIdentifier>
-        <DataPoint/>
-      </Series>
-      <Grouping>
-        <GroupType>Numeric</GroupType>
-        <AggregateExpression>Sum</AggregateExpression>
-      </Grouping>
-    </SeriesDefinitions>
-    <LineAttributes/>
-    <Label>
-      <Caption>
-        <Font>
-          <Alignment/>
-        </Font>
-      </Caption>
-      <Outline/>
-      <Insets/>
-    </Label>
-    <MajorGrid>
-      <LineAttributes/>
-      <TickAttributes/>
-    </MajorGrid>
-    <MinorGrid>
-      <LineAttributes/>
-      <TickAttributes/>
-    </MinorGrid>
-    <Scale/>
-    <Origin/>
-  </Axes>
-  <Rotation>
-    <Angles/>
-  </Rotation>
-</model:ChartWithAxes>
-]]></xml-property>
-                            <property name="outputFormat">SVG</property>
-                            <property name="inheritColumns">false</property>
-                            <property name="height">7.697916666666667in</property>
-                            <property name="width">15.989583333333334in</property>
-                            <list-property name="boundDataColumns">
-                                <structure>
-                                    <property name="name">Year</property>
-                                    <expression name="expression">dimension["Group"]["Year"]</expression>
-                                    <property name="dataType">integer</property>
-                                </structure>
-                                <structure>
-                                    <property name="name">Month</property>
-                                    <expression name="expression">dimension["Group"]["Month"]</expression>
-                                    <property name="dataType">integer</property>
-                                </structure>
-                                <structure>
-                                    <property name="name">total_gross_sell_price_with_discount_in_local_currency_Group/Month</property>
-                                    <expression name="expression">measure["total_gross_sell_price_with_discount_in_local_currency"]</expression>
-                                    <property name="dataType">float</property>
-                                    <simple-property-list name="aggregateOn">
-                                        <value>Group/Month</value>
-                                    </simple-property-list>
-                                    <property name="aggregateFunction">SUM</property>
-                                </structure>
-                                <structure>
-                                    <property name="name">Period</property>
-                                    <property name="dataType">float</property>
-                                    <simple-property-list name="aggregateOn">
-                                        <value>Group3/Year</value>
-                                        <value>Group/Month</value>
-                                    </simple-property-list>
-                                    <property name="aggregateFunction">SUM</property>
-                                    <list-property name="arguments">
-                                        <structure>
-                                            <property name="name">Expression</property>
-                                            <expression name="value" type="javascript">measure["total_gross_sell_price_with_discount_in_local_currency"]</expression>
-                                        </structure>
-                                    </list-property>
-                                    <property name="calculationType">YEAR TO DATE</property>
-                                    <property name="refDateType">today</property>
-                                    <property name="timeDimension">Group</property>
-                                </structure>
-                                <structure>
-                                    <property name="name">Year_1</property>
-                                    <expression name="expression">dimension["Group3"]["Year"]</expression>
-                                    <property name="dataType">integer</property>
-                                </structure>
-                                <structure>
-                                    <property name="name">Summary Field/total_gross_sell_price_with_discount_in_local_currency</property>
-                                    <expression name="expression" type="javascript">measure["total_gross_sell_price_with_discount_in_local_currency"]</expression>
-                                    <property name="dataType">float</property>
-                                    <property name="aggregateFunction">SUM</property>
-                                </structure>
-                                <structure>
-                                    <property name="name">Group2/sale_bill_date2</property>
-                                    <expression name="expression" type="javascript">dimension["Group2"]["sale_bill_date2"]</expression>
-                                    <property name="dataType">date-time</property>
-                                </structure>
-                                <structure>
-                                    <property name="name">Group3/Year/DateTime</property>
-                                    <expression name="expression" type="javascript">dimension["Group3"]["Year"]["DateTime"]</expression>
-                                    <property name="dataType">date-time</property>
-                                </structure>
-                                <structure>
-                                    <property name="name">Group/Month/DateTime</property>
-                                    <expression name="expression" type="javascript">dimension["Group"]["Month"]["DateTime"]</expression>
-                                    <property name="dataType">date-time</property>
-                                </structure>
-                                <structure>
-                                    <property name="name">Group/Year/DateTime</property>
-                                    <expression name="expression" type="javascript">dimension["Group"]["Year"]["DateTime"]</expression>
-                                    <property name="dataType">date-time</property>
-                                </structure>
-                            </list-property>
-                        </extended-item>
-                    </property>
-                </multi-views>
-            </property>
-        </extended-item>
-        <extended-item extensionName="Chart" id="992">
+        <extended-item extensionName="Chart" id="1666">
             <xml-property name="xmlRepresentation"><![CDATA[<model:ChartWithAxes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:attribute="http://www.birt.eclipse.org/ChartModelAttribute" xmlns:data="http://www.birt.eclipse.org/ChartModelData" xmlns:layout="http://www.birt.eclipse.org/ChartModelLayout" xmlns:model="http://www.birt.eclipse.org/ChartModel" xmlns:type="http://www.birt.eclipse.org/ChartModelType">
   <Version>2.6.1</Version>
   <Type>Bar Chart</Type>
@@ -1059,7 +453,7 @@ else {
       <Visible>true</Visible>
       <Label>
         <Caption>
-          <Value>Gross sales per month (in k)</Value>
+          <Value>Chart Title</Value>
           <Font>
             <Size>16.0</Size>
             <Bold>true</Bold>
@@ -1286,16 +680,14 @@ else {
   </ExtendedProperties>
   <SampleData>
     <BaseSampleData>
-      <DataSetRepresentation>6,4,12,8,10</DataSetRepresentation>
+      <DataSetRepresentation>A, B, C</DataSetRepresentation>
     </BaseSampleData>
     <OrthogonalSampleData>
       <DataSetRepresentation>5,4,12</DataSetRepresentation>
       <SeriesDefinitionIndex>0</SeriesDefinitionIndex>
     </OrthogonalSampleData>
   </SampleData>
-  <Interactivity>
-    <Enable>false</Enable>
-  </Interactivity>
+  <Interactivity/>
   <EmptyMessage>
     <Caption>
       <Value>This chart contains no data.</Value>
@@ -1330,7 +722,7 @@ else {
     <Visible>false</Visible>
   </EmptyMessage>
   <Axes>
-    <Type>Linear</Type>
+    <Type>Text</Type>
     <Title>
       <Caption>
         <Value>X-Axis Title</Value>
@@ -1409,11 +801,7 @@ else {
       <TitlePosition>Left</TitlePosition>
       <SeriesDefinitions>
         <Query>
-          <Definition>row[&quot;Column Binding_1&quot;]</Definition>
-          <Grouping>
-            <GroupingUnit>Years</GroupingUnit>
-            <GroupType>Numeric</GroupType>
-          </Grouping>
+          <Definition></Definition>
         </Query>
         <SeriesPalette>
           <Entries xsi:type="attribute:ColorDefinition">
@@ -1641,12 +1029,11 @@ else {
               <Bottom>0.0</Bottom>
               <Right>3.0</Right>
             </Insets>
-            <Visible>true</Visible>
+            <Visible>false</Visible>
           </Label>
           <DataDefinition>
-            <Definition>row[&quot;total_gross_sell_price_with_discount_in_local_currency&quot;]/1000</Definition>
+            <Definition>row[&quot;total_gross_sell_price_with_discount_in_local_currency&quot;]</Definition>
             <Grouping>
-              <Enabled>true</Enabled>
               <GroupType>Text</GroupType>
               <AggregateExpression>Sum</AggregateExpression>
             </Grouping>
@@ -1655,11 +1042,6 @@ else {
           <DataPoint>
             <Components>
               <Type>Orthogonal_Value</Type>
-              <FormatSpecifier xsi:type="attribute:NumberFormatSpecifier">
-                <Prefix></Prefix>
-                <Suffix></Suffix>
-                <FractionDigits>0</FractionDigits>
-              </FormatSpecifier>
             </Components>
             <Separator>, </Separator>
           </DataPoint>
@@ -1677,10 +1059,10 @@ else {
           </Triggers>
           <Riser>Rectangle</Riser>
         </Series>
-        <Sorting>Ascending</Sorting>
-        <SortKey>
-          <Definition>row[&quot;Column Binding_1&quot;]</Definition>
-        </SortKey>
+        <Grouping>
+          <GroupType>Text</GroupType>
+          <AggregateExpression>Sum</AggregateExpression>
+        </Grouping>
       </SeriesDefinitions>
       <Orientation>Vertical</Orientation>
       <LineAttributes>
@@ -1726,7 +1108,6 @@ else {
         <Visible>true</Visible>
       </Label>
       <LabelPosition>Left</LabelPosition>
-      <Staggered>false</Staggered>
       <MajorGrid>
         <LineAttributes>
           <Style>Solid</Style>
@@ -1779,10 +1160,9 @@ else {
       </MinorGrid>
       <Scale>
         <MinorGridsPerUnit>5</MinorGridsPerUnit>
-        <AutoExpand>true</AutoExpand>
       </Scale>
       <Origin>
-        <Type>Value</Type>
+        <Type>Min</Type>
         <Value xsi:type="data:NumberDataElement">
           <Value>0.0</Value>
         </Value>
@@ -2023,7 +1403,7 @@ else {
           <Visible>false</Visible>
         </Label>
         <DataDefinition>
-          <Definition>row[&quot;Column Binding&quot;]</Definition>
+          <Definition>BirtDateTime.year(row[&quot;sale_bill_date&quot;])</Definition>
         </DataDefinition>
         <SeriesIdentifier></SeriesIdentifier>
         <DataPoint>
@@ -2037,11 +1417,9 @@ else {
       </Series>
       <Grouping>
         <Enabled>true</Enabled>
-        <GroupingUnit>Months</GroupingUnit>
-        <GroupType>Numeric</GroupType>
+        <GroupType>Text</GroupType>
         <AggregateExpression>Sum</AggregateExpression>
       </Grouping>
-      <SortKey/>
     </SeriesDefinitions>
     <Orientation>Horizontal</Orientation>
     <LineAttributes>
@@ -2087,8 +1465,6 @@ else {
       <Visible>true</Visible>
     </Label>
     <LabelPosition>Below</LabelPosition>
-    <Staggered>false</Staggered>
-    <Interval>1</Interval>
     <MajorGrid>
       <LineAttributes>
         <Style>Solid</Style>
@@ -2141,10 +1517,9 @@ else {
     </MinorGrid>
     <Scale>
       <MinorGridsPerUnit>5</MinorGridsPerUnit>
-      <ShowOutside>false</ShowOutside>
     </Scale>
     <Origin>
-      <Type>Value</Type>
+      <Type>Min</Type>
       <Value xsi:type="data:NumberDataElement">
         <Value>0.0</Value>
       </Value>
@@ -2163,14 +1538,12 @@ else {
       <Type>None</Type>
     </Angles>
   </Rotation>
-  <ReverseCategory>false</ReverseCategory>
 </model:ChartWithAxes>
 ]]></xml-property>
             <property name="outputFormat">SVG</property>
             <property name="inheritColumns">false</property>
-            <property name="display">block</property>
-            <property name="height">7.989583333333333in</property>
-            <property name="width">15.958333333333334in</property>
+            <property name="height">6.15625in</property>
+            <property name="width">14.020833333333334in</property>
             <property name="dataSet">sales</property>
             <list-property name="boundDataColumns">
                 <structure>
@@ -2263,19 +1636,719 @@ else {
                     <expression name="expression" type="javascript">dataSetRow["is_transfered"]</expression>
                     <property name="dataType">string</property>
                 </structure>
+            </list-property>
+        </extended-item>
+        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="1257">
+            <property name="cube">Data Cube</property>
+            <property name="measures">
+                <extended-item extensionName="ComputedMeasureView" name="Period" id="1584">
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="1585">
+                            <property name="aggregationOnColumn">Group/Month</property>
+                            <property name="content">
+                                <data id="1663">
+                                    <structure name="numberFormat">
+                                        <property name="category">Fixed</property>
+                                        <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                    </structure>
+                                    <property name="resultSetColumn">Period_2</property>
+                                </data>
+                                <data id="1662">
+                                    <structure name="numberFormat">
+                                        <property name="category">Fixed</property>
+                                        <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                    </structure>
+                                    <property name="resultSetColumn">Period_1</property>
+                                </data>
+                                <data name="Period1" id="1589">
+                                    <structure name="numberFormat">
+                                        <property name="category">Fixed</property>
+                                        <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                    </structure>
+                                    <property name="resultSetColumn">Period</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="1586"/>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="rows">
+                <extended-item extensionName="CrosstabView" id="1268"/>
+            </property>
+            <property name="columns">
+                <extended-item extensionName="CrosstabView" id="1259">
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="1260">
+                            <property name="dimension">Group</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View" id="1261">
+                                    <property name="level">Group/Year</property>
+                                    <property name="filter">
+                                        <filter-condition-element>
+                                            <expression name="expr" type="javascript">data["Year"]</expression>
+                                            <property name="operator">eq</property>
+                                            <simple-property-list name="value1">
+                                                <value type="javascript">BirtDateTime.year(params["beginning_date"].value)</value>
+                                            </simple-property-list>
+                                            <property name="updateAggregation">false</property>
+                                        </filter-condition-element>
+                                    </property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1262">
+                                            <property name="content">
+                                                <data name="Year" id="1263">
+                                                    <property name="resultSetColumn">Year</property>
+                                                </data>
+                                            </property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View1" id="1264">
+                                    <property name="level">Group/Month</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1265">
+                                            <property name="content">
+                                                <data name="Month" id="1267">
+                                                    <property name="resultSetColumn">Month</property>
+                                                </data>
+                                            </property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="header">
+                <extended-item extensionName="CrosstabCell" id="1258">
+                    <property name="content">
+                        <label id="1280">
+                            <text-property name="text">Year</text-property>
+                        </label>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1291"/>
+                <extended-item extensionName="CrosstabCell" id="1588"/>
+            </property>
+            <list-property name="boundDataColumns">
                 <structure>
-                    <property name="name">Column Binding</property>
-                    <expression name="expression" type="javascript">BirtDateTime.month(row["sale_bill_date"],1)</expression>
+                    <property name="name">Year</property>
+                    <expression name="expression">dimension["Group"]["Year"]</expression>
                     <property name="dataType">integer</property>
-                    <property name="allowExport">true</property>
                 </structure>
                 <structure>
-                    <property name="name">Column Binding_1</property>
-                    <expression name="expression" type="javascript">BirtDateTime.year(row["sale_bill_date"])</expression>
+                    <property name="name">Month</property>
+                    <expression name="expression">dimension["Group"]["Month"]</expression>
                     <property name="dataType">integer</property>
-                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">total_gross_sell_price_with_discount_in_local_currency_Group/Month</property>
+                    <expression name="expression">measure["total_gross_sell_price_with_discount_in_local_currency"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/Month</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">Period</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/Month</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">measure["total_gross_sell_price_with_discount_in_local_currency"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="calculationType">PERIOD TO DATE FROM N PERIODS AGO</property>
+                    <list-property name="calculationArguments">
+                        <structure>
+                            <property name="name">Period1</property>
+                            <expression name="value" type="javascript">Year to Date</expression>
+                        </structure>
+                        <structure>
+                            <property name="name">Period2</property>
+                            <expression name="value" type="javascript">YEAR</expression>
+                        </structure>
+                        <structure>
+                            <property name="name">N for Period2</property>
+                            <expression name="value" type="javascript">0</expression>
+                        </structure>
+                    </list-property>
+                    <property name="refDateType">today</property>
+                    <property name="timeDimension">Group</property>
+                </structure>
+                <structure>
+                    <property name="name">Period_1</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/Month</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">measure["total_gross_sell_price_with_discount_in_local_currency"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="calculationType">PERIOD TO DATE FROM N PERIODS AGO</property>
+                    <list-property name="calculationArguments">
+                        <structure>
+                            <property name="name">Period1</property>
+                            <expression name="value" type="javascript">Year to Date</expression>
+                        </structure>
+                        <structure>
+                            <property name="name">Period2</property>
+                            <expression name="value" type="javascript">YEAR</expression>
+                        </structure>
+                        <structure>
+                            <property name="name">N for Period2</property>
+                            <expression name="value" type="javascript">-1</expression>
+                        </structure>
+                    </list-property>
+                    <property name="refDateType">today</property>
+                    <property name="timeDimension">Group</property>
+                </structure>
+                <structure>
+                    <property name="name">Period_2</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/Month</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">measure["total_gross_sell_price_with_discount_in_local_currency"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="calculationType">PERIOD TO DATE FROM N PERIODS AGO</property>
+                    <list-property name="calculationArguments">
+                        <structure>
+                            <property name="name">Period1</property>
+                            <expression name="value" type="javascript">Year to Date</expression>
+                        </structure>
+                        <structure>
+                            <property name="name">Period2</property>
+                            <expression name="value" type="javascript">YEAR</expression>
+                        </structure>
+                        <structure>
+                            <property name="name">N for Period2</property>
+                            <expression name="value" type="javascript">-2</expression>
+                        </structure>
+                    </list-property>
+                    <property name="refDateType">today</property>
+                    <property name="timeDimension">Group</property>
+                </structure>
+                <structure>
+                    <property name="name">Period_3</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/Month</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">measure["total_gross_sell_price_with_discount_in_local_currency"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="calculationType">PERIOD TO DATE FROM N PERIODS AGO</property>
+                    <list-property name="calculationArguments">
+                        <structure>
+                            <property name="name">Period1</property>
+                            <expression name="value" type="javascript">Year to Date</expression>
+                        </structure>
+                        <structure>
+                            <property name="name">Period2</property>
+                            <expression name="value" type="javascript">YEAR</expression>
+                        </structure>
+                        <structure>
+                            <property name="name">N for Period2</property>
+                            <expression name="value" type="javascript">-3</expression>
+                        </structure>
+                    </list-property>
+                    <property name="refDateType">today</property>
+                    <property name="timeDimension">Group</property>
                 </structure>
             </list-property>
+            <property name="multiViews">
+                <multi-views id="1293">
+                    <property name="index">0</property>
+                    <property name="views">
+                        <extended-item extensionName="Chart" id="1294">
+                            <xml-property name="xmlRepresentation"><![CDATA[<model:ChartWithAxes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:attribute="http://www.birt.eclipse.org/ChartModelAttribute" xmlns:data="http://www.birt.eclipse.org/ChartModelData" xmlns:layout="http://www.birt.eclipse.org/ChartModelLayout" xmlns:model="http://www.birt.eclipse.org/ChartModel" xmlns:type="http://www.birt.eclipse.org/ChartModelType">
+  <Version>2.6.1</Version>
+  <Type>Bar Chart</Type>
+  <SubType>Side-by-side</SubType>
+  <Block>
+    <Children xsi:type="layout:TitleBlock">
+      <Bounds/>
+      <Insets/>
+      <Outline/>
+      <Label>
+        <Caption>
+          <Value>Year to Date (in k)</Value>
+          <Font>
+            <Alignment/>
+          </Font>
+        </Caption>
+        <Outline/>
+        <Insets/>
+      </Label>
+    </Children>
+    <Children xsi:type="layout:Plot">
+      <Bounds/>
+      <Insets/>
+      <Outline/>
+      <ClientArea>
+        <Outline/>
+        <Insets/>
+      </ClientArea>
+    </Children>
+    <Children xsi:type="layout:Legend">
+      <Bounds/>
+      <Insets/>
+      <Outline/>
+      <Cursor>
+        <Type>Auto</Type>
+      </Cursor>
+      <ClientArea>
+        <Outline/>
+        <Insets/>
+      </ClientArea>
+      <Text>
+        <Font>
+          <Alignment/>
+        </Font>
+      </Text>
+      <Separator/>
+      <Title>
+        <Caption>
+          <Font>
+            <Alignment/>
+          </Font>
+        </Caption>
+        <Outline/>
+        <Insets/>
+        <Visible>false</Visible>
+      </Title>
+      <ShowValue>false</ShowValue>
+    </Children>
+    <Bounds>
+      <Left>0.0</Left>
+      <Top>0.0</Top>
+      <Width>212.0</Width>
+      <Height>130.0</Height>
+    </Bounds>
+    <Insets/>
+    <Outline/>
+  </Block>
+  <ExtendedProperties>
+    <Name>enable.area.alt</Name>
+    <Value>false</Value>
+  </ExtendedProperties>
+  <SampleData>
+    <BaseSampleData>
+      <DataSetRepresentation>6,4,12,8,10</DataSetRepresentation>
+    </BaseSampleData>
+    <OrthogonalSampleData>
+      <DataSetRepresentation>5,4,12</DataSetRepresentation>
+      <SeriesDefinitionIndex>0</SeriesDefinitionIndex>
+    </OrthogonalSampleData>
+    <OrthogonalSampleData>
+      <DataSetRepresentation>10.0,8.0,24.0</DataSetRepresentation>
+      <SeriesDefinitionIndex>1</SeriesDefinitionIndex>
+    </OrthogonalSampleData>
+    <OrthogonalSampleData>
+      <DataSetRepresentation>15.0,12.0,36.0</DataSetRepresentation>
+      <SeriesDefinitionIndex>2</SeriesDefinitionIndex>
+    </OrthogonalSampleData>
+  </SampleData>
+  <Interactivity/>
+  <EmptyMessage>
+    <Caption>
+      <Value>This chart contains no data.</Value>
+      <Font>
+        <Alignment/>
+      </Font>
+    </Caption>
+    <Background xsi:type="attribute:ColorDefinition">
+      <Transparency>64</Transparency>
+      <Red>127</Red>
+      <Green>127</Green>
+      <Blue>127</Blue>
+    </Background>
+    <Outline>
+      <Color>
+        <Transparency>128</Transparency>
+        <Red>127</Red>
+        <Green>127</Green>
+        <Blue>127</Blue>
+      </Color>
+    </Outline>
+    <Insets/>
+  </EmptyMessage>
+  <Axes>
+    <Type>Linear</Type>
+    <Title>
+      <Caption>
+        <Font>
+          <Alignment/>
+        </Font>
+      </Caption>
+      <Outline/>
+      <Insets/>
+    </Title>
+    <AssociatedAxes>
+      <Title>
+        <Caption>
+          <Font>
+            <Alignment/>
+          </Font>
+        </Caption>
+        <Outline/>
+        <Insets/>
+      </Title>
+      <SeriesDefinitions>
+        <Query>
+          <Definition></Definition>
+          <Grouping>
+            <GroupType>Numeric</GroupType>
+          </Grouping>
+        </Query>
+        <SeriesPalette/>
+        <Series xsi:type="type:BarSeries">
+          <Label>
+            <Caption>
+              <Font>
+                <Alignment/>
+              </Font>
+            </Caption>
+            <Outline/>
+            <Insets/>
+            <Visible>true</Visible>
+          </Label>
+          <DataDefinition>
+            <Definition>data[&quot;Period&quot;]/1000</Definition>
+            <Grouping>
+              <Enabled>false</Enabled>
+              <GroupType>Text</GroupType>
+              <AggregateExpression xsi:nil="true"/>
+            </Grouping>
+          </DataDefinition>
+          <SeriesIdentifier>year n-2</SeriesIdentifier>
+          <DataPoint>
+            <Components>
+              <Type>Orthogonal_Value</Type>
+              <FormatSpecifier xsi:type="attribute:NumberFormatSpecifier">
+                <Prefix></Prefix>
+                <Suffix></Suffix>
+                <FractionDigits>0</FractionDigits>
+              </FormatSpecifier>
+            </Components>
+          </DataPoint>
+        </Series>
+        <Grouping>
+          <GroupType>Text</GroupType>
+          <AggregateExpression>Sum</AggregateExpression>
+        </Grouping>
+      </SeriesDefinitions>
+      <SeriesDefinitions>
+        <Query>
+          <Definition></Definition>
+          <Grouping>
+            <GroupType>Numeric</GroupType>
+          </Grouping>
+        </Query>
+        <SeriesPalette/>
+        <Series xsi:type="type:BarSeries">
+          <Label>
+            <Caption>
+              <Font>
+                <Alignment/>
+              </Font>
+            </Caption>
+            <Background xsi:type="attribute:ColorDefinition">
+              <Transparency>0</Transparency>
+              <Red>255</Red>
+              <Green>255</Green>
+              <Blue>255</Blue>
+            </Background>
+            <Outline/>
+            <Insets/>
+            <Visible>true</Visible>
+          </Label>
+          <DataDefinition>
+            <Definition>data[&quot;Period_1&quot;]/1000</Definition>
+            <Grouping>
+              <Enabled>false</Enabled>
+              <GroupType>Text</GroupType>
+              <AggregateExpression xsi:nil="true"/>
+            </Grouping>
+          </DataDefinition>
+          <SeriesIdentifier>year n-1</SeriesIdentifier>
+          <DataPoint>
+            <Components>
+              <Type>Orthogonal_Value</Type>
+              <FormatSpecifier xsi:type="attribute:NumberFormatSpecifier">
+                <Prefix></Prefix>
+                <Suffix></Suffix>
+                <FractionDigits>0</FractionDigits>
+              </FormatSpecifier>
+            </Components>
+          </DataPoint>
+          <Triggers>
+            <Condition>onmouseover</Condition>
+            <Action>
+              <Type>Show_Tooltip</Type>
+              <Value xsi:type="attribute:TooltipValue">
+                <Text></Text>
+                <Delay>200</Delay>
+              </Value>
+            </Action>
+          </Triggers>
+        </Series>
+        <Grouping>
+          <GroupType>Text</GroupType>
+          <AggregateExpression>Sum</AggregateExpression>
+        </Grouping>
+      </SeriesDefinitions>
+      <SeriesDefinitions>
+        <Query>
+          <Definition></Definition>
+          <Grouping>
+            <GroupType>Numeric</GroupType>
+          </Grouping>
+        </Query>
+        <SeriesPalette/>
+        <Series xsi:type="type:BarSeries">
+          <Label>
+            <Caption>
+              <Font>
+                <Bold>false</Bold>
+                <Alignment/>
+              </Font>
+            </Caption>
+            <Background xsi:type="attribute:ColorDefinition">
+              <Transparency>0</Transparency>
+              <Red>255</Red>
+              <Green>255</Green>
+              <Blue>255</Blue>
+            </Background>
+            <Outline/>
+            <Insets/>
+            <Visible>true</Visible>
+          </Label>
+          <DataDefinition>
+            <Definition>data[&quot;Period_2&quot;] /1000</Definition>
+            <Grouping>
+              <Enabled>false</Enabled>
+              <GroupType>Text</GroupType>
+              <AggregateExpression xsi:nil="true"/>
+            </Grouping>
+          </DataDefinition>
+          <SeriesIdentifier>year n</SeriesIdentifier>
+          <DataPoint>
+            <Components>
+              <Type>Orthogonal_Value</Type>
+              <FormatSpecifier xsi:type="attribute:NumberFormatSpecifier">
+                <Prefix></Prefix>
+                <Suffix></Suffix>
+                <FractionDigits>0</FractionDigits>
+              </FormatSpecifier>
+            </Components>
+          </DataPoint>
+          <Triggers>
+            <Condition>onmouseover</Condition>
+            <Action>
+              <Type>Show_Tooltip</Type>
+              <Value xsi:type="attribute:TooltipValue">
+                <Text></Text>
+                <Delay>200</Delay>
+              </Value>
+            </Action>
+          </Triggers>
+        </Series>
+        <Grouping>
+          <GroupType>Text</GroupType>
+          <AggregateExpression>Sum</AggregateExpression>
+        </Grouping>
+      </SeriesDefinitions>
+      <LineAttributes/>
+      <Label>
+        <Caption>
+          <Font>
+            <Alignment/>
+          </Font>
+        </Caption>
+        <Outline/>
+        <Insets/>
+      </Label>
+      <MajorGrid>
+        <LineAttributes/>
+        <TickAttributes/>
+      </MajorGrid>
+      <MinorGrid>
+        <LineAttributes/>
+        <TickAttributes/>
+      </MinorGrid>
+      <Scale/>
+      <Origin>
+        <Type>Value</Type>
+        <Value xsi:type="data:NumberDataElement">
+          <Value>0.0</Value>
+        </Value>
+      </Origin>
+      <PrimaryAxis>true</PrimaryAxis>
+      <SideBySide>false</SideBySide>
+    </AssociatedAxes>
+    <SeriesDefinitions>
+      <Query>
+        <Definition></Definition>
+      </Query>
+      <SeriesPalette/>
+      <Series>
+        <Label>
+          <Caption>
+            <Font>
+              <Alignment/>
+            </Font>
+          </Caption>
+          <Outline/>
+          <Insets/>
+        </Label>
+        <DataDefinition>
+          <Definition>data[&quot;Month&quot;]</Definition>
+        </DataDefinition>
+        <SeriesIdentifier></SeriesIdentifier>
+        <DataPoint/>
+      </Series>
+      <Grouping>
+        <GroupType>Numeric</GroupType>
+        <AggregateExpression>Sum</AggregateExpression>
+      </Grouping>
+    </SeriesDefinitions>
+    <LineAttributes>
+      <Visible>true</Visible>
+    </LineAttributes>
+    <Label>
+      <Caption>
+        <Font>
+          <Alignment/>
+        </Font>
+      </Caption>
+      <Outline/>
+      <Insets/>
+    </Label>
+    <MajorGrid>
+      <LineAttributes/>
+      <TickAttributes/>
+    </MajorGrid>
+    <MinorGrid>
+      <LineAttributes/>
+      <TickAttributes/>
+    </MinorGrid>
+    <Scale>
+      <ShowOutside>false</ShowOutside>
+    </Scale>
+    <Origin>
+      <Type>Value</Type>
+      <Value xsi:type="data:NumberDataElement">
+        <Value>0.0</Value>
+      </Value>
+    </Origin>
+  </Axes>
+  <Rotation>
+    <Angles/>
+  </Rotation>
+</model:ChartWithAxes>
+]]></xml-property>
+                            <property name="outputFormat">SVG</property>
+                            <property name="inheritColumns">false</property>
+                            <property name="height">6.96875in</property>
+                            <property name="width">14.010416666666666in</property>
+                            <list-property name="boundDataColumns">
+                                <structure>
+                                    <property name="name">Year</property>
+                                    <expression name="expression">dimension["Group"]["Year"]</expression>
+                                    <property name="dataType">integer</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Month</property>
+                                    <expression name="expression">dimension["Group"]["Month"]</expression>
+                                    <property name="dataType">integer</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">total_gross_sell_price_with_discount_in_local_currency_Group/Month</property>
+                                    <expression name="expression">measure["total_gross_sell_price_with_discount_in_local_currency"]</expression>
+                                    <property name="dataType">float</property>
+                                    <simple-property-list name="aggregateOn">
+                                        <value>Group/Month</value>
+                                    </simple-property-list>
+                                    <property name="aggregateFunction">SUM</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Period</property>
+                                    <property name="dataType">float</property>
+                                    <simple-property-list name="aggregateOn">
+                                        <value>Group3/Year</value>
+                                        <value>Group/Month</value>
+                                    </simple-property-list>
+                                    <property name="aggregateFunction">SUM</property>
+                                    <list-property name="arguments">
+                                        <structure>
+                                            <property name="name">Expression</property>
+                                            <expression name="value" type="javascript">measure["total_gross_sell_price_with_discount_in_local_currency"]</expression>
+                                        </structure>
+                                    </list-property>
+                                    <property name="calculationType">YEAR TO DATE</property>
+                                    <property name="refDateType">today</property>
+                                    <property name="timeDimension">Group</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Year_1</property>
+                                    <expression name="expression">dimension["Group3"]["Year"]</expression>
+                                    <property name="dataType">integer</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Summary Field/total_gross_sell_price_with_discount_in_local_currency</property>
+                                    <expression name="expression" type="javascript">measure["total_gross_sell_price_with_discount_in_local_currency"]</expression>
+                                    <property name="dataType">float</property>
+                                    <property name="aggregateFunction">SUM</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Group2/sale_bill_date2</property>
+                                    <expression name="expression" type="javascript">dimension["Group2"]["sale_bill_date2"]</expression>
+                                    <property name="dataType">date-time</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Group3/Year/DateTime</property>
+                                    <expression name="expression" type="javascript">dimension["Group3"]["Year"]["DateTime"]</expression>
+                                    <property name="dataType">date-time</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Group/Month/DateTime</property>
+                                    <expression name="expression" type="javascript">dimension["Group"]["Month"]["DateTime"]</expression>
+                                    <property name="dataType">date-time</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Group/Year/DateTime</property>
+                                    <expression name="expression" type="javascript">dimension["Group"]["Year"]["DateTime"]</expression>
+                                    <property name="dataType">date-time</property>
+                                </structure>
+                            </list-property>
+                        </extended-item>
+                    </property>
+                </multi-views>
+            </property>
         </extended-item>
         <extended-item extensionName="Chart" id="978">
             <xml-property name="xmlRepresentation"><![CDATA[<model:ChartWithoutAxes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:attribute="http://www.birt.eclipse.org/ChartModelAttribute" xmlns:layout="http://www.birt.eclipse.org/ChartModelLayout" xmlns:model="http://www.birt.eclipse.org/ChartModel" xmlns:type="http://www.birt.eclipse.org/ChartModelType">
@@ -3039,6 +3112,17 @@ else {
 </model:ChartWithoutAxes>
 ]]></xml-property>
             <property name="outputFormat">SVG</property>
+            <list-property name="filter">
+                <structure>
+                    <property name="operator">between</property>
+                    <expression name="expr" type="javascript">row["sale_bill_date"]</expression>
+                    <simple-property-list name="value1">
+                        <value>BirtDateTime.year(params["end_date"].value)-3+"01-01"</value>
+                    </simple-property-list>
+                    <expression name="value2">params["end_date"].value</expression>
+                    <property name="updateAggregation">true</property>
+                </structure>
+            </list-property>
             <property name="inheritColumns">false</property>
             <property name="display">inline</property>
             <property name="height">6.083333333333333in</property>
@@ -3139,6 +3223,7 @@ else {
             </list-property>
         </extended-item>
         <table name="Table1" id="529">
+            <property name="pageBreakBefore">auto</property>
             <property name="width">9.5in</property>
             <property name="dataSet">sales</property>
             <list-property name="boundDataColumns">
@@ -3302,6 +3387,7 @@ else {
                     <property name="allowExport">true</property>
                 </structure>
             </list-property>
+            <structure name="toc"/>
             <column id="542">
                 <property name="width">1.5in</property>
             </column>
@@ -3323,7 +3409,7 @@ else {
                 <property name="sortDirection">desc</property>
                 <expression name="keyExpr" type="javascript">row["sale_bill_date"]</expression>
                 <structure name="toc">
-                    <expression name="expressionValue" type="javascript">row["sale_bill_date"]</expression>
+                    <expression name="expressionValue" type="javascript">BirtDateTime.year(row["sale_bill_date"])</expression>
                 </structure>
                 <property name="hideDetail">false</property>
                 <property name="pageBreakAfter">always</property>
@@ -3393,7 +3479,7 @@ else {
                 <property name="groupName">NewTableGroup2</property>
                 <expression name="keyExpr" type="javascript">row["product_code"]</expression>
                 <structure name="toc">
-                    <expression name="expressionValue" type="javascript">row["product_code"]</expression>
+                    <expression name="expressionValue" type="javascript">row["product_code"]+" || "+row["product_name"]</expression>
                 </structure>
                 <property name="hideDetail">false</property>
                 <list-property name="sort">
