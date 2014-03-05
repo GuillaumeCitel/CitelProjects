@@ -64,6 +64,7 @@
                     </structure>
                     <property name="fixedOrder">true</property>
                     <property name="isRequired">false</property>
+                    <property name="dataSetName">customer_list_research</property>
                     <property name="promptText">Search (write %TEST% to display all client names containing "TEST")</property>
                 </ref-entry>
                 <ref-entry baseId="11" name="customer_code2" id="11">
@@ -73,6 +74,7 @@
                         <value type="constant">All</value>
                     </simple-property-list>
                     <property name="isRequired">true</property>
+                    <property name="dataSetName">customer_list_research</property>
                     <property name="sortDirection">asc</property>
                     <expression name="sortByColumn">dataSetRow["customer_name"]</expression>
                     <property name="promptText">Select</property>
@@ -137,7 +139,130 @@
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="sales" id="1665"
- extends="library.sales"/>
+ extends="library.sales">
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">origin</property>
+                    <property name="nativeName">origin</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">sale_bill_id</property>
+                    <property name="nativeName">sale_bill_id</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">sale_bill_date</property>
+                    <property name="nativeName">sale_bill_date</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">delivery_date</property>
+                    <property name="nativeName">delivery_date</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">customer_code</property>
+                    <property name="nativeName">customer_code</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">customer_name</property>
+                    <property name="nativeName">customer_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">customer_class_name</property>
+                    <property name="nativeName">customer_class_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">customer_country</property>
+                    <property name="nativeName">customer_country</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">product_code</property>
+                    <property name="nativeName">product_code</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">product_name</property>
+                    <property name="nativeName">product_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">product_group</property>
+                    <property name="nativeName">product_group</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">quantity</property>
+                    <property name="nativeName">quantity</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">unit_gross_sell_price_with_discount_in_local_currency</property>
+                    <property name="nativeName">unit_gross_sell_price_with_discount_in_local_currency</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">total_gross_sell_price_with_discount_in_local_currency</property>
+                    <property name="nativeName">total_gross_sell_price_with_discount_in_local_currency</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">unit_cost</property>
+                    <property name="nativeName">unit_cost</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">total_cost</property>
+                    <property name="nativeName">total_cost</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">seller_code</property>
+                    <property name="nativeName">seller_code</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">seller_name</property>
+                    <property name="nativeName">seller_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">provision</property>
+                    <property name="nativeName">provision</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">is_transfered</property>
+                    <property name="nativeName">is_transfered</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+        </oda-data-set>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="customer_list_research" id="1668"
  extends="library.customer_list_research">
             <list-property name="columnHints">
