@@ -341,7 +341,7 @@ SELECT
 
 	ar_customer_id,
 	ar_customer_name,
-	area,
+	area_name,
 	country,
 
 	ic_part_id,

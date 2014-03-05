@@ -114,6 +114,28 @@
     </attributes>
   </connection>
   <connection>
+    <name>PostGre_All</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>All</database>
+    <port>5432</port>
+    <username>postgres</username>
+    <password>Encrypted 2be98afc86a96c0d7bb16bd64d980aac9</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>PostGre_China</name>
     <server>${Apgsql_server}</server>
     <type>POSTGRESQL</type>
@@ -264,6 +286,10 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>area_name</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
@@ -305,6 +331,44 @@ var purchase_mail = PurchaseEMail;&#47;&#47;string
 var country = Custom1;&#47;&#47;string
 var person_nb = Custom2;&#47;&#47;string
 var area = Custom3;&#47;&#47;string
+var area_name;&#47;&#47;string
+
+switch (String(area)) {
+	case &apos;1&apos;:
+	case &apos;11&apos;:
+		area_name = &apos;South (1 or 11)&apos;;
+		break;
+	case &apos;2&apos;:
+		area_name = &apos;South West (2)&apos;;
+		break;
+	case &apos;3&apos;:
+		area_name = &apos;Latin America (3)&apos;;
+		break;
+	case &apos;4&apos;:
+	case &apos;44&apos;:
+		area_name = &apos;Atlantic (4)&apos;;
+		break;
+	case &apos;5&apos;:
+	case &apos;55&apos;:
+		area_name = &apos;Middle West (5)&apos;
+		break;
+	case &apos;6&apos;:
+		area_name = &apos;Citel (6)&apos;;
+		break;
+	case &apos;7&apos;:
+		area_name = &apos;West (7)&apos;;
+		break;
+	case &apos;8&apos;:
+		area_name = &apos;National Distributors (8)&apos;;
+		break;
+	case &apos;9&apos;:
+		area_name = &apos;OBSTA (9)&apos;;
+		break;
+	default:
+		area_name = &apos;unknown &apos; + area;
+		break;
+}
+
 
 
 </jsScript_script>
@@ -412,6 +476,12 @@ var area = Custom3;&#47;&#47;string
         <replace>N</replace>
       </field>      <field>        <name>area</name>
         <rename>area</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>area_name</name>
+        <rename>area_name</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>

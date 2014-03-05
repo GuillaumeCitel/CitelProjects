@@ -115,6 +115,28 @@
     </attributes>
   </connection>
   <connection>
+    <name>PostGre_All</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>All</database>
+    <port>5432</port>
+    <username>postgres</username>
+    <password>Encrypted 2be98afc86a96c0d7bb16bd64d980aac9</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>PostGre_China</name>
     <server>${Apgsql_server}</server>
     <type>POSTGRESQL</type>
@@ -299,13 +321,13 @@ var concat_description = Description1 + &quot; || &quot; + Description2 + &quot;
 var cat1 = ProductCategoryDesc1;&#47;&#47;string, not used in the ERP
 var comment = Comments1 + &quot; || &quot; + Comments2;&#47;&#47;string
 var ic_productline_key =FKICProductLine;&#47;&#47;string
-var cost = PartCost;&#47;&#47;number
-var base_price = BasePrice;&#47;&#47;number
-var last_cost = LastCost;&#47;&#47;number
+var cost = PartCost;&#47;&#47;number PMP
+var base_price = BasePrice;&#47;&#47;number ???
+var last_cost = LastCost;&#47;&#47;number last buy price = current cost
 var part_price_key = FKICPartPrice;&#47;&#47;integer
 var on_hand_quantity = OnHandQty;&#47;&#47;number
-var on_order_quantity = OnOrderQty&#47;&#47;number
-var committed_quantity = CommittedQty;&#47;&#47;number
+var on_order_quantity = OnOrderQty&#47;&#47;number --&gt; in
+var committed_quantity = CommittedQty;&#47;&#47;number --&gt; out
 var back_ordered_quantity = BackOrderedQty;&#47;&#47;number
 var min_quantity=MinimumBalance;&#47;&#47;number
 var max_quantity=MaximumBalance;&#47;&#47;number
