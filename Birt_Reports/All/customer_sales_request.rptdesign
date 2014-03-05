@@ -54,32 +54,48 @@
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
-        <cascading-parameter-group name="Customer research" id="1667" extends="library.Customer research">
+        <cascading-parameter-group name="Customer research" id="9">
             <text-property name="promptText">Client name</text-property>
+            <property name="dataSet">customer_list_research</property>
             <property name="dataSetMode">multiple</property>
-            <overridden-values>
-                <ref-entry baseId="10" name="str_research_customer" id="10">
+            <parameters>
+                <scalar-parameter name="str_research_customer" id="10">
+                    <text-property name="promptText">Search (write %TEST% to display all client names containing "TEST")</text-property>
+                    <property name="valueType">dynamic</property>
+                    <property name="isRequired">false</property>
+                    <property name="dataSetName">customer_list_research</property>
+                    <expression name="valueExpr" type="javascript">row["customer_name"]</expression>
+                    <expression name="labelExpr" type="javascript">row["customer_name"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="distinct">true</property>
+                    <list-property name="selectionList"/>
+                    <property name="paramType">simple</property>
+                    <property name="concealValue">false</property>
+                    <property name="controlType">list-box</property>
+                    <property name="mustMatch">false</property>
+                    <property name="fixedOrder">true</property>
                     <structure name="format">
                         <property name="category">Unformatted</property>
                     </structure>
-                    <property name="fixedOrder">true</property>
-                    <property name="isRequired">false</property>
+                </scalar-parameter>
+                <scalar-parameter name="customer_code2" id="11">
+                    <text-property name="promptText">Select</text-property>
+                    <property name="valueType">dynamic</property>
+                    <property name="isRequired">true</property>
                     <property name="dataSetName">customer_list_research</property>
-                    <property name="promptText">Search (write %TEST% to display all client names containing "TEST")</property>
-                </ref-entry>
-                <ref-entry baseId="11" name="customer_code2" id="11">
-                    <structure name="format"/>
-                    <property name="fixedOrder">false</property>
+                    <expression name="valueExpr">row["customer_code"]</expression>
+                    <expression name="labelExpr">row["display_cascading"]</expression>
+                    <expression name="sortByColumn">dataSetRow["customer_name"]</expression>
+                    <property name="sortDirection">asc</property>
+                    <property name="dataType">string</property>
                     <simple-property-list name="defaultValue">
                         <value type="constant">All</value>
                     </simple-property-list>
-                    <property name="isRequired">true</property>
-                    <property name="dataSetName">customer_list_research</property>
-                    <property name="sortDirection">asc</property>
-                    <expression name="sortByColumn">dataSetRow["customer_name"]</expression>
-                    <property name="promptText">Select</property>
-                </ref-entry>
-            </overridden-values>
+                    <property name="controlType">list-box</property>
+                    <property name="fixedOrder">false</property>
+                    <structure name="format"/>
+                </scalar-parameter>
+            </parameters>
         </cascading-parameter-group>
         <scalar-parameter name="beginning_date" id="952" extends="library.beginning_date">
             <text-property name="promptText">From</text-property>
