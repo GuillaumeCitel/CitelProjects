@@ -641,8 +641,13 @@ if (reportContext.getParameterValue("origin") == 'shanghai'|| reportContext.getP
 	query_where += " and delivery_date is not null ";
 }
 
+query_orderby = "";
+if (reportContext.getParameterValue("sorting1") != "none" &amp;&amp; reportContext.getParameterValue("sorting1") != null) {
+	query_orderby += " order by " + reportContext.getParameterValue("sorting1") + " " + reportContext.getParameterValue("direction1");
+}
+
  
-this.queryText = query_select + query_from + query_where;
+this.queryText = query_select + query_from + query_where + query_orderby;
 ]]></method>
             <property name="dataSource">PostGre_All</property>
             <list-property name="resultSet"/>

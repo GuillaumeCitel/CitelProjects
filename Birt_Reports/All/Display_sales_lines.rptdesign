@@ -58,13 +58,130 @@
         <scalar-parameter name="customer_code1" id="11" extends="library.customer_code1"/>
         <cascading-parameter-group name="Customer research" id="12" extends="library.Customer research">
             <overridden-values>
-                <ref-entry baseId="10" name="str_research_customer" id="1139"/>
-                <ref-entry baseId="11" name="customer_code2" id="1140"/>
+                <ref-entry baseId="10" name="str_research_customer" id="1158"/>
+                <ref-entry baseId="11" name="customer_code2" id="1159"/>
             </overridden-values>
         </cascading-parameter-group>
         <scalar-parameter name="customer_country" id="56" extends="library.customer_country"/>
         <scalar-parameter name="sale_bill_id" id="57" extends="library.sale_bill_id"/>
         <scalar-parameter name="origin" id="26" extends="library.origin"/>
+        <scalar-parameter name="sorting1" id="916">
+            <property name="hidden">true</property>
+            <text-property name="promptText">order by (first)</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="sortBy">label</property>
+            <property name="sortDirection">asc</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">sale_bill_date</value>
+            </simple-property-list>
+            <list-property name="selectionList">
+                <structure>
+                    <property name="value">sale_bill_date</property>
+                    <property name="label">date</property>
+                </structure>
+                <structure>
+                    <property name="value">seller_name</property>
+                    <property name="label">salesman</property>
+                </structure>
+                <structure>
+                    <property name="value">none</property>
+                    <property name="label">none</property>
+                </structure>
+                <structure>
+                    <property name="value">product_code</property>
+                    <property name="label">part number</property>
+                </structure>
+                <structure>
+                    <property name="value">customer_name</property>
+                    <property name="label">client name</property>
+                </structure>
+                <structure>
+                    <property name="value">sale_bill_id</property>
+                    <property name="label">bill id</property>
+                </structure>
+                <structure>
+                    <property name="value">total_gross_sell_price_with_discount_in_local_currency</property>
+                    <property name="label">gross sell price (total)</property>
+                </structure>
+                <structure>
+                    <property name="value">unit_gross_sell_price_with_discount_in_local_currency</property>
+                    <property name="label">gross sell price (unit)</property>
+                </structure>
+                <structure>
+                    <property name="value">quantity</property>
+                    <property name="label">quantity</property>
+                </structure>
+                <structure>
+                    <property name="value">product_group</property>
+                    <property name="label">product group</property>
+                </structure>
+                <structure>
+                    <property name="value">customer_country</property>
+                    <property name="label">country</property>
+                </structure>
+                <structure>
+                    <property name="value">customer_class_name</property>
+                    <property name="label">country class</property>
+                </structure>
+                <structure>
+                    <property name="value">product_name</property>
+                    <property name="label">product designation</property>
+                </structure>
+                <structure>
+                    <property name="value">customer_code</property>
+                    <property name="label">client code</property>
+                </structure>
+                <structure>
+                    <property name="value">unit_cost</property>
+                    <property name="label">cost (unit)</property>
+                </structure>
+                <structure>
+                    <property name="value">total_cost</property>
+                    <property name="label">cost (total)</property>
+                </structure>
+                <structure>
+                    <property name="value">provision</property>
+                    <property name="label">provision</property>
+                </structure>
+            </list-property>
+            <property name="paramType">simple</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">false</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="direction1" id="921">
+            <property name="hidden">true</property>
+            <text-property name="promptText">direction (first)</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">desc</value>
+            </simple-property-list>
+            <list-property name="selectionList">
+                <structure>
+                    <property name="value">asc</property>
+                    <property name="label">increasing</property>
+                </structure>
+                <structure>
+                    <property name="value">desc</property>
+                    <property name="label">decreasing</property>
+                </structure>
+            </list-property>
+            <property name="paramType">simple</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
     </parameters>
     <data-sources>
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="PostGre_All" id="7"
@@ -76,7 +193,130 @@
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="product_list_research" id="9"
  extends="library.product_list_research"/>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="sales" id="10"
- extends="library.sales"/>
+ extends="library.sales">
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">origin</property>
+                    <property name="nativeName">origin</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">sale_bill_id</property>
+                    <property name="nativeName">sale_bill_id</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">sale_bill_date</property>
+                    <property name="nativeName">sale_bill_date</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">delivery_date</property>
+                    <property name="nativeName">delivery_date</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">customer_code</property>
+                    <property name="nativeName">customer_code</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">customer_name</property>
+                    <property name="nativeName">customer_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">customer_class_name</property>
+                    <property name="nativeName">customer_class_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">customer_country</property>
+                    <property name="nativeName">customer_country</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">product_code</property>
+                    <property name="nativeName">product_code</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">product_name</property>
+                    <property name="nativeName">product_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">product_group</property>
+                    <property name="nativeName">product_group</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">quantity</property>
+                    <property name="nativeName">quantity</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">unit_gross_sell_price_with_discount_in_local_currency</property>
+                    <property name="nativeName">unit_gross_sell_price_with_discount_in_local_currency</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">total_gross_sell_price_with_discount_in_local_currency</property>
+                    <property name="nativeName">total_gross_sell_price_with_discount_in_local_currency</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">unit_cost</property>
+                    <property name="nativeName">unit_cost</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">total_cost</property>
+                    <property name="nativeName">total_cost</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">seller_code</property>
+                    <property name="nativeName">seller_code</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">seller_name</property>
+                    <property name="nativeName">seller_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">provision</property>
+                    <property name="nativeName">provision</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">is_transfered</property>
+                    <property name="nativeName">is_transfered</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+        </oda-data-set>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="seller_list" id="65"
  extends="library.seller_list"/>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="product_group_list" id="66"
@@ -437,6 +677,56 @@ else {
             <header>
                 <row id="193">
                     <property name="backgroundColor">#FFFFFF</property>
+                    <list-property name="visibility">
+                        <structure>
+                            <property name="format">doc</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">docx</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">odp</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">ods</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">odt</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">pdf</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">postscript</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">ppt</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">pptx</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">xls</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">xls_spudsoft</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">xlsx</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                    </list-property>
                     <cell id="194">
                         <property name="colSpan">17</property>
                         <property name="rowSpan">1</property>
@@ -459,19 +749,402 @@ else {
                     <property name="borderRightWidth">medium</property>
                     <property name="borderTopStyle">solid</property>
                     <property name="borderTopWidth">medium</property>
+                    <list-property name="visibility">
+                        <structure>
+                            <property name="format">doc</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">docx</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">odp</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">ods</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">odt</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">pdf</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">postscript</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">ppt</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">pptx</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">xls</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">xls_spudsoft</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">xlsx</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                    </list-property>
                     <cell id="117">
                         <label id="88">
                             <text-property name="text">Client Code</text-property>
+                            <list-property name="action">
+                                <structure>
+                                    <property name="linkType">drill-through</property>
+                                    <property name="reportName">Display_sales_lines.rptdesign</property>
+                                    <property name="targetWindow">_parent</property>
+                                    <property name="targetFileType">report-design</property>
+                                    <list-property name="paramBindings">
+                                        <structure>
+                                            <property name="paramName">beginning_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["beginning_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">end_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["end_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country_class</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country_class"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_group</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_group"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">seller_name</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["seller_name"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sale_bill_id</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["sale_bill_id"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">origin</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["origin"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sorting1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">"customer_code"</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">direction1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">if (params["direction1"].value == "asc") {
+	"desc";
+}
+else {
+	"asc";
+}</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_product</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_product"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_customer</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_customer"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                </structure>
+                            </list-property>
                         </label>
                     </cell>
                     <cell id="118">
                         <label id="90">
                             <text-property name="text">Client Name</text-property>
+                            <list-property name="action">
+                                <structure>
+                                    <property name="linkType">drill-through</property>
+                                    <property name="reportName">Display_sales_lines.rptdesign</property>
+                                    <property name="targetWindow">_parent</property>
+                                    <property name="targetFileType">report-design</property>
+                                    <list-property name="paramBindings">
+                                        <structure>
+                                            <property name="paramName">beginning_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["beginning_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">end_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["end_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country_class</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country_class"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_group</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_group"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">seller_name</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["seller_name"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sale_bill_id</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["sale_bill_id"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">origin</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["origin"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sorting1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">"customer_name"</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">direction1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">if (params["direction1"].value == "asc") {
+	"desc";
+}
+else {
+	"asc";
+}</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_product</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_product"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_customer</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_customer"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                </structure>
+                            </list-property>
                         </label>
                     </cell>
                     <cell id="119">
                         <label id="98">
                             <text-property name="text">Date</text-property>
+                            <list-property name="action">
+                                <structure>
+                                    <property name="linkType">drill-through</property>
+                                    <property name="reportName">Display_sales_lines.rptdesign</property>
+                                    <property name="targetWindow">_parent</property>
+                                    <property name="targetFileType">report-design</property>
+                                    <list-property name="paramBindings">
+                                        <structure>
+                                            <property name="paramName">beginning_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["beginning_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">end_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["end_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country_class</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country_class"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_group</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_group"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">seller_name</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["seller_name"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sale_bill_id</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["sale_bill_id"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">origin</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["origin"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sorting1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">"sale_bill_date"</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">direction1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">if (params["direction1"].value == "asc") {
+	"desc";
+}
+else {
+	"asc";
+}</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_product</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_product"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_customer</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_customer"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                </structure>
+                            </list-property>
                         </label>
                     </cell>
                     <cell id="120">
@@ -482,31 +1155,697 @@ else {
                     <cell id="121">
                         <label id="100">
                             <text-property name="text">Bill ID</text-property>
+                            <list-property name="action">
+                                <structure>
+                                    <property name="linkType">drill-through</property>
+                                    <property name="reportName">Display_sales_lines.rptdesign</property>
+                                    <property name="targetWindow">_parent</property>
+                                    <property name="targetFileType">report-design</property>
+                                    <list-property name="paramBindings">
+                                        <structure>
+                                            <property name="paramName">beginning_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["beginning_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">end_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["end_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country_class</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country_class"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_group</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_group"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">seller_name</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["seller_name"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sale_bill_id</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["sale_bill_id"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">origin</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["origin"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sorting1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">"sale_bill_id"</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">direction1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">if (params["direction1"].value == "asc") {
+	"desc";
+}
+else {
+	"asc";
+}</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_product</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_product"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_customer</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_customer"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                </structure>
+                            </list-property>
                         </label>
                     </cell>
                     <cell id="122">
                         <label id="126">
                             <text-property name="text">Part Number</text-property>
+                            <list-property name="action">
+                                <structure>
+                                    <property name="linkType">drill-through</property>
+                                    <property name="reportName">Display_sales_lines.rptdesign</property>
+                                    <property name="targetWindow">_parent</property>
+                                    <property name="targetFileType">report-design</property>
+                                    <list-property name="paramBindings">
+                                        <structure>
+                                            <property name="paramName">beginning_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["beginning_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">end_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["end_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country_class</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country_class"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_group</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_group"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">seller_name</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["seller_name"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sale_bill_id</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["sale_bill_id"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">origin</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["origin"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sorting1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">"product_code"</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">direction1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">if (params["direction1"].value == "asc") {
+	"desc";
+}
+else {
+	"asc";
+}</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_product</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_product"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_customer</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_customer"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                </structure>
+                            </list-property>
                         </label>
                     </cell>
                     <cell id="128">
                         <label id="133">
                             <text-property name="text">Designation</text-property>
+                            <list-property name="action">
+                                <structure>
+                                    <property name="linkType">drill-through</property>
+                                    <property name="reportName">Display_sales_lines.rptdesign</property>
+                                    <property name="targetWindow">_parent</property>
+                                    <property name="targetFileType">report-design</property>
+                                    <list-property name="paramBindings">
+                                        <structure>
+                                            <property name="paramName">beginning_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["beginning_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">end_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["end_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country_class</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country_class"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_group</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_group"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">seller_name</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["seller_name"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sale_bill_id</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["sale_bill_id"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">origin</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["origin"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sorting1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">"product_name"</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">direction1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">if (params["direction1"].value == "asc") {
+	"desc";
+}
+else {
+	"asc";
+}</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_product</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_product"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_customer</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_customer"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                </structure>
+                            </list-property>
                         </label>
                     </cell>
                     <cell id="135">
                         <label id="139">
                             <text-property name="text">Qty</text-property>
+                            <list-property name="action">
+                                <structure>
+                                    <property name="linkType">drill-through</property>
+                                    <property name="reportName">Display_sales_lines.rptdesign</property>
+                                    <property name="targetWindow">_parent</property>
+                                    <property name="targetFileType">report-design</property>
+                                    <list-property name="paramBindings">
+                                        <structure>
+                                            <property name="paramName">beginning_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["beginning_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">end_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["end_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country_class</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country_class"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_group</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_group"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">seller_name</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["seller_name"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sale_bill_id</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["sale_bill_id"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">origin</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["origin"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sorting1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">"quantity"</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">direction1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">if (params["direction1"].value == "asc") {
+	"desc";
+}
+else {
+	"asc";
+}</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_product</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_product"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_customer</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_customer"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                </structure>
+                            </list-property>
                         </label>
                     </cell>
                     <cell id="141">
                         <label id="145">
                             <text-property name="text">USP</text-property>
+                            <list-property name="action">
+                                <structure>
+                                    <property name="linkType">drill-through</property>
+                                    <property name="reportName">Display_sales_lines.rptdesign</property>
+                                    <property name="targetWindow">_parent</property>
+                                    <property name="targetFileType">report-design</property>
+                                    <list-property name="paramBindings">
+                                        <structure>
+                                            <property name="paramName">beginning_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["beginning_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">end_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["end_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country_class</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country_class"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_group</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_group"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">seller_name</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["seller_name"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sale_bill_id</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["sale_bill_id"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">origin</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["origin"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sorting1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">"unit_gross_sell_price_with_discount_in_local_currency"</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">direction1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">if (params["direction1"].value == "asc") {
+	"desc";
+}
+else {
+	"asc";
+}</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_product</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_product"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_customer</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_customer"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                </structure>
+                            </list-property>
                         </label>
                     </cell>
                     <cell id="147">
                         <label id="151">
                             <text-property name="text">Total S</text-property>
+                            <list-property name="action">
+                                <structure>
+                                    <property name="linkType">drill-through</property>
+                                    <property name="reportName">Display_sales_lines.rptdesign</property>
+                                    <property name="targetWindow">_parent</property>
+                                    <property name="targetFileType">report-design</property>
+                                    <list-property name="paramBindings">
+                                        <structure>
+                                            <property name="paramName">beginning_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["beginning_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">end_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["end_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country_class</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country_class"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_group</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_group"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">seller_name</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["seller_name"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sale_bill_id</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["sale_bill_id"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">origin</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["origin"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sorting1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">"total_gross_sell_price_with_discount_in_local_currency"</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">direction1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">if (params["direction1"].value == "asc") {
+	"desc";
+}
+else {
+	"asc";
+}</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_product</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_product"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_customer</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_customer"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                </structure>
+                            </list-property>
                         </label>
                     </cell>
                     <cell id="153">
@@ -519,6 +1858,120 @@ else {
 }</expression>
                             <property name="contentType">html</property>
                         </text-data>
+                        <label id="1162">
+                            <text-property name="text">---</text-property>
+                            <list-property name="action">
+                                <structure>
+                                    <property name="linkType">drill-through</property>
+                                    <property name="reportName">Display_sales_lines.rptdesign</property>
+                                    <property name="targetWindow">_parent</property>
+                                    <property name="targetFileType">report-design</property>
+                                    <list-property name="paramBindings">
+                                        <structure>
+                                            <property name="paramName">beginning_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["beginning_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">end_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["end_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country_class</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country_class"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_group</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_group"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">seller_name</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["seller_name"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sale_bill_id</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["sale_bill_id"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">origin</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["origin"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sorting1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">"unit_cost"</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">direction1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">if (params["direction1"].value == "asc") {
+	"desc";
+}
+else {
+	"asc";
+}</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_product</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_product"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_customer</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_customer"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                </structure>
+                            </list-property>
+                        </label>
                     </cell>
                     <cell id="158">
                         <text-data id="1131">
@@ -533,34 +1986,704 @@ else {
 }</expression>
                             <property name="contentType">html</property>
                         </text-data>
+                        <label id="1161">
+                            <text-property name="text">---</text-property>
+                            <list-property name="action">
+                                <structure>
+                                    <property name="linkType">drill-through</property>
+                                    <property name="reportName">Display_sales_lines.rptdesign</property>
+                                    <property name="targetWindow">_parent</property>
+                                    <property name="targetFileType">report-design</property>
+                                    <list-property name="paramBindings">
+                                        <structure>
+                                            <property name="paramName">beginning_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["beginning_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">end_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["end_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country_class</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country_class"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_group</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_group"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">seller_name</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["seller_name"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sale_bill_id</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["sale_bill_id"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">origin</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["origin"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sorting1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">"total_cost"</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">direction1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">if (params["direction1"].value == "asc") {
+	"desc";
+}
+else {
+	"asc";
+}</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_product</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_product"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_customer</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_customer"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                </structure>
+                            </list-property>
+                        </label>
                     </cell>
                     <cell id="163">
                         <label id="167">
                             <text-property name="text">Group</text-property>
+                            <list-property name="action">
+                                <structure>
+                                    <property name="linkType">drill-through</property>
+                                    <property name="reportName">Display_sales_lines.rptdesign</property>
+                                    <property name="targetWindow">_parent</property>
+                                    <property name="targetFileType">report-design</property>
+                                    <list-property name="paramBindings">
+                                        <structure>
+                                            <property name="paramName">beginning_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["beginning_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">end_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["end_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country_class</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country_class"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_group</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_group"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">seller_name</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["seller_name"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sale_bill_id</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["sale_bill_id"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">origin</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["origin"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sorting1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">"product_group"</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">direction1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">if (params["direction1"].value == "asc") {
+	"desc";
+}
+else {
+	"asc";
+}</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_product</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_product"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_customer</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_customer"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                </structure>
+                            </list-property>
                         </label>
                     </cell>
                     <cell id="169">
                         <label id="173">
                             <text-property name="text">Country</text-property>
+                            <list-property name="action">
+                                <structure>
+                                    <property name="linkType">drill-through</property>
+                                    <property name="reportName">Display_sales_lines.rptdesign</property>
+                                    <property name="targetWindow">_parent</property>
+                                    <property name="targetFileType">report-design</property>
+                                    <list-property name="paramBindings">
+                                        <structure>
+                                            <property name="paramName">beginning_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["beginning_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">end_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["end_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country_class</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country_class"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_group</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_group"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">seller_name</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["seller_name"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sale_bill_id</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["sale_bill_id"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">origin</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["origin"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sorting1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">"customer_country"</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">direction1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">if (params["direction1"].value == "asc") {
+	"desc";
+}
+else {
+	"asc";
+}</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_product</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_product"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_customer</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_customer"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                </structure>
+                            </list-property>
                         </label>
                     </cell>
                     <cell id="175">
                         <label id="179">
                             <text-property name="text">Class</text-property>
+                            <list-property name="action">
+                                <structure>
+                                    <property name="linkType">drill-through</property>
+                                    <property name="reportName">Display_sales_lines.rptdesign</property>
+                                    <property name="targetWindow">_parent</property>
+                                    <property name="targetFileType">report-design</property>
+                                    <list-property name="paramBindings">
+                                        <structure>
+                                            <property name="paramName">beginning_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["beginning_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">end_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["end_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country_class</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country_class"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_group</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_group"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">seller_name</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["seller_name"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sale_bill_id</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["sale_bill_id"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">origin</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["origin"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sorting1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">"customer_class_name"</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">direction1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">if (params["direction1"].value == "asc") {
+	"desc";
+}
+else {
+	"asc";
+}</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_product</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_product"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_customer</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_customer"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                </structure>
+                            </list-property>
                         </label>
                     </cell>
                     <cell id="181">
                         <label id="185">
                             <text-property name="text">Salesman</text-property>
+                            <list-property name="action">
+                                <structure>
+                                    <property name="linkType">drill-through</property>
+                                    <property name="reportName">Display_sales_lines.rptdesign</property>
+                                    <property name="targetWindow">_parent</property>
+                                    <property name="targetFileType">report-design</property>
+                                    <list-property name="paramBindings">
+                                        <structure>
+                                            <property name="paramName">beginning_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["beginning_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">end_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["end_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country_class</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country_class"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_group</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_group"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">seller_name</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["seller_name"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sale_bill_id</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["sale_bill_id"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">origin</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["origin"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sorting1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">"seller_name"</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">direction1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">if (params["direction1"].value == "asc") {
+	"desc";
+}
+else {
+	"asc";
+}</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_product</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_product"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_customer</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_customer"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                </structure>
+                            </list-property>
                         </label>
                     </cell>
                     <cell id="187">
                         <label id="191">
                             <text-property name="text">Sale Comission</text-property>
+                            <list-property name="action">
+                                <structure>
+                                    <property name="linkType">drill-through</property>
+                                    <property name="reportName">Display_sales_lines.rptdesign</property>
+                                    <property name="targetWindow">_parent</property>
+                                    <property name="targetFileType">report-design</property>
+                                    <list-property name="paramBindings">
+                                        <structure>
+                                            <property name="paramName">beginning_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["beginning_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">end_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["end_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country_class</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country_class"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_group</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_group"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">seller_name</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["seller_name"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sale_bill_id</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["sale_bill_id"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">origin</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["origin"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sorting1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">"provision"</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">direction1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">if (params["direction1"].value == "asc") {
+	"desc";
+}
+else {
+	"asc";
+}</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_product</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_product"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_customer</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_customer"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                </structure>
+                            </list-property>
                         </label>
                     </cell>
                 </row>
                 <row id="1099">
+                    <property name="fontWeight">bold</property>
                     <property name="borderBottomStyle">solid</property>
                     <property name="borderBottomWidth">medium</property>
                     <property name="borderLeftStyle">solid</property>
@@ -569,23 +2692,112 @@ else {
                     <property name="borderRightWidth">medium</property>
                     <property name="borderTopStyle">solid</property>
                     <property name="borderTopWidth">medium</property>
-                    <cell id="1100"/>
-                    <cell id="1101"/>
-                    <cell id="1102"/>
-                    <cell id="1103"/>
-                    <cell id="1104"/>
-                    <cell id="1105"/>
-                    <cell id="1106"/>
-                    <cell id="1107"/>
-                    <cell id="1108"/>
-                    <cell id="1109"/>
-                    <cell id="1110"/>
-                    <cell id="1111"/>
-                    <cell id="1112"/>
-                    <cell id="1113"/>
-                    <cell id="1114"/>
-                    <cell id="1115"/>
-                    <cell id="1116"/>
+                    <list-property name="visibility">
+                        <structure>
+                            <property name="format">html</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                    </list-property>
+                    <cell id="1100">
+                        <label id="1143">
+                            <text-property name="text">Client Code</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1101">
+                        <label id="1141">
+                            <text-property name="text">Client Name</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1102">
+                        <label id="1142">
+                            <text-property name="text">Date</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1103">
+                        <label id="1144">
+                            <text-property name="text">Month</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1104">
+                        <label id="1145">
+                            <text-property name="text">Bill ID</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1105">
+                        <label id="1146">
+                            <text-property name="text">Part Number</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1106">
+                        <label id="1147">
+                            <text-property name="text">Designation</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1107">
+                        <label id="1148">
+                            <text-property name="text">Qty</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1108">
+                        <label id="1149">
+                            <text-property name="text">USP</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1109">
+                        <label id="1150">
+                            <text-property name="text">Total S</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1110">
+                        <text-data id="1151">
+                            <expression name="valueExpr">if (params["origin"].value == 'gmbh') {
+  'UBP';
+}
+else {
+  'hidden';
+}</expression>
+                            <property name="contentType">html</property>
+                        </text-data>
+                    </cell>
+                    <cell id="1111">
+                        <text-data id="1152">
+                            <expression name="valueExpr">if (params["origin"].value == 'gmbh') {
+  'Total B';
+}
+else if (params["origin"].value == 'us') {
+  'Total Cost';
+}
+else {
+  'hidden';
+}</expression>
+                            <property name="contentType">html</property>
+                        </text-data>
+                    </cell>
+                    <cell id="1112">
+                        <label id="1153">
+                            <text-property name="text">Group</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1113">
+                        <label id="1154">
+                            <text-property name="text">Country</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1114">
+                        <label id="1155">
+                            <text-property name="text">Class</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1115">
+                        <label id="1156">
+                            <text-property name="text">Salesman</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1116">
+                        <label id="1157">
+                            <text-property name="text">Sale Comission</text-property>
+                        </label>
+                    </cell>
                 </row>
                 <row id="73">
                     <property name="fontWeight">bold</property>
@@ -597,6 +2809,56 @@ else {
                     <property name="borderRightWidth">medium</property>
                     <property name="borderTopStyle">solid</property>
                     <property name="borderTopWidth">medium</property>
+                    <list-property name="visibility">
+                        <structure>
+                            <property name="format">doc</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">docx</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">odp</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">ods</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">odt</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">pdf</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">postscript</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">ppt</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">pptx</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">xls</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">xls_spudsoft</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                        <structure>
+                            <property name="format">xlsx</property>
+                            <expression name="valueExpr" type="javascript">true</expression>
+                        </structure>
+                    </list-property>
                     <cell id="74"/>
                     <cell id="75"/>
                     <cell id="76"/>
