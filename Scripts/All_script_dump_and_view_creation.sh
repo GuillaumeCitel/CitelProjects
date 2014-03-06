@@ -18,11 +18,7 @@
   echo "dump france done"
   
   # We need to delete the view before restoration because otherwise, tables won't be deleted (--clean instrauctions won't work) and so records will be inserted twice
-  if [ "$(hostname)" == "pc-guillaume" ]; then
-    /home/guillaume/kettle_4.4.0/kitchen.sh /file:"/home/guillaume/git/CitelProjects/Kettle_Extraction/All/delete_views.kjb"
-  else
-    /home/guillaume/kettle_4.4.0/kitchen.sh /file:"/home/guillaume/apache-tomcat-7.0.41/webapps/citelstats/Reports/Kettle_Extraction/All/delete_views.kjb"
-  fi
+  /home/guillaume/kettle_4.4.0/kitchen.sh /file:"/home/guillaume/apache-tomcat-7.0.41/webapps/citelstats/Reports/Kettle_Extraction/All/delete_views.kjb"
   
   # We do the restoration as postgres (superuser) to be able to execute any instruction.
   
@@ -52,11 +48,6 @@
   echo "restore france done"
   
   #We recreate the views
-  if [ "$(hostname)" == "pc-guillaume" ]; then
-    /home/guillaume/kettle_4.4.0/kitchen.sh /file:"/home/guillaume/git/CitelProjects/Kettle_Extraction/All/create_views.kjb"
-  else
-    /home/guillaume/kettle_4.4.0/kitchen.sh /file:"/home/guillaume/apache-tomcat-7.0.41/webapps/citelstats/Reports/Kettle_Extraction/All/create_views.kjb"
-  fi
-  
+  /home/guillaume/kettle_4.4.0/kitchen.sh /file:"/home/guillaume/apache-tomcat-7.0.41/webapps/citelstats/Reports/Kettle_Extraction/All/create_views.kjb"
   
   set +e
