@@ -58,6 +58,28 @@
     </attributes>
   </connection>
   <connection>
+    <name>PostGre_All</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>All</database>
+    <port>5432</port>
+    <username>postgres</username>
+    <password>Encrypted 2be98afc86a96c0d7bb16bd64d980aac9</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>PostGre_China</name>
     <server>${Apgsql_server}</server>
     <type>POSTGRESQL</type>
@@ -195,8 +217,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>160</xloc>
-      <yloc>29</yloc>
+      <xloc>320</xloc>
+      <yloc>54</yloc>
       </entry>
     <entry>
       <name>extract_ARInvocie</name>
@@ -227,8 +249,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>294</xloc>
-      <yloc>15</yloc>
+      <xloc>442</xloc>
+      <yloc>25</yloc>
       </entry>
     <entry>
       <name>extract_ARInvoiceSales</name>
@@ -259,8 +281,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>475</xloc>
-      <yloc>13</yloc>
+      <xloc>548</xloc>
+      <yloc>1</yloc>
       </entry>
     <entry>
       <name>extract_ARSalesAccount</name>
@@ -291,8 +313,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>636</xloc>
-      <yloc>17</yloc>
+      <xloc>663</xloc>
+      <yloc>28</yloc>
       </entry>
     <entry>
       <name>extract_ICPart</name>
@@ -323,8 +345,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>864</xloc>
-      <yloc>29</yloc>
+      <xloc>930</xloc>
+      <yloc>20</yloc>
       </entry>
     <entry>
       <name>extract_ICPartPrice</name>
@@ -355,7 +377,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>993</xloc>
+      <xloc>1081</xloc>
       <yloc>19</yloc>
       </entry>
     <entry>
@@ -419,8 +441,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>574</xloc>
-      <yloc>544</yloc>
+      <xloc>611</xloc>
+      <yloc>553</yloc>
       </entry>
     <entry>
       <name>extract_matching_part_and_group</name>
@@ -511,8 +533,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>750</xloc>
-      <yloc>33</yloc>
+      <xloc>799</xloc>
+      <yloc>19</yloc>
       </entry>
     <entry>
       <name>extract_ICProductLine</name>
@@ -543,7 +565,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1172</xloc>
+      <xloc>1261</xloc>
       <yloc>26</yloc>
       </entry>
     <entry>
@@ -575,8 +597,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1194</xloc>
-      <yloc>152</yloc>
+      <xloc>1296</xloc>
+      <yloc>157</yloc>
       </entry>
     <entry>
       <name>Mail Failure</name>
@@ -589,7 +611,7 @@
       <destinationBCc/>
       <replyto>guillaume.faure@citelbe.com</replyto>
       <replytoname>Kettle</replytoname>
-      <subject>KO Kettle US</subject>
+      <subject>KO Kettle US on ${Amachine_name} - Extraction</subject>
       <include_date>Y</include_date>
       <contact_person/>
       <contact_phone/>
@@ -629,7 +651,7 @@
       <destinationBCc/>
       <replyto>guillaume.faure@citelbe.com</replyto>
       <replytoname>Kettle</replytoname>
-      <subject>Kettle US OK</subject>
+      <subject>Kettle US OK on ${Amachine_name}</subject>
       <include_date>Y</include_date>
       <contact_person/>
       <contact_phone/>
@@ -655,8 +677,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>432</xloc>
-      <yloc>548</yloc>
+      <xloc>381</xloc>
+      <yloc>551</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -665,20 +687,73 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>297</xloc>
-      <yloc>532</yloc>
+      <xloc>172</xloc>
+      <yloc>548</yloc>
+      </entry>
+    <entry>
+      <name>Check Db connections</name>
+      <description/>
+      <type>CHECK_DB_CONNECTIONS</type>
+      <connections>
+        <connection>
+          <name>Pervasive_Sage_US</name>
+          <waitfor>0</waitfor>
+          <waittime>millisecond</waittime>
+        </connection>
+        <connection>
+          <name>PostGre_US</name>
+          <waitfor>0</waitfor>
+          <waittime>millisecond</waittime>
+        </connection>
+      </connections>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>175</xloc>
+      <yloc>30</yloc>
+      </entry>
+    <entry>
+      <name>Mail Failure Connection</name>
+      <description/>
+      <type>MAIL</type>
+      <server>smtp.gmail.com</server>
+      <port>465</port>
+      <destination>guillaume.faure@citelbe.com</destination>
+      <destinationCc/>
+      <destinationBCc/>
+      <replyto>guillaume.faure@citelbe.com</replyto>
+      <replytoname>Kettle</replytoname>
+      <subject>KO Kettle US on ${Amachine_name} - Check DB connection</subject>
+      <include_date>Y</include_date>
+      <contact_person/>
+      <contact_phone/>
+      <comment/>
+      <include_files>Y</include_files>
+      <zip_files>N</zip_files>
+      <zip_name/>
+      <use_auth>Y</use_auth>
+      <use_secure_auth>Y</use_secure_auth>
+      <auth_user>guillaume.faure@citelbe.com</auth_user>
+      <auth_password>Encrypted 2be98afc86aa7f2e4ac1ffb76df87bddf</auth_password>
+      <only_comment>N</only_comment>
+      <use_HTML>N</use_HTML>
+      <use_Priority>N</use_Priority>
+      <encoding>UTF-8</encoding>
+      <priority>normal</priority>
+      <importance>normal</importance>
+      <secureconnectiontype>SSL</secureconnectiontype>
+      <replyToAddresses/>
+      <filetypes>        <filetype>LOG</filetype>
+      </filetypes>      <embeddedimages>
+      </embeddedimages>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>321</xloc>
+      <yloc>296</yloc>
       </entry>
   </entries>
   <hops>
-    <hop>
-      <from>START</from>
-      <to>extract_ARCustomer</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
     <hop>
       <from>extract_ARCustomer</from>
       <to>extract_ARInvocie</to>
@@ -916,6 +991,33 @@
     <hop>
       <from>extract_OELineItem</from>
       <to>Mail Failure</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>START</from>
+      <to>Check Db connections</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Check Db connections</from>
+      <to>extract_ARCustomer</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Check Db connections</from>
+      <to>Mail Failure Connection</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

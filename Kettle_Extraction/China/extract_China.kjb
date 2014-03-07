@@ -59,6 +59,28 @@
     </attributes>
   </connection>
   <connection>
+    <name>PostGre_All</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>All</database>
+    <port>5432</port>
+    <username>postgres</username>
+    <password>Encrypted 2be98afc86a96c0d7bb16bd64d980aac9</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>PostGre_China</name>
     <server>${Apgsql_server}</server>
     <type>POSTGRESQL</type>
@@ -196,8 +218,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>91</xloc>
-      <yloc>32</yloc>
+      <xloc>365</xloc>
+      <yloc>19</yloc>
       </entry>
     <entry>
       <name>extract_CRM_Customer_List</name>
@@ -228,8 +250,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>255</xloc>
-      <yloc>27</yloc>
+      <xloc>485</xloc>
+      <yloc>44</yloc>
       </entry>
     <entry>
       <name>extract_Inventory</name>
@@ -260,8 +282,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>418</xloc>
-      <yloc>29</yloc>
+      <xloc>632</xloc>
+      <yloc>23</yloc>
       </entry>
     <entry>
       <name>extract_InventoryClass</name>
@@ -292,8 +314,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>557</xloc>
-      <yloc>25</yloc>
+      <xloc>775</xloc>
+      <yloc>16</yloc>
       </entry>
     <entry>
       <name>extract_SaleBillVouch</name>
@@ -324,8 +346,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>767</xloc>
-      <yloc>28</yloc>
+      <xloc>967</xloc>
+      <yloc>20</yloc>
       </entry>
     <entry>
       <name>extract_SaleBillVouchs</name>
@@ -356,8 +378,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>947</xloc>
-      <yloc>56</yloc>
+      <xloc>1114</xloc>
+      <yloc>21</yloc>
       </entry>
     <entry>
       <name>extract_SO_SODetails</name>
@@ -388,8 +410,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1143</xloc>
-      <yloc>124</yloc>
+      <xloc>1263</xloc>
+      <yloc>59</yloc>
       </entry>
     <entry>
       <name>extract_SO_SOMain</name>
@@ -420,8 +442,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1131</xloc>
-      <yloc>402</yloc>
+      <xloc>1279</xloc>
+      <yloc>177</yloc>
       </entry>
     <entry>
       <name>extract_VouchType</name>
@@ -452,8 +474,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>996</xloc>
-      <yloc>442</yloc>
+      <xloc>1281</xloc>
+      <yloc>328</yloc>
       </entry>
     <entry>
       <name>extract_DispatchList</name>
@@ -484,8 +506,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>824</xloc>
-      <yloc>439</yloc>
+      <xloc>1246</xloc>
+      <yloc>511</yloc>
       </entry>
     <entry>
       <name>extract_DispatchLists</name>
@@ -516,8 +538,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>648</xloc>
-      <yloc>429</yloc>
+      <xloc>1078</xloc>
+      <yloc>599</yloc>
       </entry>
     <entry>
       <name>extract_SaleType</name>
@@ -548,8 +570,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>511</xloc>
-      <yloc>436</yloc>
+      <xloc>896</xloc>
+      <yloc>624</yloc>
       </entry>
     <entry>
       <name>extract_PurBillVouch</name>
@@ -580,8 +602,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>382</xloc>
-      <yloc>426</yloc>
+      <xloc>627</xloc>
+      <yloc>635</yloc>
       </entry>
     <entry>
       <name>extract_PurBillVouchs</name>
@@ -612,8 +634,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>189</xloc>
-      <yloc>406</yloc>
+      <xloc>434</xloc>
+      <yloc>632</yloc>
       </entry>
     <entry>
       <name>extract_Vendor</name>
@@ -644,8 +666,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>116</xloc>
-      <yloc>324</yloc>
+      <xloc>211</xloc>
+      <yloc>606</yloc>
       </entry>
     <entry>
       <name>extract_Person</name>
@@ -676,8 +698,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>115</xloc>
-      <yloc>220</yloc>
+      <xloc>72</xloc>
+      <yloc>493</yloc>
       </entry>
     <entry>
       <name>Mail Failure</name>
@@ -690,7 +712,7 @@
       <destinationBCc/>
       <replyto>guillaume.faure@citelbe.com</replyto>
       <replytoname>Kettle</replytoname>
-      <subject>KO Kettle ${Apgsql_db_name}</subject>
+      <subject>KO Kettle ${Apgsql_db_name} on ${Amachine_name} - Extraction</subject>
       <include_date>Y</include_date>
       <contact_person/>
       <contact_phone/>
@@ -730,7 +752,7 @@
       <destinationBCc/>
       <replyto>guillaume.faure@citelbe.com</replyto>
       <replytoname>Kettle</replytoname>
-      <subject>Kettle ${Apgsql_db_name} OK</subject>
+      <subject>Kettle ${Apgsql_db_name} OK on ${Amachine_name}</subject>
       <include_date>Y</include_date>
       <contact_person/>
       <contact_phone/>
@@ -756,8 +778,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>167</xloc>
-      <yloc>129</yloc>
+      <xloc>26</xloc>
+      <yloc>353</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -766,20 +788,73 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>266</xloc>
-      <yloc>144</yloc>
+      <xloc>226</xloc>
+      <yloc>302</yloc>
+      </entry>
+    <entry>
+      <name>Check Db connections</name>
+      <description/>
+      <type>CHECK_DB_CONNECTIONS</type>
+      <connections>
+        <connection>
+          <name>PostGre_China</name>
+          <waitfor>0</waitfor>
+          <waittime>millisecond</waittime>
+        </connection>
+        <connection>
+          <name>SQL_Server_China</name>
+          <waitfor>0</waitfor>
+          <waittime>millisecond</waittime>
+        </connection>
+      </connections>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>169</xloc>
+      <yloc>36</yloc>
+      </entry>
+    <entry>
+      <name>Mail Failure Connection</name>
+      <description/>
+      <type>MAIL</type>
+      <server>smtp.gmail.com</server>
+      <port>465</port>
+      <destination>guillaume.faure@citelbe.com</destination>
+      <destinationCc/>
+      <destinationBCc/>
+      <replyto>guillaume.faure@citelbe.com</replyto>
+      <replytoname>Kettle</replytoname>
+      <subject>KO Kettle  ${Apgsql_db_name} on ${Amachine_name}- Check DB connection</subject>
+      <include_date>Y</include_date>
+      <contact_person/>
+      <contact_phone/>
+      <comment/>
+      <include_files>Y</include_files>
+      <zip_files>N</zip_files>
+      <zip_name/>
+      <use_auth>Y</use_auth>
+      <use_secure_auth>Y</use_secure_auth>
+      <auth_user>guillaume.faure@citelbe.com</auth_user>
+      <auth_password>Encrypted 2be98afc86aa7f2e4ac1ffb76df87bddf</auth_password>
+      <only_comment>N</only_comment>
+      <use_HTML>N</use_HTML>
+      <use_Priority>N</use_Priority>
+      <encoding>UTF-8</encoding>
+      <priority>normal</priority>
+      <importance>normal</importance>
+      <secureconnectiontype>SSL</secureconnectiontype>
+      <replyToAddresses/>
+      <filetypes>        <filetype>LOG</filetype>
+      </filetypes>      <embeddedimages>
+      </embeddedimages>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>237</xloc>
+      <yloc>158</yloc>
       </entry>
   </entries>
   <hops>
-    <hop>
-      <from>START</from>
-      <to>extract_CurrentStock</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
     <hop>
       <from>extract_CurrentStock</from>
       <to>extract_CRM_Customer_List</to>
@@ -929,7 +1004,7 @@
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
@@ -1071,6 +1146,33 @@
     <hop>
       <from>extract_Person</from>
       <to>Mail Failure</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>START</from>
+      <to>Check Db connections</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Check Db connections</from>
+      <to>extract_CurrentStock</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Check Db connections</from>
+      <to>Mail Failure Connection</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

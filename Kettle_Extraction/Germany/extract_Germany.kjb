@@ -58,6 +58,28 @@
     </attributes>
   </connection>
   <connection>
+    <name>PostGre_All</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>All</database>
+    <port>5432</port>
+    <username>postgres</username>
+    <password>Encrypted 2be98afc86a96c0d7bb16bd64d980aac9</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>PostGre_China</name>
     <server>${Apgsql_server}</server>
     <type>POSTGRESQL</type>
@@ -74,50 +96,6 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
       <attribute><code>PORT_NUMBER</code><attribute>${Apgsql_port_nb}</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>PostGre_China_UFDATA_001_2013</name>
-    <server>localhost</server>
-    <type>POSTGRESQL</type>
-    <access>Native</access>
-    <database>China_UFDATA_001_2013</database>
-    <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>PostGre_China_UFDATA_003_2013</name>
-    <server>localhost</server>
-    <type>POSTGRESQL</type>
-    <access>Native</access>
-    <database>China_UFDATA_003_2013</database>
-    <port>5432</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
@@ -163,52 +141,6 @@
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
       <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
       <attribute><code>PORT_NUMBER</code><attribute>${Amssql_port_nb}</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>SQL_Server_China_001_2013</name>
-    <server>192.168.1.254</server>
-    <type>MSSQL</type>
-    <access>Native</access>
-    <database>UFDATA_001_2013</database>
-    <port>1433</port>
-    <username>viewer</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10becaf782</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1433</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>SQL_Server_China_003_2013</name>
-    <server>192.168.1.254</server>
-    <type>MSSQL</type>
-    <access>Native</access>
-    <database>UFDATA_003_2013</database>
-    <port>1433</port>
-    <username>viewer</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10becaf782</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1433</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
@@ -265,8 +197,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>771</xloc>
-      <yloc>52</yloc>
+      <xloc>1262</xloc>
+      <yloc>18</yloc>
       </entry>
     <entry>
       <name>START</name>
@@ -317,8 +249,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>465</xloc>
-      <yloc>18</yloc>
+      <xloc>870</xloc>
+      <yloc>7</yloc>
       </entry>
     <entry>
       <name>extract_KUNDEN</name>
@@ -349,8 +281,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>162</xloc>
-      <yloc>22</yloc>
+      <xloc>545</xloc>
+      <yloc>18</yloc>
       </entry>
     <entry>
       <name>extract_ARTIKEL</name>
@@ -381,8 +313,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>315</xloc>
-      <yloc>26</yloc>
+      <xloc>694</xloc>
+      <yloc>11</yloc>
       </entry>
     <entry>
       <name>Vergleich_A</name>
@@ -411,8 +343,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1008</xloc>
-      <yloc>329</yloc>
+      <xloc>1147</xloc>
+      <yloc>525</yloc>
       </entry>
     <entry>
       <name>extract_AUFDAT2</name>
@@ -443,8 +375,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>626</xloc>
-      <yloc>24</yloc>
+      <xloc>1060</xloc>
+      <yloc>9</yloc>
       </entry>
     <entry>
       <name>Vergleich_V</name>
@@ -473,8 +405,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>732</xloc>
-      <yloc>426</yloc>
+      <xloc>750</xloc>
+      <yloc>525</yloc>
       </entry>
     <entry>
       <name>Vergleich_L</name>
@@ -503,8 +435,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>467</xloc>
-      <yloc>445</yloc>
+      <xloc>477</xloc>
+      <yloc>531</yloc>
       </entry>
     <entry>
       <name>Extract_LAGER</name>
@@ -535,8 +467,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>923</xloc>
-      <yloc>80</yloc>
+      <xloc>1249</xloc>
+      <yloc>135</yloc>
       </entry>
     <entry>
       <name>Extract_ARTRES</name>
@@ -567,8 +499,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1011</xloc>
-      <yloc>181</yloc>
+      <xloc>1216</xloc>
+      <yloc>284</yloc>
       </entry>
     <entry>
       <name>Mail Success</name>
@@ -581,7 +513,7 @@
       <destinationBCc/>
       <replyto>guillaume.faure@citelbe.com</replyto>
       <replytoname>Kettle</replytoname>
-      <subject>Kettle Germany OK</subject>
+      <subject>Kettle Germany OK on ${Amachine_name}</subject>
       <include_date>Y</include_date>
       <contact_person/>
       <contact_phone/>
@@ -607,8 +539,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>305</xloc>
-      <yloc>446</yloc>
+      <xloc>308</xloc>
+      <yloc>537</yloc>
       </entry>
     <entry>
       <name>Mail Failure</name>
@@ -621,7 +553,7 @@
       <destinationBCc/>
       <replyto>guillaume.faure@citelbe.com</replyto>
       <replytoname>Kettle</replytoname>
-      <subject>KO Kettle Germany</subject>
+      <subject>KO Kettle Germany on ${Amachine_name} - Extraction</subject>
       <include_date>Y</include_date>
       <contact_person/>
       <contact_phone/>
@@ -657,20 +589,124 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>173</xloc>
-      <yloc>445</yloc>
+      <xloc>162</xloc>
+      <yloc>542</yloc>
+      </entry>
+    <entry>
+      <name>Check Db connections</name>
+      <description/>
+      <type>CHECK_DB_CONNECTIONS</type>
+      <connections>
+        <connection>
+          <name>kettlede</name>
+          <waitfor>0</waitfor>
+          <waittime>millisecond</waittime>
+        </connection>
+      </connections>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>112</xloc>
+      <yloc>51</yloc>
+      </entry>
+    <entry>
+      <name>Checks if files exist</name>
+      <description/>
+      <type>FILES_EXIST</type>
+      <filename/>
+      <fields>
+        <field>
+          <name>&#47;home&#47;guillaume&#47;cbwinauf&#47;daten</name>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>336</xloc>
+      <yloc>41</yloc>
+      </entry>
+    <entry>
+      <name>Mail Failure mounted folder</name>
+      <description/>
+      <type>MAIL</type>
+      <server>smtp.gmail.com</server>
+      <port>465</port>
+      <destination>guillaume.faure@citelbe.com</destination>
+      <destinationCc/>
+      <destinationBCc/>
+      <replyto>guillaume.faure@citelbe.com</replyto>
+      <replytoname>Kettle</replytoname>
+      <subject>KO Kettle Germany on ${Amachine_name} - missing files</subject>
+      <include_date>Y</include_date>
+      <contact_person/>
+      <contact_phone/>
+      <comment>CHECK THAT THE REMOTE FOLDER &#47;&#47;192.168.26.26&#47;cbwinauf IS MOUNTED</comment>
+      <include_files>Y</include_files>
+      <zip_files>N</zip_files>
+      <zip_name/>
+      <use_auth>Y</use_auth>
+      <use_secure_auth>Y</use_secure_auth>
+      <auth_user>guillaume.faure@citelbe.com</auth_user>
+      <auth_password>Encrypted 2be98afc86aa7f2e4ac1ffb76df87bddf</auth_password>
+      <only_comment>N</only_comment>
+      <use_HTML>N</use_HTML>
+      <use_Priority>N</use_Priority>
+      <encoding>UTF-8</encoding>
+      <priority>normal</priority>
+      <importance>normal</importance>
+      <secureconnectiontype>SSL</secureconnectiontype>
+      <replyToAddresses/>
+      <filetypes>        <filetype>LOG</filetype>
+      </filetypes>      <embeddedimages>
+      </embeddedimages>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>335</xloc>
+      <yloc>201</yloc>
+      </entry>
+    <entry>
+      <name>Mail Failure connection</name>
+      <description/>
+      <type>MAIL</type>
+      <server>smtp.gmail.com</server>
+      <port>465</port>
+      <destination>guillaume.faure@citelbe.com</destination>
+      <destinationCc/>
+      <destinationBCc/>
+      <replyto>guillaume.faure@citelbe.com</replyto>
+      <replytoname>Kettle</replytoname>
+      <subject>KO Kettle Germany on ${Amachine_name} - Connection</subject>
+      <include_date>Y</include_date>
+      <contact_person/>
+      <contact_phone/>
+      <comment/>
+      <include_files>Y</include_files>
+      <zip_files>N</zip_files>
+      <zip_name/>
+      <use_auth>Y</use_auth>
+      <use_secure_auth>Y</use_secure_auth>
+      <auth_user>guillaume.faure@citelbe.com</auth_user>
+      <auth_password>Encrypted 2be98afc86aa7f2e4ac1ffb76df87bddf</auth_password>
+      <only_comment>N</only_comment>
+      <use_HTML>N</use_HTML>
+      <use_Priority>N</use_Priority>
+      <encoding>UTF-8</encoding>
+      <priority>normal</priority>
+      <importance>normal</importance>
+      <secureconnectiontype>SSL</secureconnectiontype>
+      <replyToAddresses/>
+      <filetypes>        <filetype>LOG</filetype>
+      </filetypes>      <embeddedimages>
+      </embeddedimages>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>161</xloc>
+      <yloc>200</yloc>
       </entry>
   </entries>
   <hops>
-    <hop>
-      <from>START</from>
-      <to>extract_KUNDEN</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
     <hop>
       <from>extract_KUNDEN</from>
       <to>extract_ARTIKEL</to>
@@ -854,6 +890,51 @@
     <hop>
       <from>extract_KUNDEN</from>
       <to>Mail Failure</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>START</from>
+      <to>Check Db connections</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Check Db connections</from>
+      <to>Checks if files exist</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Checks if files exist</from>
+      <to>extract_KUNDEN</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Check Db connections</from>
+      <to>Mail Failure connection</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Checks if files exist</from>
+      <to>Mail Failure mounted folder</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
