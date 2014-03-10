@@ -2,6 +2,8 @@
   
   set -e
   
+  echo $(date)":started All_script_dump_and_view_creation"
+  
   pg_dump -U kettlede kettlede > /tmp/kettlede_from_local
   echo "dump kettlede_from_local done"
   
@@ -18,7 +20,6 @@
   echo "dump france_from_local done"
   
   # We do the restoration as postgres (superuser) to be able to execute any instruction.
-  
   cp /tmp/kettlede_from_local /tmp/kettlede_from_local_sed
   sed -i 's/public/kettlede/' /tmp/kettlede_from_local_sed
   echo "sed  kettlede_from_local done"
@@ -61,5 +62,7 @@
   
   #We recreate the views that have been deleted by the drop cascade
   /home/guillaume/kettle_4.4.0/kitchen.sh /file:"/home/guillaume/apache-tomcat-7.0.41/webapps/citelstats/Reports/Kettle_Extraction/All/create_views.kjb"
+  
+  echo $(date)":finished All_script_dump_and_view_creation"
   
   set +e
