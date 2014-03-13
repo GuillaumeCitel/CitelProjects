@@ -290,6 +290,10 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>class_name</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
@@ -315,7 +319,7 @@
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>var ar_customer_key = SKARCustomer;&#47;&#47;number
 var ar_customer_id = ID;&#47;&#47;string
-var ar_customer_name = Name;&#47;&#47;string
+var ar_customer_name = Name.toUpperCase();&#47;&#47;string
 var billing_address = Address1 + &quot;, &quot; + Address2+&quot;, &quot; + City + &quot;, &quot; + State;&#47;&#47;string
 var billing_city = City;&#47;&#47;string
 var billing_state_or_country = State;&#47;&#47;string
@@ -328,10 +332,26 @@ var purchase_contact = PurchaseContact;&#47;&#47;string
 var purchase_phone = PurchasePhoneNo;&#47;&#47;string
 var purchase_fax = PurchaseFaxNo;&#47;&#47;string
 var purchase_mail = PurchaseEMail;&#47;&#47;string
-var country = Custom1;&#47;&#47;string
+var country = Custom1.toUpperCase();&#47;&#47;string
 var person_nb = Custom2;&#47;&#47;string
 var area = Custom3;&#47;&#47;string
 var area_name;&#47;&#47;string
+var class_name;&#47;&#47;string
+
+switch (String(country)) {
+	case &apos;US&apos;:
+	case &apos;UNITED STATES&apos;:
+	case &apos;USA&apos;:
+		country = &apos;USA&apos;;
+		break;
+	case &apos;USA LATAM&apos;:
+	case &apos;USA(LATAM)&apos;:
+		country = &apos;USA (LATAM)&apos;;
+		break;
+	default:
+		break;
+}
+
 
 switch (String(area)) {
 	case &apos;1&apos;:
@@ -346,11 +366,11 @@ switch (String(area)) {
 		break;
 	case &apos;4&apos;:
 	case &apos;44&apos;:
-		area_name = &apos;Atlantic (4)&apos;;
+		area_name = &apos;Atlantic (4 or 44)&apos;;
 		break;
 	case &apos;5&apos;:
 	case &apos;55&apos;:
-		area_name = &apos;Middle West (5)&apos;
+		area_name = &apos;Middle West (5 or 55)&apos;
 		break;
 	case &apos;6&apos;:
 		area_name = &apos;Citel (6)&apos;;
@@ -369,6 +389,16 @@ switch (String(area)) {
 		break;
 }
 
+
+if (country == &apos;USA&apos; || country == &apos;USA (LATAM)&apos; || country == null || country == &apos;&apos;) {
+	class_name=&apos;Local&apos;;
+}
+else if (ar_customer_name.indexOf(&apos;CITEL&apos;) != -1 || ar_customer_name.indexOf(&apos;OBSTA&apos;) != -1) {
+	class_name=&apos;Group&apos;
+}
+else {
+	class_name = &apos;Export&apos;;
+}
 
 
 </jsScript_script>
@@ -482,6 +512,12 @@ switch (String(area)) {
         <replace>N</replace>
       </field>      <field>        <name>area_name</name>
         <rename>area_name</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>class_name</name>
+        <rename>class_name</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>

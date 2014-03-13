@@ -276,6 +276,7 @@ SELECT
 	ar_customer.person_nb,
 	ar_customer.area,
 	ar_customer.area_name,
+	ar_customer.class_name as customer_class_name,
 	matching_person_number_and_acronym.person_acronym,
 	ar_salesaccount.ar_salesaccount_description,
 	gl_account.gl_account_description

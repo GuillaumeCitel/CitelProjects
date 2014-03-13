@@ -230,6 +230,7 @@ SELECT
 	customer_nb as customer_code,
 	concat(customer_short_name, &apos; || &apos; ,customer_long_name) as customer_name,
 	customer_erp_class_name as customer_class_name,
+	&apos;-&apos; as customer_area,
 	erp_country as customer_country,
 
 	product_gmbh_code as product_code,
@@ -258,7 +259,8 @@ SELECT
 	customer_code,
 	concat(customer_name, &apos; || &apos; ,customer_english_name),
 	customer_class_name,
-	null,
+	&apos;-&apos;,
+	&apos;-&apos;,
 
 	inventory_code,
 	inventory_name,
@@ -286,7 +288,8 @@ SELECT
 	customer_code,
 	concat(customer_name, &apos; || &apos; ,customer_english_name),
 	customer_class_name,
-	null,
+	&apos;-&apos;,
+	&apos;-&apos;,
 
 	inventory_code,
 	inventory_name,
@@ -314,6 +317,7 @@ SELECT
 	client_facture,
 	client_nom,
 	customer_class_name,
+	&apos;-&apos;,
 	client_country_code,
 
 	article_code,
@@ -341,6 +345,7 @@ SELECT
 
 	ar_customer_id,
 	ar_customer_name,
+	customer_class_name,
 	area_name,
 	country,
 
@@ -368,7 +373,7 @@ from us.sales;</sql>
     </arguments>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>578</xloc>
+      <xloc>579</xloc>
       <yloc>142</yloc>
       <draw>Y</draw>
       </GUI>
