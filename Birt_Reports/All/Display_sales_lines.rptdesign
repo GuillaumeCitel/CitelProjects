@@ -59,8 +59,8 @@
         <scalar-parameter name="customer_code1" id="11" extends="library.customer_code1"/>
         <cascading-parameter-group name="Customer research" id="12" extends="library.Customer research">
             <overridden-values>
-                <ref-entry baseId="10" name="str_research_customer" id="1195"/>
-                <ref-entry baseId="11" name="customer_code2" id="1196"/>
+                <ref-entry baseId="10" name="str_research_customer" id="1226"/>
+                <ref-entry baseId="11" name="customer_code2" id="1227"/>
             </overridden-values>
         </cascading-parameter-group>
         <scalar-parameter name="customer_area" id="1165" extends="library.customer_area"/>
@@ -194,136 +194,7 @@
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="product_list_research" id="9"
  extends="library.product_list_research"/>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="sales" id="10"
- extends="library.sales">
-            <list-property name="resultSet">
-                <structure>
-                    <property name="position">1</property>
-                    <property name="name">origin</property>
-                    <property name="nativeName">origin</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">2</property>
-                    <property name="name">sale_bill_id</property>
-                    <property name="nativeName">sale_bill_id</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">3</property>
-                    <property name="name">sale_bill_date</property>
-                    <property name="nativeName">sale_bill_date</property>
-                    <property name="dataType">date-time</property>
-                </structure>
-                <structure>
-                    <property name="position">4</property>
-                    <property name="name">delivery_date</property>
-                    <property name="nativeName">delivery_date</property>
-                    <property name="dataType">date-time</property>
-                </structure>
-                <structure>
-                    <property name="position">5</property>
-                    <property name="name">customer_code</property>
-                    <property name="nativeName">customer_code</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">6</property>
-                    <property name="name">customer_name</property>
-                    <property name="nativeName">customer_name</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">7</property>
-                    <property name="name">customer_class_name</property>
-                    <property name="nativeName">customer_class_name</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">8</property>
-                    <property name="name">customer_area</property>
-                    <property name="nativeName">customer_area</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">9</property>
-                    <property name="name">customer_country</property>
-                    <property name="nativeName">customer_country</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">10</property>
-                    <property name="name">product_code</property>
-                    <property name="nativeName">product_code</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">11</property>
-                    <property name="name">product_name</property>
-                    <property name="nativeName">product_name</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">12</property>
-                    <property name="name">product_group</property>
-                    <property name="nativeName">product_group</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">13</property>
-                    <property name="name">quantity</property>
-                    <property name="nativeName">quantity</property>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="position">14</property>
-                    <property name="name">unit_gross_sell_price_with_discount_in_local_currency</property>
-                    <property name="nativeName">unit_gross_sell_price_with_discount_in_local_currency</property>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="position">15</property>
-                    <property name="name">total_gross_sell_price_with_discount_in_local_currency</property>
-                    <property name="nativeName">total_gross_sell_price_with_discount_in_local_currency</property>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="position">16</property>
-                    <property name="name">unit_cost</property>
-                    <property name="nativeName">unit_cost</property>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="position">17</property>
-                    <property name="name">total_cost</property>
-                    <property name="nativeName">total_cost</property>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="position">18</property>
-                    <property name="name">seller_code</property>
-                    <property name="nativeName">seller_code</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">19</property>
-                    <property name="name">seller_name</property>
-                    <property name="nativeName">seller_name</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">20</property>
-                    <property name="name">provision</property>
-                    <property name="nativeName">provision</property>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="position">21</property>
-                    <property name="name">is_transfered</property>
-                    <property name="nativeName">is_transfered</property>
-                    <property name="dataType">string</property>
-                </structure>
-            </list-property>
-        </oda-data-set>
+ extends="library.sales"/>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="seller_list" id="65"
  extends="library.seller_list"/>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="product_group_list" id="66"
@@ -389,64 +260,6 @@
             <property name="fontWeight">bold</property>
             <property name="textAlign">center</property>
             <expression name="valueExpr">"LIST OF SALES CITEL " + params["origin"].value.toUpperCase()</expression>
-            <property name="contentType">html</property>
-        </text-data>
-        <text-data id="966">
-            <list-property name="visibility">
-                <structure>
-                    <property name="format">doc</property>
-                    <expression name="valueExpr" type="javascript">true</expression>
-                </structure>
-                <structure>
-                    <property name="format">docx</property>
-                    <expression name="valueExpr" type="javascript">true</expression>
-                </structure>
-                <structure>
-                    <property name="format">odp</property>
-                    <expression name="valueExpr" type="javascript">true</expression>
-                </structure>
-                <structure>
-                    <property name="format">ods</property>
-                    <expression name="valueExpr" type="javascript">true</expression>
-                </structure>
-                <structure>
-                    <property name="format">odt</property>
-                    <expression name="valueExpr" type="javascript">true</expression>
-                </structure>
-                <structure>
-                    <property name="format">pdf</property>
-                    <expression name="valueExpr" type="javascript">true</expression>
-                </structure>
-                <structure>
-                    <property name="format">ppt</property>
-                    <expression name="valueExpr" type="javascript">true</expression>
-                </structure>
-                <structure>
-                    <property name="format">pptx</property>
-                    <expression name="valueExpr" type="javascript">true</expression>
-                </structure>
-                <structure>
-                    <property name="format">xls</property>
-                    <expression name="valueExpr" type="javascript">true</expression>
-                </structure>
-                <structure>
-                    <property name="format">xls_spudsoft</property>
-                    <expression name="valueExpr" type="javascript">true</expression>
-                </structure>
-                <structure>
-                    <property name="format">xlsx</property>
-                    <expression name="valueExpr" type="javascript">true</expression>
-                </structure>
-            </list-property>
-            <structure name="toc"/>
-            <property name="allowExport">true</property>
-            <expression name="valueExpr">"From: " + params["beginning_date"].value + " --- To: " + params["end_date"].value + "&lt;br/>" +
-"Customer: " + params["customer_code1"].value + " --- " + params["customer_code2"].value + "&lt;br/>" +
-"Product: " + params["product_code1"].value + " --- " + params["product_code2"].value + "&lt;br/>" +
-"Group: "+ params["product_group"].value + "&lt;br/>" +
-"Country: " + params["customer_country"].value + "&lt;br/>" +
-"Seller: " + params["seller_name"].value + "&lt;br/>" +
-"Bill: " + params["sale_bill_id"].value + "&lt;br/>"</expression>
             <property name="contentType">html</property>
         </text-data>
         <table id="72">
@@ -608,6 +421,12 @@
                     <property name="dataType">float</property>
                     <property name="allowExport">true</property>
                 </structure>
+                <structure>
+                    <property name="name">customer_area</property>
+                    <text-property name="displayName">customer_area</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["customer_area"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
             </list-property>
             <property name="pageBreakInterval">200</property>
             <column id="85">
@@ -664,6 +483,20 @@ else {
                 <property name="backgroundColor">#ADD8E6</property>
             </column>
             <column id="172">
+                <property name="backgroundColor">#FFC0CB</property>
+            </column>
+            <column id="1202">
+                <list-property name="visibility">
+                    <structure>
+                        <property name="format">all</property>
+                        <expression name="valueExpr" type="javascript">if (params["origin"].value == 'us') {
+  false;
+}
+else {
+  true;
+}</expression>
+                    </structure>
+                </list-property>
                 <property name="backgroundColor">#FFC0CB</property>
             </column>
             <column id="178">
@@ -737,7 +570,7 @@ else {
                         </structure>
                     </list-property>
                     <cell id="194">
-                        <property name="colSpan">17</property>
+                        <property name="colSpan">18</property>
                         <property name="rowSpan">1</property>
                         <property name="backgroundColor">#FFFFFF</property>
                         <text-data id="1117">
@@ -919,6 +752,12 @@ else {
                                                 <value type="javascript">params["str_research_customer"].value</value>
                                             </simple-property-list>
                                         </structure>
+                                        <structure>
+                                            <property name="paramName">customer_area</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_area"].value</value>
+                                            </simple-property-list>
+                                        </structure>
                                     </list-property>
                                 </structure>
                             </list-property>
@@ -1035,6 +874,12 @@ else {
                                                 <value type="javascript">params["str_research_customer"].value</value>
                                             </simple-property-list>
                                         </structure>
+                                        <structure>
+                                            <property name="paramName">customer_area</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_area"].value</value>
+                                            </simple-property-list>
+                                        </structure>
                                     </list-property>
                                 </structure>
                             </list-property>
@@ -1149,6 +994,12 @@ else {
                                             <property name="paramName">str_research_customer</property>
                                             <simple-property-list name="expression">
                                                 <value type="javascript">params["str_research_customer"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_area</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_area"].value</value>
                                             </simple-property-list>
                                         </structure>
                                     </list-property>
@@ -1272,6 +1123,12 @@ else {
                                                 <value type="javascript">params["str_research_customer"].value</value>
                                             </simple-property-list>
                                         </structure>
+                                        <structure>
+                                            <property name="paramName">customer_area</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_area"].value</value>
+                                            </simple-property-list>
+                                        </structure>
                                     </list-property>
                                 </structure>
                             </list-property>
@@ -1386,6 +1243,12 @@ else {
                                             <property name="paramName">str_research_customer</property>
                                             <simple-property-list name="expression">
                                                 <value type="javascript">params["str_research_customer"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_area</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_area"].value</value>
                                             </simple-property-list>
                                         </structure>
                                     </list-property>
@@ -1504,6 +1367,12 @@ else {
                                                 <value type="javascript">params["str_research_customer"].value</value>
                                             </simple-property-list>
                                         </structure>
+                                        <structure>
+                                            <property name="paramName">customer_area</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_area"].value</value>
+                                            </simple-property-list>
+                                        </structure>
                                     </list-property>
                                 </structure>
                             </list-property>
@@ -1618,6 +1487,12 @@ else {
                                             <property name="paramName">str_research_customer</property>
                                             <simple-property-list name="expression">
                                                 <value type="javascript">params["str_research_customer"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_area</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_area"].value</value>
                                             </simple-property-list>
                                         </structure>
                                     </list-property>
@@ -1736,6 +1611,12 @@ else {
                                                 <value type="javascript">params["str_research_customer"].value</value>
                                             </simple-property-list>
                                         </structure>
+                                        <structure>
+                                            <property name="paramName">customer_area</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_area"].value</value>
+                                            </simple-property-list>
+                                        </structure>
                                     </list-property>
                                 </structure>
                             </list-property>
@@ -1852,6 +1733,12 @@ else {
                                                 <value type="javascript">params["str_research_customer"].value</value>
                                             </simple-property-list>
                                         </structure>
+                                        <structure>
+                                            <property name="paramName">customer_area</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_area"].value</value>
+                                            </simple-property-list>
+                                        </structure>
                                     </list-property>
                                 </structure>
                             </list-property>
@@ -1867,7 +1754,7 @@ else {
 }</expression>
                             <property name="contentType">html</property>
                         </text-data>
-                        <label id="1162">
+                        <label id="1208">
                             <text-property name="text">---</text-property>
                             <list-property name="action">
                                 <structure>
@@ -1975,6 +1862,12 @@ else {
                                             <property name="paramName">str_research_customer</property>
                                             <simple-property-list name="expression">
                                                 <value type="javascript">params["str_research_customer"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_area</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_area"].value</value>
                                             </simple-property-list>
                                         </structure>
                                     </list-property>
@@ -2105,6 +1998,12 @@ else {
                                                 <value type="javascript">params["str_research_customer"].value</value>
                                             </simple-property-list>
                                         </structure>
+                                        <structure>
+                                            <property name="paramName">customer_area</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_area"].value</value>
+                                            </simple-property-list>
+                                        </structure>
                                     </list-property>
                                 </structure>
                             </list-property>
@@ -2219,6 +2118,12 @@ else {
                                             <property name="paramName">str_research_customer</property>
                                             <simple-property-list name="expression">
                                                 <value type="javascript">params["str_research_customer"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_area</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_area"].value</value>
                                             </simple-property-list>
                                         </structure>
                                     </list-property>
@@ -2337,6 +2242,143 @@ else {
                                                 <value type="javascript">params["str_research_customer"].value</value>
                                             </simple-property-list>
                                         </structure>
+                                        <structure>
+                                            <property name="paramName">customer_area</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_area"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                </structure>
+                            </list-property>
+                        </label>
+                    </cell>
+                    <cell id="1198">
+                        <text-data id="1203">
+                            <expression name="valueExpr">if (params["origin"].value == 'us') {
+  'Area';
+}
+else {
+  'hidden';
+}</expression>
+                            <property name="contentType">html</property>
+                        </text-data>
+                        <label id="1162">
+                            <text-property name="text">---</text-property>
+                            <list-property name="action">
+                                <structure>
+                                    <property name="linkType">drill-through</property>
+                                    <property name="reportName">Display_sales_lines.rptdesign</property>
+                                    <property name="targetWindow">_parent</property>
+                                    <property name="targetFileType">report-design</property>
+                                    <list-property name="paramBindings">
+                                        <structure>
+                                            <property name="paramName">beginning_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["beginning_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">end_date</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["end_date"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country_class</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country_class"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_group</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_group"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">product_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["product_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">seller_name</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["seller_name"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code1"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_code2</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_code2"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_country</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_country"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sale_bill_id</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["sale_bill_id"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">origin</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["origin"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">sorting1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">"customer_area"</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">direction1</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">if (params["direction1"].value == "asc") {
+	"desc";
+}
+else {
+	"asc";
+}</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_product</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_product"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">str_research_customer</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["str_research_customer"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_area</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_area"].value</value>
+                                            </simple-property-list>
+                                        </structure>
                                     </list-property>
                                 </structure>
                             </list-property>
@@ -2451,6 +2493,12 @@ else {
                                             <property name="paramName">str_research_customer</property>
                                             <simple-property-list name="expression">
                                                 <value type="javascript">params["str_research_customer"].value</value>
+                                            </simple-property-list>
+                                        </structure>
+                                        <structure>
+                                            <property name="paramName">customer_area</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_area"].value</value>
                                             </simple-property-list>
                                         </structure>
                                     </list-property>
@@ -2569,6 +2617,12 @@ else {
                                                 <value type="javascript">params["str_research_customer"].value</value>
                                             </simple-property-list>
                                         </structure>
+                                        <structure>
+                                            <property name="paramName">customer_area</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_area"].value</value>
+                                            </simple-property-list>
+                                        </structure>
                                     </list-property>
                                 </structure>
                             </list-property>
@@ -2685,6 +2739,12 @@ else {
                                                 <value type="javascript">params["str_research_customer"].value</value>
                                             </simple-property-list>
                                         </structure>
+                                        <structure>
+                                            <property name="paramName">customer_area</property>
+                                            <simple-property-list name="expression">
+                                                <value type="javascript">params["customer_area"].value</value>
+                                            </simple-property-list>
+                                        </structure>
                                     </list-property>
                                 </structure>
                             </list-property>
@@ -2791,6 +2851,17 @@ else {
                         <label id="1154">
                             <text-property name="text">Country</text-property>
                         </label>
+                    </cell>
+                    <cell id="1199">
+                        <text-data id="1204">
+                            <expression name="valueExpr">if (params["origin"].value == 'us') {
+  'Area';
+}
+else {
+  'hidden';
+}</expression>
+                            <property name="contentType">html</property>
+                        </text-data>
                     </cell>
                     <cell id="1114">
                         <label id="1155">
@@ -2927,6 +2998,7 @@ else {
                     </cell>
                     <cell id="164"/>
                     <cell id="170"/>
+                    <cell id="1200"/>
                     <cell id="176"/>
                     <cell id="182"/>
                     <cell id="188"/>
@@ -3048,6 +3120,12 @@ else {
                         <data id="174">
                             <property name="textAlign">right</property>
                             <property name="resultSetColumn">customer_country</property>
+                        </data>
+                    </cell>
+                    <cell id="1201">
+                        <data id="1205">
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">customer_area</property>
                         </data>
                     </cell>
                     <cell id="177">

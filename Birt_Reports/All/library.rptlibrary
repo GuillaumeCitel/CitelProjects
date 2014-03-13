@@ -276,7 +276,7 @@
             </structure>
         </scalar-parameter>
         <scalar-parameter name="customer_country_class" id="34">
-            <text-property name="promptText">country class</text-property>
+            <text-property name="promptText">country class (use ctrl+clic to select several)</text-property>
             <property name="valueType">dynamic</property>
             <property name="dataSetName">customer_country_class_list</property>
             <expression name="valueExpr" type="javascript">dataSetRow["customer_class_name"]</expression>
@@ -289,7 +289,7 @@
                 <value type="constant">All</value>
             </simple-property-list>
             <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
+            <property name="paramType">multi-value</property>
             <property name="controlType">list-box</property>
             <property name="mustMatch">true</property>
             <property name="fixedOrder">false</property>
@@ -316,10 +316,6 @@
             <property name="controlType">list-box</property>
             <property name="mustMatch">true</property>
             <property name="fixedOrder">false</property>
-            <method name="getDefaultValueList"><![CDATA[if (reportContext.getParameterValue("origin") != 'us') {
-	reportContext.getDesignHandle().findParameter("customer_area").setHidden(true);
-}
-"All"]]></method>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
@@ -643,8 +639,10 @@ group by customer_code, customer_name]]></xml-property>
             </list-property>
             <list-property name="parameters"/>
             <structure name="cachedMetaData"/>
-            <method name="beforeOpen"><![CDATA[list_of_parameters_names = ["origin","customer_country_class","customer_code1","customer_code2","product_code_1","product_code2","product_group","seller_name","customer_country","sale_bill_id","customer_area"];
-list_of_parameters_value_fields = ["origin","customer_class_name","customer_code","customer_code","product_code","product_code","product_group","seller_name","customer_country","sale_bill_id","customer_area"];
+            <method name="beforeOpen"><![CDATA[list_of_parameters_names = ["origin","customer_code1","customer_code2","product_code_1","product_code2","product_group","seller_name","customer_country","sale_bill_id","customer_area"];
+list_of_parameters_value_fields = ["origin","customer_code","customer_code","product_code","product_code","product_group","seller_name","customer_country","sale_bill_id","customer_area"];
+list_of_parameters_names_multiple=["customer_country_class"];
+list_of_parameters_value_fields_multiple=["customer_class_name"];
 
 query_select = " select *";
 query_from = " from public.sales ";
@@ -666,6 +664,17 @@ if (reportContext.getParameterValue("origin") == 'gmbh'){
 
 if (reportContext.getParameterValue("origin") == 'shanghai'|| reportContext.getParameterValue("origin") == 'ccsh'){
 	query_where += " and delivery_date is not null ";
+}
+
+
+for (var i=0; i<list_of_parameters_names_multiple.length;i++) {
+	if (reportContext.getParameterValue(list_of_parameters_names_multiple[i]) != null &amp;&amp; reportContext.getParameterValue(list_of_parameters_names_multiple[i])[0] != 'All' &amp;&amp; reportContext.getParameterValue(list_of_parameters_names_multiple[i]).length >= 1){
+		query_where += " and ( " + list_of_parameters_value_fields_multiple[i] + " = " + "'" + reportContext.getParameterValue(list_of_parameters_names_multiple[i])[0] + "'";
+		for (var j=1;j<reportContext.getParameterValue(list_of_parameters_names_multiple[i]).length;j++) {
+			query_where += " or " + list_of_parameters_value_fields_multiple[i] + " = " + "'" + reportContext.getParameterValue(list_of_parameters_names_multiple[i])[j] + "'";
+		}
+		query_where += ")";
+	}
 }
 
 query_orderby = "";
