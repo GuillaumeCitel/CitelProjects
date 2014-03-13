@@ -1747,7 +1747,7 @@ else {
                     <cell id="153">
                         <text-data id="1132">
                             <expression name="valueExpr">if (params["origin"].value == 'gmbh') {
-  'UBP';
+  'UBP (with transport)';
 }
 else {
   'hidden';
