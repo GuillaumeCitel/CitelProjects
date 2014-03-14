@@ -59,8 +59,8 @@
         <scalar-parameter name="customer_code1" id="11" extends="library.customer_code1"/>
         <cascading-parameter-group name="Customer research" id="12" extends="library.Customer research">
             <overridden-values>
-                <ref-entry baseId="10" name="str_research_customer" id="1226"/>
-                <ref-entry baseId="11" name="customer_code2" id="1227"/>
+                <ref-entry baseId="10" name="str_research_customer" id="1232"/>
+                <ref-entry baseId="11" name="customer_code2" id="1233"/>
             </overridden-values>
         </cascading-parameter-group>
         <scalar-parameter name="customer_area" id="1165" extends="library.customer_area"/>

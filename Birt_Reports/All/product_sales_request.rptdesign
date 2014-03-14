@@ -32,136 +32,9 @@
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="product_list_research" id="24"
  extends="library.product_list_research"/>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="sales" id="26"
- extends="library.sales">
-            <list-property name="resultSet">
-                <structure>
-                    <property name="position">1</property>
-                    <property name="name">origin</property>
-                    <property name="nativeName">origin</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">2</property>
-                    <property name="name">sale_bill_id</property>
-                    <property name="nativeName">sale_bill_id</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">3</property>
-                    <property name="name">sale_bill_date</property>
-                    <property name="nativeName">sale_bill_date</property>
-                    <property name="dataType">date-time</property>
-                </structure>
-                <structure>
-                    <property name="position">4</property>
-                    <property name="name">delivery_date</property>
-                    <property name="nativeName">delivery_date</property>
-                    <property name="dataType">date-time</property>
-                </structure>
-                <structure>
-                    <property name="position">5</property>
-                    <property name="name">customer_code</property>
-                    <property name="nativeName">customer_code</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">6</property>
-                    <property name="name">customer_name</property>
-                    <property name="nativeName">customer_name</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">7</property>
-                    <property name="name">customer_class_name</property>
-                    <property name="nativeName">customer_class_name</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">8</property>
-                    <property name="name">customer_area</property>
-                    <property name="nativeName">customer_area</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">9</property>
-                    <property name="name">customer_country</property>
-                    <property name="nativeName">customer_country</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">10</property>
-                    <property name="name">product_code</property>
-                    <property name="nativeName">product_code</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">11</property>
-                    <property name="name">product_name</property>
-                    <property name="nativeName">product_name</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">12</property>
-                    <property name="name">product_group</property>
-                    <property name="nativeName">product_group</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">13</property>
-                    <property name="name">quantity</property>
-                    <property name="nativeName">quantity</property>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="position">14</property>
-                    <property name="name">unit_gross_sell_price_with_discount_in_local_currency</property>
-                    <property name="nativeName">unit_gross_sell_price_with_discount_in_local_currency</property>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="position">15</property>
-                    <property name="name">total_gross_sell_price_with_discount_in_local_currency</property>
-                    <property name="nativeName">total_gross_sell_price_with_discount_in_local_currency</property>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="position">16</property>
-                    <property name="name">unit_cost</property>
-                    <property name="nativeName">unit_cost</property>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="position">17</property>
-                    <property name="name">total_cost</property>
-                    <property name="nativeName">total_cost</property>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="position">18</property>
-                    <property name="name">seller_code</property>
-                    <property name="nativeName">seller_code</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">19</property>
-                    <property name="name">seller_name</property>
-                    <property name="nativeName">seller_name</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">20</property>
-                    <property name="name">provision</property>
-                    <property name="nativeName">provision</property>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="position">21</property>
-                    <property name="name">is_transfered</property>
-                    <property name="nativeName">is_transfered</property>
-                    <property name="dataType">string</property>
-                </structure>
-            </list-property>
-        </oda-data-set>
+ extends="library.sales"/>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="stocks" id="1047"
+ extends="library.stocks"/>
     </data-sets>
     <styles>
         <style name="report" id="4">
@@ -379,7 +252,7 @@ else {
       <Visible>true</Visible>
       <Label>
         <Caption>
-          <Value>Gross Sales per Year (in k)</Value>
+          <Value>Gross Sales per Year</Value>
           <Font>
             <Size>16.0</Size>
             <Bold>true</Bold>
@@ -959,7 +832,7 @@ else {
             <Visible>true</Visible>
           </Label>
           <DataDefinition>
-            <Definition>row[&quot;total_gross_sell_price_with_discount_in_local_currency&quot;]/1000</Definition>
+            <Definition>row[&quot;total_gross_sell_price_with_discount_in_local_currency&quot;]</Definition>
             <Grouping>
               <Enabled>true</Enabled>
               <GroupType>Text</GroupType>
@@ -1603,6 +1476,173 @@ else {
                 </structure>
             </list-property>
         </extended-item>
+        <grid id="1035">
+            <property name="display">inline</property>
+            <property name="dataSet">stocks</property>
+            <list-property name="visibility">
+                <structure>
+                    <property name="format">all</property>
+                    <expression name="valueExpr" type="javascript">if (params["product_code1"].value == 'All' &amp;&amp; params["product_code2"].value == 'All'){
+	 true;
+}
+else {
+	false;
+}</expression>
+                </structure>
+            </list-property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">origin</property>
+                    <text-property name="displayName">origin</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["origin"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">product_code</property>
+                    <text-property name="displayName">product_code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["product_code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">product_name</property>
+                    <text-property name="displayName">product_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["product_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">qty_in_stock</property>
+                    <text-property name="displayName">qty_in_stock</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["qty_in_stock"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">out_qty</property>
+                    <text-property name="displayName">out_qty</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["out_qty"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">in_qty</property>
+                    <text-property name="displayName">in_qty</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["in_qty"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">cost_without_transport</property>
+                    <text-property name="displayName">cost_without_transport</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["cost_without_transport"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">cost_with_transport</property>
+                    <text-property name="displayName">cost_with_transport</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["cost_with_transport"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">stock_average_price</property>
+                    <text-property name="displayName">stock_average_price</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["stock_average_price"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">Column Binding</property>
+                    <expression name="expression" type="javascript">dataSetRow["qty_in_stock"]-dataSetRow["out_qty"]</expression>
+                    <property name="dataType">float</property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <column id="1036">
+                <property name="width">4cm</property>
+            </column>
+            <column id="1037">
+                <property name="width">4cm</property>
+            </column>
+            <column id="1038">
+                <property name="width">4cm</property>
+            </column>
+            <column id="1053">
+                <property name="width">4cm</property>
+            </column>
+            <row id="1039">
+                <property name="fontSize">12pt</property>
+                <property name="fontWeight">bold</property>
+                <cell id="1040">
+                    <text-data id="1065">
+                        <expression name="valueExpr">"In stock: " + row["qty_in_stock"]</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="1041">
+                    <text-data id="1066">
+                        <expression name="valueExpr">"Out quantity: " +row["out_qty"]</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="1042">
+                    <text-data id="1067">
+                        <expression name="valueExpr">"In quantity: " + row["in_qty"]</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="1051">
+                    <text-data id="1068">
+                        <expression name="valueExpr">"Available: " + row["Column Binding"]</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+            </row>
+            <row id="1043">
+                <property name="fontSize">12pt</property>
+                <property name="fontWeight">bold</property>
+                <cell id="1044">
+                    <text-data id="1069">
+                        <property name="paddingTop">10pt</property>
+                        <expression name="valueExpr">nbr = row["cost_without_transport"];
+if (nbr != null) {
+	nbr = nbr.toFixed(2);
+}
+
+if (params["origin"].value == 'gmbh') {
+	"Current UBP (w/o transport): "+nbr;
+}
+else if (params["origin"].value == '2cp' || params["origin"].value == 'ovp' || params["origin"].value == 'ovh' || params["origin"].value == 'us') {
+	"Total cost: " + nbr;
+}</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="1045">
+                    <text-data id="1070">
+                        <property name="paddingTop">10pt</property>
+                        <expression name="valueExpr">nbr = row["cost_with_transport"];
+if (nbr != null) {
+	nbr = nbr.toFixed(2);
+}
+
+if (params["origin"].value == 'gmbh') {
+	"Current UBP (with transport): "+nbr;
+}</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="1046">
+                    <text-data id="1071">
+                        <property name="paddingTop">10pt</property>
+                        <expression name="valueExpr">nbr = row["stock_average_price"];
+if (nbr != null) {
+	nbr = nbr.toFixed(2);
+}
+
+if (params["origin"].value == 'gmbh') {
+	"Stock Average Price: "+nbr;
+}</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="1052"/>
+            </row>
+        </grid>
         <table id="949">
             <property name="dataSet">sales</property>
             <list-property name="boundDataColumns">
@@ -1803,7 +1843,7 @@ else {
                 <property name="width">3cm</property>
             </column>
             <column id="963">
-                <property name="width">8cm</property>
+                <property name="width">11cm</property>
             </column>
             <column id="976">
                 <property name="width">2cm</property>
@@ -1843,6 +1883,10 @@ else {
                         <cell id="1007"/>
                         <cell id="1008">
                             <data id="1032">
+                                <structure name="numberFormat">
+                                    <property name="category">Fixed</property>
+                                    <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                </structure>
                                 <property name="textAlign">right</property>
                                 <property name="resultSetColumn">Aggregation_2</property>
                             </data>
