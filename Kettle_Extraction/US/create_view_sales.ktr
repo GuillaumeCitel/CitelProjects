@@ -302,7 +302,7 @@ where ar_invoice.status_description &lt;&gt; &apos;Voided&apos;
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>249</xloc>
-      <yloc>86</yloc>
+      <yloc>85</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

@@ -709,8 +709,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>175</xloc>
-      <yloc>30</yloc>
+      <xloc>158</xloc>
+      <yloc>133</yloc>
       </entry>
     <entry>
       <name>Mail Failure Connection</name>

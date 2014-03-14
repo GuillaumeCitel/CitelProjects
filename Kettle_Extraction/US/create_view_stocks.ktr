@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>create_view_public_stocks</name>
+    <name>create_view_stocks</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -62,9 +62,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2014&#47;01&#47;23 16:41:04.932</created_date>
+  <created_date>2014&#47;02&#47;10 17:27:27.470</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#47;01&#47;23 16:41:04.932</modified_date>
+  <modified_date>2014&#47;02&#47;10 17:27:27.470</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -215,84 +215,21 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>PostGre_All</connection>
+    <connection>PostGre_US</connection>
     <execute_each_row>N</execute_each_row>
     <single_statement>N</single_statement>
     <replace_variables>N</replace_variables>
-    <sql>CREATE OR REPLACE VIEW public.stocks AS
+    <sql>DROP VIEW IF EXISTS stocks;
+CREATE OR REPLACE VIEW stocks AS
 SELECT
-	&apos;gmbh&apos; as origin,
-	product_gmbh_code as product_code,
-	product_name as product_name,
-
-	qty_in_stock as qty_in_stock,
-	qty_reserved as out_qty,
-	null :: float as in_qty,
-
-	stock_price_without_transport as cost_without_transport,
-	stock_price_with_transport as cost_with_transport,
-	stock_average_price as stock_average_price
-
-FROM kettlede.stocks
-UNION ALL
-SELECT
-	&apos;shanghai&apos;,
-	inventory_code,
-	inventory_name,
-
-	quantity,
-	out_quantity,
-	in_quantity,
-
-	null,
-	null,
-	null
-
-FROM shanghai.stocks
-UNION ALL
-SELECT
-	&apos;ccsh&apos;,
-	inventory_code,
-	inventory_name,
-
-	quantity,
-	out_quantity,
-	in_quantity,
-
-	null,
-	null,
-	null
-
-FROM ccsh.stocks
-UNION ALL
-SELECT
-	CASE WHEN article_stock = &apos;2C2&apos; THEN &apos;2cp&apos; WHEN article_stock = &apos;OB1&apos; THEN &apos;obsta&apos; WHEN article_stock = &apos;OV1&apos; THEN &apos;ovp&apos; ELSE &apos;unkonwn&apos; END,
-	article,
-	article_designation_1,
-
-	qty_phys,
-	qty_sold,
-	qty_ordered+qty_returned,
-
-	article_cout_total,
-	null,
-	null
-
-from france.stocks
-UNION ALL
-SELECT
-	&apos;us&apos;,
 	ic_part_id,
 	description,
-
 	on_hand_quantity,
-	committed_quantity+back_ordered_quantity,
 	on_order_quantity,
-
-	last_cost,
-	null,
-	null
-from us.stocks</sql>
+	committed_quantity,
+	back_ordered_quantity,
+	last_cost
+FROM ic_part</sql>
     <insert_field/>
     <update_field/>
     <delete_field/>
@@ -301,8 +238,8 @@ from us.stocks</sql>
     </arguments>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>581</xloc>
-      <yloc>144</yloc>
+      <xloc>249</xloc>
+      <yloc>85</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
